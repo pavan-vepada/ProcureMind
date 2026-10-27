@@ -3,18 +3,20 @@
 This file is the project's memory. Any new Claude session should read it first and resume from **Current status**.
 
 ## Current status
-- **Current phase:** 1 — Problem and PRD. Draft written; awaiting PM approval and answers to decisions D1–D5 in `docs/01-PRD.md` §0.
+- **Current phase:** 2 — User journeys (`docs/02-journeys.md` + `docs/diagrams/journey-*.excalidraw`). In progress.
+- **Phase 1:** PRD v3 approved 2026-10-27.
+- **DEADLINE:** demo on 2026-10-28, build in one day. Hosted, with user-account login. Keep all docs (journeys, architecture, wireframes); Phase 5 backlog skipped (roadmap item, PRD §13).
 - **Next phase:** 2 — User journeys (`docs/02-journeys.md`)
 - **Last updated:** 2026-10-27
 
 | Phase | Output | Status |
 |---|---|---|
 | 0. Setup | CLAUDE.md, folders, git | Done (approved 2026-10-27) |
-| 1. Problem and PRD | docs/01-PRD.md | Draft, awaiting approval |
-| 2. User journeys | docs/02-journeys.md | Not started |
+| 1. Problem and PRD | docs/01-PRD.md | Done (v3 approved 2026-10-27) |
+| 2. User journeys | docs/02-journeys.md | In progress |
 | 3. Tech stack and data model | docs/03-architecture.md | Not started |
 | 4. Wireframes | docs/04-wireframes.md (+ HTML screens) | Not started |
-| 5. Epics, stories, release plan | docs/05-backlog.md | Not started |
+| 5. Epics, stories, release plan | docs/05-backlog.md | Skipped by PM decision (roadmap item); build follows PRD §5 demo script |
 | 6. Build the MVP | src/ | Not started |
 | 7. Ship and iterate | docs/06-iteration-log.md | Not started |
 
@@ -26,7 +28,7 @@ This file is the project's memory. Any new Claude session should read it first a
 - **Personas:** Category Buyer (primary), VP Procurement (secondary), Vendor rep (external, never logs in).
 - **Core design principles:** every number links to its source; AI interprets, code does the math; ambiguities are flagged, never assumed.
 - **Full detail:** `docs/01-PRD.md`.
-- **MVP scope:** _TBD in Phase 5._
+- **MVP scope:** all **M** items in PRD §5, built in the order of PRD §6.
 
 ## Roles
 - **PM (user):** owns the "what" and "why". Non-technical; cannot read code fluently.
@@ -61,7 +63,7 @@ procure-mind-v2/            WSL path: ~/workspace/procure-mind-v2 (renamed from 
 ```
 
 ## Conventions
-- Docs are markdown; diagrams use Mermaid (text-based diagrams that render as pictures).
+- Docs are markdown. Journeys, architecture and wireframes are drawn as `.excalidraw` files in `docs/diagrams/` (opened with the Excalidraw VS Code extension, `pomdtr.excalidraw-editor`, already installed) and linked from the markdown. Small inline diagrams may use Mermaid.
 - Commit messages: `Phase N: <what>` for docs; `Story <ID>: <what>` during build.
 - Dates are absolute (YYYY-MM-DD).
 
@@ -72,7 +74,9 @@ procure-mind-v2/            WSL path: ~/workspace/procure-mind-v2 (renamed from 
 | 2026-10-27 | Keep working through WSL from the current setup | PM decision. |
 | 2026-10-27 | Product name: "Procure Mind V2.0" | PM decision. |
 | 2026-10-27 | Folder renamed to `procure-mind-v2` | Spaces and dots in folder names break developer tools. The product name stays "Procure Mind V2.0" everywhere users see it. |
+| 2026-10-27 | D1 demo (product-ready later), D2 corrugated, D3 email in mixed formats via demo inbox, D4 mock contract DB, D5 demo 2026-10-28 | PM decisions; see `docs/01-PRD.md` §0 |
+| 2026-10-27 | D6 hosted with user-account login; D7 keep journeys/architecture/wireframes (Excalidraw), skip backlog | PM decisions |
 
 ## Open items
-- PRD decisions D1–D5 (purpose, category, channel, last-year prices, deadline). See `docs/01-PRD.md` §0.
+- PM is setting up an Anthropic API key (needed before Phase 6 build).
 - Python package is still named `third-project` / `third_project`. Revisit in Phase 3 together with the stack decision.
