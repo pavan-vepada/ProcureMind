@@ -3,14 +3,14 @@
 This file is the project's memory. Any new Claude session should read it first and resume from **Current status**.
 
 ## Current status
-- **Current phase:** 0 — Setup (awaiting PM approval)
-- **Next phase:** 1 — Problem and PRD (`docs/01-PRD.md`)
+- **Current phase:** 1 — Problem and PRD. Draft written; awaiting PM approval and answers to decisions D1–D5 in `docs/01-PRD.md` §0.
+- **Next phase:** 2 — User journeys (`docs/02-journeys.md`)
 - **Last updated:** 2026-10-27
 
 | Phase | Output | Status |
 |---|---|---|
-| 0. Setup | CLAUDE.md, folders, git | Awaiting approval |
-| 1. Problem and PRD | docs/01-PRD.md | Not started |
+| 0. Setup | CLAUDE.md, folders, git | Done (approved 2026-10-27) |
+| 1. Problem and PRD | docs/01-PRD.md | Draft, awaiting approval |
 | 2. User journeys | docs/02-journeys.md | Not started |
 | 3. Tech stack and data model | docs/03-architecture.md | Not started |
 | 4. Wireframes | docs/04-wireframes.md (+ HTML screens) | Not started |
@@ -20,8 +20,12 @@ This file is the project's memory. Any new Claude session should read it first a
 
 ## Product context
 - **Product name:** Procure Mind V2.0
-- **Idea / problem:** _Not yet shared._ The PM will describe it at the start of Phase 1.
-- **Users / personas:** _TBD in Phase 1._
+- **One-liner:** "Kill the quote spreadsheet." An AI co-pilot drafts an RFx, the system reads whatever vendors send back (Excel, PDF, Word, phone photo, plain email), normalizes everything into one side-by-side comparison, and lets the buyer ask plain-language questions all the way to a defensible award memo.
+- **Demo size:** 5 vendors × 30 line items + questionnaire + attachments, fabricated data with planted traps and an answer key.
+- **Proposed category:** corrugated packaging (pending PM confirmation, D2).
+- **Personas:** Category Buyer (primary), VP Procurement (secondary), Vendor rep (external, never logs in).
+- **Core design principles:** every number links to its source; AI interprets, code does the math; ambiguities are flagged, never assumed.
+- **Full detail:** `docs/01-PRD.md`.
 - **MVP scope:** _TBD in Phase 5._
 
 ## Roles
@@ -40,14 +44,14 @@ This file is the project's memory. Any new Claude session should read it first a
 ## Toolset and environment
 - **Editor:** VS Code on Windows 11. The project lives inside WSL (Ubuntu), which is Linux running inside Windows.
 - **Claude's shell:** Windows PowerShell. Linux commands (git, uv, python) must be run through WSL:
-  `wsl -e bash -lc "cd ~/workspace/third-project && <command>"`
+  `wsl -e bash -lc "cd ~/workspace/procure-mind-v2 && <command>"`
 - **Available in WSL:** git 2.53, uv 0.13.5, Python 3.14 (project pins 3.12 via `.python-version`).
 - **Not installed:** Node.js (on neither Windows nor WSL).
 - **Git:** branch `master`. Author identity is set for this repo only.
 
 ## Repo structure
 ```
-third-project/              (PM has asked to rename it; see Open items)
+procure-mind-v2/            WSL path: ~/workspace/procure-mind-v2 (renamed from third-project on 2026-10-27)
   CLAUDE.md                 this file
   README.md
   docs/                     phase documents 01–06
@@ -67,7 +71,8 @@ third-project/              (PM has asked to rename it; see Open items)
 | 2026-10-27 | Keep the existing uv/Python skeleton for now | PM decision. Final stack choice is still made in Phase 3, which may revisit this. |
 | 2026-10-27 | Keep working through WSL from the current setup | PM decision. |
 | 2026-10-27 | Product name: "Procure Mind V2.0" | PM decision. |
+| 2026-10-27 | Folder renamed to `procure-mind-v2` | Spaces and dots in folder names break developer tools. The product name stays "Procure Mind V2.0" everywhere users see it. |
 
 ## Open items
-- **Folder rename** to match the product name. Pending the PM's choice of folder spelling. The rename is done last because it disconnects the open VS Code session.
-- Python package is still named `third-project` / `third_project`. Rename it together with the folder if the PM wants.
+- PRD decisions D1–D5 (purpose, category, channel, last-year prices, deadline). See `docs/01-PRD.md` §0.
+- Python package is still named `third-project` / `third_project`. Revisit in Phase 3 together with the stack decision.
