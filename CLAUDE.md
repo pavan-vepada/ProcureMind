@@ -3,7 +3,10 @@
 This file is the project's memory. Any new Claude session should read it first and resume from **Current status**.
 
 ## Current status
-- **Current phase:** 2 — User journeys (`docs/02-journeys.md` + `docs/diagrams/journey-*.excalidraw`). In progress.
+- **Current phase:** 3 — Architecture (`docs/03-architecture.md` + `docs/diagrams/arch-*.excalidraw`). Draft written; awaiting PM approval, Node.js install approval, and account setup (§10 of that doc).
+- **Resume here (session paused 2026-10-27):** ask the PM to (1) approve the architecture, (2) approve installing Node.js LTS via nvm in WSL, (3) confirm GitHub / Vercel / Supabase (Mumbai) / Anthropic API key are set up. Then Phase 4 wireframes (S1–S12 from `docs/02-journeys.md`), then build per PRD §6 build order. Demo timing was "tomorrow" as of 2026-10-27 — confirm the actual demo date with the PM, since the schedule is now very tight.
+- **Diagram generators:** `tools/diagrams/` (`excal.py` helper + one script per doc). Run via WSL: `cd tools/diagrams && python3 <script>.py ../../docs/diagrams`. Reuse `excal.py` for wireframes.
+- **Phase 2:** journeys approved 2026-10-27.
 - **Phase 1:** PRD v3 approved 2026-10-27.
 - **DEADLINE:** demo on 2026-10-28, build in one day. Hosted, with user-account login. Keep all docs (journeys, architecture, wireframes); Phase 5 backlog skipped (roadmap item, PRD §13).
 - **Next phase:** 2 — User journeys (`docs/02-journeys.md`)
@@ -13,8 +16,8 @@ This file is the project's memory. Any new Claude session should read it first a
 |---|---|---|
 | 0. Setup | CLAUDE.md, folders, git | Done (approved 2026-10-27) |
 | 1. Problem and PRD | docs/01-PRD.md | Done (v3 approved 2026-10-27) |
-| 2. User journeys | docs/02-journeys.md | In progress |
-| 3. Tech stack and data model | docs/03-architecture.md | Not started |
+| 2. User journeys | docs/02-journeys.md | Done (approved 2026-10-27) |
+| 3. Tech stack and data model | docs/03-architecture.md | Draft, awaiting approval |
 | 4. Wireframes | docs/04-wireframes.md (+ HTML screens) | Not started |
 | 5. Epics, stories, release plan | docs/05-backlog.md | Skipped by PM decision (roadmap item); build follows PRD §5 demo script |
 | 6. Build the MVP | src/ | Not started |
