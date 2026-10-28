@@ -28,6 +28,11 @@ export async function updateSession(request: NextRequest) {
 
   if (!signedIn && path.startsWith("/rfx")) return redirectTo("/", request, response);
   if (signedIn && path === "/") return redirectTo("/rfx", request, response);
+
+  // Presenter-only fallback (PRD §6): ?savedRun=1 switches seeded replies to the recorded reading, ?savedRun=0 back.
+  const saved = request.nextUrl.searchParams.get("savedRun");
+  if (saved === "1") response.cookies.set("pm_saved_run", "1", { path: "/", httpOnly: true, sameSite: "lax", maxAge: 60 * 60 * 12 });
+  if (saved === "0") response.cookies.delete("pm_saved_run");
   return response;
 }
 

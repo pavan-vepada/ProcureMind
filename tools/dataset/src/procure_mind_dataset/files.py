@@ -188,7 +188,7 @@ def v2_pdf(path, prices):
     ]))
     story += [t, Spacer(1, 3 * mm),
               Paragraph("* An additional 5% volume discount applies on orders above 50,000 pcs per item.", small),
-              Paragraph(f"Exchange rate reference: RBI reference rate on date of invoice (indicative ₹{FX:.2f}).", small),
+              Paragraph(f"Exchange rate reference: RBI reference rate on date of invoice (indicative INR {FX:.2f}).", small),
               PageBreak(),
               Paragraph("<b>Commercial terms</b>", styles["Heading3"]),
               Paragraph("Payment: 60 days from invoice · Validity: 90 days · Lead time: 21 days from PO · "

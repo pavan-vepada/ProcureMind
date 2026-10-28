@@ -5,7 +5,7 @@ import path from "node:path";
 import type { SupabaseClient } from "@supabase/supabase-js";
 import { aiConfigured } from "@/lib/ai/client";
 import { savedRun } from "@/lib/demo/script";
-import { DEFAULT_FREIGHT_ESTIMATE, withDefaults, type Line } from "@/lib/engine/types";
+import { DEFAULT_FREIGHT_ESTIMATE, type Line } from "@/lib/engine/types";
 import { extractReply } from "@/lib/extract/extract";
 import { prepare, type FileKind, type Prepared } from "@/lib/extract/prepare";
 import { issuesClosedBy, resolveExtraction, type ContractInfo } from "@/lib/extract/resolve";
@@ -170,12 +170,15 @@ export async function processRun(supabase: SupabaseClient, runId: string, opts: 
     if (t.discount) vendorUpdate.discount = t.discount;
     await supabase.from("vendors").update(vendorUpdate).eq("id", vendor.id);
 
-    const a = withDefaults(rfx.assumptions, 84);
+    // One key at a time, atomically: replies run in parallel.
     const freightTerm = t.freight ?? vendor.freight;
-    if (resolved.freight) a.freight[vendor.code] = resolved.freight;
-    else if ((freightTerm === "extra" || freightTerm === "unclear") && !a.freight[vendor.code])
-      a.freight[vendor.code] = { per_piece: DEFAULT_FREIGHT_ESTIMATE, source: "estimate" };
-    await supabase.from("rfx").update({ assumptions: a }).eq("id", rfx.id);
+    if (resolved.freight) {
+      await supabase.rpc("merge_assumption", { p_section: "freight", p_key: vendor.code, p_value: resolved.freight });
+    } else if (freightTerm === "extra" || freightTerm === "unclear") {
+      await supabase.rpc("merge_assumption", {
+        p_section: "freight", p_key: vendor.code, p_value: { per_piece: DEFAULT_FREIGHT_ESTIMATE, source: "estimate" }, p_only_if_missing: true,
+      });
+    }
 
     const issuesCount = fresh.length;
     const doneText =

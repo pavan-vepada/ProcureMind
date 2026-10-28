@@ -31,20 +31,23 @@ export function evaluateQuestionnaire(
   const met: Record<number, boolean> = {};
   for (const q of questions) met[q.q_no] = mine.find((a) => a.q_no === q.q_no)?.met ?? false;
 
+  // Q1 is "valid ISO 9001 certificate": decided by the certificate itself when we have one.
   const failures: string[] = [];
-  const expired = certificates.find(
-    (c) => c.vendor_id === vendorId && /iso\s*9001/i.test(c.name) && c.valid_until !== null && c.valid_until < today,
-  );
-  if (expired) {
+  const iso = certificates.filter((c) => c.vendor_id === vendorId && /iso\s*9001/i.test(c.name));
+  const expired = iso.find((c) => c.valid_until !== null && c.valid_until < today);
+  const valid = iso.find((c) => c.valid_until === null || c.valid_until >= today);
+  if (expired && !valid) {
     met[1] = false;
     failures.push(`ISO 9001 certificate expired on ${fmtDate(expired.valid_until!)}`);
+  } else if (valid) {
+    met[1] = true;
   }
 
   const max = questions.reduce((s, q) => s + q.points, 0) || 1;
   const score = Math.round((questions.reduce((s, q) => s + (met[q.q_no] ? q.points : 0), 0) / max) * 100);
 
   for (const n of rules.required_q) {
-    if (!met[n] && !(n === 1 && expired)) {
+    if (!met[n] && !(n === 1 && expired && !valid)) {
       const q = questions.find((x) => x.q_no === n);
       failures.push(`Required: ${q?.text ?? `question ${n}`}`);
     }

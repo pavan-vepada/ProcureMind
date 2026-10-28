@@ -3,16 +3,9 @@
 This file is the project's memory. Any new Claude session should read it first and resume from **Current status**.
 
 ## Current status
-- **Current phase:** 6 — Build. Step 1 code written and tested locally; waiting on PM to fill `.env.local`, run the database setup, and import the repo into Vercel.
-- **Resume here (2026-10-28):** finish build step 1 (see Build progress below): PM creates `.env.local` from `.env.example`, switches off email confirmation in Supabase, then Claude runs `npm run db:migrate` and the integration tests, and PM imports the GitHub repo into Vercel with the two `NEXT_PUBLIC_SUPABASE_*` env vars.
-- **Phase 4:** wireframes approved 2026-10-28.
-- **Demo date:** moved from 2026-10-28 to "within the week of 2026-10-28"; exact date to be set by the PM. Follow the pre-decided phase order.
-- **Wireframe generator:** `tools/diagrams/wireframes.py`; `check_overflow.py` flags text that doesn't fit its box.
-- **Diagram generators:** `tools/diagrams/` (`excal.py` helper + one script per doc). Run via WSL: `cd tools/diagrams && python3 <script>.py ../../docs/diagrams`. Reuse `excal.py` for wireframes.
-- **Phase 2:** journeys approved 2026-10-27.
-- **Phase 1:** PRD v3 approved 2026-10-27.
-- **DEADLINE:** demo within the week of 2026-10-28 (date TBD by PM; was 2026-10-28). Hosted, with user-account login. Keep all docs (journeys, architecture, wireframes); Phase 5 backlog skipped (roadmap item, PRD §13).
-- **Next phase:** 6 — Build (Phase 5 skipped)
+- **Current phase:** 6 — Build. **All MVP features (PRD §6 steps 1–10) are built** and run end to end locally against the real Supabase project and the live OpenAI model. Not yet deployed.
+- **Resume here (2026-10-28):** (1) deploy: needs the PM's OK to create the private GitHub repo `procure-mind-v2` (Claude Code blocks it without approval), then the PM imports it into Vercel with env vars `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY`, `OPENAI_API_KEY` (and optionally `AI_MODEL`); set the Supabase Auth Site URL to the Vercel address. (2) PM walks the demo using `docs/06-demo-guide.md` and reports anything that feels off.
+- **Demo date:** "within the week of 2026-10-28", exact date to be set by the PM. PM later said to forget the date and build everything (2026-10-28).
 - **Last updated:** 2026-10-28
 
 | Phase | Output | Status |
@@ -22,37 +15,48 @@ This file is the project's memory. Any new Claude session should read it first a
 | 2. User journeys | docs/02-journeys.md | Done (approved 2026-10-27) |
 | 3. Tech stack and data model | docs/03-architecture.md | Done (approved 2026-10-28) |
 | 4. Wireframes | docs/04-wireframes.md (Excalidraw, per D7) | Done (approved 2026-10-28) |
-| 5. Epics, stories, release plan | docs/05-backlog.md | Skipped by PM decision (roadmap item); build follows PRD §5 demo script |
-| 6. Build the MVP | app/, lib/, components/ | In progress (see Build progress) |
-| 7. Ship and iterate | docs/06-iteration-log.md | Not started |
+| 5. Epics, stories, release plan | docs/05-backlog.md | Skipped by PM decision (roadmap item) |
+| 6. Build the MVP | app/, lib/, components/ · docs/06-demo-guide.md | Built and tested locally; deploy pending |
+| 7. Ship and iterate | docs/07-iteration-log.md | Not started |
 
 ## Build progress (PRD §6 build order; replaces the skipped backlog)
 | # | Step | Status |
 |---|---|---|
-| 1 | Hosted skeleton: login, lifecycle strip, tour, demo copy per account, Reset demo (S1, S2, S3) | Code + unit tests done; DB setup, integration tests, Vercel deploy pending |
-| 2 | Demo inbox, send / fast-forward, upload a reply | Not started |
-| 3 | Extraction for all 5 formats, live progress | Not started |
-| 4 | Mapping, normalization, matrix, badge legend | Not started |
-| 5 | Source drawer (photo bounding box) | Not started |
-| 6 | Missing-value policy, contract memory, tiers, assumptions, review queue | Not started |
-| 7 | Discrepancy emails, closed loop | Not started |
-| 8 | Ask panel, suggested questions, scenarios | Not started |
-| 9 | Award memo | Not started |
-| 10 | Co-pilot RFQ drafting, rule lock, guided tour completion | Not started |
+| 1 | Login, lifecycle strip, tour, demo copy per account, Reset demo (S1–S3) | Done |
+| 2 | Send / fast-forward, demo inbox, upload a reply (S5, S6) | Done |
+| 3 | AI extraction for all 5 formats, live progress | Done (live eval 129/129 prices) |
+| 4 | Mapping, normalization, matrix, badge legend (S7) | Done (engine = answer key to the paisa) |
+| 5 | Source drawer: Excel cell, Word paragraph, PDF highlight, photo bounding box, contract (S8) | Done |
+| 6 | Missing-value policy, contract memory, tiers, assumptions, review queue + undo (S9) | Done |
+| 7 | Clarification emails and the closed loop (S10) | Done |
+| 8 | Ask panel: tools, show working, clarifying questions, scenarios (S7b) | Done |
+| 9 | Award memo with evidence links, print to PDF (S12) | Done |
+| 10 | Co-pilot RFQ drafting (streamed), rule lock, guided tour (S4) | Done |
+| — | Vendor profile (S11), presenter saved-run fallback | Done |
+| — | Deploy to Vercel | Pending PM approval for GitHub repo |
 
-**How to run (WSL):** `source ~/.nvm/nvm.sh` first (nvm isn't loaded in non-interactive shells). `npm run dev` · `npm test` · `npm run typecheck` · `npx eslint .` · `npm run db:migrate`.
-**Next.js 16 notes:** `middleware` is now `proxy.ts`; Cache Components is switched off on purpose (`next.config.ts`); read `node_modules/next/dist/docs/` before using unfamiliar APIs (see `AGENTS.md`).
-**Shell quoting:** PowerShell mangles quotes inside `wsl -e bash -c '...'`; for anything non-trivial, write a script file or use the Write tool.
+**How to run (WSL):** `source ~/.nvm/nvm.sh` first (nvm isn't loaded in non-interactive shells).
+- `npm run dev` · `npm test` (unit + Supabase integration) · `npm run typecheck` · `npx eslint .` · `npm run db:migrate`
+- Live AI accuracy: `bash scripts/eval-all.sh` (costs a little; ~45 s per vendor)
+- Browser end-to-end: `bash scripts/e2e.sh` (builds, runs Playwright, cleans up test accounts). Chromium libs were unpacked without sudo by `scripts/browser-libs.sh` into `~/.local/pw-libs`.
+- Dataset: `cd tools/dataset && ~/.local/bin/uv run procure-mind-dataset ../../seed`
+- Check `.env.local` shape without printing secrets: `node scripts/check-env.mjs`
+
+**Gotchas learned:**
+- Next.js 16: `middleware` is now `proxy.ts`; Cache Components is switched off on purpose; read `node_modules/next/dist/docs/` first (see `AGENTS.md`).
+- Next memoizes identical GET fetches within one render; the server Supabase client passes a fresh AbortController signal so read-after-write works (`lib/supabase/server.ts`).
+- Replies are processed in parallel: never write the whole `rfx.assumptions` object from the pipeline; use the `merge_assumption` RPC.
+- React 19 lint forbids setState in effects: use the "adjust state during render" pattern or remount with `key`.
+- PowerShell mangles quotes inside `wsl -e bash -c '...'`, and `pkill -f "x"` can match its own shell: write a script file.
+- Supabase rejects made-up email domains; tests sign up `TEST_EMAIL` plus-addresses and `scripts/cleanup-test-users.mjs` deletes them.
 
 ## Product context
 - **Product name:** Procure Mind V2.0
 - **One-liner:** "Kill the quote spreadsheet." An AI co-pilot drafts an RFx, the system reads whatever vendors send back (Excel, PDF, Word, phone photo, plain email), normalizes everything into one side-by-side comparison, and lets the buyer ask plain-language questions all the way to a defensible award memo.
-- **Demo size:** 5 vendors × 30 line items + questionnaire + attachments, fabricated data with planted traps and an answer key.
-- **Proposed category:** corrugated packaging (pending PM confirmation, D2).
+- **Demo data:** corrugated packaging, 5 vendors × 30 lines, 12-question questionnaire, last year's contracts, planted traps, answer key (`seed/demo.json`, generated by `tools/dataset`).
 - **Personas:** Category Buyer (primary), VP Procurement (secondary), Vendor rep (external, never logs in).
 - **Core design principles:** every number links to its source; AI interprets, code does the math; ambiguities are flagged, never assumed.
 - **Full detail:** `docs/01-PRD.md`.
-- **MVP scope:** all **M** items in PRD §5, built in the order of PRD §6.
 
 ## Roles
 - **PM (user):** owns the "what" and "why". Non-technical; cannot read code fluently.
@@ -64,52 +68,53 @@ This file is the project's memory. Any new Claude session should read it first a
 3. If an earlier decision changes, flag which later files are affected.
 4. Explain every technical term the first time it is used.
 5. Update this file at the end of every phase.
-6. Phase 6 build loop, **one story at a time, never batched:** build → automated tests for the acceptance criteria → plain-language manual verification steps for the PM → update status in `docs/05-backlog.md` → git commit.
+6. Build loop: build → automated tests → plain-language verification steps for the PM → git commit. (PM asked on 2026-10-28 to build everything without stopping between steps.)
 7. Recommend free VS Code extensions when useful; the PM approves before anything is installed.
 
 ## Toolset and environment
-- **Editor:** VS Code on Windows 11. The project lives inside WSL (Ubuntu), which is Linux running inside Windows.
-- **Claude's shell:** Windows PowerShell. Linux commands (git, uv, python) must be run through WSL:
-  `wsl -e bash -lc "cd ~/workspace/procure-mind-v2 && <command>"`
-- **Available in WSL:** git 2.53, uv 0.13.5, Python 3.14 (project pins 3.12 via `.python-version`).
-- **Not installed:** Node.js (on neither Windows nor WSL).
-- **Git:** branch `master`. Author identity is set for this repo only.
+- **Editor:** VS Code on Windows 11. The project lives inside WSL (Ubuntu).
+- **Claude's shell:** Windows PowerShell; Linux commands run through `wsl -e bash -c '...'`.
+- **In WSL:** git, uv, Python 3.14, Node 24 (nvm), gh (logged in as pavan-vepada), Playwright Chromium.
+- **Services:** Supabase project (URL in `.env.local`; session pooler for `SUPABASE_DB_URL`), OpenAI key (model `gpt-5.5` by default). Email confirmation is off in Supabase Auth.
+- **Git:** branch `master`, local only (no remote yet).
 
 ## Repo structure
 ```
-procure-mind-v2/            WSL path: ~/workspace/procure-mind-v2 (renamed from third-project on 2026-10-27)
-  CLAUDE.md                 this file
-  README.md
-  docs/                     phase documents 01–06
-  app/                      Next.js screens and server actions (S1 = app/page.tsx, workspace = app/rfx/)
-  components/               shared UI (shell: top bar, lifecycle strip, tour)
-  lib/                      data access, Supabase clients, lifecycle, demo seed
-  proxy.ts                  runs before every page: session refresh + login redirects
-  supabase/migrations/      database tables + row-level security (applied by scripts/migrate.mjs)
-  seed/                     demo content copied into each new account
-  tests/                    unit/ (always) and integration/ (needs .env.local)
-  tools/dataset/            Python dataset generator (uv project, formerly src/third_project)
+procure-mind-v2/
+  app/                      screens (S1 = page.tsx; workspace under rfx/) and API routes (api/)
+  components/               UI kit, shell (top bar, strip, tour), source drawer, PDF viewer, clarification composer
+  lib/                      ai/ (OpenAI client), extract/ (prepare, AI extraction, missing-value policy),
+                            engine/ (normalize, comparison, questionnaire, scenario: pure code),
+                            pipeline/ (reply processing), ask/ (Ask engine + number check), copilot/, memo.ts, clarify.ts
+  proxy.ts                  session refresh, login redirects, presenter saved-run cookie
+  supabase/migrations/      tables, row-level security, seed_demo + merge_assumption functions, uploads bucket
+  seed/                     context.json (hand-written), demo.json + files/ (generated)
+  tests/                    unit/, integration/ (Supabase), eval/ (live AI), e2e/ (Playwright)
+  tools/dataset/            Python dataset generator
   tools/diagrams/           Excalidraw generators for docs
+  scripts/                  migrate, env check, eval, e2e, test-user cleanup
 ```
 
 ## Conventions
-- Docs are markdown. Journeys, architecture and wireframes are drawn as `.excalidraw` files in `docs/diagrams/` (opened with the Excalidraw VS Code extension, `pomdtr.excalidraw-editor`, already installed) and linked from the markdown. Small inline diagrams may use Mermaid.
-- Commit messages: `Phase N: <what>` for docs; `Story <ID>: <what>` during build.
+- Docs are markdown; diagrams are `.excalidraw` in `docs/diagrams/`.
+- Commit messages: `Phase N: <what>` for docs; `Story <ID>: <what>` or a plain summary during build.
 - Dates are absolute (YYYY-MM-DD).
 
 ## Decisions log
 | Date | Decision | Why |
 |---|---|---|
-| 2026-10-27 | Keep the existing uv/Python skeleton for now | PM decision. Final stack choice is still made in Phase 3, which may revisit this. |
-| 2026-10-27 | Keep working through WSL from the current setup | PM decision. |
-| 2026-10-27 | Product name: "Procure Mind V2.0" | PM decision. |
-| 2026-10-27 | Folder renamed to `procure-mind-v2` | Spaces and dots in folder names break developer tools. The product name stays "Procure Mind V2.0" everywhere users see it. |
-| 2026-10-27 | D1 demo (product-ready later), D2 corrugated, D3 email in mixed formats via demo inbox, D4 mock contract DB, D5 demo 2026-10-28 | PM decisions; see `docs/01-PRD.md` §0 |
-| 2026-10-27 | D6 hosted with user-account login; D7 keep journeys/architecture/wireframes (Excalidraw), skip backlog | PM decisions |
-| 2026-10-28 | Architecture approved: Next.js + Supabase + Vercel | PM approval of `docs/03-architecture.md` |
-| 2026-10-28 | Demo moved to within the week of 2026-10-28 (exact date TBD); keep the planned phase order | PM decision; supersedes D5 date |
-| 2026-10-28 | AI provider is OpenAI, not Anthropic; model name in one setting (`AI_MODEL`), all AI calls in `lib/ai/` | PM has an OpenAI key, not an Anthropic key |
+| 2026-10-27 | Product name "Procure Mind V2.0"; folder `procure-mind-v2` | PM decision; folder names without spaces/dots |
+| 2026-10-27 | D1 demo, D2 corrugated, D3 simulated email in mixed formats, D4 mock contract DB, D6 hosted with login, D7 keep design docs, skip backlog | PM decisions; see `docs/01-PRD.md` §0 |
+| 2026-10-28 | Architecture: Next.js + Supabase + Vercel | PM approval of `docs/03-architecture.md` |
+| 2026-10-28 | AI provider OpenAI (`gpt-5.5`, set in `AI_MODEL`); all AI calls in `lib/ai/` | PM has an OpenAI key |
+| 2026-10-28 | Demo date moved to "within the week"; then "build everything" without step-by-step approval | PM decisions |
+| 2026-10-28 | Uploads go browser → Supabase Storage directly | Vercel limits request bodies to 4.5 MB; uploads allow 10 MB |
+| 2026-10-28 | Conditional discounts are always flagged and not applied until the buyer decides | "Ambiguities are flagged, never assumed"; the AI judged V2's footnote clear |
+| 2026-10-28 | Questionnaire Q1 (valid ISO 9001) is decided by the certificate's date in code | The AI sometimes records the certificate but not the Q1 answer |
+| 2026-10-28 | Reply deadline fixed at Day 7 | The demo script needs one late reply |
 
 ## Open items
-- PM has an OpenAI API key; set a monthly spending limit. Key goes in `.env.local` / Vercel dashboard, never in chat.
+- Deploy (see Current status). Supabase Auth → URL Configuration → Site URL must be set to the Vercel URL after deploy.
+- Set a monthly spending limit on the OpenAI key.
 - Google sign-in (FR-0.2 option) not set up; needs a Google Cloud OAuth client. Email + password works.
+- Should-haves not built: compare saved scenarios side by side (FR-5.8), charts in answers (FR-5.9), Excel export (FR-5.10), read-only share link for the memo (FR-6.5), unknown-sender assignment (FR-2.3).

@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 import demo from "@/seed/demo.json";
 import { buildComparison } from "@/lib/engine/comparison";
 import { normalize } from "@/lib/engine/normalize";
+import { evaluateQuestionnaire } from "@/lib/engine/questionnaire";
 import { runScenario, type ScenarioSpec } from "@/lib/engine/scenario";
 import { withDefaults } from "@/lib/engine/types";
 import { weightKg } from "@/lib/engine/weight";
@@ -73,6 +74,23 @@ describe("planted traps before clarifications (PRD §8)", () => {
 
   it("V1, V2 and V5 pass; V3 and V4 don't", () => {
     expect(c.vendors.filter((v) => v.valid).map((v) => v.vendor.code)).toEqual(["V1", "V2", "V5"]);
+  });
+});
+
+describe("questionnaire rules (FR-4.6)", () => {
+  const q = [{ q_no: 1, text: "Valid ISO 9001 certificate", points: 50, required: true }, { q_no: 2, text: "Other", points: 50, required: false }];
+  const rules = { required_q: [1], min_score: 70 };
+
+  it("passes Q1 from a valid ISO certificate even if the answer list skipped it", () => {
+    const r = evaluateQuestionnaire("v", q, [{ vendor_id: "v", q_no: 2, met: true, answer: "yes" }], [{ vendor_id: "v", name: "ISO 9001", valid_until: "2027-08-31" }], rules, "2026-10-28");
+    expect(r.passed).toBe(true);
+    expect(r.score).toBe(100);
+  });
+
+  it("fails Q1 when the only ISO certificate has expired, even if the vendor says yes", () => {
+    const r = evaluateQuestionnaire("v", q, [{ vendor_id: "v", q_no: 1, met: true, answer: "yes" }, { vendor_id: "v", q_no: 2, met: true, answer: "yes" }], [{ vendor_id: "v", name: "ISO 9001:2015", valid_until: "2026-03-31" }], rules, "2026-10-28");
+    expect(r.passed).toBe(false);
+    expect(r.failures[0]).toMatch(/expired on 31 Mar 2026/);
   });
 });
 

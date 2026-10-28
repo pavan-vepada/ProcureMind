@@ -9,11 +9,15 @@ export default async function WorkspaceLayout({ children }: LayoutProps<"/rfx">)
   const { count } = await supabase.from("issues").select("id", { count: "exact", head: true }).eq("status", "open");
   return (
     <div className="flex min-h-screen flex-col">
-      <TopBar rfx={rfx} email={user.email ?? ""} openIssues={count ?? 0} />
-      <LifecycleStrip stage={rfx.stage} />
+      <div className="no-print">
+        <TopBar rfx={rfx} email={user.email ?? ""} openIssues={count ?? 0} />
+        <LifecycleStrip stage={rfx.stage} />
+      </div>
       <div className="flex flex-1 gap-4 px-5 pb-10">
         <main className="min-w-0 flex-1">{children}</main>
-        <TourPanel step={rfx.tour_step} hidden={rfx.tour_hidden} />
+        <div className="no-print contents">
+          <TourPanel step={rfx.tour_step} hidden={rfx.tour_hidden} />
+        </div>
       </div>
     </div>
   );

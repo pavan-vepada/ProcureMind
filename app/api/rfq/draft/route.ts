@@ -49,7 +49,8 @@ export async function POST() {
         const ins2 = await supabase.from("questions").insert(QUESTIONS.map((q) => ({ rfx_id: rfx.id, ...q })));
         const upd = await supabase.from("rfx").update({
           drafted_at: new Date().toISOString(), draft_source: source, cover_email: cover,
-          payment_days: terms.payment_days, validity_days: terms.validity_days, due_day: terms.due_day,
+          // The reply deadline is part of the demo script (one reply arrives late), so it stays at Day 7.
+          payment_days: terms.payment_days, validity_days: terms.validity_days, due_day: 7,
           copilot_notes: notes, tour_step: Math.max(rfx.tour_step, 2),
         }).eq("id", rfx.id);
         const err = ins1.error ?? ins2.error ?? upd.error;

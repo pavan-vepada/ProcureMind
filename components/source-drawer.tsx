@@ -180,7 +180,9 @@ function Mark({ text, snippet }: { text: string; snippet: string }) {
 function SourceBody({ data }: { data: SourcePayload }) {
   const v = data.view;
   const hl = useRef<HTMLElement>(null);
-  useEffect(() => hl.current?.scrollIntoView({ block: "center" }), [data]);
+  useEffect(() => {
+    hl.current?.scrollIntoView({ block: "center", inline: "nearest" });
+  }, [data]);
 
   if (v.type === "photo") {
     return (

@@ -51,6 +51,7 @@ export const getWorkspace = cache(async () => {
       await seedDemo(supabase, user.id);
     } catch (err) {
       // Two first-visit requests can race; if the other one won, its copy is what we load.
+      console.error("[getWorkspace] seeding failed", err);
       if (!(await loadRfx(supabase))) throw err;
     }
     rfx = await loadRfx(supabase);

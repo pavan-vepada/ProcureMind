@@ -35,7 +35,9 @@ export function AskPanel({ data, onOpenLine }: { data: CompareData; onOpenLine: 
     setServerChat(data.chat);
     setMessages(data.chat);
   }
-  useEffect(() => end.current?.scrollIntoView({ behavior: "smooth", block: "end" }), [messages, pending]);
+  useEffect(() => {
+    end.current?.scrollIntoView({ behavior: "smooth", block: "end" });
+  }, [messages, pending]);
   useEffect(() => {
     if (!pending) return;
     const t = setInterval(() => setPhase((p) => Math.min(p + 1, THINKING.length - 1)), 2200);

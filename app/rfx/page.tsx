@@ -9,7 +9,8 @@ import { nextStep } from "@/lib/next-step";
 export default async function Workspace() {
   const a = await getAnalysis();
   const { user, rfx, vendors, rfi, comparison, messages } = a;
-  const name = user.email?.split("@")[0] ?? "there";
+  const first = user.email?.split("@")[0].split(/[+._-]/)[0] ?? "";
+  const name = first ? first[0].toUpperCase() + first.slice(1) : "there";
   const replies = messages.filter((m) => m.direction === "in").length;
   const processed = comparison.vendors.filter((v) => v.processed).length;
   const { count: memo } = await a.supabase.from("award_memos").select("id", { count: "exact", head: true });
