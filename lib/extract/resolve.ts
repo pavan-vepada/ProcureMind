@@ -176,9 +176,10 @@ export function resolveExtraction(x: Extraction, ctx: ResolveContext): Resolved 
       detail: "A buyer estimate is used (labelled) until the vendor states the freight.", confidence: null, source: null, askable: true,
     });
   }
-  if (x.discount && !x.discount.scope_clear) {
+  // A conditional discount is never assumed: "orders above 50,000 pcs" could mean per order or per year.
+  if (x.discount && (!x.discount.scope_clear || x.discount.min_qty !== null)) {
     issues.push({
-      kind: "discount", line_no: null, title: `${x.discount.pct}% discount: scope unclear`,
+      kind: "discount", line_no: null, title: `${x.discount.pct}% discount: confirm how it applies`,
       detail: `“${x.discount.condition}” Not applied until confirmed; you can apply it in Assumptions.`, confidence: "medium", source: null, askable: true,
     });
   }

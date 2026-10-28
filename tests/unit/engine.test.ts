@@ -3,7 +3,7 @@ import demo from "@/seed/demo.json";
 import { buildComparison } from "@/lib/engine/comparison";
 import { normalize } from "@/lib/engine/normalize";
 import { runScenario, type ScenarioSpec } from "@/lib/engine/scenario";
-import { withDefaults, type Line } from "@/lib/engine/types";
+import { withDefaults } from "@/lib/engine/types";
 import { weightKg } from "@/lib/engine/weight";
 import { fixtureInput } from "../fixtures";
 
@@ -35,7 +35,7 @@ describe("normalization against the answer key (FR-3.6, FR-3.7)", () => {
   });
 
   it("matches the dataset generator's box-weight estimate", () => {
-    for (const l of demo.lines) expect(weightKg(l as Line)).toBeCloseTo(l.est_weight_kg, 4);
+    for (const l of demo.lines) expect(weightKg(l as Parameters<typeof weightKg>[0])).toBeCloseTo(l.est_weight_kg, 4);
   });
 
   it("explains the V1 per-box trap as a conversion chain", () => {

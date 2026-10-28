@@ -16,7 +16,6 @@ export function fixtureInput(opts: { withClarifications?: boolean } = {}) {
     id: code.toLowerCase(), code, name: code, status: "replied",
     payment_days: null, validity_days: null, lead_time_days: null, freight: null, freight_note: null, discount: null,
   }));
-  const vid = (code: string) => code.toLowerCase();
   const contracts = demo.contracts as ContractInfo[];
 
   let quotes: Quote[] = [];

@@ -109,7 +109,7 @@ export function makePricer(input: ComparisonInput) {
   };
 }
 
-function badgesFor(q: Quote, p1: Normalized, v: Vendor, line: Line): Badge[] {
+function badgesFor(q: Quote, p1: Normalized, v: Vendor, line: Line, a: Assumptions): Badge[] {
   const b: Badge[] = [];
   if (q.raw.unit === "bundle") b.push("per-box fixed");
   if (q.raw.unit === "per_1000") b.push("per-1000");
@@ -121,7 +121,7 @@ function badgesFor(q: Quote, p1: Normalized, v: Vendor, line: Line): Badge[] {
   if (q.provenance === "clarification") b.push("clarification");
   if (q.provenance === "manual" || q.review === "edited") b.push("edited");
   if (p1.freightEstimate) b.push("freight est.");
-  if (v.discount && !v.discount.scope_clear) b.push("discount?");
+  if (v.discount && (a.discount_mode[v.code] ?? "not_applied") === "not_applied") b.push("discount?");
   return b;
 }
 
@@ -169,7 +169,7 @@ export function buildComparison(input: ComparisonInput): Comparison {
         p2,
         avg: total !== null ? total / (line.qty_p1 + line.qty_p2) : null,
         total,
-        badges: q && p1 ? badgesFor(q, p1, v, line) : [],
+        badges: q && p1 ? badgesFor(q, p1, v, line, input.assumptions) : [],
         issueIds: lineIssues.map((i) => i.id),
       };
       const s = summaryByCode.get(v.code)!;

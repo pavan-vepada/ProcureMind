@@ -90,7 +90,7 @@ export default async function Context(props: PageProps<"/rfx/context/[view]">) {
       <p className="mt-4 text-sm text-muted">
         Back to the <Link href="/rfx" className="text-accent hover:underline">RFx overview</Link>.
       </p>
-      <NextAction label="Draft RFQ with co-pilot" note="The co-pilot arrives in a later build step." />
+      <NextAction href="/rfx/rfq" label={rfx.drafted_at ? "Open the RFQ" : "Draft RFQ with co-pilot"} />
     </>
   );
 }

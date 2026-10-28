@@ -28,3 +28,25 @@ body {
   background: var(--color-surface);
   color: var(--color-ink);
 }
+
+@keyframes fadein {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes slidein {
+  from { transform: translateX(24px); opacity: 0; }
+  to { transform: none; opacity: 1; }
+}
+
+@keyframes flash {
+  0% { box-shadow: inset 0 0 0 2px var(--color-accent); }
+  100% { box-shadow: inset 0 0 0 0 transparent; }
+}
+
+.tabular-nums { font-variant-numeric: tabular-nums; }
+
+@media print {
+  .no-print { display: none !important; }
+  body { background: white; }
+}

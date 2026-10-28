@@ -1,5 +1,6 @@
 import { z } from "zod";
 import context from "@/seed/context.json";
+import demo from "@/seed/demo.json";
 import { STAGE_KEYS } from "@/lib/lifecycle";
 
 const Vendor = z.object({
@@ -51,8 +52,9 @@ export const DemoContext = z
 export function buildSeedArgs(raw: unknown = context) {
   const c = DemoContext.parse(raw);
   return {
-    p_rfx: c.rfx,
+    p_rfx: { ...c.rfx, assumptions: { fx_rate: demo.fx_rate, freight: {}, discount_mode: {}, weight_overrides: {} } },
     p_vendors: c.vendors,
     p_rfi: c.rfi.map((r, i) => ({ ...r, sort: i + 1 })),
+    p_contracts: demo.contracts,
   };
 }

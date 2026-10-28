@@ -1,12 +1,13 @@
 "use client";
 
 import { useEffect } from "react";
-import { completeTourStep } from "@/app/rfx/actions";
+import { reachStep } from "@/app/rfx/actions";
+import type { StageKey } from "@/lib/lifecycle";
 
-/** Ticks off tour steps when the user actually reaches this screen (not on link prefetch). */
-export function CompleteTourStep({ step }: { step: number }) {
+/** Ticks off tour steps (and moves the lifecycle on) when the user actually reaches a screen, not on prefetch. */
+export function CompleteTourStep({ step, stage }: { step: number; stage?: StageKey }) {
   useEffect(() => {
-    void completeTourStep(step);
-  }, [step]);
+    void reachStep(step, stage);
+  }, [step, stage]);
   return null;
 }
