@@ -76,14 +76,14 @@ class Scene:
         return self._text_el(x, y, w, h, text, size, color, align, "top")["id"]
 
     def box(self, x, y, w, h, text="", bg=WHITE, size=14, shape="rectangle",
-            stroke=INK, style="solid", align="center", valign="middle", sw=1):
-        rect = self._base(shape, x, y, w, h, bg=bg, stroke=stroke, style=style, sw=sw,
+            stroke=INK, style="solid", align="center", valign="middle", sw=1, color=INK, rough=1):
+        rect = self._base(shape, x, y, w, h, bg=bg, stroke=stroke, style=style, sw=sw, rough=rough,
                           roundness={"type": 3} if shape == "rectangle" else {"type": 2})
         if text:
             inner_w = w - 16 if shape == "rectangle" else w * 0.65
             th = text_height(text, inner_w + 16, size)
             t = self._text_el(x + (w - inner_w) / 2, y + (h - th) / 2, inner_w, th,
-                              text, size, INK, align, valign, container=rect["id"])
+                              text, size, color, align, valign, container=rect["id"])
             rect["boundElements"].append({"type": "text", "id": t["id"]})
         return rect["id"]
 
