@@ -3,13 +3,15 @@
 This file is the project's memory. Any new Claude session should read it first and resume from **Current status**.
 
 ## Current status
-- **Current phase:** 3 done (architecture approved 2026-10-28, AI switched to OpenAI). Next: Node.js install, account setup, then Phase 4 / build.
-- **Resume here (2026-10-28):** (1) Node.js install in WSL — the automatic nvm install was blocked by Claude Code's safety check (it runs a downloaded script); PM to run it or allow it. (2) PM to confirm GitHub / Vercel / Supabase (Mumbai) accounts and set a spending limit on the OpenAI key. (3) Confirm the actual demo date — 2026-10-28 (today) per D5, which is not achievable for the full MVP; if unchanged, skip wireframes and build the core demo path only.
+- **Current phase:** 4 — Wireframes (`docs/04-wireframes.md` + `docs/diagrams/wire-*.excalidraw`). Draft written; awaiting PM approval.
+- **Resume here (2026-10-28):** (1) PM approval of wireframes. (2) Node.js install in WSL — the automatic nvm install was blocked by Claude Code's safety check (it runs a downloaded script); PM to run it or allow it. (3) PM is creating the Supabase project (Mumbai); has GitHub and Vercel. (4) Then Phase 6 build per PRD §6 order.
+- **Demo date:** moved from 2026-10-28 to "within the week of 2026-10-28"; exact date to be set by the PM. Follow the pre-decided phase order.
+- **Wireframe generator:** `tools/diagrams/wireframes.py`; `check_overflow.py` flags text that doesn't fit its box.
 - **Diagram generators:** `tools/diagrams/` (`excal.py` helper + one script per doc). Run via WSL: `cd tools/diagrams && python3 <script>.py ../../docs/diagrams`. Reuse `excal.py` for wireframes.
 - **Phase 2:** journeys approved 2026-10-27.
 - **Phase 1:** PRD v3 approved 2026-10-27.
-- **DEADLINE:** demo on 2026-10-28, build in one day. Hosted, with user-account login. Keep all docs (journeys, architecture, wireframes); Phase 5 backlog skipped (roadmap item, PRD §13).
-- **Next phase:** 4 — Wireframes (or straight to build if the demo is today)
+- **DEADLINE:** demo within the week of 2026-10-28 (date TBD by PM; was 2026-10-28). Hosted, with user-account login. Keep all docs (journeys, architecture, wireframes); Phase 5 backlog skipped (roadmap item, PRD §13).
+- **Next phase:** 6 — Build (Phase 5 skipped)
 - **Last updated:** 2026-10-28
 
 | Phase | Output | Status |
@@ -18,7 +20,7 @@ This file is the project's memory. Any new Claude session should read it first a
 | 1. Problem and PRD | docs/01-PRD.md | Done (v3 approved 2026-10-27) |
 | 2. User journeys | docs/02-journeys.md | Done (approved 2026-10-27) |
 | 3. Tech stack and data model | docs/03-architecture.md | Done (approved 2026-10-28) |
-| 4. Wireframes | docs/04-wireframes.md (+ HTML screens) | Not started |
+| 4. Wireframes | docs/04-wireframes.md (Excalidraw, per D7) | Draft, awaiting approval |
 | 5. Epics, stories, release plan | docs/05-backlog.md | Skipped by PM decision (roadmap item); build follows PRD §5 demo script |
 | 6. Build the MVP | src/ | Not started |
 | 7. Ship and iterate | docs/06-iteration-log.md | Not started |
@@ -80,6 +82,7 @@ procure-mind-v2/            WSL path: ~/workspace/procure-mind-v2 (renamed from 
 | 2026-10-27 | D1 demo (product-ready later), D2 corrugated, D3 email in mixed formats via demo inbox, D4 mock contract DB, D5 demo 2026-10-28 | PM decisions; see `docs/01-PRD.md` §0 |
 | 2026-10-27 | D6 hosted with user-account login; D7 keep journeys/architecture/wireframes (Excalidraw), skip backlog | PM decisions |
 | 2026-10-28 | Architecture approved: Next.js + Supabase + Vercel | PM approval of `docs/03-architecture.md` |
+| 2026-10-28 | Demo moved to within the week of 2026-10-28 (exact date TBD); keep the planned phase order | PM decision; supersedes D5 date |
 | 2026-10-28 | AI provider is OpenAI, not Anthropic; model name in one setting (`AI_MODEL`), all AI calls in `lib/ai/` | PM has an OpenAI key, not an Anthropic key |
 
 ## Open items

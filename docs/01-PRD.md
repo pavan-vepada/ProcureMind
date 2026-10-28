@@ -14,7 +14,7 @@
 | D2 | Category | **Corrugated packaging** |
 | D3 | Reply channel | **Email**, with vendors replying in every format: Excel, PDF, Word, a vague angled phone photo, plain email text. For the demo, sending and receiving are **simulated inside the app** (a demo inbox), see risk R6 |
 | D4 | Store last year's prices? | **Yes**: a mock contract database with last year's contracts |
-| D5 | Deadline | **Demo on 2026-10-28. Build in one day.** This drives the MVP cut and build order in §6 |
+| D5 | Deadline | **Demo within the week of 2026-10-28** (exact date to be set by the PM; originally 2026-10-28 with a one-day build, changed 2026-10-28). The MVP cut and build order in §6 still apply |
 | D6 | Hosting and access | **Hosted on the internet with user-account login.** A working prototype, ready for a live demo at a public web address |
 | D7 | Documents | **All design documents are kept**: user journeys, architecture, wireframes (drawn with the Excalidraw extension in VS Code). The **detailed backlog is skipped** and listed as a roadmap item (§14) |
 
