@@ -3,7 +3,7 @@ import { aiConfigured, aiModel, openai } from "@/lib/ai/client";
 import { numbersAreGrounded } from "@/lib/ask/numbers";
 import type { Comparison, ComparisonInput } from "@/lib/engine/comparison";
 import type { ScenarioResult } from "@/lib/engine/scenario";
-import { money, pct } from "@/lib/format";
+import { inr, money, pct } from "@/lib/format";
 import type { IssueRecord, Rfx } from "@/lib/types";
 
 export type MemoRow = { line_no: number; description: string; vendor: string; qty: number; unit_price: number; total: number; quote_id: string | null };
@@ -38,7 +38,7 @@ export async function buildMemo(rfx: Rfx, r: ScenarioResult, input: ComparisonIn
   const risks: string[] = [];
   for (const code of awarded) {
     const f = input.assumptions.freight[code];
-    if (f?.source === "estimate") risks.push(`${code} freight is a buyer estimate (${money(f.per_piece)} per piece), not quoted.`);
+    if (f?.source === "estimate") risks.push(`${code} freight is a buyer estimate (${inr(f.per_piece)} per piece), not quoted.`);
   }
   const kgLines = rows.filter((x) => input.quotes.find((q) => q.id === x.quote_id)?.raw.unit === "kg").map((x) => x.line_no);
   if (kgLines.length) risks.push(`${kgLines.length} awarded line${kgLines.length > 1 ? "s were" : " was"} priced per kg and converted with estimated box weights.`);

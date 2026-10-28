@@ -84,6 +84,7 @@ export async function lockAndSend(rules: z.infer<typeof LockRules>) {
   if (!rfx.drafted_at) throw new Error("Draft the RFQ first.");
   const { data: vendors } = await supabase.from("vendors").select("*").eq("rfx_id", rfx.id).order("code");
   const now = new Date().toISOString();
+  revalidatePath("/rfx", "layout");
   await supabase.from("rfx").update({
     rules: { ...r, fx_rate: FX_RATE, fx_date: now.slice(0, 10), basis: ["₹ per piece", "Before GST", "Delivered to each plant", `1 USD = ₹${FX_RATE.toFixed(2)}`, "Price tier = each plant's own volume"] },
     rules_locked_at: now, sent_at: now, stage: "replies", tour_step: Math.max(rfx.tour_step, 3),
@@ -124,6 +125,7 @@ export async function fastForward() {
     await supabase.from("vendors").update({ status: "replied" }).eq("rfx_id", rfx.id);
   }
   await supabase.from("rfx").update({ demo_day: Math.max(rfx.demo_day, 9), tour_step: Math.max(rfx.tour_step, 4) }).eq("id", rfx.id);
+  revalidatePath("/rfx", "layout");
   redirect("/rfx/inbox");
 }
 
@@ -303,6 +305,7 @@ export async function recommendAward(scenarioId: string) {
   await a.supabase.from("award_memos").delete().eq("rfx_id", a.rfx.id);
   await a.supabase.from("award_memos").insert({ rfx_id: a.rfx.id, scenario_id: sc.id, content });
   await a.supabase.from("rfx").update({ stage: "po", tour_step: 10 }).eq("id", a.rfx.id);
+  revalidatePath("/rfx", "layout"); // the strip and tour live in the layout
   redirect("/rfx/award");
 }
 
