@@ -129,6 +129,7 @@ procure-mind-v2/
 | 2026-10-28 | Sample world keeps the buyer persona "Pavan, Sunrise Consumer Goods" for every user | Vendor emails address the buyer by name; open question for the PM |
 
 ## Open items
+- Claude Design journey map (2 artboards: whole sourcing event; zoom-in on where login fits): https://claude.ai/artifact/4YXN2eCXe3zb33Y9yuwuNT. Private until the PM shares it; then replace the "link to be added" line at the top of `docs/02-user-journeys.md`.
 - Deploy (see Current status). Supabase Auth → URL Configuration → Site URL must be set to the Vercel URL after deploy.
 - Set a monthly spending limit on the OpenAI key.
 - Google sign-in (FR-0.2 option) not set up; needs a Google Cloud OAuth client. Email + password works.
