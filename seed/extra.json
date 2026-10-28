@@ -1,0 +1,5980 @@
+{
+ "launch": {
+  "key": "launch",
+  "code": "RFX-2026-021",
+  "title": "Shippers and trays for the detergent launch",
+  "category": "Corrugated packaging",
+  "lines": [
+   {
+    "line_no": 1,
+    "item_code": "DL-01",
+    "description": "RSC shipper, large (5 L × 4)",
+    "category": "rsc",
+    "ply": 5,
+    "gsm": 150,
+    "bf": 22,
+    "flute": "BC",
+    "length_mm": 500,
+    "width_mm": 400,
+    "height_mm": 300,
+    "qty_p1": 30000,
+    "qty_p2": 22000,
+    "is_new": false,
+    "spec_key": "rsc|5|150|500x400x300",
+    "est_weight_kg": 1.0124
+   },
+   {
+    "line_no": 2,
+    "item_code": "DL-02",
+    "description": "RSC shipper, medium (2 L × 6)",
+    "category": "rsc",
+    "ply": 5,
+    "gsm": 140,
+    "bf": 20,
+    "flute": "BC",
+    "length_mm": 400,
+    "width_mm": 300,
+    "height_mm": 250,
+    "qty_p1": 26000,
+    "qty_p2": 20000,
+    "is_new": false,
+    "spec_key": "rsc|5|140|400x300x250",
+    "est_weight_kg": 0.5988
+   },
+   {
+    "line_no": 3,
+    "item_code": "DL-03",
+    "description": "RSC carton, sachet bundle",
+    "category": "rsc",
+    "ply": 3,
+    "gsm": 120,
+    "bf": 18,
+    "flute": "B",
+    "length_mm": 300,
+    "width_mm": 200,
+    "height_mm": 150,
+    "qty_p1": 45000,
+    "qty_p2": 35000,
+    "is_new": false,
+    "spec_key": "rsc|3|120|300x200x150",
+    "est_weight_kg": 0.1485
+   },
+   {
+    "line_no": 4,
+    "item_code": "DL-04",
+    "description": "Die-cut tray, 2 L bottles",
+    "category": "tray",
+    "ply": 3,
+    "gsm": 120,
+    "bf": 16,
+    "flute": "E",
+    "length_mm": 350,
+    "width_mm": 250,
+    "height_mm": 80,
+    "qty_p1": 20000,
+    "qty_p2": 15000,
+    "is_new": false,
+    "spec_key": "tray|3|120|350x250x80",
+    "est_weight_kg": 0.0853
+   },
+   {
+    "line_no": 5,
+    "item_code": "DL-05",
+    "description": "Partition set 4 × 6",
+    "category": "partition",
+    "ply": 3,
+    "gsm": 120,
+    "bf": 16,
+    "flute": "B",
+    "length_mm": 380,
+    "width_mm": 280,
+    "height_mm": 200,
+    "qty_p1": 12000,
+    "qty_p2": 9000,
+    "is_new": false,
+    "spec_key": "partition|3|120|380x280x200",
+    "est_weight_kg": 0.1616
+   },
+   {
+    "line_no": 6,
+    "item_code": "DL-06",
+    "description": "RSC shipper, 1 L × 12",
+    "category": "rsc",
+    "ply": 5,
+    "gsm": 140,
+    "bf": 20,
+    "flute": "BC",
+    "length_mm": 360,
+    "width_mm": 270,
+    "height_mm": 230,
+    "qty_p1": 35000,
+    "qty_p2": 25000,
+    "is_new": false,
+    "spec_key": "rsc|5|140|360x270x230",
+    "est_weight_kg": 0.4914
+   },
+   {
+    "line_no": 7,
+    "item_code": "DL-07",
+    "description": "RSC carton, 500 ml × 24",
+    "category": "rsc",
+    "ply": 3,
+    "gsm": 120,
+    "bf": 18,
+    "flute": "B",
+    "length_mm": 320,
+    "width_mm": 240,
+    "height_mm": 200,
+    "qty_p1": 42000,
+    "qty_p2": 30000,
+    "is_new": false,
+    "spec_key": "rsc|3|120|320x240x200",
+    "est_weight_kg": 0.2082
+   },
+   {
+    "line_no": 8,
+    "item_code": "DL-08",
+    "description": "RSC carton, tablets",
+    "category": "rsc",
+    "ply": 3,
+    "gsm": 120,
+    "bf": 18,
+    "flute": "B",
+    "length_mm": 250,
+    "width_mm": 180,
+    "height_mm": 120,
+    "qty_p1": 48000,
+    "qty_p2": 38000,
+    "is_new": false,
+    "spec_key": "rsc|3|120|250x180x120",
+    "est_weight_kg": 0.1102
+   },
+   {
+    "line_no": 9,
+    "item_code": "DL-09",
+    "description": "Die-cut display tray",
+    "category": "tray",
+    "ply": 3,
+    "gsm": 120,
+    "bf": 16,
+    "flute": "E",
+    "length_mm": 400,
+    "width_mm": 300,
+    "height_mm": 90,
+    "qty_p1": 18000,
+    "qty_p2": 12000,
+    "is_new": false,
+    "spec_key": "tray|3|120|400x300x90",
+    "est_weight_kg": 0.1136
+   },
+   {
+    "line_no": 10,
+    "item_code": "DL-10",
+    "description": "Partition set 3 × 4",
+    "category": "partition",
+    "ply": 3,
+    "gsm": 120,
+    "bf": 16,
+    "flute": "B",
+    "length_mm": 300,
+    "width_mm": 220,
+    "height_mm": 180,
+    "qty_p1": 14000,
+    "qty_p2": 10000,
+    "is_new": false,
+    "spec_key": "partition|3|120|300x220x180",
+    "est_weight_kg": 0.1146
+   },
+   {
+    "line_no": 11,
+    "item_code": "DL-11",
+    "description": "RSC shipper, slim",
+    "category": "rsc",
+    "ply": 5,
+    "gsm": 140,
+    "bf": 20,
+    "flute": "BC",
+    "length_mm": 480,
+    "width_mm": 220,
+    "height_mm": 300,
+    "qty_p1": 22000,
+    "qty_p2": 18000,
+    "is_new": false,
+    "spec_key": "rsc|5|140|480x220x300",
+    "est_weight_kg": 0.5661
+   },
+   {
+    "line_no": 12,
+    "item_code": "DL-12",
+    "description": "RSC carton, 1 L bottles × 6",
+    "category": "rsc",
+    "ply": 3,
+    "gsm": 140,
+    "bf": 18,
+    "flute": "B",
+    "length_mm": 260,
+    "width_mm": 180,
+    "height_mm": 280,
+    "qty_p1": 30000,
+    "qty_p2": 22000,
+    "is_new": false,
+    "spec_key": "rsc|3|140|260x180x280",
+    "est_weight_kg": 0.1896
+   }
+  ],
+  "request": {
+   "from": "Rohan Iyer, New Product Launch team",
+   "day": -12,
+   "subject": "Packaging for the liquid detergent launch",
+   "body": "Hi Pavan,\n\nWe launch the 1 L and 2 L liquid detergent range in the next quarter from both plants. We need shipper boxes, trays and partitions for the first year; volumes are in the attached sheet.\n\nQuality wants valid ISO 9001 and BCT test reports for every 5-ply supplier. Payment 60 days as usual.\n\nThanks,\nRohan"
+  },
+  "vendors": [
+   {
+    "code": "V1",
+    "name": "Kaveri Corrugators",
+    "email": "sales@kaveri-corrugators.example",
+    "reply_format": "excel",
+    "rfi_note": "Supplies both plants by road; in-house BCT lab; one week of buffer stock.",
+    "rfp_summary": "Supplies both plants by road; in-house BCT lab; one week of buffer stock."
+   },
+   {
+    "code": "V2",
+    "name": "Godavari Packaging Industries",
+    "email": "rfq@godavari-pack.example",
+    "reply_format": "pdf",
+    "rfi_note": "Large converter in Aurangabad; prices per thousand; testing outsourced.",
+    "rfp_summary": "Large converter in Aurangabad; prices per thousand; testing outsourced."
+   },
+   {
+    "code": "V3",
+    "name": "Konkan Corrugated",
+    "email": "sales@konkan-corrugated.example",
+    "reply_format": "word",
+    "rfi_note": "Mid-size unit near Plant 1; quick turnaround on die-cut trays.",
+    "rfp_summary": "Mid-size unit near Plant 1; quick turnaround on die-cut trays."
+   },
+   {
+    "code": "V4",
+    "name": "Narmada Cartons",
+    "email": "office@narmada-cartons.example",
+    "reply_format": "photo",
+    "rfi_note": "Next to Plant 2; prices by weight; can run a stock point inside the plant.",
+    "rfp_summary": "Next to Plant 2; prices by weight; can run a stock point inside the plant."
+   },
+   {
+    "code": "V5",
+    "name": "Sahyadri Paperpack",
+    "email": "accounts@sahyadri-paperpack.example",
+    "reply_format": "email",
+    "rfi_note": "Current shipper supplier; offers launch support for new SKUs.",
+    "rfp_summary": "Current shipper supplier; offers launch support for new SKUs."
+   }
+  ],
+  "contracts": [],
+  "replies": [
+   {
+    "vendor_code": "V1",
+    "day": 4,
+    "subject": "Quotation · RFX-2026-021",
+    "body": "Dear Pavan,\n\nOur price offer is attached.\n\nRegards,\nAnil Shetty\nKaveri Corrugators",
+    "attachments": [
+     {
+      "filename": "launch-kaveri-quote.xlsx",
+      "kind": "excel",
+      "mime": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+     }
+    ]
+   },
+   {
+    "vendor_code": "V2",
+    "day": 6,
+    "subject": "Offer RFX-2026-021 · Godavari Packaging Industries",
+    "body": "Dear Sir,\n\nPlease find our quotation attached.\n\nBest regards,\nFarah Siddiqui",
+    "attachments": [
+     {
+      "filename": "launch-godavari-quote.pdf",
+      "kind": "pdf",
+      "mime": "application/pdf"
+     }
+    ]
+   },
+   {
+    "vendor_code": "V3",
+    "day": 8,
+    "subject": "Offer against RFX-2026-021",
+    "body": "Dear Pavan,\n\nOur offer is attached as a Word document.\n\nNikhil Desai",
+    "attachments": [
+     {
+      "filename": "launch-konkan-quote.docx",
+      "kind": "word",
+      "mime": "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+     }
+    ]
+   },
+   {
+    "vendor_code": "V4",
+    "day": 10,
+    "subject": "Rates - Narmada Cartons",
+    "body": "Pavan sir,\n\nPhoto of our rate card attached, rates per kg. ISO certificate attached.\n\nYour questions: ISO 9001 certified, valid until the attached certificate. FSC certified. BCT report with every lot. No in-house ECT tester. 4 lakh boxes per month. 7 days. 1 complaint in the last year. No buffer stock. Supply to both plants. No printing. Mill certificates shared with every lot. Recycled content declared.\n\nRegards\nVikas Narmada",
+    "attachments": [
+     {
+      "filename": "launch-narmada-rate-card.jpg",
+      "kind": "photo",
+      "mime": "image/jpeg"
+     },
+     {
+      "filename": "launch-narmada-iso-9001.pdf",
+      "kind": "certificate",
+      "mime": "application/pdf"
+     }
+    ]
+   },
+   {
+    "vendor_code": "V5",
+    "day": 12,
+    "subject": "RE: RFX-2026-021",
+    "body": "Hi Pavan,\n\nOur rates per piece, ex-GST, freight included to both plants:\n\nItem 1 (RSC shipper): Rs 43.28\nItem 2 (RSC shipper): Rs 26.00\nItem 3 (RSC carton): Rs 7.25\nItem 4 (Die-cut tray): Rs 4.66\nItem 5 (Partition set 4 × 6): Rs 8.11\nItem 6 (RSC shipper): Rs 21.52\nItem 7 (RSC carton): Rs 10.19\nItem 8 (RSC carton): Rs 5.74\nItem 9 (Die-cut display tray): Rs 5.89\nItem 10 (Partition set 3 × 4): Rs 5.87\nItem 11 (RSC shipper): Rs 24.68\nItem 12 (RSC carton): Rs 9.52\n\nPayment 60 days, lead time 12 days. ISO 9001 certified, valid until Jan 2028. FSC certified. BCT report with every lot. ECT tested in-house. 4 lakh boxes per month. 12 days. 1 complaint in the last year. Buffer stock offered. Supply to both plants. Two-colour flexo printing. Mill certificates shared with every lot. Recycled content declared.\n\nThanks,\nSuresh Patil\nSahyadri Paperpack",
+    "attachments": []
+   }
+  ],
+  "ideal": [
+   {
+    "vendor_code": "V1",
+    "quotes": [
+     {
+      "line_no": 9,
+      "vendor_label": "Die-cut display tray",
+      "price": 312,
+      "currency": "INR",
+      "unit": "bundle",
+      "bundle_size": 50,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "launch-kaveri-quote.xlsx",
+       "kind": "excel",
+       "ref": "Quote!E5",
+       "snippet": "312",
+       "page": null,
+       "cell": "Quote!E5",
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 4,
+      "vendor_label": "Die-cut tray, 2 L bottles",
+      "price": 249,
+      "currency": "INR",
+      "unit": "bundle",
+      "bundle_size": 50,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "launch-kaveri-quote.xlsx",
+       "kind": "excel",
+       "ref": "Quote!E6",
+       "snippet": "249",
+       "page": null,
+       "cell": "Quote!E6",
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 3,
+      "vendor_label": "RSC carton, sachet bundle",
+      "price": 392,
+      "currency": "INR",
+      "unit": "bundle",
+      "bundle_size": 50,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "launch-kaveri-quote.xlsx",
+       "kind": "excel",
+       "ref": "Quote!E7",
+       "snippet": "392",
+       "page": null,
+       "cell": "Quote!E7",
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 10,
+      "vendor_label": "Partition set 3 × 4",
+      "price": 306,
+      "currency": "INR",
+      "unit": "bundle",
+      "bundle_size": 50,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "launch-kaveri-quote.xlsx",
+       "kind": "excel",
+       "ref": "Quote!E8",
+       "snippet": "306",
+       "page": null,
+       "cell": "Quote!E8",
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 7,
+      "vendor_label": "RSC carton, 500 ml × 24",
+      "price": 524,
+      "currency": "INR",
+      "unit": "bundle",
+      "bundle_size": 50,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "launch-kaveri-quote.xlsx",
+       "kind": "excel",
+       "ref": "Quote!E9",
+       "snippet": "524",
+       "page": null,
+       "cell": "Quote!E9",
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 8,
+      "vendor_label": "RSC carton, tablets",
+      "price": 310,
+      "currency": "INR",
+      "unit": "bundle",
+      "bundle_size": 50,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "launch-kaveri-quote.xlsx",
+       "kind": "excel",
+       "ref": "Quote!E10",
+       "snippet": "310",
+       "page": null,
+       "cell": "Quote!E10",
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 12,
+      "vendor_label": "RSC carton, 1 L bottles × 6",
+      "price": 466,
+      "currency": "INR",
+      "unit": "bundle",
+      "bundle_size": 50,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "launch-kaveri-quote.xlsx",
+       "kind": "excel",
+       "ref": "Quote!E11",
+       "snippet": "466",
+       "page": null,
+       "cell": "Quote!E11",
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 11,
+      "vendor_label": "RSC shipper, slim",
+      "price": 1222,
+      "currency": "INR",
+      "unit": "bundle",
+      "bundle_size": 50,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "launch-kaveri-quote.xlsx",
+       "kind": "excel",
+       "ref": "Quote!E12",
+       "snippet": "1222",
+       "page": null,
+       "cell": "Quote!E12",
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 2,
+      "vendor_label": "RSC shipper, medium (2 L × 6)",
+      "price": 1320,
+      "currency": "INR",
+      "unit": "bundle",
+      "bundle_size": 50,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "launch-kaveri-quote.xlsx",
+       "kind": "excel",
+       "ref": "Quote!E13",
+       "snippet": "1320",
+       "page": null,
+       "cell": "Quote!E13",
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 1,
+      "vendor_label": "RSC shipper, large (5 L × 4)",
+      "price": 2276,
+      "currency": "INR",
+      "unit": "bundle",
+      "bundle_size": 50,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "launch-kaveri-quote.xlsx",
+       "kind": "excel",
+       "ref": "Quote!E14",
+       "snippet": "2276",
+       "page": null,
+       "cell": "Quote!E14",
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 5,
+      "vendor_label": "Partition set 4 × 6",
+      "price": 392,
+      "currency": "INR",
+      "unit": "bundle",
+      "bundle_size": 50,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "launch-kaveri-quote.xlsx",
+       "kind": "excel",
+       "ref": "Quote!E15",
+       "snippet": "392",
+       "page": null,
+       "cell": "Quote!E15",
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 6,
+      "vendor_label": "RSC shipper, 1 L × 12",
+      "price": 1093,
+      "currency": "INR",
+      "unit": "bundle",
+      "bundle_size": 50,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "launch-kaveri-quote.xlsx",
+       "kind": "excel",
+       "ref": "Quote!E16",
+       "snippet": "1093",
+       "page": null,
+       "cell": "Quote!E16",
+       "paragraph": null,
+       "bbox": null
+      }
+     }
+    ],
+    "missing_lines": [],
+    "unreadable_lines": [],
+    "rest_from_last_year": false,
+    "terms": {
+     "payment_days": 60,
+     "validity_days": 60,
+     "lead_time_days": 14,
+     "freight": "included",
+     "freight_amount": null
+    },
+    "discount": null,
+    "answers": [
+     {
+      "q_no": 1,
+      "met": true,
+      "answer": "ISO 9001 certified, valid until Mar 2028"
+     },
+     {
+      "q_no": 2,
+      "met": true,
+      "answer": "FSC certified"
+     },
+     {
+      "q_no": 3,
+      "met": true,
+      "answer": "BCT report with every lot"
+     },
+     {
+      "q_no": 4,
+      "met": true,
+      "answer": "ECT tested in-house"
+     },
+     {
+      "q_no": 5,
+      "met": true,
+      "answer": "4 lakh boxes per month"
+     },
+     {
+      "q_no": 6,
+      "met": true,
+      "answer": "14 days"
+     },
+     {
+      "q_no": 7,
+      "met": true,
+      "answer": "1 complaint in the last year"
+     },
+     {
+      "q_no": 8,
+      "met": true,
+      "answer": "Buffer stock offered"
+     },
+     {
+      "q_no": 9,
+      "met": true,
+      "answer": "Supply to both plants"
+     },
+     {
+      "q_no": 10,
+      "met": true,
+      "answer": "Two-colour flexo printing"
+     },
+     {
+      "q_no": 11,
+      "met": true,
+      "answer": "Mill certificates shared with every lot"
+     },
+     {
+      "q_no": 12,
+      "met": true,
+      "answer": "Recycled content declared"
+     }
+    ],
+    "certificates": [
+     {
+      "name": "ISO 9001",
+      "valid_until": "2028-03-31",
+      "source": {
+       "attachment": "launch-kaveri-quote.xlsx",
+       "kind": "excel",
+       "ref": "Compliance!C2",
+       "snippet": "ISO 9001 certified, valid until Mar 2028",
+       "page": null,
+       "cell": "Compliance!C2",
+       "paragraph": null,
+       "bbox": null
+      }
+     }
+    ]
+   },
+   {
+    "vendor_code": "V2",
+    "quotes": [
+     {
+      "line_no": 1,
+      "vendor_label": "RSC shipper, large (5 L × 4)",
+      "price": 41622,
+      "currency": "INR",
+      "unit": "per_1000",
+      "bundle_size": null,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "launch-godavari-quote.pdf",
+       "kind": "pdf",
+       "ref": "page 1",
+       "snippet": "41,622",
+       "page": 1,
+       "cell": null,
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 2,
+      "vendor_label": "RSC shipper, medium (2 L × 6)",
+      "price": 24425,
+      "currency": "INR",
+      "unit": "per_1000",
+      "bundle_size": null,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "launch-godavari-quote.pdf",
+       "kind": "pdf",
+       "ref": "page 1",
+       "snippet": "24,425",
+       "page": 1,
+       "cell": null,
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 3,
+      "vendor_label": "RSC carton, sachet bundle",
+      "price": 7490,
+      "currency": "INR",
+      "unit": "per_1000",
+      "bundle_size": null,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "launch-godavari-quote.pdf",
+       "kind": "pdf",
+       "ref": "page 1",
+       "snippet": "7,490",
+       "page": 1,
+       "cell": null,
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 4,
+      "vendor_label": "Die-cut tray, 2 L bottles",
+      "price": 5672.26,
+      "currency": "INR",
+      "unit": "per_1000",
+      "bundle_size": null,
+      "gst_included": true,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "launch-godavari-quote.pdf",
+       "kind": "pdf",
+       "ref": "page 1",
+       "snippet": "5,672",
+       "page": 1,
+       "cell": null,
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 5,
+      "vendor_label": "Partition set 4 × 6",
+      "price": 7642,
+      "currency": "INR",
+      "unit": "per_1000",
+      "bundle_size": null,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "launch-godavari-quote.pdf",
+       "kind": "pdf",
+       "ref": "page 1",
+       "snippet": "7,642",
+       "page": 1,
+       "cell": null,
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 6,
+      "vendor_label": "RSC shipper, 1 L × 12",
+      "price": 20926,
+      "currency": "INR",
+      "unit": "per_1000",
+      "bundle_size": null,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "launch-godavari-quote.pdf",
+       "kind": "pdf",
+       "ref": "page 1",
+       "snippet": "20,926",
+       "page": 1,
+       "cell": null,
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 7,
+      "vendor_label": "RSC carton, 500 ml × 24",
+      "price": 9408,
+      "currency": "INR",
+      "unit": "per_1000",
+      "bundle_size": null,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "launch-godavari-quote.pdf",
+       "kind": "pdf",
+       "ref": "page 1",
+       "snippet": "9,408",
+       "page": 1,
+       "cell": null,
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 8,
+      "vendor_label": "RSC carton, tablets",
+      "price": 5603,
+      "currency": "INR",
+      "unit": "per_1000",
+      "bundle_size": null,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "launch-godavari-quote.pdf",
+       "kind": "pdf",
+       "ref": "page 1",
+       "snippet": "5,603",
+       "page": 1,
+       "cell": null,
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 9,
+      "vendor_label": "Die-cut display tray",
+      "price": 6950.2,
+      "currency": "INR",
+      "unit": "per_1000",
+      "bundle_size": null,
+      "gst_included": true,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "launch-godavari-quote.pdf",
+       "kind": "pdf",
+       "ref": "page 1",
+       "snippet": "6,950",
+       "page": 1,
+       "cell": null,
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 10,
+      "vendor_label": "Partition set 3 × 4",
+      "price": 6306,
+      "currency": "INR",
+      "unit": "per_1000",
+      "bundle_size": null,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "launch-godavari-quote.pdf",
+       "kind": "pdf",
+       "ref": "page 1",
+       "snippet": "6,306",
+       "page": 1,
+       "cell": null,
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 11,
+      "vendor_label": "RSC shipper, slim",
+      "price": 24608,
+      "currency": "INR",
+      "unit": "per_1000",
+      "bundle_size": null,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "launch-godavari-quote.pdf",
+       "kind": "pdf",
+       "ref": "page 1",
+       "snippet": "24,608",
+       "page": 1,
+       "cell": null,
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 12,
+      "vendor_label": "RSC carton, 1 L bottles × 6",
+      "price": 9141,
+      "currency": "INR",
+      "unit": "per_1000",
+      "bundle_size": null,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "launch-godavari-quote.pdf",
+       "kind": "pdf",
+       "ref": "page 1",
+       "snippet": "9,141",
+       "page": 1,
+       "cell": null,
+       "paragraph": null,
+       "bbox": null
+      }
+     }
+    ],
+    "missing_lines": [],
+    "unreadable_lines": [],
+    "rest_from_last_year": false,
+    "terms": {
+     "payment_days": 60,
+     "validity_days": 60,
+     "lead_time_days": 18,
+     "freight": "included",
+     "freight_amount": null
+    },
+    "discount": null,
+    "answers": [
+     {
+      "q_no": 1,
+      "met": true,
+      "answer": "ISO 9001 certified, valid until Dec 2027"
+     },
+     {
+      "q_no": 2,
+      "met": true,
+      "answer": "FSC certified"
+     },
+     {
+      "q_no": 3,
+      "met": false,
+      "answer": "BCT reports not available at present"
+     },
+     {
+      "q_no": 4,
+      "met": false,
+      "answer": "No in-house ECT tester"
+     },
+     {
+      "q_no": 5,
+      "met": false,
+      "answer": "2 lakh boxes per month"
+     },
+     {
+      "q_no": 6,
+      "met": true,
+      "answer": "18 days"
+     },
+     {
+      "q_no": 7,
+      "met": true,
+      "answer": "1 complaint in the last year"
+     },
+     {
+      "q_no": 8,
+      "met": true,
+      "answer": "Buffer stock offered"
+     },
+     {
+      "q_no": 9,
+      "met": true,
+      "answer": "Supply to both plants"
+     },
+     {
+      "q_no": 10,
+      "met": true,
+      "answer": "Two-colour flexo printing"
+     },
+     {
+      "q_no": 11,
+      "met": true,
+      "answer": "Mill certificates shared with every lot"
+     },
+     {
+      "q_no": 12,
+      "met": true,
+      "answer": "Recycled content declared"
+     }
+    ],
+    "certificates": [
+     {
+      "name": "ISO 9001",
+      "valid_until": "2027-12-31",
+      "source": {
+       "attachment": "launch-godavari-quote.pdf",
+       "kind": "pdf",
+       "ref": "page 2",
+       "snippet": "ISO 9001 certified, valid until Dec 2027",
+       "page": 2,
+       "cell": null,
+       "paragraph": null,
+       "bbox": null
+      }
+     }
+    ]
+   },
+   {
+    "vendor_code": "V3",
+    "quotes": [
+     {
+      "line_no": 1,
+      "vendor_label": "RSC shipper, large (5 L × 4)",
+      "price": 41.47,
+      "currency": "INR",
+      "unit": "piece",
+      "bundle_size": null,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "launch-konkan-quote.docx",
+       "kind": "word",
+       "ref": "paragraph",
+       "snippet": "Rs. 41.47",
+       "page": null,
+       "cell": null,
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 2,
+      "vendor_label": "RSC shipper, medium (2 L × 6)",
+      "price": 24.78,
+      "currency": "INR",
+      "unit": "piece",
+      "bundle_size": null,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "launch-konkan-quote.docx",
+       "kind": "word",
+       "ref": "paragraph",
+       "snippet": "Rs. 24.78",
+       "page": null,
+       "cell": null,
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 3,
+      "vendor_label": "RSC carton, sachet bundle",
+      "price": 7.17,
+      "currency": "INR",
+      "unit": "piece",
+      "bundle_size": null,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "launch-konkan-quote.docx",
+       "kind": "word",
+       "ref": "paragraph",
+       "snippet": "Rs. 7.17",
+       "page": null,
+       "cell": null,
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 4,
+      "vendor_label": "Die-cut tray, 2 L bottles",
+      "price": 4.97,
+      "currency": "INR",
+      "unit": "piece",
+      "bundle_size": null,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "launch-konkan-quote.docx",
+       "kind": "word",
+       "ref": "paragraph",
+       "snippet": "Rs. 4.97",
+       "page": null,
+       "cell": null,
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 5,
+      "vendor_label": "Partition set 4 × 6",
+      "price": 8.42,
+      "currency": "INR",
+      "unit": "piece",
+      "bundle_size": null,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "launch-konkan-quote.docx",
+       "kind": "word",
+       "ref": "paragraph",
+       "snippet": "Rs. 8.42",
+       "page": null,
+       "cell": null,
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 6,
+      "vendor_label": "RSC shipper, 1 L × 12",
+      "price": 20.75,
+      "currency": "INR",
+      "unit": "piece",
+      "bundle_size": null,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "launch-konkan-quote.docx",
+       "kind": "word",
+       "ref": "paragraph",
+       "snippet": "Rs. 20.75",
+       "page": null,
+       "cell": null,
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 7,
+      "vendor_label": "RSC carton, 500 ml × 24",
+      "price": 9.61,
+      "currency": "INR",
+      "unit": "piece",
+      "bundle_size": null,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "launch-konkan-quote.docx",
+       "kind": "word",
+       "ref": "paragraph",
+       "snippet": "Rs. 9.61",
+       "page": null,
+       "cell": null,
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 8,
+      "vendor_label": "RSC carton, tablets",
+      "price": 5.78,
+      "currency": "INR",
+      "unit": "piece",
+      "bundle_size": null,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "launch-konkan-quote.docx",
+       "kind": "word",
+       "ref": "paragraph",
+       "snippet": "Rs. 5.78",
+       "page": null,
+       "cell": null,
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 9,
+      "vendor_label": "Die-cut display tray",
+      "price": 6.04,
+      "currency": "INR",
+      "unit": "piece",
+      "bundle_size": null,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "launch-konkan-quote.docx",
+       "kind": "word",
+       "ref": "paragraph",
+       "snippet": "Rs. 6.04",
+       "page": null,
+       "cell": null,
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 10,
+      "vendor_label": "Partition set 3 × 4",
+      "price": 6.34,
+      "currency": "INR",
+      "unit": "piece",
+      "bundle_size": null,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "launch-konkan-quote.docx",
+       "kind": "word",
+       "ref": "paragraph",
+       "snippet": "Rs. 6.34",
+       "page": null,
+       "cell": null,
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 11,
+      "vendor_label": "RSC shipper, slim",
+      "price": 24.62,
+      "currency": "INR",
+      "unit": "piece",
+      "bundle_size": null,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "launch-konkan-quote.docx",
+       "kind": "word",
+       "ref": "paragraph",
+       "snippet": "Rs. 24.62",
+       "page": null,
+       "cell": null,
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 12,
+      "vendor_label": "RSC carton, 1 L bottles × 6",
+      "price": 8.78,
+      "currency": "INR",
+      "unit": "piece",
+      "bundle_size": null,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "launch-konkan-quote.docx",
+       "kind": "word",
+       "ref": "paragraph",
+       "snippet": "Rs. 8.78",
+       "page": null,
+       "cell": null,
+       "paragraph": null,
+       "bbox": null
+      }
+     }
+    ],
+    "missing_lines": [],
+    "unreadable_lines": [],
+    "rest_from_last_year": false,
+    "terms": {
+     "payment_days": 60,
+     "validity_days": 60,
+     "lead_time_days": 12,
+     "freight": "included",
+     "freight_amount": null
+    },
+    "discount": null,
+    "answers": [
+     {
+      "q_no": 1,
+      "met": true,
+      "answer": "ISO 9001 certified, valid until Jun 2027"
+     },
+     {
+      "q_no": 2,
+      "met": true,
+      "answer": "FSC certified"
+     },
+     {
+      "q_no": 3,
+      "met": true,
+      "answer": "BCT report with every lot"
+     },
+     {
+      "q_no": 4,
+      "met": false,
+      "answer": "No in-house ECT tester"
+     },
+     {
+      "q_no": 5,
+      "met": true,
+      "answer": "4 lakh boxes per month"
+     },
+     {
+      "q_no": 6,
+      "met": true,
+      "answer": "12 days"
+     },
+     {
+      "q_no": 7,
+      "met": true,
+      "answer": "1 complaint in the last year"
+     },
+     {
+      "q_no": 8,
+      "met": false,
+      "answer": "No buffer stock"
+     },
+     {
+      "q_no": 9,
+      "met": true,
+      "answer": "Supply to both plants"
+     },
+     {
+      "q_no": 10,
+      "met": false,
+      "answer": "No printing"
+     },
+     {
+      "q_no": 11,
+      "met": true,
+      "answer": "Mill certificates shared with every lot"
+     },
+     {
+      "q_no": 12,
+      "met": true,
+      "answer": "Recycled content declared"
+     }
+    ],
+    "certificates": [
+     {
+      "name": "ISO 9001",
+      "valid_until": "2027-06-30",
+      "source": {
+       "attachment": "launch-konkan-quote.docx",
+       "kind": "word",
+       "ref": "paragraph",
+       "snippet": "ISO 9001 certified, valid until Jun 2027",
+       "page": null,
+       "cell": null,
+       "paragraph": null,
+       "bbox": null
+      }
+     }
+    ]
+   },
+   {
+    "vendor_code": "V4",
+    "quotes": [
+     {
+      "line_no": 1,
+      "vendor_label": "RSC shipper, large (5 L × 4)",
+      "price": 43,
+      "currency": "INR",
+      "unit": "kg",
+      "bundle_size": null,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "launch-narmada-rate-card.jpg",
+       "kind": "photo",
+       "ref": "photo region",
+       "snippet": "Rs 43 / kg",
+       "page": null,
+       "cell": null,
+       "paragraph": null,
+       "bbox": [
+        0.1648,
+        0.3008,
+        0.6741,
+        0.0881
+       ]
+      }
+     },
+     {
+      "line_no": 2,
+      "vendor_label": "RSC shipper, medium (2 L × 6)",
+      "price": 43,
+      "currency": "INR",
+      "unit": "kg",
+      "bundle_size": null,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "launch-narmada-rate-card.jpg",
+       "kind": "photo",
+       "ref": "photo region",
+       "snippet": "Rs 43 / kg",
+       "page": null,
+       "cell": null,
+       "paragraph": null,
+       "bbox": [
+        0.1648,
+        0.3008,
+        0.6741,
+        0.0881
+       ]
+      }
+     },
+     {
+      "line_no": 3,
+      "vendor_label": "RSC carton, sachet bundle",
+      "price": 45,
+      "currency": "INR",
+      "unit": "kg",
+      "bundle_size": null,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "launch-narmada-rate-card.jpg",
+       "kind": "photo",
+       "ref": "photo region",
+       "snippet": "Rs 45 / kg",
+       "page": null,
+       "cell": null,
+       "paragraph": null,
+       "bbox": [
+        0.1576,
+        0.3831,
+        0.6877,
+        0.0915
+       ]
+      }
+     },
+     {
+      "line_no": 4,
+      "vendor_label": "Die-cut tray, 2 L bottles",
+      "price": 51,
+      "currency": "INR",
+      "unit": "kg",
+      "bundle_size": null,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "launch-narmada-rate-card.jpg",
+       "kind": "photo",
+       "ref": "photo region",
+       "snippet": "Rs 51 / kg",
+       "page": null,
+       "cell": null,
+       "paragraph": null,
+       "bbox": [
+        0.1501,
+        0.4687,
+        0.7019,
+        0.0951
+       ]
+      }
+     },
+     {
+      "line_no": 5,
+      "vendor_label": "Partition set 4 × 6",
+      "price": 49,
+      "currency": "INR",
+      "unit": "kg",
+      "bundle_size": null,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "launch-narmada-rate-card.jpg",
+       "kind": "photo",
+       "ref": "photo region",
+       "snippet": "Rs 49 / kg",
+       "page": null,
+       "cell": null,
+       "paragraph": null,
+       "bbox": [
+        0.1423,
+        0.5579,
+        0.7168,
+        0.099
+       ]
+      }
+     },
+     {
+      "line_no": 6,
+      "vendor_label": "RSC shipper, 1 L × 12",
+      "price": 43,
+      "currency": "INR",
+      "unit": "kg",
+      "bundle_size": null,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "launch-narmada-rate-card.jpg",
+       "kind": "photo",
+       "ref": "photo region",
+       "snippet": "Rs 43 / kg",
+       "page": null,
+       "cell": null,
+       "paragraph": null,
+       "bbox": [
+        0.1648,
+        0.3008,
+        0.6741,
+        0.0881
+       ]
+      }
+     },
+     {
+      "line_no": 7,
+      "vendor_label": "RSC carton, 500 ml × 24",
+      "price": 45,
+      "currency": "INR",
+      "unit": "kg",
+      "bundle_size": null,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "launch-narmada-rate-card.jpg",
+       "kind": "photo",
+       "ref": "photo region",
+       "snippet": "Rs 45 / kg",
+       "page": null,
+       "cell": null,
+       "paragraph": null,
+       "bbox": [
+        0.1576,
+        0.3831,
+        0.6877,
+        0.0915
+       ]
+      }
+     },
+     {
+      "line_no": 8,
+      "vendor_label": "RSC carton, tablets",
+      "price": 45,
+      "currency": "INR",
+      "unit": "kg",
+      "bundle_size": null,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "launch-narmada-rate-card.jpg",
+       "kind": "photo",
+       "ref": "photo region",
+       "snippet": "Rs 45 / kg",
+       "page": null,
+       "cell": null,
+       "paragraph": null,
+       "bbox": [
+        0.1576,
+        0.3831,
+        0.6877,
+        0.0915
+       ]
+      }
+     },
+     {
+      "line_no": 9,
+      "vendor_label": "Die-cut display tray",
+      "price": 51,
+      "currency": "INR",
+      "unit": "kg",
+      "bundle_size": null,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "launch-narmada-rate-card.jpg",
+       "kind": "photo",
+       "ref": "photo region",
+       "snippet": "Rs 51 / kg",
+       "page": null,
+       "cell": null,
+       "paragraph": null,
+       "bbox": [
+        0.1501,
+        0.4687,
+        0.7019,
+        0.0951
+       ]
+      }
+     },
+     {
+      "line_no": 10,
+      "vendor_label": "Partition set 3 × 4",
+      "price": 49,
+      "currency": "INR",
+      "unit": "kg",
+      "bundle_size": null,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "launch-narmada-rate-card.jpg",
+       "kind": "photo",
+       "ref": "photo region",
+       "snippet": "Rs 49 / kg",
+       "page": null,
+       "cell": null,
+       "paragraph": null,
+       "bbox": [
+        0.1423,
+        0.5579,
+        0.7168,
+        0.099
+       ]
+      }
+     },
+     {
+      "line_no": 11,
+      "vendor_label": "RSC shipper, slim",
+      "price": 43,
+      "currency": "INR",
+      "unit": "kg",
+      "bundle_size": null,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "launch-narmada-rate-card.jpg",
+       "kind": "photo",
+       "ref": "photo region",
+       "snippet": "Rs 43 / kg",
+       "page": null,
+       "cell": null,
+       "paragraph": null,
+       "bbox": [
+        0.1648,
+        0.3008,
+        0.6741,
+        0.0881
+       ]
+      }
+     },
+     {
+      "line_no": 12,
+      "vendor_label": "RSC carton, 1 L bottles × 6",
+      "price": 45,
+      "currency": "INR",
+      "unit": "kg",
+      "bundle_size": null,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "launch-narmada-rate-card.jpg",
+       "kind": "photo",
+       "ref": "photo region",
+       "snippet": "Rs 45 / kg",
+       "page": null,
+       "cell": null,
+       "paragraph": null,
+       "bbox": [
+        0.1576,
+        0.3831,
+        0.6877,
+        0.0915
+       ]
+      }
+     }
+    ],
+    "missing_lines": [],
+    "unreadable_lines": [],
+    "rest_from_last_year": false,
+    "terms": {
+     "payment_days": 45,
+     "validity_days": 60,
+     "lead_time_days": 7,
+     "freight": "included",
+     "freight_amount": null
+    },
+    "discount": null,
+    "answers": [
+     {
+      "q_no": 1,
+      "met": true,
+      "answer": "ISO 9001 certified, valid until the attached certificate"
+     },
+     {
+      "q_no": 2,
+      "met": true,
+      "answer": "FSC certified"
+     },
+     {
+      "q_no": 3,
+      "met": true,
+      "answer": "BCT report with every lot"
+     },
+     {
+      "q_no": 4,
+      "met": false,
+      "answer": "No in-house ECT tester"
+     },
+     {
+      "q_no": 5,
+      "met": true,
+      "answer": "4 lakh boxes per month"
+     },
+     {
+      "q_no": 6,
+      "met": true,
+      "answer": "7 days"
+     },
+     {
+      "q_no": 7,
+      "met": true,
+      "answer": "1 complaint in the last year"
+     },
+     {
+      "q_no": 8,
+      "met": false,
+      "answer": "No buffer stock"
+     },
+     {
+      "q_no": 9,
+      "met": true,
+      "answer": "Supply to both plants"
+     },
+     {
+      "q_no": 10,
+      "met": false,
+      "answer": "No printing"
+     },
+     {
+      "q_no": 11,
+      "met": true,
+      "answer": "Mill certificates shared with every lot"
+     },
+     {
+      "q_no": 12,
+      "met": true,
+      "answer": "Recycled content declared"
+     }
+    ],
+    "certificates": [
+     {
+      "name": "ISO 9001:2015",
+      "valid_until": "2027-09-30",
+      "source": {
+       "attachment": "launch-narmada-iso-9001.pdf",
+       "kind": "pdf",
+       "ref": "page 1",
+       "snippet": "Valid until",
+       "page": 1,
+       "cell": null,
+       "paragraph": null,
+       "bbox": null
+      }
+     }
+    ]
+   },
+   {
+    "vendor_code": "V5",
+    "quotes": [
+     {
+      "line_no": 1,
+      "vendor_label": "RSC shipper, large (5 L × 4)",
+      "price": 43.28,
+      "currency": "INR",
+      "unit": "piece",
+      "bundle_size": null,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": null,
+       "kind": "text",
+       "ref": "email body",
+       "snippet": "Rs 43.28",
+       "page": null,
+       "cell": null,
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 2,
+      "vendor_label": "RSC shipper, medium (2 L × 6)",
+      "price": 26.0,
+      "currency": "INR",
+      "unit": "piece",
+      "bundle_size": null,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": null,
+       "kind": "text",
+       "ref": "email body",
+       "snippet": "Rs 26.00",
+       "page": null,
+       "cell": null,
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 3,
+      "vendor_label": "RSC carton, sachet bundle",
+      "price": 7.25,
+      "currency": "INR",
+      "unit": "piece",
+      "bundle_size": null,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": null,
+       "kind": "text",
+       "ref": "email body",
+       "snippet": "Rs 7.25",
+       "page": null,
+       "cell": null,
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 4,
+      "vendor_label": "Die-cut tray, 2 L bottles",
+      "price": 4.66,
+      "currency": "INR",
+      "unit": "piece",
+      "bundle_size": null,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": null,
+       "kind": "text",
+       "ref": "email body",
+       "snippet": "Rs 4.66",
+       "page": null,
+       "cell": null,
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 5,
+      "vendor_label": "Partition set 4 × 6",
+      "price": 8.11,
+      "currency": "INR",
+      "unit": "piece",
+      "bundle_size": null,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": null,
+       "kind": "text",
+       "ref": "email body",
+       "snippet": "Rs 8.11",
+       "page": null,
+       "cell": null,
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 6,
+      "vendor_label": "RSC shipper, 1 L × 12",
+      "price": 21.52,
+      "currency": "INR",
+      "unit": "piece",
+      "bundle_size": null,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": null,
+       "kind": "text",
+       "ref": "email body",
+       "snippet": "Rs 21.52",
+       "page": null,
+       "cell": null,
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 7,
+      "vendor_label": "RSC carton, 500 ml × 24",
+      "price": 10.19,
+      "currency": "INR",
+      "unit": "piece",
+      "bundle_size": null,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": null,
+       "kind": "text",
+       "ref": "email body",
+       "snippet": "Rs 10.19",
+       "page": null,
+       "cell": null,
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 8,
+      "vendor_label": "RSC carton, tablets",
+      "price": 5.74,
+      "currency": "INR",
+      "unit": "piece",
+      "bundle_size": null,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": null,
+       "kind": "text",
+       "ref": "email body",
+       "snippet": "Rs 5.74",
+       "page": null,
+       "cell": null,
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 9,
+      "vendor_label": "Die-cut display tray",
+      "price": 5.89,
+      "currency": "INR",
+      "unit": "piece",
+      "bundle_size": null,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": null,
+       "kind": "text",
+       "ref": "email body",
+       "snippet": "Rs 5.89",
+       "page": null,
+       "cell": null,
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 10,
+      "vendor_label": "Partition set 3 × 4",
+      "price": 5.87,
+      "currency": "INR",
+      "unit": "piece",
+      "bundle_size": null,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": null,
+       "kind": "text",
+       "ref": "email body",
+       "snippet": "Rs 5.87",
+       "page": null,
+       "cell": null,
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 11,
+      "vendor_label": "RSC shipper, slim",
+      "price": 24.68,
+      "currency": "INR",
+      "unit": "piece",
+      "bundle_size": null,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": null,
+       "kind": "text",
+       "ref": "email body",
+       "snippet": "Rs 24.68",
+       "page": null,
+       "cell": null,
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 12,
+      "vendor_label": "RSC carton, 1 L bottles × 6",
+      "price": 9.52,
+      "currency": "INR",
+      "unit": "piece",
+      "bundle_size": null,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": null,
+       "kind": "text",
+       "ref": "email body",
+       "snippet": "Rs 9.52",
+       "page": null,
+       "cell": null,
+       "paragraph": null,
+       "bbox": null
+      }
+     }
+    ],
+    "missing_lines": [],
+    "unreadable_lines": [],
+    "rest_from_last_year": false,
+    "terms": {
+     "payment_days": 60,
+     "validity_days": 60,
+     "lead_time_days": 12,
+     "freight": "included",
+     "freight_amount": null
+    },
+    "discount": null,
+    "answers": [
+     {
+      "q_no": 1,
+      "met": true,
+      "answer": "ISO 9001 certified, valid until Jan 2028"
+     },
+     {
+      "q_no": 2,
+      "met": true,
+      "answer": "FSC certified"
+     },
+     {
+      "q_no": 3,
+      "met": true,
+      "answer": "BCT report with every lot"
+     },
+     {
+      "q_no": 4,
+      "met": true,
+      "answer": "ECT tested in-house"
+     },
+     {
+      "q_no": 5,
+      "met": true,
+      "answer": "4 lakh boxes per month"
+     },
+     {
+      "q_no": 6,
+      "met": true,
+      "answer": "12 days"
+     },
+     {
+      "q_no": 7,
+      "met": true,
+      "answer": "1 complaint in the last year"
+     },
+     {
+      "q_no": 8,
+      "met": true,
+      "answer": "Buffer stock offered"
+     },
+     {
+      "q_no": 9,
+      "met": true,
+      "answer": "Supply to both plants"
+     },
+     {
+      "q_no": 10,
+      "met": true,
+      "answer": "Two-colour flexo printing"
+     },
+     {
+      "q_no": 11,
+      "met": true,
+      "answer": "Mill certificates shared with every lot"
+     },
+     {
+      "q_no": 12,
+      "met": true,
+      "answer": "Recycled content declared"
+     }
+    ],
+    "certificates": [
+     {
+      "name": "ISO 9001",
+      "valid_until": "2028-01-31",
+      "source": {
+       "attachment": null,
+       "kind": "text",
+       "ref": "email body",
+       "snippet": "ISO 9001 certified, valid until Jan 2028",
+       "page": null,
+       "cell": null,
+       "paragraph": null,
+       "bbox": null
+      }
+     }
+    ]
+   }
+  ],
+  "rfi": [
+   {
+    "vendor_name": "Kaveri Corrugators",
+    "iso_9001": true,
+    "fsc": true,
+    "monthly_capacity": "3.0 L boxes",
+    "shortlisted": true,
+    "reason": "Supplies both plants by road; in-house BCT lab; one week of buffer stock."
+   },
+   {
+    "vendor_name": "Godavari Packaging Industries",
+    "iso_9001": true,
+    "fsc": true,
+    "monthly_capacity": "3.0 L boxes",
+    "shortlisted": true,
+    "reason": "Large converter in Aurangabad; prices per thousand; testing outsourced."
+   },
+   {
+    "vendor_name": "Konkan Corrugated",
+    "iso_9001": true,
+    "fsc": true,
+    "monthly_capacity": "3.0 L boxes",
+    "shortlisted": true,
+    "reason": "Mid-size unit near Plant 1; quick turnaround on die-cut trays."
+   },
+   {
+    "vendor_name": "Narmada Cartons",
+    "iso_9001": true,
+    "fsc": true,
+    "monthly_capacity": "3.0 L boxes",
+    "shortlisted": true,
+    "reason": "Next to Plant 2; prices by weight; can run a stock point inside the plant."
+   },
+   {
+    "vendor_name": "Sahyadri Paperpack",
+    "iso_9001": true,
+    "fsc": true,
+    "monthly_capacity": "3.0 L boxes",
+    "shortlisted": true,
+    "reason": "Current shipper supplier; offers launch support for new SKUs."
+   }
+  ]
+ },
+ "export": {
+  "key": "export",
+  "code": "RFX-2026-017",
+  "title": "Heavy-duty export cartons",
+  "category": "Corrugated packaging",
+  "lines": [
+   {
+    "line_no": 1,
+    "item_code": "EX-01",
+    "description": "RSC shipper, large (5 L × 4)",
+    "category": "rsc",
+    "ply": 5,
+    "gsm": 150,
+    "bf": 22,
+    "flute": "BC",
+    "length_mm": 500,
+    "width_mm": 400,
+    "height_mm": 300,
+    "qty_p1": 36000,
+    "qty_p2": 27000,
+    "is_new": false,
+    "spec_key": "rsc|5|150|500x400x300",
+    "est_weight_kg": 1.0124
+   },
+   {
+    "line_no": 2,
+    "item_code": "EX-02",
+    "description": "Heavy-duty export box",
+    "category": "heavy",
+    "ply": 7,
+    "gsm": 180,
+    "bf": 25,
+    "flute": "BCB",
+    "length_mm": 600,
+    "width_mm": 400,
+    "height_mm": 400,
+    "qty_p1": 7000,
+    "qty_p2": 5000,
+    "is_new": false,
+    "spec_key": "heavy|7|180|600x400x400",
+    "est_weight_kg": 1.9976
+   },
+   {
+    "line_no": 3,
+    "item_code": "EX-03",
+    "description": "RSC shipper, refill pouches",
+    "category": "rsc",
+    "ply": 5,
+    "gsm": 140,
+    "bf": 20,
+    "flute": "BC",
+    "length_mm": 420,
+    "width_mm": 320,
+    "height_mm": 280,
+    "qty_p1": 35000,
+    "qty_p2": 29000,
+    "is_new": false,
+    "spec_key": "rsc|5|140|420x320x280",
+    "est_weight_kg": 0.6895
+   },
+   {
+    "line_no": 4,
+    "item_code": "EX-04",
+    "description": "RSC shipper, gift pack",
+    "category": "rsc",
+    "ply": 5,
+    "gsm": 150,
+    "bf": 22,
+    "flute": "BC",
+    "length_mm": 450,
+    "width_mm": 350,
+    "height_mm": 300,
+    "qty_p1": 12000,
+    "qty_p2": 9000,
+    "is_new": false,
+    "spec_key": "rsc|5|150|450x350x300",
+    "est_weight_kg": 0.8379
+   },
+   {
+    "line_no": 5,
+    "item_code": "EX-05",
+    "description": "Heavy-duty drum box",
+    "category": "heavy",
+    "ply": 7,
+    "gsm": 180,
+    "bf": 25,
+    "flute": "BCB",
+    "length_mm": 500,
+    "width_mm": 500,
+    "height_mm": 600,
+    "qty_p1": 4000,
+    "qty_p2": 2000,
+    "is_new": false,
+    "spec_key": "heavy|7|180|500x500x600",
+    "est_weight_kg": 2.7467
+   },
+   {
+    "line_no": 6,
+    "item_code": "EX-06",
+    "description": "RSC shipper, slim",
+    "category": "rsc",
+    "ply": 5,
+    "gsm": 140,
+    "bf": 20,
+    "flute": "BC",
+    "length_mm": 480,
+    "width_mm": 220,
+    "height_mm": 300,
+    "qty_p1": 27000,
+    "qty_p2": 21000,
+    "is_new": false,
+    "spec_key": "rsc|5|140|480x220x300",
+    "est_weight_kg": 0.5661
+   },
+   {
+    "line_no": 7,
+    "item_code": "EX-07",
+    "description": "RSC shipper, 5 L × 2",
+    "category": "rsc",
+    "ply": 5,
+    "gsm": 150,
+    "bf": 22,
+    "flute": "BC",
+    "length_mm": 380,
+    "width_mm": 190,
+    "height_mm": 330,
+    "qty_p1": 30000,
+    "qty_p2": 24000,
+    "is_new": false,
+    "spec_key": "rsc|5|150|380x190x330",
+    "est_weight_kg": 0.4823
+   },
+   {
+    "line_no": 8,
+    "item_code": "EX-08",
+    "description": "Heavy-duty pallet sleeve",
+    "category": "heavy",
+    "ply": 7,
+    "gsm": 180,
+    "bf": 25,
+    "flute": "BCB",
+    "length_mm": 1000,
+    "width_mm": 800,
+    "height_mm": 500,
+    "qty_p1": 2000,
+    "qty_p2": 1000,
+    "is_new": false,
+    "spec_key": "heavy|7|180|1000x800x500",
+    "est_weight_kg": 5.792
+   },
+   {
+    "line_no": 9,
+    "item_code": "EX-09",
+    "description": "RSC shipper, 2 L × 4",
+    "category": "rsc",
+    "ply": 5,
+    "gsm": 140,
+    "bf": 20,
+    "flute": "BC",
+    "length_mm": 330,
+    "width_mm": 330,
+    "height_mm": 300,
+    "qty_p1": 24000,
+    "qty_p2": 18000,
+    "is_new": false,
+    "spec_key": "rsc|5|140|330x330x300",
+    "est_weight_kg": 0.6477
+   },
+   {
+    "line_no": 10,
+    "item_code": "EX-10",
+    "description": "Heavy-duty RSC, new export line",
+    "category": "heavy",
+    "ply": 7,
+    "gsm": 180,
+    "bf": 25,
+    "flute": "BCB",
+    "length_mm": 550,
+    "width_mm": 450,
+    "height_mm": 450,
+    "qty_p1": 5000,
+    "qty_p2": 4000,
+    "is_new": false,
+    "spec_key": "heavy|7|180|550x450x450",
+    "est_weight_kg": 2.2473
+   }
+  ],
+  "request": {
+   "from": "Kavita Rao, Export Logistics",
+   "day": -25,
+   "subject": "Export-grade cartons for the Middle East orders",
+   "body": "Pavan,\n\nThe Middle East distributor orders need stronger 5- and 7-ply cartons and pallet sleeves. Volumes for the next 12 months are attached. Please make sure suppliers can certify BCT for 7-ply.\n\nKavita"
+  },
+  "vendors": [
+   {
+    "code": "V1",
+    "name": "Deccan Boxboard Exports",
+    "email": "quotes@deccan-boxboard.example",
+    "reply_format": "pdf",
+    "rfi_note": "Export-oriented unit; quotes in USD; volume tiers on high runners.",
+    "rfp_summary": "Export-oriented unit; quotes in USD; volume tiers on high runners."
+   },
+   {
+    "code": "V2",
+    "name": "Kaveri Corrugators",
+    "email": "sales@kaveri-corrugators.example",
+    "reply_format": "excel",
+    "rfi_note": "7-ply capable; supplies both plants; in-house testing.",
+    "rfp_summary": "7-ply capable; supplies both plants; in-house testing."
+   },
+   {
+    "code": "V3",
+    "name": "Tapi Cartons",
+    "email": "quotes@tapi-cartons.example",
+    "reply_format": "email",
+    "rfi_note": "Surat-based; competitive on heavy-duty boxes; freight charged separately.",
+    "rfp_summary": "Surat-based; competitive on heavy-duty boxes; freight charged separately."
+   },
+   {
+    "code": "V4",
+    "name": "Vindhya Box Co.",
+    "email": "sales@vindhya-box.example",
+    "reply_format": "word",
+    "rfi_note": "New supplier; strong on pallet sleeves; testing through a partner lab.",
+    "rfp_summary": "New supplier; strong on pallet sleeves; testing through a partner lab."
+   }
+  ],
+  "contracts": [],
+  "replies": [
+   {
+    "vendor_code": "V1",
+    "day": 4,
+    "subject": "Offer RFX-2026-017 · Deccan Boxboard Exports",
+    "body": "Dear Sir,\n\nPlease find our quotation attached.\n\nBest regards,\nMeera Joshi",
+    "attachments": [
+     {
+      "filename": "export-deccan-quote.pdf",
+      "kind": "pdf",
+      "mime": "application/pdf"
+     }
+    ]
+   },
+   {
+    "vendor_code": "V2",
+    "day": 6,
+    "subject": "Quotation · RFX-2026-017",
+    "body": "Dear Pavan,\n\nOur price offer is attached.\n\nRegards,\nAnil Shetty\nKaveri Corrugators",
+    "attachments": [
+     {
+      "filename": "export-kaveri-quote.xlsx",
+      "kind": "excel",
+      "mime": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+     }
+    ]
+   },
+   {
+    "vendor_code": "V3",
+    "day": 8,
+    "subject": "RE: RFX-2026-017",
+    "body": "Hi Pavan,\n\nOur rates per piece, ex-GST, freight extra at actuals:\n\nItem 1 (RSC shipper): Rs 42.82\nItem 2 (Heavy-duty export box): Rs 79.94\nItem 3 (RSC shipper): Rs 28.65\nItem 4 (RSC shipper): Rs 34.93\nItem 5 (Heavy-duty drum box): Rs 110.26\nItem 6 (RSC shipper): Rs 23.23\nItem 7 (RSC shipper): Rs 21.21\nItem 8 (Heavy-duty pallet sleeve): Rs 221.94\nItem 9 (RSC shipper): Rs 25.51\nItem 10 (Heavy-duty RSC): Rs 90.11\n\nPayment 45 days, lead time 10 days. ISO 9001 certified, valid until Jan 2028. FSC certified. BCT report with every lot. No in-house ECT tester. 4 lakh boxes per month. 10 days. 1 complaint in the last year. No buffer stock. Supply to both plants. No printing. Mill certificates shared with every lot. Recycled content declared.\n\nThanks,\nJignesh Mehta\nTapi Cartons",
+    "attachments": []
+   },
+   {
+    "vendor_code": "V4",
+    "day": 10,
+    "subject": "Offer against RFX-2026-017",
+    "body": "Dear Pavan,\n\nOur offer is attached as a Word document.\n\nPriya Chauhan",
+    "attachments": [
+     {
+      "filename": "export-vindhya-quote.docx",
+      "kind": "word",
+      "mime": "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+     }
+    ]
+   }
+  ],
+  "ideal": [
+   {
+    "vendor_code": "V1",
+    "quotes": [
+     {
+      "line_no": 1,
+      "vendor_label": "RSC shipper, large (5 L × 4)",
+      "price": 0.497,
+      "currency": "USD",
+      "unit": "piece",
+      "bundle_size": null,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "export-deccan-quote.pdf",
+       "kind": "pdf",
+       "ref": "page 1",
+       "snippet": "0.497",
+       "page": 1,
+       "cell": null,
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 2,
+      "vendor_label": "Heavy-duty export box",
+      "price": 0.983,
+      "currency": "USD",
+      "unit": "piece",
+      "bundle_size": null,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "export-deccan-quote.pdf",
+       "kind": "pdf",
+       "ref": "page 1",
+       "snippet": "0.983",
+       "page": 1,
+       "cell": null,
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 3,
+      "vendor_label": "RSC shipper, refill pouches",
+      "price": 0.344,
+      "currency": "USD",
+      "unit": "piece",
+      "bundle_size": null,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "export-deccan-quote.pdf",
+       "kind": "pdf",
+       "ref": "page 1",
+       "snippet": "0.344",
+       "page": 1,
+       "cell": null,
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 4,
+      "vendor_label": "RSC shipper, gift pack",
+      "price": 0.434,
+      "currency": "USD",
+      "unit": "piece",
+      "bundle_size": null,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "export-deccan-quote.pdf",
+       "kind": "pdf",
+       "ref": "page 1",
+       "snippet": "0.434",
+       "page": 1,
+       "cell": null,
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 5,
+      "vendor_label": "Heavy-duty drum box",
+      "price": 1.273,
+      "currency": "USD",
+      "unit": "piece",
+      "bundle_size": null,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "export-deccan-quote.pdf",
+       "kind": "pdf",
+       "ref": "page 1",
+       "snippet": "1.273",
+       "page": 1,
+       "cell": null,
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 6,
+      "vendor_label": "RSC shipper, slim",
+      "price": 0.285,
+      "currency": "USD",
+      "unit": "piece",
+      "bundle_size": null,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "export-deccan-quote.pdf",
+       "kind": "pdf",
+       "ref": "page 1",
+       "snippet": "0.285",
+       "page": 1,
+       "cell": null,
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 7,
+      "vendor_label": "RSC shipper, 5 L × 2",
+      "price": 0.238,
+      "currency": "USD",
+      "unit": "piece",
+      "bundle_size": null,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "export-deccan-quote.pdf",
+       "kind": "pdf",
+       "ref": "page 1",
+       "snippet": "0.238",
+       "page": 1,
+       "cell": null,
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 8,
+      "vendor_label": "Heavy-duty pallet sleeve",
+      "price": 2.847,
+      "currency": "USD",
+      "unit": "piece",
+      "bundle_size": null,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "export-deccan-quote.pdf",
+       "kind": "pdf",
+       "ref": "page 1",
+       "snippet": "2.847",
+       "page": 1,
+       "cell": null,
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 9,
+      "vendor_label": "RSC shipper, 2 L × 4",
+      "price": 0.32,
+      "currency": "USD",
+      "unit": "piece",
+      "bundle_size": null,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "export-deccan-quote.pdf",
+       "kind": "pdf",
+       "ref": "page 1",
+       "snippet": "0.320",
+       "page": 1,
+       "cell": null,
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 10,
+      "vendor_label": "Heavy-duty RSC, new export line",
+      "price": 1.115,
+      "currency": "USD",
+      "unit": "piece",
+      "bundle_size": null,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "export-deccan-quote.pdf",
+       "kind": "pdf",
+       "ref": "page 1",
+       "snippet": "1.115",
+       "page": 1,
+       "cell": null,
+       "paragraph": null,
+       "bbox": null
+      }
+     }
+    ],
+    "missing_lines": [],
+    "unreadable_lines": [],
+    "rest_from_last_year": false,
+    "terms": {
+     "payment_days": 60,
+     "validity_days": 60,
+     "lead_time_days": 21,
+     "freight": "included",
+     "freight_amount": null
+    },
+    "discount": null,
+    "answers": [
+     {
+      "q_no": 1,
+      "met": true,
+      "answer": "ISO 9001 certified, valid until Dec 2027"
+     },
+     {
+      "q_no": 2,
+      "met": true,
+      "answer": "FSC certified"
+     },
+     {
+      "q_no": 3,
+      "met": true,
+      "answer": "BCT report with every lot"
+     },
+     {
+      "q_no": 4,
+      "met": false,
+      "answer": "No in-house ECT tester"
+     },
+     {
+      "q_no": 5,
+      "met": true,
+      "answer": "4 lakh boxes per month"
+     },
+     {
+      "q_no": 6,
+      "met": true,
+      "answer": "21 days"
+     },
+     {
+      "q_no": 7,
+      "met": true,
+      "answer": "1 complaint in the last year"
+     },
+     {
+      "q_no": 8,
+      "met": false,
+      "answer": "No buffer stock"
+     },
+     {
+      "q_no": 9,
+      "met": true,
+      "answer": "Supply to both plants"
+     },
+     {
+      "q_no": 10,
+      "met": false,
+      "answer": "No printing"
+     },
+     {
+      "q_no": 11,
+      "met": true,
+      "answer": "Mill certificates shared with every lot"
+     },
+     {
+      "q_no": 12,
+      "met": true,
+      "answer": "Recycled content declared"
+     }
+    ],
+    "certificates": [
+     {
+      "name": "ISO 9001",
+      "valid_until": "2027-12-31",
+      "source": {
+       "attachment": "export-deccan-quote.pdf",
+       "kind": "pdf",
+       "ref": "page 2",
+       "snippet": "ISO 9001 certified, valid until Dec 2027",
+       "page": 2,
+       "cell": null,
+       "paragraph": null,
+       "bbox": null
+      }
+     }
+    ]
+   },
+   {
+    "vendor_code": "V2",
+    "quotes": [
+     {
+      "line_no": 7,
+      "vendor_label": "RSC shipper, 5 L × 2",
+      "price": 2153,
+      "currency": "INR",
+      "unit": "bundle",
+      "bundle_size": 100,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "export-kaveri-quote.xlsx",
+       "kind": "excel",
+       "ref": "Quote!E5",
+       "snippet": "2153",
+       "page": null,
+       "cell": "Quote!E5",
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 8,
+      "vendor_label": "Heavy-duty pallet sleeve",
+      "price": 24216,
+      "currency": "INR",
+      "unit": "bundle",
+      "bundle_size": 100,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "export-kaveri-quote.xlsx",
+       "kind": "excel",
+       "ref": "Quote!E6",
+       "snippet": "24216",
+       "page": null,
+       "cell": "Quote!E6",
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 2,
+      "vendor_label": "Heavy-duty export box",
+      "price": 8693,
+      "currency": "INR",
+      "unit": "bundle",
+      "bundle_size": 100,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "export-kaveri-quote.xlsx",
+       "kind": "excel",
+       "ref": "Quote!E7",
+       "snippet": "8693",
+       "page": null,
+       "cell": "Quote!E7",
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 3,
+      "vendor_label": "RSC shipper, refill pouches",
+      "price": 3093,
+      "currency": "INR",
+      "unit": "bundle",
+      "bundle_size": 100,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "export-kaveri-quote.xlsx",
+       "kind": "excel",
+       "ref": "Quote!E8",
+       "snippet": "3093",
+       "page": null,
+       "cell": "Quote!E8",
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 10,
+      "vendor_label": "Heavy-duty RSC, new export line",
+      "price": 9385,
+      "currency": "INR",
+      "unit": "bundle",
+      "bundle_size": 100,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "export-kaveri-quote.xlsx",
+       "kind": "excel",
+       "ref": "Quote!E9",
+       "snippet": "9385",
+       "page": null,
+       "cell": "Quote!E9",
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 5,
+      "vendor_label": "Heavy-duty drum box",
+      "price": 11105,
+      "currency": "INR",
+      "unit": "bundle",
+      "bundle_size": 100,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "export-kaveri-quote.xlsx",
+       "kind": "excel",
+       "ref": "Quote!E10",
+       "snippet": "11105",
+       "page": null,
+       "cell": "Quote!E10",
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 9,
+      "vendor_label": "RSC shipper, 2 L × 4",
+      "price": 2905,
+      "currency": "INR",
+      "unit": "bundle",
+      "bundle_size": 100,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "export-kaveri-quote.xlsx",
+       "kind": "excel",
+       "ref": "Quote!E11",
+       "snippet": "2905",
+       "page": null,
+       "cell": "Quote!E11",
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 1,
+      "vendor_label": "RSC shipper, large (5 L × 4)",
+      "price": 4511,
+      "currency": "INR",
+      "unit": "bundle",
+      "bundle_size": 100,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "export-kaveri-quote.xlsx",
+       "kind": "excel",
+       "ref": "Quote!E12",
+       "snippet": "4511",
+       "page": null,
+       "cell": "Quote!E12",
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 4,
+      "vendor_label": "RSC shipper, gift pack",
+      "price": 3512,
+      "currency": "INR",
+      "unit": "bundle",
+      "bundle_size": 100,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "export-kaveri-quote.xlsx",
+       "kind": "excel",
+       "ref": "Quote!E13",
+       "snippet": "3512",
+       "page": null,
+       "cell": "Quote!E13",
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 6,
+      "vendor_label": "RSC shipper, slim",
+      "price": 2497,
+      "currency": "INR",
+      "unit": "bundle",
+      "bundle_size": 100,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "export-kaveri-quote.xlsx",
+       "kind": "excel",
+       "ref": "Quote!E14",
+       "snippet": "2497",
+       "page": null,
+       "cell": "Quote!E14",
+       "paragraph": null,
+       "bbox": null
+      }
+     }
+    ],
+    "missing_lines": [],
+    "unreadable_lines": [],
+    "rest_from_last_year": false,
+    "terms": {
+     "payment_days": 60,
+     "validity_days": 60,
+     "lead_time_days": 14,
+     "freight": "included",
+     "freight_amount": null
+    },
+    "discount": null,
+    "answers": [
+     {
+      "q_no": 1,
+      "met": true,
+      "answer": "ISO 9001 certified, valid until Mar 2028"
+     },
+     {
+      "q_no": 2,
+      "met": true,
+      "answer": "FSC certified"
+     },
+     {
+      "q_no": 3,
+      "met": true,
+      "answer": "BCT report with every lot"
+     },
+     {
+      "q_no": 4,
+      "met": true,
+      "answer": "ECT tested in-house"
+     },
+     {
+      "q_no": 5,
+      "met": true,
+      "answer": "4 lakh boxes per month"
+     },
+     {
+      "q_no": 6,
+      "met": true,
+      "answer": "14 days"
+     },
+     {
+      "q_no": 7,
+      "met": true,
+      "answer": "1 complaint in the last year"
+     },
+     {
+      "q_no": 8,
+      "met": true,
+      "answer": "Buffer stock offered"
+     },
+     {
+      "q_no": 9,
+      "met": true,
+      "answer": "Supply to both plants"
+     },
+     {
+      "q_no": 10,
+      "met": true,
+      "answer": "Two-colour flexo printing"
+     },
+     {
+      "q_no": 11,
+      "met": true,
+      "answer": "Mill certificates shared with every lot"
+     },
+     {
+      "q_no": 12,
+      "met": true,
+      "answer": "Recycled content declared"
+     }
+    ],
+    "certificates": [
+     {
+      "name": "ISO 9001",
+      "valid_until": "2028-03-31",
+      "source": {
+       "attachment": "export-kaveri-quote.xlsx",
+       "kind": "excel",
+       "ref": "Compliance!C2",
+       "snippet": "ISO 9001 certified, valid until Mar 2028",
+       "page": null,
+       "cell": "Compliance!C2",
+       "paragraph": null,
+       "bbox": null
+      }
+     }
+    ]
+   },
+   {
+    "vendor_code": "V3",
+    "quotes": [
+     {
+      "line_no": 1,
+      "vendor_label": "RSC shipper, large (5 L × 4)",
+      "price": 42.82,
+      "currency": "INR",
+      "unit": "piece",
+      "bundle_size": null,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": null,
+       "kind": "text",
+       "ref": "email body",
+       "snippet": "Rs 42.82",
+       "page": null,
+       "cell": null,
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 2,
+      "vendor_label": "Heavy-duty export box",
+      "price": 79.94,
+      "currency": "INR",
+      "unit": "piece",
+      "bundle_size": null,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": null,
+       "kind": "text",
+       "ref": "email body",
+       "snippet": "Rs 79.94",
+       "page": null,
+       "cell": null,
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 3,
+      "vendor_label": "RSC shipper, refill pouches",
+      "price": 28.65,
+      "currency": "INR",
+      "unit": "piece",
+      "bundle_size": null,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": null,
+       "kind": "text",
+       "ref": "email body",
+       "snippet": "Rs 28.65",
+       "page": null,
+       "cell": null,
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 4,
+      "vendor_label": "RSC shipper, gift pack",
+      "price": 34.93,
+      "currency": "INR",
+      "unit": "piece",
+      "bundle_size": null,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": null,
+       "kind": "text",
+       "ref": "email body",
+       "snippet": "Rs 34.93",
+       "page": null,
+       "cell": null,
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 5,
+      "vendor_label": "Heavy-duty drum box",
+      "price": 110.26,
+      "currency": "INR",
+      "unit": "piece",
+      "bundle_size": null,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": null,
+       "kind": "text",
+       "ref": "email body",
+       "snippet": "Rs 110.26",
+       "page": null,
+       "cell": null,
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 6,
+      "vendor_label": "RSC shipper, slim",
+      "price": 23.23,
+      "currency": "INR",
+      "unit": "piece",
+      "bundle_size": null,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": null,
+       "kind": "text",
+       "ref": "email body",
+       "snippet": "Rs 23.23",
+       "page": null,
+       "cell": null,
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 7,
+      "vendor_label": "RSC shipper, 5 L × 2",
+      "price": 21.21,
+      "currency": "INR",
+      "unit": "piece",
+      "bundle_size": null,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": null,
+       "kind": "text",
+       "ref": "email body",
+       "snippet": "Rs 21.21",
+       "page": null,
+       "cell": null,
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 8,
+      "vendor_label": "Heavy-duty pallet sleeve",
+      "price": 221.94,
+      "currency": "INR",
+      "unit": "piece",
+      "bundle_size": null,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": null,
+       "kind": "text",
+       "ref": "email body",
+       "snippet": "Rs 221.94",
+       "page": null,
+       "cell": null,
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 9,
+      "vendor_label": "RSC shipper, 2 L × 4",
+      "price": 25.51,
+      "currency": "INR",
+      "unit": "piece",
+      "bundle_size": null,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": null,
+       "kind": "text",
+       "ref": "email body",
+       "snippet": "Rs 25.51",
+       "page": null,
+       "cell": null,
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 10,
+      "vendor_label": "Heavy-duty RSC, new export line",
+      "price": 90.11,
+      "currency": "INR",
+      "unit": "piece",
+      "bundle_size": null,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": null,
+       "kind": "text",
+       "ref": "email body",
+       "snippet": "Rs 90.11",
+       "page": null,
+       "cell": null,
+       "paragraph": null,
+       "bbox": null
+      }
+     }
+    ],
+    "missing_lines": [],
+    "unreadable_lines": [],
+    "rest_from_last_year": false,
+    "terms": {
+     "payment_days": 45,
+     "validity_days": 60,
+     "lead_time_days": 10,
+     "freight": "extra",
+     "freight_amount": null
+    },
+    "discount": null,
+    "answers": [
+     {
+      "q_no": 1,
+      "met": true,
+      "answer": "ISO 9001 certified, valid until Jan 2028"
+     },
+     {
+      "q_no": 2,
+      "met": true,
+      "answer": "FSC certified"
+     },
+     {
+      "q_no": 3,
+      "met": true,
+      "answer": "BCT report with every lot"
+     },
+     {
+      "q_no": 4,
+      "met": false,
+      "answer": "No in-house ECT tester"
+     },
+     {
+      "q_no": 5,
+      "met": true,
+      "answer": "4 lakh boxes per month"
+     },
+     {
+      "q_no": 6,
+      "met": true,
+      "answer": "10 days"
+     },
+     {
+      "q_no": 7,
+      "met": true,
+      "answer": "1 complaint in the last year"
+     },
+     {
+      "q_no": 8,
+      "met": false,
+      "answer": "No buffer stock"
+     },
+     {
+      "q_no": 9,
+      "met": true,
+      "answer": "Supply to both plants"
+     },
+     {
+      "q_no": 10,
+      "met": false,
+      "answer": "No printing"
+     },
+     {
+      "q_no": 11,
+      "met": true,
+      "answer": "Mill certificates shared with every lot"
+     },
+     {
+      "q_no": 12,
+      "met": true,
+      "answer": "Recycled content declared"
+     }
+    ],
+    "certificates": [
+     {
+      "name": "ISO 9001",
+      "valid_until": "2028-01-31",
+      "source": {
+       "attachment": null,
+       "kind": "text",
+       "ref": "email body",
+       "snippet": "ISO 9001 certified, valid until Jan 2028",
+       "page": null,
+       "cell": null,
+       "paragraph": null,
+       "bbox": null
+      }
+     }
+    ]
+   },
+   {
+    "vendor_code": "V4",
+    "quotes": [
+     {
+      "line_no": 1,
+      "vendor_label": "RSC shipper, large (5 L × 4)",
+      "price": 42.4,
+      "currency": "INR",
+      "unit": "piece",
+      "bundle_size": null,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "export-vindhya-quote.docx",
+       "kind": "word",
+       "ref": "paragraph",
+       "snippet": "Rs. 42.40",
+       "page": null,
+       "cell": null,
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 2,
+      "vendor_label": "Heavy-duty export box",
+      "price": 78.26,
+      "currency": "INR",
+      "unit": "piece",
+      "bundle_size": null,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "export-vindhya-quote.docx",
+       "kind": "word",
+       "ref": "paragraph",
+       "snippet": "Rs. 78.26",
+       "page": null,
+       "cell": null,
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 4,
+      "vendor_label": "RSC shipper, gift pack",
+      "price": 35.26,
+      "currency": "INR",
+      "unit": "piece",
+      "bundle_size": null,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "export-vindhya-quote.docx",
+       "kind": "word",
+       "ref": "paragraph",
+       "snippet": "Rs. 35.26",
+       "page": null,
+       "cell": null,
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 5,
+      "vendor_label": "Heavy-duty drum box",
+      "price": 112.69,
+      "currency": "INR",
+      "unit": "piece",
+      "bundle_size": null,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "export-vindhya-quote.docx",
+       "kind": "word",
+       "ref": "paragraph",
+       "snippet": "Rs. 112.69",
+       "page": null,
+       "cell": null,
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 6,
+      "vendor_label": "RSC shipper, slim",
+      "price": 24.89,
+      "currency": "INR",
+      "unit": "piece",
+      "bundle_size": null,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "export-vindhya-quote.docx",
+       "kind": "word",
+       "ref": "paragraph",
+       "snippet": "Rs. 24.89",
+       "page": null,
+       "cell": null,
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 7,
+      "vendor_label": "RSC shipper, 5 L × 2",
+      "price": 21.02,
+      "currency": "INR",
+      "unit": "piece",
+      "bundle_size": null,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "export-vindhya-quote.docx",
+       "kind": "word",
+       "ref": "paragraph",
+       "snippet": "Rs. 21.02",
+       "page": null,
+       "cell": null,
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 9,
+      "vendor_label": "RSC shipper, 2 L × 4",
+      "price": 26.54,
+      "currency": "INR",
+      "unit": "piece",
+      "bundle_size": null,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "export-vindhya-quote.docx",
+       "kind": "word",
+       "ref": "paragraph",
+       "snippet": "Rs. 26.54",
+       "page": null,
+       "cell": null,
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 10,
+      "vendor_label": "Heavy-duty RSC, new export line",
+      "price": 85.81,
+      "currency": "INR",
+      "unit": "piece",
+      "bundle_size": null,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "export-vindhya-quote.docx",
+       "kind": "word",
+       "ref": "paragraph",
+       "snippet": "Rs. 85.81",
+       "page": null,
+       "cell": null,
+       "paragraph": null,
+       "bbox": null
+      }
+     }
+    ],
+    "missing_lines": [
+     3,
+     8
+    ],
+    "unreadable_lines": [],
+    "rest_from_last_year": false,
+    "terms": {
+     "payment_days": 30,
+     "validity_days": 60,
+     "lead_time_days": 15,
+     "freight": "included",
+     "freight_amount": null
+    },
+    "discount": null,
+    "answers": [
+     {
+      "q_no": 1,
+      "met": true,
+      "answer": "ISO 9001 certified, valid until Jun 2027"
+     },
+     {
+      "q_no": 2,
+      "met": true,
+      "answer": "FSC certified"
+     },
+     {
+      "q_no": 3,
+      "met": false,
+      "answer": "BCT reports not available at present"
+     },
+     {
+      "q_no": 4,
+      "met": false,
+      "answer": "No in-house ECT tester"
+     },
+     {
+      "q_no": 5,
+      "met": false,
+      "answer": "2 lakh boxes per month"
+     },
+     {
+      "q_no": 6,
+      "met": true,
+      "answer": "15 days"
+     },
+     {
+      "q_no": 7,
+      "met": true,
+      "answer": "1 complaint in the last year"
+     },
+     {
+      "q_no": 8,
+      "met": true,
+      "answer": "Buffer stock offered"
+     },
+     {
+      "q_no": 9,
+      "met": true,
+      "answer": "Supply to both plants"
+     },
+     {
+      "q_no": 10,
+      "met": true,
+      "answer": "Two-colour flexo printing"
+     },
+     {
+      "q_no": 11,
+      "met": true,
+      "answer": "Mill certificates shared with every lot"
+     },
+     {
+      "q_no": 12,
+      "met": true,
+      "answer": "Recycled content declared"
+     }
+    ],
+    "certificates": [
+     {
+      "name": "ISO 9001",
+      "valid_until": "2027-06-30",
+      "source": {
+       "attachment": "export-vindhya-quote.docx",
+       "kind": "word",
+       "ref": "paragraph",
+       "snippet": "ISO 9001 certified, valid until Jun 2027",
+       "page": null,
+       "cell": null,
+       "paragraph": null,
+       "bbox": null
+      }
+     }
+    ]
+   }
+  ],
+  "rfi": [
+   {
+    "vendor_name": "Deccan Boxboard Exports",
+    "iso_9001": true,
+    "fsc": true,
+    "monthly_capacity": "3.0 L boxes",
+    "shortlisted": true,
+    "reason": "Export-oriented unit; quotes in USD; volume tiers on high runners."
+   },
+   {
+    "vendor_name": "Kaveri Corrugators",
+    "iso_9001": true,
+    "fsc": true,
+    "monthly_capacity": "3.0 L boxes",
+    "shortlisted": true,
+    "reason": "7-ply capable; supplies both plants; in-house testing."
+   },
+   {
+    "vendor_name": "Tapi Cartons",
+    "iso_9001": true,
+    "fsc": true,
+    "monthly_capacity": "3.0 L boxes",
+    "shortlisted": true,
+    "reason": "Surat-based; competitive on heavy-duty boxes; freight charged separately."
+   },
+   {
+    "vendor_name": "Vindhya Box Co.",
+    "iso_9001": true,
+    "fsc": true,
+    "monthly_capacity": "3.0 L boxes",
+    "shortlisted": true,
+    "reason": "New supplier; strong on pallet sleeves; testing through a partner lab."
+   }
+  ]
+ },
+ "inner": {
+  "key": "inner",
+  "code": "RFX-2026-009",
+  "title": "Inner packaging renewal: trays, partitions and pads",
+  "category": "Corrugated packaging",
+  "lines": [
+   {
+    "line_no": 1,
+    "item_code": "IP-01",
+    "description": "Die-cut tray, 2 L bottles",
+    "category": "tray",
+    "ply": 3,
+    "gsm": 120,
+    "bf": 16,
+    "flute": "E",
+    "length_mm": 350,
+    "width_mm": 250,
+    "height_mm": 80,
+    "qty_p1": 40000,
+    "qty_p2": 30000,
+    "is_new": false,
+    "spec_key": "tray|3|120|350x250x80",
+    "est_weight_kg": 0.0853
+   },
+   {
+    "line_no": 2,
+    "item_code": "IP-02",
+    "description": "Partition set 4 × 6",
+    "category": "partition",
+    "ply": 3,
+    "gsm": 120,
+    "bf": 16,
+    "flute": "B",
+    "length_mm": 380,
+    "width_mm": 280,
+    "height_mm": 200,
+    "qty_p1": 25000,
+    "qty_p2": 18000,
+    "is_new": false,
+    "spec_key": "partition|3|120|380x280x200",
+    "est_weight_kg": 0.1616
+   },
+   {
+    "line_no": 3,
+    "item_code": "IP-03",
+    "description": "Layer pad 1000 × 1200",
+    "category": "pad",
+    "ply": 3,
+    "gsm": 120,
+    "bf": 16,
+    "flute": "B",
+    "length_mm": 1200,
+    "width_mm": 1000,
+    "height_mm": 0,
+    "qty_p1": 15000,
+    "qty_p2": 12000,
+    "is_new": false,
+    "spec_key": "pad|3|120|1200x1000x0",
+    "est_weight_kg": 0.4896
+   },
+   {
+    "line_no": 4,
+    "item_code": "IP-04",
+    "description": "Die-cut tray, 5 L cans",
+    "category": "tray",
+    "ply": 5,
+    "gsm": 140,
+    "bf": 20,
+    "flute": "BC",
+    "length_mm": 420,
+    "width_mm": 320,
+    "height_mm": 100,
+    "qty_p1": 30000,
+    "qty_p2": 22000,
+    "is_new": false,
+    "spec_key": "tray|5|140|420x320x100",
+    "est_weight_kg": 0.2437
+   },
+   {
+    "line_no": 5,
+    "item_code": "IP-05",
+    "description": "Die-cut display tray",
+    "category": "tray",
+    "ply": 3,
+    "gsm": 120,
+    "bf": 16,
+    "flute": "E",
+    "length_mm": 400,
+    "width_mm": 300,
+    "height_mm": 90,
+    "qty_p1": 35000,
+    "qty_p2": 25000,
+    "is_new": false,
+    "spec_key": "tray|3|120|400x300x90",
+    "est_weight_kg": 0.1136
+   },
+   {
+    "line_no": 6,
+    "item_code": "IP-06",
+    "description": "Partition set 3 × 4",
+    "category": "partition",
+    "ply": 3,
+    "gsm": 120,
+    "bf": 16,
+    "flute": "B",
+    "length_mm": 300,
+    "width_mm": 220,
+    "height_mm": 180,
+    "qty_p1": 28000,
+    "qty_p2": 20000,
+    "is_new": false,
+    "spec_key": "partition|3|120|300x220x180",
+    "est_weight_kg": 0.1146
+   },
+   {
+    "line_no": 7,
+    "item_code": "IP-07",
+    "description": "Layer pad 800 × 1200",
+    "category": "pad",
+    "ply": 3,
+    "gsm": 120,
+    "bf": 16,
+    "flute": "B",
+    "length_mm": 1200,
+    "width_mm": 800,
+    "height_mm": 0,
+    "qty_p1": 18000,
+    "qty_p2": 14000,
+    "is_new": false,
+    "spec_key": "pad|3|120|1200x800x0",
+    "est_weight_kg": 0.3917
+   },
+   {
+    "line_no": 8,
+    "item_code": "IP-08",
+    "description": "Corrugated sheet 1000 × 800",
+    "category": "sheet",
+    "ply": 3,
+    "gsm": 120,
+    "bf": 16,
+    "flute": "B",
+    "length_mm": 1000,
+    "width_mm": 800,
+    "height_mm": 0,
+    "qty_p1": 20000,
+    "qty_p2": 15000,
+    "is_new": false,
+    "spec_key": "sheet|3|120|1000x800x0",
+    "est_weight_kg": 0.3264
+   },
+   {
+    "line_no": 9,
+    "item_code": "IP-09",
+    "description": "Die-cut mailer box",
+    "category": "tray",
+    "ply": 3,
+    "gsm": 150,
+    "bf": 18,
+    "flute": "E",
+    "length_mm": 300,
+    "width_mm": 250,
+    "height_mm": 80,
+    "qty_p1": 25000,
+    "qty_p2": 20000,
+    "is_new": false,
+    "spec_key": "tray|3|150|300x250x80",
+    "est_weight_kg": 0.0883
+   },
+   {
+    "line_no": 10,
+    "item_code": "IP-10",
+    "description": "Partition set 2 × 3",
+    "category": "partition",
+    "ply": 3,
+    "gsm": 120,
+    "bf": 16,
+    "flute": "B",
+    "length_mm": 240,
+    "width_mm": 170,
+    "height_mm": 200,
+    "qty_p1": 30000,
+    "qty_p2": 22000,
+    "is_new": false,
+    "spec_key": "partition|3|120|240x170x200",
+    "est_weight_kg": 0.1004
+   }
+  ],
+  "request": {
+   "from": "Anita Rao, Plant Operations",
+   "day": -60,
+   "subject": "Renewal of inner packaging contract",
+   "body": "Hi Pavan,\n\nThe inner packaging contract (trays, partitions, pads) ends next month. Please run the renewal for both plants at the volumes in the attached sheet.\n\nAnita"
+  },
+  "vendors": [
+   {
+    "code": "V1",
+    "name": "Narmada Cartons",
+    "email": "office@narmada-cartons.example",
+    "reply_format": "excel",
+    "rfi_note": "Current inner-packaging supplier; stock point inside Plant 2.",
+    "rfp_summary": "Current inner-packaging supplier; stock point inside Plant 2."
+   },
+   {
+    "code": "V2",
+    "name": "Shakti Pack Works",
+    "email": "sales@shakti-packworks.example",
+    "reply_format": "word",
+    "rfi_note": "Low prices on trays; smaller capacity.",
+    "rfp_summary": "Low prices on trays; smaller capacity."
+   },
+   {
+    "code": "V3",
+    "name": "Godavari Packaging Industries",
+    "email": "rfq@godavari-pack.example",
+    "reply_format": "pdf",
+    "rfi_note": "Large converter; consistent quality record.",
+    "rfp_summary": "Large converter; consistent quality record."
+   }
+  ],
+  "contracts": [
+   {
+    "vendor_code": "V1",
+    "contract_no": "2025-V1-INN",
+    "valid_from": "2025-04-01",
+    "valid_to": "2026-03-31",
+    "lines": [
+     {
+      "line_no": 1,
+      "spec_key": "tray|3|120|350x250x80",
+      "description": "Die-cut tray, 2 L bottles",
+      "price": 5.3,
+      "unit": "piece"
+     },
+     {
+      "line_no": 2,
+      "spec_key": "partition|3|120|380x280x200",
+      "description": "Partition set 4 × 6",
+      "price": 8.61,
+      "unit": "piece"
+     },
+     {
+      "line_no": 3,
+      "spec_key": "pad|3|120|1200x1000x0",
+      "description": "Layer pad 1000 × 1200",
+      "price": 22.87,
+      "unit": "piece"
+     },
+     {
+      "line_no": 4,
+      "spec_key": "tray|5|140|420x320x100",
+      "description": "Die-cut tray, 5 L cans",
+      "price": 12.18,
+      "unit": "piece"
+     },
+     {
+      "line_no": 5,
+      "spec_key": "tray|3|120|400x300x90",
+      "description": "Die-cut display tray",
+      "price": 6.53,
+      "unit": "piece"
+     },
+     {
+      "line_no": 6,
+      "spec_key": "partition|3|120|300x220x180",
+      "description": "Partition set 3 × 4",
+      "price": 6.57,
+      "unit": "piece"
+     },
+     {
+      "line_no": 7,
+      "spec_key": "pad|3|120|1200x800x0",
+      "description": "Layer pad 800 × 1200",
+      "price": 18.61,
+      "unit": "piece"
+     },
+     {
+      "line_no": 8,
+      "spec_key": "sheet|3|120|1000x800x0",
+      "description": "Corrugated sheet 1000 × 800",
+      "price": 15.78,
+      "unit": "piece"
+     },
+     {
+      "line_no": 9,
+      "spec_key": "tray|3|150|300x250x80",
+      "description": "Die-cut mailer box",
+      "price": 5.43,
+      "unit": "piece"
+     },
+     {
+      "line_no": 10,
+      "spec_key": "partition|3|120|240x170x200",
+      "description": "Partition set 2 × 3",
+      "price": 5.95,
+      "unit": "piece"
+     }
+    ]
+   }
+  ],
+  "replies": [
+   {
+    "vendor_code": "V1",
+    "day": 4,
+    "subject": "Quotation · RFX-2026-009",
+    "body": "Dear Pavan,\n\nOur price offer is attached.\n\nRegards,\nVikas Narmada\nNarmada Cartons",
+    "attachments": [
+     {
+      "filename": "inner-narmada-quote.xlsx",
+      "kind": "excel",
+      "mime": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+     }
+    ]
+   },
+   {
+    "vendor_code": "V2",
+    "day": 6,
+    "subject": "Offer against RFX-2026-009",
+    "body": "Dear Pavan,\n\nOur offer is attached as a Word document.\n\nRamesh Kulkarni",
+    "attachments": [
+     {
+      "filename": "inner-shakti-quote.docx",
+      "kind": "word",
+      "mime": "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+     }
+    ]
+   },
+   {
+    "vendor_code": "V3",
+    "day": 8,
+    "subject": "Offer RFX-2026-009 · Godavari Packaging Industries",
+    "body": "Dear Sir,\n\nPlease find our quotation attached.\n\nBest regards,\nFarah Siddiqui",
+    "attachments": [
+     {
+      "filename": "inner-godavari-quote.pdf",
+      "kind": "pdf",
+      "mime": "application/pdf"
+     }
+    ]
+   }
+  ],
+  "ideal": [
+   {
+    "vendor_code": "V1",
+    "quotes": [
+     {
+      "line_no": 5,
+      "vendor_label": "Die-cut display tray",
+      "price": 5.69,
+      "currency": "INR",
+      "unit": "piece",
+      "bundle_size": null,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "inner-narmada-quote.xlsx",
+       "kind": "excel",
+       "ref": "Quote!E5",
+       "snippet": "5.69",
+       "page": null,
+       "cell": "Quote!E5",
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 1,
+      "vendor_label": "Die-cut tray, 2 L bottles",
+      "price": 4.68,
+      "currency": "INR",
+      "unit": "piece",
+      "bundle_size": null,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "inner-narmada-quote.xlsx",
+       "kind": "excel",
+       "ref": "Quote!E6",
+       "snippet": "4.68",
+       "page": null,
+       "cell": "Quote!E6",
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 4,
+      "vendor_label": "Die-cut tray, 5 L cans",
+      "price": 11.1,
+      "currency": "INR",
+      "unit": "piece",
+      "bundle_size": null,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "inner-narmada-quote.xlsx",
+       "kind": "excel",
+       "ref": "Quote!E7",
+       "snippet": "11.1",
+       "page": null,
+       "cell": "Quote!E7",
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 10,
+      "vendor_label": "Partition set 2 × 3",
+      "price": 5.69,
+      "currency": "INR",
+      "unit": "piece",
+      "bundle_size": null,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "inner-narmada-quote.xlsx",
+       "kind": "excel",
+       "ref": "Quote!E8",
+       "snippet": "5.69",
+       "page": null,
+       "cell": "Quote!E8",
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 6,
+      "vendor_label": "Partition set 3 × 4",
+      "price": 6.29,
+      "currency": "INR",
+      "unit": "piece",
+      "bundle_size": null,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "inner-narmada-quote.xlsx",
+       "kind": "excel",
+       "ref": "Quote!E9",
+       "snippet": "6.29",
+       "page": null,
+       "cell": "Quote!E9",
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 9,
+      "vendor_label": "Die-cut mailer box",
+      "price": 4.96,
+      "currency": "INR",
+      "unit": "piece",
+      "bundle_size": null,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "inner-narmada-quote.xlsx",
+       "kind": "excel",
+       "ref": "Quote!E10",
+       "snippet": "4.96",
+       "page": null,
+       "cell": "Quote!E10",
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 8,
+      "vendor_label": "Corrugated sheet 1000 × 800",
+      "price": 14.77,
+      "currency": "INR",
+      "unit": "piece",
+      "bundle_size": null,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "inner-narmada-quote.xlsx",
+       "kind": "excel",
+       "ref": "Quote!E11",
+       "snippet": "14.77",
+       "page": null,
+       "cell": "Quote!E11",
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 2,
+      "vendor_label": "Partition set 4 × 6",
+      "price": 7.95,
+      "currency": "INR",
+      "unit": "piece",
+      "bundle_size": null,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "inner-narmada-quote.xlsx",
+       "kind": "excel",
+       "ref": "Quote!E12",
+       "snippet": "7.95",
+       "page": null,
+       "cell": "Quote!E12",
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 3,
+      "vendor_label": "Layer pad 1000 × 1200",
+      "price": 20.99,
+      "currency": "INR",
+      "unit": "piece",
+      "bundle_size": null,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "inner-narmada-quote.xlsx",
+       "kind": "excel",
+       "ref": "Quote!E13",
+       "snippet": "20.99",
+       "page": null,
+       "cell": "Quote!E13",
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 7,
+      "vendor_label": "Layer pad 800 × 1200",
+      "price": 16.35,
+      "currency": "INR",
+      "unit": "piece",
+      "bundle_size": null,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "inner-narmada-quote.xlsx",
+       "kind": "excel",
+       "ref": "Quote!E14",
+       "snippet": "16.35",
+       "page": null,
+       "cell": "Quote!E14",
+       "paragraph": null,
+       "bbox": null
+      }
+     }
+    ],
+    "missing_lines": [],
+    "unreadable_lines": [],
+    "rest_from_last_year": false,
+    "terms": {
+     "payment_days": 45,
+     "validity_days": 60,
+     "lead_time_days": 7,
+     "freight": "included",
+     "freight_amount": null
+    },
+    "discount": null,
+    "answers": [
+     {
+      "q_no": 1,
+      "met": true,
+      "answer": "ISO 9001 certified, valid until Mar 2028"
+     },
+     {
+      "q_no": 2,
+      "met": true,
+      "answer": "FSC certified"
+     },
+     {
+      "q_no": 3,
+      "met": true,
+      "answer": "BCT report with every lot"
+     },
+     {
+      "q_no": 4,
+      "met": false,
+      "answer": "No in-house ECT tester"
+     },
+     {
+      "q_no": 5,
+      "met": true,
+      "answer": "4 lakh boxes per month"
+     },
+     {
+      "q_no": 6,
+      "met": true,
+      "answer": "7 days"
+     },
+     {
+      "q_no": 7,
+      "met": true,
+      "answer": "1 complaint in the last year"
+     },
+     {
+      "q_no": 8,
+      "met": false,
+      "answer": "No buffer stock"
+     },
+     {
+      "q_no": 9,
+      "met": true,
+      "answer": "Supply to both plants"
+     },
+     {
+      "q_no": 10,
+      "met": false,
+      "answer": "No printing"
+     },
+     {
+      "q_no": 11,
+      "met": true,
+      "answer": "Mill certificates shared with every lot"
+     },
+     {
+      "q_no": 12,
+      "met": true,
+      "answer": "Recycled content declared"
+     }
+    ],
+    "certificates": [
+     {
+      "name": "ISO 9001",
+      "valid_until": "2028-03-31",
+      "source": {
+       "attachment": "inner-narmada-quote.xlsx",
+       "kind": "excel",
+       "ref": "Compliance!C2",
+       "snippet": "ISO 9001 certified, valid until Mar 2028",
+       "page": null,
+       "cell": "Compliance!C2",
+       "paragraph": null,
+       "bbox": null
+      }
+     }
+    ]
+   },
+   {
+    "vendor_code": "V2",
+    "quotes": [
+     {
+      "line_no": 1,
+      "vendor_label": "Die-cut tray, 2 L bottles",
+      "price": 4.78,
+      "currency": "INR",
+      "unit": "piece",
+      "bundle_size": null,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "inner-shakti-quote.docx",
+       "kind": "word",
+       "ref": "paragraph",
+       "snippet": "Rs. 4.78",
+       "page": null,
+       "cell": null,
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 2,
+      "vendor_label": "Partition set 4 × 6",
+      "price": 8.05,
+      "currency": "INR",
+      "unit": "piece",
+      "bundle_size": null,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "inner-shakti-quote.docx",
+       "kind": "word",
+       "ref": "paragraph",
+       "snippet": "Rs. 8.05",
+       "page": null,
+       "cell": null,
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 3,
+      "vendor_label": "Layer pad 1000 × 1200",
+      "price": 20.48,
+      "currency": "INR",
+      "unit": "piece",
+      "bundle_size": null,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "inner-shakti-quote.docx",
+       "kind": "word",
+       "ref": "paragraph",
+       "snippet": "Rs. 20.48",
+       "page": null,
+       "cell": null,
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 4,
+      "vendor_label": "Die-cut tray, 5 L cans",
+      "price": 11.42,
+      "currency": "INR",
+      "unit": "piece",
+      "bundle_size": null,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "inner-shakti-quote.docx",
+       "kind": "word",
+       "ref": "paragraph",
+       "snippet": "Rs. 11.42",
+       "page": null,
+       "cell": null,
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 5,
+      "vendor_label": "Die-cut display tray",
+      "price": 6.08,
+      "currency": "INR",
+      "unit": "piece",
+      "bundle_size": null,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "inner-shakti-quote.docx",
+       "kind": "word",
+       "ref": "paragraph",
+       "snippet": "Rs. 6.08",
+       "page": null,
+       "cell": null,
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 6,
+      "vendor_label": "Partition set 3 × 4",
+      "price": 5.78,
+      "currency": "INR",
+      "unit": "piece",
+      "bundle_size": null,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "inner-shakti-quote.docx",
+       "kind": "word",
+       "ref": "paragraph",
+       "snippet": "Rs. 5.78",
+       "page": null,
+       "cell": null,
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 7,
+      "vendor_label": "Layer pad 800 × 1200",
+      "price": 17.12,
+      "currency": "INR",
+      "unit": "piece",
+      "bundle_size": null,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "inner-shakti-quote.docx",
+       "kind": "word",
+       "ref": "paragraph",
+       "snippet": "Rs. 17.12",
+       "page": null,
+       "cell": null,
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 8,
+      "vendor_label": "Corrugated sheet 1000 × 800",
+      "price": 13.9,
+      "currency": "INR",
+      "unit": "piece",
+      "bundle_size": null,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "inner-shakti-quote.docx",
+       "kind": "word",
+       "ref": "paragraph",
+       "snippet": "Rs. 13.90",
+       "page": null,
+       "cell": null,
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 9,
+      "vendor_label": "Die-cut mailer box",
+      "price": 5.09,
+      "currency": "INR",
+      "unit": "piece",
+      "bundle_size": null,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "inner-shakti-quote.docx",
+       "kind": "word",
+       "ref": "paragraph",
+       "snippet": "Rs. 5.09",
+       "page": null,
+       "cell": null,
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 10,
+      "vendor_label": "Partition set 2 × 3",
+      "price": 5.33,
+      "currency": "INR",
+      "unit": "piece",
+      "bundle_size": null,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "inner-shakti-quote.docx",
+       "kind": "word",
+       "ref": "paragraph",
+       "snippet": "Rs. 5.33",
+       "page": null,
+       "cell": null,
+       "paragraph": null,
+       "bbox": null
+      }
+     }
+    ],
+    "missing_lines": [],
+    "unreadable_lines": [],
+    "rest_from_last_year": false,
+    "terms": {
+     "payment_days": 60,
+     "validity_days": 60,
+     "lead_time_days": 10,
+     "freight": "included",
+     "freight_amount": null
+    },
+    "discount": null,
+    "answers": [
+     {
+      "q_no": 1,
+      "met": true,
+      "answer": "ISO 9001 certified, valid until Jun 2027"
+     },
+     {
+      "q_no": 2,
+      "met": true,
+      "answer": "FSC certified"
+     },
+     {
+      "q_no": 3,
+      "met": true,
+      "answer": "BCT report with every lot"
+     },
+     {
+      "q_no": 4,
+      "met": false,
+      "answer": "No in-house ECT tester"
+     },
+     {
+      "q_no": 5,
+      "met": true,
+      "answer": "4 lakh boxes per month"
+     },
+     {
+      "q_no": 6,
+      "met": true,
+      "answer": "10 days"
+     },
+     {
+      "q_no": 7,
+      "met": true,
+      "answer": "1 complaint in the last year"
+     },
+     {
+      "q_no": 8,
+      "met": false,
+      "answer": "No buffer stock"
+     },
+     {
+      "q_no": 9,
+      "met": true,
+      "answer": "Supply to both plants"
+     },
+     {
+      "q_no": 10,
+      "met": false,
+      "answer": "No printing"
+     },
+     {
+      "q_no": 11,
+      "met": true,
+      "answer": "Mill certificates shared with every lot"
+     },
+     {
+      "q_no": 12,
+      "met": true,
+      "answer": "Recycled content declared"
+     }
+    ],
+    "certificates": [
+     {
+      "name": "ISO 9001",
+      "valid_until": "2027-06-30",
+      "source": {
+       "attachment": "inner-shakti-quote.docx",
+       "kind": "word",
+       "ref": "paragraph",
+       "snippet": "ISO 9001 certified, valid until Jun 2027",
+       "page": null,
+       "cell": null,
+       "paragraph": null,
+       "bbox": null
+      }
+     }
+    ]
+   },
+   {
+    "vendor_code": "V3",
+    "quotes": [
+     {
+      "line_no": 1,
+      "vendor_label": "Die-cut tray, 2 L bottles",
+      "price": 4.76,
+      "currency": "INR",
+      "unit": "piece",
+      "bundle_size": null,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "inner-godavari-quote.pdf",
+       "kind": "pdf",
+       "ref": "page 1",
+       "snippet": "4.76",
+       "page": 1,
+       "cell": null,
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 2,
+      "vendor_label": "Partition set 4 × 6",
+      "price": 7.97,
+      "currency": "INR",
+      "unit": "piece",
+      "bundle_size": null,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "inner-godavari-quote.pdf",
+       "kind": "pdf",
+       "ref": "page 1",
+       "snippet": "7.97",
+       "page": 1,
+       "cell": null,
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 3,
+      "vendor_label": "Layer pad 1000 × 1200",
+      "price": 21.63,
+      "currency": "INR",
+      "unit": "piece",
+      "bundle_size": null,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "inner-godavari-quote.pdf",
+       "kind": "pdf",
+       "ref": "page 1",
+       "snippet": "21.63",
+       "page": 1,
+       "cell": null,
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 4,
+      "vendor_label": "Die-cut tray, 5 L cans",
+      "price": 11.84,
+      "currency": "INR",
+      "unit": "piece",
+      "bundle_size": null,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "inner-godavari-quote.pdf",
+       "kind": "pdf",
+       "ref": "page 1",
+       "snippet": "11.84",
+       "page": 1,
+       "cell": null,
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 5,
+      "vendor_label": "Die-cut display tray",
+      "price": 6.39,
+      "currency": "INR",
+      "unit": "piece",
+      "bundle_size": null,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "inner-godavari-quote.pdf",
+       "kind": "pdf",
+       "ref": "page 1",
+       "snippet": "6.39",
+       "page": 1,
+       "cell": null,
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 6,
+      "vendor_label": "Partition set 3 × 4",
+      "price": 6.2,
+      "currency": "INR",
+      "unit": "piece",
+      "bundle_size": null,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "inner-godavari-quote.pdf",
+       "kind": "pdf",
+       "ref": "page 1",
+       "snippet": "6.20",
+       "page": 1,
+       "cell": null,
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 7,
+      "vendor_label": "Layer pad 800 × 1200",
+      "price": 16.76,
+      "currency": "INR",
+      "unit": "piece",
+      "bundle_size": null,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "inner-godavari-quote.pdf",
+       "kind": "pdf",
+       "ref": "page 1",
+       "snippet": "16.76",
+       "page": 1,
+       "cell": null,
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 8,
+      "vendor_label": "Corrugated sheet 1000 × 800",
+      "price": 15.11,
+      "currency": "INR",
+      "unit": "piece",
+      "bundle_size": null,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "inner-godavari-quote.pdf",
+       "kind": "pdf",
+       "ref": "page 1",
+       "snippet": "15.11",
+       "page": 1,
+       "cell": null,
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 9,
+      "vendor_label": "Die-cut mailer box",
+      "price": 5.15,
+      "currency": "INR",
+      "unit": "piece",
+      "bundle_size": null,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "inner-godavari-quote.pdf",
+       "kind": "pdf",
+       "ref": "page 1",
+       "snippet": "5.15",
+       "page": 1,
+       "cell": null,
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 10,
+      "vendor_label": "Partition set 2 × 3",
+      "price": 5.76,
+      "currency": "INR",
+      "unit": "piece",
+      "bundle_size": null,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "inner-godavari-quote.pdf",
+       "kind": "pdf",
+       "ref": "page 1",
+       "snippet": "5.76",
+       "page": 1,
+       "cell": null,
+       "paragraph": null,
+       "bbox": null
+      }
+     }
+    ],
+    "missing_lines": [],
+    "unreadable_lines": [],
+    "rest_from_last_year": false,
+    "terms": {
+     "payment_days": 60,
+     "validity_days": 60,
+     "lead_time_days": 18,
+     "freight": "included",
+     "freight_amount": null
+    },
+    "discount": null,
+    "answers": [
+     {
+      "q_no": 1,
+      "met": true,
+      "answer": "ISO 9001 certified, valid until Dec 2027"
+     },
+     {
+      "q_no": 2,
+      "met": true,
+      "answer": "FSC certified"
+     },
+     {
+      "q_no": 3,
+      "met": true,
+      "answer": "BCT report with every lot"
+     },
+     {
+      "q_no": 4,
+      "met": true,
+      "answer": "ECT tested in-house"
+     },
+     {
+      "q_no": 5,
+      "met": true,
+      "answer": "4 lakh boxes per month"
+     },
+     {
+      "q_no": 6,
+      "met": true,
+      "answer": "18 days"
+     },
+     {
+      "q_no": 7,
+      "met": true,
+      "answer": "1 complaint in the last year"
+     },
+     {
+      "q_no": 8,
+      "met": true,
+      "answer": "Buffer stock offered"
+     },
+     {
+      "q_no": 9,
+      "met": true,
+      "answer": "Supply to both plants"
+     },
+     {
+      "q_no": 10,
+      "met": true,
+      "answer": "Two-colour flexo printing"
+     },
+     {
+      "q_no": 11,
+      "met": true,
+      "answer": "Mill certificates shared with every lot"
+     },
+     {
+      "q_no": 12,
+      "met": true,
+      "answer": "Recycled content declared"
+     }
+    ],
+    "certificates": [
+     {
+      "name": "ISO 9001",
+      "valid_until": "2027-12-31",
+      "source": {
+       "attachment": "inner-godavari-quote.pdf",
+       "kind": "pdf",
+       "ref": "page 2",
+       "snippet": "ISO 9001 certified, valid until Dec 2027",
+       "page": 2,
+       "cell": null,
+       "paragraph": null,
+       "bbox": null
+      }
+     }
+    ]
+   }
+  ],
+  "rfi": [
+   {
+    "vendor_name": "Narmada Cartons",
+    "iso_9001": true,
+    "fsc": true,
+    "monthly_capacity": "3.0 L boxes",
+    "shortlisted": true,
+    "reason": "Current inner-packaging supplier; stock point inside Plant 2."
+   },
+   {
+    "vendor_name": "Shakti Pack Works",
+    "iso_9001": true,
+    "fsc": true,
+    "monthly_capacity": "3.0 L boxes",
+    "shortlisted": true,
+    "reason": "Low prices on trays; smaller capacity."
+   },
+   {
+    "vendor_name": "Godavari Packaging Industries",
+    "iso_9001": true,
+    "fsc": true,
+    "monthly_capacity": "3.0 L boxes",
+    "shortlisted": true,
+    "reason": "Large converter; consistent quality record."
+   }
+  ]
+ },
+ "buffer": {
+  "key": "buffer",
+  "code": "RFX-2026-019",
+  "title": "Q3 capacity buffer: regular shippers",
+  "category": "Corrugated packaging",
+  "lines": [
+   {
+    "line_no": 1,
+    "item_code": "BF-01",
+    "description": "RSC shipper, medium (2 L × 6)",
+    "category": "rsc",
+    "ply": 5,
+    "gsm": 140,
+    "bf": 20,
+    "flute": "BC",
+    "length_mm": 400,
+    "width_mm": 300,
+    "height_mm": 250,
+    "qty_p1": 16000,
+    "qty_p2": 12000,
+    "is_new": false,
+    "spec_key": "rsc|5|140|400x300x250",
+    "est_weight_kg": 0.5988
+   },
+   {
+    "line_no": 2,
+    "item_code": "BF-02",
+    "description": "RSC carton, sachet bundle",
+    "category": "rsc",
+    "ply": 3,
+    "gsm": 120,
+    "bf": 18,
+    "flute": "B",
+    "length_mm": 300,
+    "width_mm": 200,
+    "height_mm": 150,
+    "qty_p1": 27000,
+    "qty_p2": 21000,
+    "is_new": false,
+    "spec_key": "rsc|3|120|300x200x150",
+    "est_weight_kg": 0.1485
+   },
+   {
+    "line_no": 3,
+    "item_code": "BF-03",
+    "description": "RSC shipper, 1 L × 12",
+    "category": "rsc",
+    "ply": 5,
+    "gsm": 140,
+    "bf": 20,
+    "flute": "BC",
+    "length_mm": 360,
+    "width_mm": 270,
+    "height_mm": 230,
+    "qty_p1": 21000,
+    "qty_p2": 15000,
+    "is_new": false,
+    "spec_key": "rsc|5|140|360x270x230",
+    "est_weight_kg": 0.4914
+   },
+   {
+    "line_no": 4,
+    "item_code": "BF-04",
+    "description": "RSC carton, 500 ml × 24",
+    "category": "rsc",
+    "ply": 3,
+    "gsm": 120,
+    "bf": 18,
+    "flute": "B",
+    "length_mm": 320,
+    "width_mm": 240,
+    "height_mm": 200,
+    "qty_p1": 26000,
+    "qty_p2": 18000,
+    "is_new": false,
+    "spec_key": "rsc|3|120|320x240x200",
+    "est_weight_kg": 0.2082
+   },
+   {
+    "line_no": 5,
+    "item_code": "BF-05",
+    "description": "RSC carton, tablets",
+    "category": "rsc",
+    "ply": 3,
+    "gsm": 120,
+    "bf": 18,
+    "flute": "B",
+    "length_mm": 250,
+    "width_mm": 180,
+    "height_mm": 120,
+    "qty_p1": 28000,
+    "qty_p2": 22000,
+    "is_new": false,
+    "spec_key": "rsc|3|120|250x180x120",
+    "est_weight_kg": 0.1102
+   },
+   {
+    "line_no": 6,
+    "item_code": "BF-06",
+    "description": "RSC carton, sample kits",
+    "category": "rsc",
+    "ply": 3,
+    "gsm": 120,
+    "bf": 18,
+    "flute": "B",
+    "length_mm": 220,
+    "width_mm": 160,
+    "height_mm": 100,
+    "qty_p1": 12000,
+    "qty_p2": 9000,
+    "is_new": false,
+    "spec_key": "rsc|3|120|220x160x100",
+    "est_weight_kg": 0.0849
+   },
+   {
+    "line_no": 7,
+    "item_code": "BF-07",
+    "description": "RSC carton, spare parts",
+    "category": "rsc",
+    "ply": 3,
+    "gsm": 120,
+    "bf": 18,
+    "flute": "B",
+    "length_mm": 280,
+    "width_mm": 200,
+    "height_mm": 200,
+    "qty_p1": 9000,
+    "qty_p2": 8000,
+    "is_new": false,
+    "spec_key": "rsc|3|120|280x200x200",
+    "est_weight_kg": 0.1632
+   },
+   {
+    "line_no": 8,
+    "item_code": "BF-08",
+    "description": "RSC shipper, 2 L × 4",
+    "category": "rsc",
+    "ply": 5,
+    "gsm": 140,
+    "bf": 20,
+    "flute": "BC",
+    "length_mm": 330,
+    "width_mm": 330,
+    "height_mm": 300,
+    "qty_p1": 12000,
+    "qty_p2": 9000,
+    "is_new": false,
+    "spec_key": "rsc|5|140|330x330x300",
+    "est_weight_kg": 0.6477
+   }
+  ],
+  "request": {
+   "from": "Anita Rao, Plant Operations",
+   "day": -3,
+   "subject": "Buffer stock of shippers for the festive season",
+   "body": "Pavan,\n\nFestive-season demand is 30% above plan. We need a second source for the regular shippers for Q3 only, at the volumes in the attached sheet. Speed matters more than a long contract.\n\nAnita"
+  },
+  "vendors": [
+   {
+    "code": "V1",
+    "name": "Kaveri Corrugators",
+    "email": "sales@kaveri-corrugators.example",
+    "reply_format": "excel",
+    "rfi_note": "Can add a second shift for festive volumes.",
+    "rfp_summary": "Can add a second shift for festive volumes."
+   },
+   {
+    "code": "V2",
+    "name": "Sahyadri Paperpack",
+    "email": "accounts@sahyadri-paperpack.example",
+    "reply_format": "email",
+    "rfi_note": "Current supplier; limited spare capacity in Q3.",
+    "rfp_summary": "Current supplier; limited spare capacity in Q3."
+   },
+   {
+    "code": "V3",
+    "name": "Konkan Corrugated",
+    "email": "sales@konkan-corrugated.example",
+    "reply_format": "pdf",
+    "rfi_note": "Spare capacity available from August.",
+    "rfp_summary": "Spare capacity available from August."
+   }
+  ],
+  "contracts": [],
+  "replies": [
+   {
+    "vendor_code": "V1",
+    "day": 4,
+    "subject": "Quotation · RFX-2026-019",
+    "body": "Dear Pavan,\n\nOur price offer is attached.\n\nRegards,\nAnil Shetty\nKaveri Corrugators",
+    "attachments": [
+     {
+      "filename": "buffer-kaveri-quote.xlsx",
+      "kind": "excel",
+      "mime": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+     }
+    ]
+   },
+   {
+    "vendor_code": "V2",
+    "day": 6,
+    "subject": "RE: RFX-2026-019",
+    "body": "Hi Pavan,\n\nOur rates per piece, ex-GST, freight extra at actuals:\n\nItem 1 (RSC shipper): Rs 25.53\nItem 2 (RSC carton): Rs 7.28\nItem 3 (RSC shipper): Rs 22.19\nItem 4 (RSC carton): Rs 10.22\nItem 5 (RSC carton): Rs 5.91\nItem 6 (RSC carton): Rs 4.94\nItem 7 (RSC carton): Rs 7.94\nItem 8 (RSC shipper): Rs 26.94\n\nPayment 60 days, lead time 12 days. ISO 9001 certified, valid until Jan 2028. FSC certified. BCT report with every lot. ECT tested in-house. 4 lakh boxes per month. 12 days. 1 complaint in the last year. Buffer stock offered. Supply to both plants. Two-colour flexo printing. Mill certificates shared with every lot. Recycled content declared.\n\nThanks,\nSuresh Patil\nSahyadri Paperpack",
+    "attachments": []
+   },
+   {
+    "vendor_code": "V3",
+    "day": 8,
+    "subject": "Offer RFX-2026-019 · Konkan Corrugated",
+    "body": "Dear Sir,\n\nPlease find our quotation attached.\n\nBest regards,\nNikhil Desai",
+    "attachments": [
+     {
+      "filename": "buffer-konkan-quote.pdf",
+      "kind": "pdf",
+      "mime": "application/pdf"
+     }
+    ]
+   }
+  ],
+  "ideal": [
+   {
+    "vendor_code": "V1",
+    "quotes": [
+     {
+      "line_no": 6,
+      "vendor_label": "RSC carton, sample kits",
+      "price": 510,
+      "currency": "INR",
+      "unit": "bundle",
+      "bundle_size": 100,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "buffer-kaveri-quote.xlsx",
+       "kind": "excel",
+       "ref": "Quote!E5",
+       "snippet": "510",
+       "page": null,
+       "cell": "Quote!E5",
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 3,
+      "vendor_label": "RSC shipper, 1 L × 12",
+      "price": 2145,
+      "currency": "INR",
+      "unit": "bundle",
+      "bundle_size": 100,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "buffer-kaveri-quote.xlsx",
+       "kind": "excel",
+       "ref": "Quote!E6",
+       "snippet": "2145",
+       "page": null,
+       "cell": "Quote!E6",
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 2,
+      "vendor_label": "RSC carton, sachet bundle",
+      "price": 764,
+      "currency": "INR",
+      "unit": "bundle",
+      "bundle_size": 100,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "buffer-kaveri-quote.xlsx",
+       "kind": "excel",
+       "ref": "Quote!E7",
+       "snippet": "764",
+       "page": null,
+       "cell": "Quote!E7",
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 4,
+      "vendor_label": "RSC carton, 500 ml × 24",
+      "price": 1036,
+      "currency": "INR",
+      "unit": "bundle",
+      "bundle_size": 100,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "buffer-kaveri-quote.xlsx",
+       "kind": "excel",
+       "ref": "Quote!E8",
+       "snippet": "1036",
+       "page": null,
+       "cell": "Quote!E8",
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 8,
+      "vendor_label": "RSC shipper, 2 L × 4",
+      "price": 2993,
+      "currency": "INR",
+      "unit": "bundle",
+      "bundle_size": 100,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "buffer-kaveri-quote.xlsx",
+       "kind": "excel",
+       "ref": "Quote!E9",
+       "snippet": "2993",
+       "page": null,
+       "cell": "Quote!E9",
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 5,
+      "vendor_label": "RSC carton, tablets",
+      "price": 648,
+      "currency": "INR",
+      "unit": "bundle",
+      "bundle_size": 100,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "buffer-kaveri-quote.xlsx",
+       "kind": "excel",
+       "ref": "Quote!E10",
+       "snippet": "648",
+       "page": null,
+       "cell": "Quote!E10",
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 1,
+      "vendor_label": "RSC shipper, medium (2 L × 6)",
+      "price": 2777,
+      "currency": "INR",
+      "unit": "bundle",
+      "bundle_size": 100,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "buffer-kaveri-quote.xlsx",
+       "kind": "excel",
+       "ref": "Quote!E11",
+       "snippet": "2777",
+       "page": null,
+       "cell": "Quote!E11",
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 7,
+      "vendor_label": "RSC carton, spare parts",
+      "price": 830,
+      "currency": "INR",
+      "unit": "bundle",
+      "bundle_size": 100,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "buffer-kaveri-quote.xlsx",
+       "kind": "excel",
+       "ref": "Quote!E12",
+       "snippet": "830",
+       "page": null,
+       "cell": "Quote!E12",
+       "paragraph": null,
+       "bbox": null
+      }
+     }
+    ],
+    "missing_lines": [],
+    "unreadable_lines": [],
+    "rest_from_last_year": false,
+    "terms": {
+     "payment_days": 60,
+     "validity_days": 60,
+     "lead_time_days": 14,
+     "freight": "included",
+     "freight_amount": null
+    },
+    "discount": null,
+    "answers": [
+     {
+      "q_no": 1,
+      "met": true,
+      "answer": "ISO 9001 certified, valid until Mar 2028"
+     },
+     {
+      "q_no": 2,
+      "met": true,
+      "answer": "FSC certified"
+     },
+     {
+      "q_no": 3,
+      "met": true,
+      "answer": "BCT report with every lot"
+     },
+     {
+      "q_no": 4,
+      "met": true,
+      "answer": "ECT tested in-house"
+     },
+     {
+      "q_no": 5,
+      "met": true,
+      "answer": "4 lakh boxes per month"
+     },
+     {
+      "q_no": 6,
+      "met": true,
+      "answer": "14 days"
+     },
+     {
+      "q_no": 7,
+      "met": true,
+      "answer": "1 complaint in the last year"
+     },
+     {
+      "q_no": 8,
+      "met": true,
+      "answer": "Buffer stock offered"
+     },
+     {
+      "q_no": 9,
+      "met": true,
+      "answer": "Supply to both plants"
+     },
+     {
+      "q_no": 10,
+      "met": true,
+      "answer": "Two-colour flexo printing"
+     },
+     {
+      "q_no": 11,
+      "met": true,
+      "answer": "Mill certificates shared with every lot"
+     },
+     {
+      "q_no": 12,
+      "met": true,
+      "answer": "Recycled content declared"
+     }
+    ],
+    "certificates": [
+     {
+      "name": "ISO 9001",
+      "valid_until": "2028-03-31",
+      "source": {
+       "attachment": "buffer-kaveri-quote.xlsx",
+       "kind": "excel",
+       "ref": "Compliance!C2",
+       "snippet": "ISO 9001 certified, valid until Mar 2028",
+       "page": null,
+       "cell": "Compliance!C2",
+       "paragraph": null,
+       "bbox": null
+      }
+     }
+    ]
+   },
+   {
+    "vendor_code": "V2",
+    "quotes": [
+     {
+      "line_no": 1,
+      "vendor_label": "RSC shipper, medium (2 L × 6)",
+      "price": 25.53,
+      "currency": "INR",
+      "unit": "piece",
+      "bundle_size": null,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": null,
+       "kind": "text",
+       "ref": "email body",
+       "snippet": "Rs 25.53",
+       "page": null,
+       "cell": null,
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 2,
+      "vendor_label": "RSC carton, sachet bundle",
+      "price": 7.28,
+      "currency": "INR",
+      "unit": "piece",
+      "bundle_size": null,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": null,
+       "kind": "text",
+       "ref": "email body",
+       "snippet": "Rs 7.28",
+       "page": null,
+       "cell": null,
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 3,
+      "vendor_label": "RSC shipper, 1 L × 12",
+      "price": 22.19,
+      "currency": "INR",
+      "unit": "piece",
+      "bundle_size": null,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": null,
+       "kind": "text",
+       "ref": "email body",
+       "snippet": "Rs 22.19",
+       "page": null,
+       "cell": null,
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 4,
+      "vendor_label": "RSC carton, 500 ml × 24",
+      "price": 10.22,
+      "currency": "INR",
+      "unit": "piece",
+      "bundle_size": null,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": null,
+       "kind": "text",
+       "ref": "email body",
+       "snippet": "Rs 10.22",
+       "page": null,
+       "cell": null,
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 5,
+      "vendor_label": "RSC carton, tablets",
+      "price": 5.91,
+      "currency": "INR",
+      "unit": "piece",
+      "bundle_size": null,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": null,
+       "kind": "text",
+       "ref": "email body",
+       "snippet": "Rs 5.91",
+       "page": null,
+       "cell": null,
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 6,
+      "vendor_label": "RSC carton, sample kits",
+      "price": 4.94,
+      "currency": "INR",
+      "unit": "piece",
+      "bundle_size": null,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": null,
+       "kind": "text",
+       "ref": "email body",
+       "snippet": "Rs 4.94",
+       "page": null,
+       "cell": null,
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 7,
+      "vendor_label": "RSC carton, spare parts",
+      "price": 7.94,
+      "currency": "INR",
+      "unit": "piece",
+      "bundle_size": null,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": null,
+       "kind": "text",
+       "ref": "email body",
+       "snippet": "Rs 7.94",
+       "page": null,
+       "cell": null,
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 8,
+      "vendor_label": "RSC shipper, 2 L × 4",
+      "price": 26.94,
+      "currency": "INR",
+      "unit": "piece",
+      "bundle_size": null,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": null,
+       "kind": "text",
+       "ref": "email body",
+       "snippet": "Rs 26.94",
+       "page": null,
+       "cell": null,
+       "paragraph": null,
+       "bbox": null
+      }
+     }
+    ],
+    "missing_lines": [],
+    "unreadable_lines": [],
+    "rest_from_last_year": false,
+    "terms": {
+     "payment_days": 60,
+     "validity_days": 60,
+     "lead_time_days": 12,
+     "freight": "extra",
+     "freight_amount": null
+    },
+    "discount": null,
+    "answers": [
+     {
+      "q_no": 1,
+      "met": true,
+      "answer": "ISO 9001 certified, valid until Jan 2028"
+     },
+     {
+      "q_no": 2,
+      "met": true,
+      "answer": "FSC certified"
+     },
+     {
+      "q_no": 3,
+      "met": true,
+      "answer": "BCT report with every lot"
+     },
+     {
+      "q_no": 4,
+      "met": true,
+      "answer": "ECT tested in-house"
+     },
+     {
+      "q_no": 5,
+      "met": true,
+      "answer": "4 lakh boxes per month"
+     },
+     {
+      "q_no": 6,
+      "met": true,
+      "answer": "12 days"
+     },
+     {
+      "q_no": 7,
+      "met": true,
+      "answer": "1 complaint in the last year"
+     },
+     {
+      "q_no": 8,
+      "met": true,
+      "answer": "Buffer stock offered"
+     },
+     {
+      "q_no": 9,
+      "met": true,
+      "answer": "Supply to both plants"
+     },
+     {
+      "q_no": 10,
+      "met": true,
+      "answer": "Two-colour flexo printing"
+     },
+     {
+      "q_no": 11,
+      "met": true,
+      "answer": "Mill certificates shared with every lot"
+     },
+     {
+      "q_no": 12,
+      "met": true,
+      "answer": "Recycled content declared"
+     }
+    ],
+    "certificates": [
+     {
+      "name": "ISO 9001",
+      "valid_until": "2028-01-31",
+      "source": {
+       "attachment": null,
+       "kind": "text",
+       "ref": "email body",
+       "snippet": "ISO 9001 certified, valid until Jan 2028",
+       "page": null,
+       "cell": null,
+       "paragraph": null,
+       "bbox": null
+      }
+     }
+    ]
+   },
+   {
+    "vendor_code": "V3",
+    "quotes": [
+     {
+      "line_no": 1,
+      "vendor_label": "RSC shipper, medium (2 L × 6)",
+      "price": 24.96,
+      "currency": "INR",
+      "unit": "piece",
+      "bundle_size": null,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "buffer-konkan-quote.pdf",
+       "kind": "pdf",
+       "ref": "page 1",
+       "snippet": "24.96",
+       "page": 1,
+       "cell": null,
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 2,
+      "vendor_label": "RSC carton, sachet bundle",
+      "price": 9.1,
+      "currency": "INR",
+      "unit": "piece",
+      "bundle_size": null,
+      "gst_included": true,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "buffer-konkan-quote.pdf",
+       "kind": "pdf",
+       "ref": "page 1",
+       "snippet": "9.10",
+       "page": 1,
+       "cell": null,
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 3,
+      "vendor_label": "RSC shipper, 1 L × 12",
+      "price": 22.04,
+      "currency": "INR",
+      "unit": "piece",
+      "bundle_size": null,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "buffer-konkan-quote.pdf",
+       "kind": "pdf",
+       "ref": "page 1",
+       "snippet": "22.04",
+       "page": 1,
+       "cell": null,
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 4,
+      "vendor_label": "RSC carton, 500 ml × 24",
+      "price": 9.54,
+      "currency": "INR",
+      "unit": "piece",
+      "bundle_size": null,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "buffer-konkan-quote.pdf",
+       "kind": "pdf",
+       "ref": "page 1",
+       "snippet": "9.54",
+       "page": 1,
+       "cell": null,
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 5,
+      "vendor_label": "RSC carton, tablets",
+      "price": 5.7,
+      "currency": "INR",
+      "unit": "piece",
+      "bundle_size": null,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "buffer-konkan-quote.pdf",
+       "kind": "pdf",
+       "ref": "page 1",
+       "snippet": "5.70",
+       "page": 1,
+       "cell": null,
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 6,
+      "vendor_label": "RSC carton, sample kits",
+      "price": 4.73,
+      "currency": "INR",
+      "unit": "piece",
+      "bundle_size": null,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "buffer-konkan-quote.pdf",
+       "kind": "pdf",
+       "ref": "page 1",
+       "snippet": "4.73",
+       "page": 1,
+       "cell": null,
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 7,
+      "vendor_label": "RSC carton, spare parts",
+      "price": 7.84,
+      "currency": "INR",
+      "unit": "piece",
+      "bundle_size": null,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "buffer-konkan-quote.pdf",
+       "kind": "pdf",
+       "ref": "page 1",
+       "snippet": "7.84",
+       "page": 1,
+       "cell": null,
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 8,
+      "vendor_label": "RSC shipper, 2 L × 4",
+      "price": 28.09,
+      "currency": "INR",
+      "unit": "piece",
+      "bundle_size": null,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "buffer-konkan-quote.pdf",
+       "kind": "pdf",
+       "ref": "page 1",
+       "snippet": "28.09",
+       "page": 1,
+       "cell": null,
+       "paragraph": null,
+       "bbox": null
+      }
+     }
+    ],
+    "missing_lines": [],
+    "unreadable_lines": [],
+    "rest_from_last_year": false,
+    "terms": {
+     "payment_days": 60,
+     "validity_days": 60,
+     "lead_time_days": 9,
+     "freight": "included",
+     "freight_amount": null
+    },
+    "discount": null,
+    "answers": [
+     {
+      "q_no": 1,
+      "met": true,
+      "answer": "ISO 9001 certified, valid until Dec 2027"
+     },
+     {
+      "q_no": 2,
+      "met": true,
+      "answer": "FSC certified"
+     },
+     {
+      "q_no": 3,
+      "met": true,
+      "answer": "BCT report with every lot"
+     },
+     {
+      "q_no": 4,
+      "met": false,
+      "answer": "No in-house ECT tester"
+     },
+     {
+      "q_no": 5,
+      "met": true,
+      "answer": "4 lakh boxes per month"
+     },
+     {
+      "q_no": 6,
+      "met": true,
+      "answer": "9 days"
+     },
+     {
+      "q_no": 7,
+      "met": true,
+      "answer": "1 complaint in the last year"
+     },
+     {
+      "q_no": 8,
+      "met": false,
+      "answer": "No buffer stock"
+     },
+     {
+      "q_no": 9,
+      "met": true,
+      "answer": "Supply to both plants"
+     },
+     {
+      "q_no": 10,
+      "met": false,
+      "answer": "No printing"
+     },
+     {
+      "q_no": 11,
+      "met": true,
+      "answer": "Mill certificates shared with every lot"
+     },
+     {
+      "q_no": 12,
+      "met": true,
+      "answer": "Recycled content declared"
+     }
+    ],
+    "certificates": [
+     {
+      "name": "ISO 9001",
+      "valid_until": "2027-12-31",
+      "source": {
+       "attachment": "buffer-konkan-quote.pdf",
+       "kind": "pdf",
+       "ref": "page 2",
+       "snippet": "ISO 9001 certified, valid until Dec 2027",
+       "page": 2,
+       "cell": null,
+       "paragraph": null,
+       "bbox": null
+      }
+     }
+    ]
+   }
+  ],
+  "rfi": [
+   {
+    "vendor_name": "Kaveri Corrugators",
+    "iso_9001": true,
+    "fsc": true,
+    "monthly_capacity": "3.0 L boxes",
+    "shortlisted": true,
+    "reason": "Can add a second shift for festive volumes."
+   },
+   {
+    "vendor_name": "Sahyadri Paperpack",
+    "iso_9001": true,
+    "fsc": true,
+    "monthly_capacity": "3.0 L boxes",
+    "shortlisted": true,
+    "reason": "Current supplier; limited spare capacity in Q3."
+   },
+   {
+    "vendor_name": "Konkan Corrugated",
+    "iso_9001": true,
+    "fsc": true,
+    "monthly_capacity": "3.0 L boxes",
+    "shortlisted": true,
+    "reason": "Spare capacity available from August."
+   }
+  ]
+ }
+}

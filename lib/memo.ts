@@ -11,6 +11,7 @@ export type MemoRow = { line_no: number; description: string; vendor: string; qt
 export type MemoContent = {
   scenario_name: string;
   prepared_day: number;
+  prepared_at?: string;
   total: number;
   savings_vs_last_year: { amount: number; pct: number; lines: number } | null;
   savings_vs_single: { amount: number; vendor: string } | null;
@@ -23,7 +24,9 @@ export type MemoContent = {
   rows: MemoRow[];
 };
 
-export async function buildMemo(rfx: Rfx, r: ScenarioResult, input: ComparisonInput, comparison: Comparison, issues: IssueRecord[]): Promise<MemoContent> {
+export async function buildMemo(
+  rfx: Rfx, r: ScenarioResult, input: ComparisonInput, comparison: Comparison, issues: IssueRecord[], opts: { ai?: boolean } = {},
+): Promise<MemoContent> {
   const vendorByCode = new Map(input.vendors.map((v) => [v.code, v]));
   const rows: MemoRow[] = r.rows
     .filter((x) => x.vendor && x.total !== null)
@@ -38,14 +41,14 @@ export async function buildMemo(rfx: Rfx, r: ScenarioResult, input: ComparisonIn
   const risks: string[] = [];
   for (const code of awarded) {
     const f = input.assumptions.freight[code];
-    if (f?.source === "estimate") risks.push(`${code} freight is a buyer estimate (${inr(f.per_piece)} per piece), not quoted.`);
+    if (f?.source === "estimate") risks.push(`${vendorByCode.get(code)?.name ?? code}: freight is a buyer estimate (${inr(f.per_piece)} per piece), not quoted.`);
   }
   const kgLines = rows.filter((x) => input.quotes.find((q) => q.id === x.quote_id)?.raw.unit === "kg").map((x) => x.line_no);
   if (kgLines.length) risks.push(`${kgLines.length} awarded line${kgLines.length > 1 ? "s were" : " was"} priced per kg and converted with estimated box weights.`);
   const awardedIds = new Set([...awarded].map((c) => vendorByCode.get(c)!.id));
   const openOnAwarded = issues.filter((i) => awardedIds.has(i.vendor_id) && i.status !== "resolved");
   risks.push(openOnAwarded.length ? `${openOnAwarded.length} open flag${openOnAwarded.length > 1 ? "s" : ""} on awarded vendors: ${openOnAwarded.slice(0, 3).map((i) => i.title).join("; ")}.` : "No open flags on the awarded vendors.");
-  for (const e of r.excluded) risks.push(`${e.code} excluded: ${e.reason}.`);
+  for (const e of r.excluded) risks.push(`${vendorByCode.get(e.code)?.name ?? e.code} excluded: ${e.reason}.`);
   if (r.lines_uncovered.length) risks.push(`Lines ${r.lines_uncovered.join(", ")} have no eligible quote.`);
 
   const rules = rfx.rules;
@@ -54,9 +57,9 @@ export async function buildMemo(rfx: Rfx, r: ScenarioResult, input: ComparisonIn
     `Basis: ₹ per piece, before GST, delivered to each plant, 1 USD = ₹${(rules?.fx_rate ?? input.assumptions.fx_rate).toFixed(2)}${rules?.fx_date ? ` (rate of ${rules.fx_date})` : ""}, volume tiers by plant`,
   ];
 
-  let why = `${r.working.rule}. ${r.excluded.length ? `${r.excluded.map((e) => e.code).join(" and ")} ${r.excluded.length > 1 ? "were" : "was"} excluded by the locked rules.` : ""} ${r.tier_lines.length ? `Combining both plants' volumes reaches a volume tier on ${r.tier_lines.length} lines.` : ""}`.trim();
+  let why = `${r.working.rule}. ${r.excluded.length ? `${r.excluded.map((e) => vendorByCode.get(e.code)?.name ?? e.code).join(" and ")} ${r.excluded.length > 1 ? "were" : "was"} excluded by the locked rules.` : ""} ${r.tier_lines.length ? `Combining both plants' volumes reaches a volume tier on ${r.tier_lines.length} lines.` : ""}`.trim();
   let checked = false;
-  if (aiConfigured()) {
+  if (opts.ai !== false && aiConfigured()) {
     try {
       const res = await openai().responses.create({
         model: aiModel(),
@@ -87,9 +90,10 @@ export async function buildMemo(rfx: Rfx, r: ScenarioResult, input: ComparisonIn
   return {
     scenario_name: r.name,
     prepared_day: rfx.demo_day,
+    prepared_at: new Date().toISOString(),
     total: r.total,
     savings_vs_last_year: r.last_year ? { amount: r.last_year.savings, pct: r.last_year.pct, lines: r.last_year.comparable_lines } : null,
-    savings_vs_single: r.cheapest_single && r.savings_vs_single !== null ? { amount: r.savings_vs_single, vendor: r.cheapest_single.code } : null,
+    savings_vs_single: r.cheapest_single && r.savings_vs_single !== null ? { amount: r.savings_vs_single, vendor: vendorByCode.get(r.cheapest_single.code)?.name ?? r.cheapest_single.code } : null,
     award: r.by_vendor,
     excluded: r.excluded.map((e) => ({ ...e, name: vendorByCode.get(e.code)?.name ?? e.code })),
     why,

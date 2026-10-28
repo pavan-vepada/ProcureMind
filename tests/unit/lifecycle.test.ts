@@ -1,39 +1,25 @@
 import { describe, expect, it } from "vitest";
-import { STAGES, STAGE_HREF, TOUR, stageState, tourState } from "@/lib/lifecycle";
+import { PHASE_LABEL, phaseOf, STEPS, stepIndex } from "@/lib/lifecycle";
 
-describe("lifecycle strip (FR-1.1)", () => {
-  it("has the 8 stages in order, with PO marked as roadmap", () => {
-    expect(STAGES.map((s) => s.label)).toEqual(["Need", "RFI", "RFP", "RFQ", "Replies", "Analysis", "Award", "PO"]);
-    expect(STAGES.filter((s) => s.roadmap).map((s) => s.key)).toEqual(["po"]);
+const at = "2026-10-01T00:00:00Z";
+
+describe("RFx status (FR-1.1)", () => {
+  it("names the five steps in order", () => {
+    expect(STEPS.map((s) => s.label)).toEqual(["Request", "RFQ", "Replies", "Analysis", "Award"]);
   });
 
-  it("marks earlier stages done, the current one current, and later ones later", () => {
-    expect(STAGES.map((s) => stageState("rfq", s.key))).toEqual([
-      "done", "done", "done", "current", "later", "later", "later", "later",
-    ]);
+  it("derives the buyer-facing status from where the RFx is", () => {
+    expect(phaseOf({ stage: "rfq", drafted_at: null, sent_at: null })).toBe("drafting");
+    expect(phaseOf({ stage: "rfq", drafted_at: at, sent_at: null })).toBe("ready");
+    expect(phaseOf({ stage: "replies", drafted_at: at, sent_at: at })).toBe("out");
+    expect(phaseOf({ stage: "analysis", drafted_at: at, sent_at: at })).toBe("analysis");
+    expect(phaseOf({ stage: "po", drafted_at: at, sent_at: at })).toBe("awarded");
   });
 
-  it("makes the seeded context stages clickable", () => {
-    expect(STAGE_HREF.need).toBe("/rfx/context/need");
-    expect(STAGE_HREF.rfi).toBe("/rfx/context/rfi");
-    expect(STAGE_HREF.rfp).toBe("/rfx/context/rfp");
-  });
-});
-
-describe("guided tour (FR-0.6)", () => {
-  it("has the 10 steps of the demo story", () => {
-    expect(TOUR).toHaveLength(10);
-    expect(TOUR[0]).toBe("See the request");
-    expect(TOUR[9]).toBe("Recommend award");
-  });
-
-  it("highlights exactly one current step", () => {
-    const states = TOUR.map((_, i) => tourState(3, i));
-    expect(states.filter((s) => s === "current")).toHaveLength(1);
-    expect(states.slice(0, 3)).toEqual(["done", "done", "done"]);
-  });
-
-  it("has no current step once the tour is finished", () => {
-    expect(TOUR.map((_, i) => tourState(10, i)).every((s) => s === "done")).toBe(true);
+  it("has a label and a step for every status, moving forward", () => {
+    const order = ["drafting", "ready", "out", "analysis", "awarded"] as const;
+    for (const p of order) expect(PHASE_LABEL[p]).toBeTruthy();
+    const steps = order.map(stepIndex);
+    expect([...steps].sort((a, b) => a - b)).toEqual(steps);
   });
 });

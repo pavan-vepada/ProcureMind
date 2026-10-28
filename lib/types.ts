@@ -11,6 +11,10 @@ export type Rfx = {
   code: string;
   title: string;
   buyer_company: string;
+  category: string;
+  dataset: string | null;
+  created_at: string;
+  updated_at: string;
   stage: StageKey;
   tour_step: number;
   tour_hidden: boolean;
@@ -72,6 +76,7 @@ export type Message = {
   body: string;
   day: number;
   late: boolean;
+  received_at: string;
   created_at: string;
 };
 

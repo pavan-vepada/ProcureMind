@@ -33,7 +33,7 @@ export default function Landing() {
             ))}
           </ol>
           <p className="mt-6 text-sm text-muted">
-            Try it on a ready-made demo: 5 vendors, 30 box sizes, every messy format.
+            Built for category buyers. Reads Excel, PDF, Word, phone photos and plain email; every number links back to the vendor&apos;s own words.
           </p>
         </section>
         <AuthForm />

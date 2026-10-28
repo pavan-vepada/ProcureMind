@@ -46,7 +46,7 @@ export function AuthForm() {
           disabled={pending}
           className="h-11 w-full rounded-lg bg-accent text-[15px] font-medium text-white shadow-sm hover:bg-accent-hover disabled:opacity-70"
         >
-          {pending ? "One moment…" : signup ? "Sign up and open the demo" : "Log in"}
+          {pending ? (signup ? "Setting up your workspace…" : "Logging in…") : signup ? "Create account" : "Log in"}
         </button>
       </form>
       <p className="mt-4 text-sm text-muted">
@@ -56,7 +56,7 @@ export function AuthForm() {
         </button>
       </p>
       {signup && (
-        <p className="mt-3 text-xs text-muted">No email verification. You land inside your own copy of the demo.</p>
+        <p className="mt-3 text-xs text-muted">Your workspace comes with sample sourcing events at every stage, so you can explore straight away.</p>
       )}
     </div>
   );

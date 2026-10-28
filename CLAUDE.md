@@ -4,7 +4,8 @@ This file is the project's memory. Any new Claude session should read it first a
 
 ## Current status
 - **Current phase:** 6 — Build. **All MVP features (PRD §6 steps 1–10) are built** and run end to end locally against the real Supabase project and the live OpenAI model. Not yet deployed.
-- **Resume here (2026-10-28):** (1) deploy: needs the PM's OK to create the private GitHub repo `procure-mind-v2` (Claude Code blocks it without approval), then the PM imports it into Vercel with env vars `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY`, `OPENAI_API_KEY` (and optionally `AI_MODEL`); set the Supabase Auth Site URL to the Vercel address. (2) PM walks the demo using `docs/06-demo-guide.md` and reports anything that feels off.
+- **Restructured (2026-10-28, PM feedback):** no tour, no "demo" framing. Login lands on a **workspace of many RFx** (`/rfx`): 4 sample RFx at different stages (drafted, replies arriving, analysis with a saved scenario and earlier Q&A, awarded with memo), a pending internal request, "New RFx" (from a request or a free-text need, co-pilot drafts live). Each RFx has tabs: Overview · RFQ · Replies · Comparison · Review · Award (`app/rfx/[id]/`). "Restore sample workspace" in the account menu.
+- **Resume here (2026-10-28):** (1) PM walks the product using `docs/06-demo-guide.md` and reports anything that feels off. (2) **Do not push anywhere** until the PM says so (PM instruction 2026-10-28). Deploy later needs the PM's OK to create the GitHub repo, then Vercel import with env vars `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY`, `OPENAI_API_KEY` (optionally `AI_MODEL`); set Supabase Auth Site URL to the Vercel address.
 - **Demo date:** "within the week of 2026-10-28", exact date to be set by the PM. PM later said to forget the date and build everything (2026-10-28).
 - **Last updated:** 2026-10-28
 
@@ -49,6 +50,10 @@ This file is the project's memory. Any new Claude session should read it first a
 - React 19 lint forbids setState in effects: use the "adjust state during render" pattern or remount with `key`.
 - PowerShell mangles quotes inside `wsl -e bash -c '...'`, and `pkill -f "x"` can match its own shell: write a script file.
 - Supabase rejects made-up email domains; tests sign up `TEST_EMAIL` plus-addresses and `scripts/cleanup-test-users.mjs` deletes them.
+- Sample workspace seeding (`lib/workspace/seed.ts`) must check every write (`must()`); it retries once from scratch, and `workspace_seeds.ready_at` tells a parallel first request when the workspace is complete.
+- Anything computed during seeding must reload the RFx first: reading replies adds assumptions (freight estimates) via RPC.
+- e2e: after clicking a tab, wait for that page's heading before clicking buttons that exist on both pages (e.g. "Ask vendor"), and match text unique to the new state (sample data already contains "Saved as…").
+- `scripts/e2e.sh` pipes through `tail`, so output appears only at the end.
 
 ## Product context
 - **Product name:** Procure Mind V2.0
@@ -112,6 +117,9 @@ procure-mind-v2/
 | 2026-10-28 | Conditional discounts are always flagged and not applied until the buyer decides | "Ambiguities are flagged, never assumed"; the AI judged V2's footnote clear |
 | 2026-10-28 | Questionnaire Q1 (valid ISO 9001) is decided by the certificate's date in code | The AI sometimes records the certificate but not the Q1 answer |
 | 2026-10-28 | Reply deadline fixed at Day 7 | The demo script needs one late reply |
+| 2026-10-28 | No guided tour; workspace of many RFx at different stages; start new or continue any | PM: it must feel like a real LLM product for public display (GitHub, LinkedIn) |
+| 2026-10-28 | Do not push anywhere until the PM says so | PM instruction |
+| 2026-10-28 | Sample world keeps the buyer persona "Pavan, Sunrise Consumer Goods" for every user | Vendor emails address the buyer by name; open question for the PM |
 
 ## Open items
 - Deploy (see Current status). Supabase Auth → URL Configuration → Site URL must be set to the Vercel URL after deploy.

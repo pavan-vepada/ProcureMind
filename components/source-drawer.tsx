@@ -2,7 +2,7 @@
 
 import { Check, ExternalLink, Mail, Pencil, X } from "lucide-react";
 import { useEffect, useRef, useState, useTransition } from "react";
-import { acceptIssue, editQuote, reachStep } from "@/app/rfx/actions";
+import { acceptIssue, editQuote } from "@/app/rfx/actions";
 import { getSourceView, type SourcePayload } from "@/app/rfx/source-actions";
 import { Badge, Button } from "@/components/ui";
 import { PdfPage } from "@/components/pdf-page";
@@ -33,7 +33,7 @@ const PROV: Record<string, [string, "ok" | "info" | "clar" | "accent"]> = {
 
 /** S8 / Improvement B: the evidence behind a number, its conversion chain and its history.
  *  Mount with a key per target so each opening starts fresh. */
-export function SourceDrawer({ target, onClose, onAskVendor }: { target: DrawerTarget; onClose: () => void; onAskVendor: (code: string) => void }) {
+export function SourceDrawer({ rfxId, target, onClose, onAskVendor }: { rfxId: string; target: DrawerTarget; onClose: () => void; onAskVendor: (code: string) => void }) {
   const [data, setData] = useState<SourcePayload | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [tab, setTab] = useState<"source" | "conversion" | "history">("source");
@@ -43,7 +43,6 @@ export function SourceDrawer({ target, onClose, onAskVendor }: { target: DrawerT
 
   useEffect(() => {
     if (!target.quoteId && !target.issueId) return;
-    void reachStep(6);
     getSourceView({ quoteId: target.quoteId ?? undefined, issueId: target.issueId ?? undefined }).then(setData, (e) => setError(String(e)));
   }, [target]);
 
@@ -109,7 +108,7 @@ export function SourceDrawer({ target, onClose, onAskVendor }: { target: DrawerT
 
         <footer className="border-t border-line px-5 py-3">
           {editing ? (
-            <form className="flex items-center gap-2" onSubmit={(e) => { e.preventDefault(); start(async () => { const r = await editQuote(target.vendorCode, target.lineId!, Number(price), "Entered by buyer from the drawer"); if (!r.error) onClose(); }); }}>
+            <form className="flex items-center gap-2" onSubmit={(e) => { e.preventDefault(); start(async () => { const r = await editQuote(rfxId, target.vendorCode, target.lineId!, Number(price), "Entered by buyer from the drawer"); if (!r.error) onClose(); }); }}>
               <span className="text-sm text-muted">₹ per piece, before GST, delivered</span>
               <input autoFocus value={price} onChange={(e) => setPrice(e.target.value.replace(/[^\d.]/g, ""))} className="h-9 w-28 rounded-lg border border-line px-2 text-right" />
               <Button variant="primary" size="sm" disabled={pending || !(Number(price) > 0)}>Save</Button>
@@ -118,7 +117,7 @@ export function SourceDrawer({ target, onClose, onAskVendor }: { target: DrawerT
           ) : (
             <div className="flex flex-wrap items-center gap-2">
               {target.issueIds && target.issueIds.length > 0 && (
-                <Button size="sm" disabled={pending} onClick={() => start(async () => { for (const id of target.issueIds!) await acceptIssue(id); onClose(); })}><Check size={14} /> Accept</Button>
+                <Button size="sm" disabled={pending} onClick={() => start(async () => { for (const id of target.issueIds!) await acceptIssue(rfxId, id); onClose(); })}><Check size={14} /> Accept</Button>
               )}
               {target.lineId && <Button size="sm" onClick={() => { setPrice(target.value ? target.value.toFixed(2) : ""); setEditing(true); }}><Pencil size={14} /> Edit</Button>}
               <Button size="sm" onClick={() => onAskVendor(target.vendorCode)}><Mail size={14} /> Ask vendor</Button>

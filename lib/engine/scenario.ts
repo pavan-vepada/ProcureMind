@@ -191,13 +191,14 @@ export function runScenario(
 
   const filters: string[] = [];
   if (spec.passed_only) filters.push("Only vendors that pass the questionnaire rules locked before sending");
-  for (const e of excluded) filters.push(`${e.code} left out: ${e.reason}`);
+  const nameOf = (code: string) => summary.get(code)?.vendor.name ?? code;
+  for (const e of excluded) filters.push(`${nameOf(e.code)} left out: ${e.reason}`);
   if (spec.line_filter) filters.push(`Lines: ${[spec.line_filter.ply && `${spec.line_filter.ply}-ply`, spec.line_filter.category].filter(Boolean).join(" ")}`);
-  if (spec.price_match) filters.push(`What-if: ${spec.price_match.vendor} matches the lowest competing price on ${[spec.price_match.ply && `${spec.price_match.ply}-ply`, spec.price_match.category].filter(Boolean).join(" ") || "all"} lines`);
+  if (spec.price_match) filters.push(`What-if: ${nameOf(spec.price_match.vendor)} matches the lowest competing price on ${[spec.price_match.ply && `${spec.price_match.ply}-ply`, spec.price_match.category].filter(Boolean).join(" ") || "all"} lines`);
 
   const ruleText = {
     cheapest_per_line: "For each line, award to the lowest delivered price per piece among eligible vendors",
-    single_vendor: `Award every line to ${spec.single_vendor}`,
+    single_vendor: `Award every line to ${spec.single_vendor ? nameOf(spec.single_vendor) : "one vendor"}`,
     cheapest_single_vendor: "Award everything to the eligible vendor with the lowest total that can supply every line",
   }[spec.rule];
 
@@ -220,7 +221,7 @@ export function runScenario(
       : null,
     tier_lines: tierLines,
     working: {
-      data: `${lines.length} lines × ${eligible.length} eligible vendors (${eligible.join(", ") || "none"}), normalized ₹ per piece, before GST, delivered`,
+      data: `${lines.length} lines × ${eligible.length} eligible vendors (${eligible.map(nameOf).join(", ") || "none"}), normalized ₹ per piece, before GST, delivered`,
       filters,
       rule: ruleText,
       formula:

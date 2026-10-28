@@ -37,7 +37,7 @@ const tools = [
 
 function context(input: ComparisonInput, comparison: Comparison) {
   const vendors = comparison.vendors
-    .map((s) => `${s.vendor.code} ${s.vendor.name}: ${s.processed ? `${s.linesQuoted}/30 lines, total ${money(s.total)}, questionnaire ${s.questionnaire.passed ? "PASS" : "FAIL"} (${s.questionnaire.score}%)${s.invalidReasons.length && s.processed ? ` – ${s.invalidReasons.join("; ")}` : ""}, payment ${s.vendor.payment_days ?? "?"} days` : "not processed yet"}`)
+    .map((s) => `${s.vendor.code} ${s.vendor.name}: ${s.processed ? `${s.linesQuoted}/${input.lines.length} lines, total ${money(s.total)}, questionnaire ${s.questionnaire.passed ? "PASS" : "FAIL"} (${s.questionnaire.score}%)${s.invalidReasons.length && s.processed ? ` – ${s.invalidReasons.join("; ")}` : ""}, payment ${s.vendor.payment_days ?? "?"} days` : "not processed yet"}`)
     .join("\n");
   const cats = [...new Set(input.lines.map((l) => `${l.ply}-ply ${l.category}`))].join(", ");
   return `Vendors:\n${vendors}\nLine categories: ${cats} (rsc = regular slotted boxes, heavy = 7-ply).\nPlants: Plant 1 (Pune), Plant 2 (Nashik).`;
@@ -48,7 +48,7 @@ You NEVER calculate. To answer, call exactly one tool. For follow-ups, build on 
 Vendor names map to codes: use the codes in tool calls. "Passed the questionnaire" means passed_only=true.
 "Split the award" / "cheapest per line" → rule cheapest_per_line. "Combine both plants' volumes" → volume combined.
 If the question is ambiguous, call ask_clarifying_question instead of guessing.
-After a tool result, write 2–3 short sentences for a VP. Use ONLY numbers that appear in the tool result; format money like ₹1.19 Cr or ₹5.0 L. Do not list every line. No markdown headings.`;
+After a tool result, write 2–3 short sentences for a VP. Use ONLY numbers that appear in the tool result; format money like ₹1.19 Cr or ₹5.0 L. Refer to vendors by name, never by code (V1, V2…). Do not list every line. No markdown headings.`;
 
 export type AskContext = {
   input: ComparisonInput;
@@ -89,10 +89,10 @@ function allowedNumbers(r: ScenarioResult, previousTotal: number | null): number
   return n;
 }
 
-function fallbackText(r: ScenarioResult, previousTotal: number | null) {
-  const award = r.by_vendor.map((v) => `${v.code} (${v.lines.length} lines)`).join(", ");
+function fallbackText(r: ScenarioResult, previousTotal: number | null, nameOf: (code: string) => string) {
+  const award = r.by_vendor.map((v) => `${v.name} (${v.lines.length} lines)`).join(", ");
   let t = `Award to ${award}: total ${money(r.total)}.`;
-  if (r.savings_vs_single && r.cheapest_single) t += ` That is ${money(r.savings_vs_single)} below the cheapest single vendor (${r.cheapest_single.code}).`;
+  if (r.savings_vs_single && r.cheapest_single) t += ` That is ${money(r.savings_vs_single)} below the cheapest single vendor (${nameOf(r.cheapest_single.code)}).`;
   if (previousTotal !== null) t += ` ${r.total <= previousTotal ? `${money(previousTotal - r.total)} less` : `${money(r.total - previousTotal)} more`} than the previous answer.`;
   return t;
 }
@@ -136,20 +136,20 @@ export async function ask(question: string, ctx: AskContext): Promise<AskResult>
       const withIssues = rows.filter((r) => (r[2] as number) > 0);
       return {
         content: withIssues.length
-          ? `${withIssues.length} vendor${withIssues.length > 1 ? "s" : ""} still ha${withIssues.length > 1 ? "ve" : "s"} open issues: ${withIssues.map((r) => `${r[0]} (${r[2]})`).join(", ")}. Use “Ask vendor” to send one email per vendor.`
+          ? `${withIssues.length} vendor${withIssues.length > 1 ? "s" : ""} still ha${withIssues.length > 1 ? "ve" : "s"} open issues: ${withIssues.map((r) => `${r[1]} (${r[2]})`).join(", ")}. Use “Ask vendor” to send one email per vendor.`
           : "No open issues. Every vendor's quote is complete.",
         payload: { kind: "issues", table: { columns: ["Vendor", "Name", "Open", "Examples"], rows } },
       };
     }
     const s = ctx.comparison.vendors.find((x) => x.vendor.code === code)!;
     return {
-      content: `${s.vendor.name} (${s.vendor.code}): ${s.linesQuoted} of 30 lines, total ${money(s.total)}. Questionnaire ${s.questionnaire.passed ? "passed" : "failed"} at ${s.questionnaire.score}%${s.questionnaire.failures.length ? ` (${s.questionnaire.failures[0]})` : ""}.`,
+      content: `${s.vendor.name}: ${s.linesQuoted} of ${ctx.input.lines.length} lines, total ${money(s.total)}. Questionnaire ${s.questionnaire.passed ? "passed" : "failed"} at ${s.questionnaire.score}%${s.questionnaire.failures.length ? ` (${s.questionnaire.failures[0]})` : ""}.`,
       payload: {
         kind: "profile",
         table: {
           columns: ["Item", "Value"],
           rows: [
-            ["Lines quoted", `${s.linesQuoted} of 30`], ["Total value", money(s.total)],
+            ["Lines quoted", `${s.linesQuoted} of ${ctx.input.lines.length}`], ["Total value", money(s.total)],
             ["Questionnaire", `${s.questionnaire.passed ? "Pass" : "Fail"} · ${s.questionnaire.score}%`],
             ["Payment", s.vendor.payment_days ? `${s.vendor.payment_days} days` : "—"], ["Lead time", s.vendor.lead_time_days ? `${s.vendor.lead_time_days} days` : "—"],
             ["Freight", s.vendor.freight ?? "—"],
@@ -164,7 +164,8 @@ export async function ask(question: string, ctx: AskContext): Promise<AskResult>
   const result = runScenario(ctx.input, ctx.comparison, ctx.contracts, spec);
   const previousTotal = previous ? previous.total : null;
 
-  let text = fallbackText(result, previousTotal);
+  const nameOf = (code: string) => ctx.comparison.vendors.find((s) => s.vendor.code === code)?.vendor.name ?? code;
+  let text = fallbackText(result, previousTotal, nameOf);
   let checked = false;
   try {
     const second = await openai().responses.create({

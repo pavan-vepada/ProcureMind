@@ -10,7 +10,7 @@ import random
 import sys
 from pathlib import Path
 
-from . import files, ideal
+from . import extra, files, ideal
 from .model import FX, LINES, QUESTIONS, base_price, weight_kg
 
 
@@ -35,7 +35,11 @@ def main() -> None:
         "answer_key": answer_key(prices, contracts),
     }
     (out / "demo.json").write_text(json.dumps(demo, indent=1, ensure_ascii=False), encoding="utf-8")
-    print(f"wrote {out / 'demo.json'} and {len(list((out / 'files').iterdir()))} files")
+
+    codes = {"launch": "RFX-2026-021", "export": "RFX-2026-017", "inner": "RFX-2026-009", "buffer": "RFX-2026-019"}
+    extras = extra.build(out / "files", codes)
+    (out / "extra.json").write_text(json.dumps(extras, indent=1, ensure_ascii=False), encoding="utf-8")
+    print(f"wrote demo.json, extra.json ({', '.join(extras)}) and {len(list((out / 'files').iterdir()))} files")
 
 
 def line_json(l):
