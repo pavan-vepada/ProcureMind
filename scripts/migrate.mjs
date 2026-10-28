@@ -1,4 +1,4 @@
-// Applies supabase/migrations/*.sql in name order, each once, each in its own transaction.
+// Applies database/migrations/*.sql in name order, each once, each in its own transaction.
 // Usage: npm run db:migrate   (reads SUPABASE_DB_URL from .env.local)
 import { readdir, readFile } from "node:fs/promises";
 import path from "node:path";
@@ -18,7 +18,7 @@ if (!url) {
 const connectionString = url.replace(/[?&]sslmode=[^&]*/, "");
 const client = new pg.Client({ connectionString, ssl: { rejectUnauthorized: false } });
 
-const dir = "supabase/migrations";
+const dir = "database/migrations";
 const files = (await readdir(dir)).filter((f) => f.endsWith(".sql")).sort();
 
 await client.connect();

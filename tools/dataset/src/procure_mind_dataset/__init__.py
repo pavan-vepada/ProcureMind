@@ -1,9 +1,9 @@
 """Generates the Procure Mind demo dataset.
 
-Writes seed/demo.json (RFQ lines, questionnaire, contracts, vendor messages, answer key)
-and seed/files/* (the vendor replies in Excel, PDF, Word, phone photo and email text).
+Writes sample-data/demo.json (RFQ lines, questionnaire, contracts, vendor messages, answer key)
+and sample-data/files/* (the vendor replies in Excel, PDF, Word, phone photo and email text).
 
-Usage (from tools/dataset):  uv run procure-mind-dataset ../../seed
+Usage (from tools/dataset):  uv run procure-mind-dataset ../../sample-data
 """
 import json
 import random
@@ -15,7 +15,7 @@ from .model import FX, LINES, QUESTIONS, base_price, weight_kg
 
 
 def main() -> None:
-    out = Path(sys.argv[1] if len(sys.argv) > 1 else "../../seed").resolve()
+    out = Path(sys.argv[1] if len(sys.argv) > 1 else "../../sample-data").resolve()
     (out / "files").mkdir(parents=True, exist_ok=True)
     rng = random.Random(2026)
 

@@ -15,7 +15,7 @@ describe.each(Object.values(DATASETS).map((d) => [d.key, d] as const))("sample d
     for (const v of ds.vendors) {
       const reply = ds.replies.find((r) => r.vendor_code === v.code)!;
       expect(reply, v.code).toBeTruthy();
-      for (const a of reply.attachments) expect(existsSync(`seed/files/${a.filename}`), a.filename).toBe(true);
+      for (const a of reply.attachments) expect(existsSync(`sample-data/files/${a.filename}`), a.filename).toBe(true);
       expect((ds.ideal as { vendor_code: string }[]).some((x) => x.vendor_code === v.code)).toBe(true);
     }
   });

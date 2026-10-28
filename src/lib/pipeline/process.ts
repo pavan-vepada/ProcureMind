@@ -17,7 +17,7 @@ const KIND_LABEL: Record<FileKind, string> = {
 };
 
 export async function loadAttachmentBytes(supabase: SupabaseClient, a: Attachment): Promise<Buffer> {
-  if (a.storage === "seed") return readFile(path.join(process.cwd(), "seed", "files", path.basename(a.path)));
+  if (a.storage === "seed") return readFile(path.join(process.cwd(), "sample-data", "files", path.basename(a.path)));
   const { data, error } = await supabase.storage.from("uploads").download(a.path);
   if (error || !data) throw new Error(`Couldn't open ${a.filename}: ${error?.message ?? "not found"}`);
   return Buffer.from(await data.arrayBuffer());

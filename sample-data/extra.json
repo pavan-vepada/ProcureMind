@@ -342,153 +342,6 @@
     "vendor_code": "V1",
     "quotes": [
      {
-      "line_no": 9,
-      "vendor_label": "Die-cut display tray",
-      "price": 312,
-      "currency": "INR",
-      "unit": "bundle",
-      "bundle_size": 50,
-      "gst_included": false,
-      "tiers": [],
-      "confidence": "high",
-      "source": {
-       "attachment": "launch-kaveri-quote.xlsx",
-       "kind": "excel",
-       "ref": "Quote!E5",
-       "snippet": "312",
-       "page": null,
-       "cell": "Quote!E5",
-       "paragraph": null,
-       "bbox": null
-      }
-     },
-     {
-      "line_no": 4,
-      "vendor_label": "Die-cut tray, 2 L bottles",
-      "price": 249,
-      "currency": "INR",
-      "unit": "bundle",
-      "bundle_size": 50,
-      "gst_included": false,
-      "tiers": [],
-      "confidence": "high",
-      "source": {
-       "attachment": "launch-kaveri-quote.xlsx",
-       "kind": "excel",
-       "ref": "Quote!E6",
-       "snippet": "249",
-       "page": null,
-       "cell": "Quote!E6",
-       "paragraph": null,
-       "bbox": null
-      }
-     },
-     {
-      "line_no": 3,
-      "vendor_label": "RSC carton, sachet bundle",
-      "price": 392,
-      "currency": "INR",
-      "unit": "bundle",
-      "bundle_size": 50,
-      "gst_included": false,
-      "tiers": [],
-      "confidence": "high",
-      "source": {
-       "attachment": "launch-kaveri-quote.xlsx",
-       "kind": "excel",
-       "ref": "Quote!E7",
-       "snippet": "392",
-       "page": null,
-       "cell": "Quote!E7",
-       "paragraph": null,
-       "bbox": null
-      }
-     },
-     {
-      "line_no": 10,
-      "vendor_label": "Partition set 3 × 4",
-      "price": 306,
-      "currency": "INR",
-      "unit": "bundle",
-      "bundle_size": 50,
-      "gst_included": false,
-      "tiers": [],
-      "confidence": "high",
-      "source": {
-       "attachment": "launch-kaveri-quote.xlsx",
-       "kind": "excel",
-       "ref": "Quote!E8",
-       "snippet": "306",
-       "page": null,
-       "cell": "Quote!E8",
-       "paragraph": null,
-       "bbox": null
-      }
-     },
-     {
-      "line_no": 7,
-      "vendor_label": "RSC carton, 500 ml × 24",
-      "price": 524,
-      "currency": "INR",
-      "unit": "bundle",
-      "bundle_size": 50,
-      "gst_included": false,
-      "tiers": [],
-      "confidence": "high",
-      "source": {
-       "attachment": "launch-kaveri-quote.xlsx",
-       "kind": "excel",
-       "ref": "Quote!E9",
-       "snippet": "524",
-       "page": null,
-       "cell": "Quote!E9",
-       "paragraph": null,
-       "bbox": null
-      }
-     },
-     {
-      "line_no": 8,
-      "vendor_label": "RSC carton, tablets",
-      "price": 310,
-      "currency": "INR",
-      "unit": "bundle",
-      "bundle_size": 50,
-      "gst_included": false,
-      "tiers": [],
-      "confidence": "high",
-      "source": {
-       "attachment": "launch-kaveri-quote.xlsx",
-       "kind": "excel",
-       "ref": "Quote!E10",
-       "snippet": "310",
-       "page": null,
-       "cell": "Quote!E10",
-       "paragraph": null,
-       "bbox": null
-      }
-     },
-     {
-      "line_no": 12,
-      "vendor_label": "RSC carton, 1 L bottles × 6",
-      "price": 466,
-      "currency": "INR",
-      "unit": "bundle",
-      "bundle_size": 50,
-      "gst_included": false,
-      "tiers": [],
-      "confidence": "high",
-      "source": {
-       "attachment": "launch-kaveri-quote.xlsx",
-       "kind": "excel",
-       "ref": "Quote!E11",
-       "snippet": "466",
-       "page": null,
-       "cell": "Quote!E11",
-       "paragraph": null,
-       "bbox": null
-      }
-     },
-     {
       "line_no": 11,
       "vendor_label": "RSC shipper, slim",
       "price": 1222,
@@ -501,10 +354,10 @@
       "source": {
        "attachment": "launch-kaveri-quote.xlsx",
        "kind": "excel",
-       "ref": "Quote!E12",
+       "ref": "Quote!E5",
        "snippet": "1222",
        "page": null,
-       "cell": "Quote!E12",
+       "cell": "Quote!E5",
        "paragraph": null,
        "bbox": null
       }
@@ -522,10 +375,73 @@
       "source": {
        "attachment": "launch-kaveri-quote.xlsx",
        "kind": "excel",
-       "ref": "Quote!E13",
+       "ref": "Quote!E6",
        "snippet": "1320",
        "page": null,
-       "cell": "Quote!E13",
+       "cell": "Quote!E6",
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 8,
+      "vendor_label": "RSC carton, tablets",
+      "price": 310,
+      "currency": "INR",
+      "unit": "bundle",
+      "bundle_size": 50,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "launch-kaveri-quote.xlsx",
+       "kind": "excel",
+       "ref": "Quote!E7",
+       "snippet": "310",
+       "page": null,
+       "cell": "Quote!E7",
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 9,
+      "vendor_label": "Die-cut display tray",
+      "price": 312,
+      "currency": "INR",
+      "unit": "bundle",
+      "bundle_size": 50,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "launch-kaveri-quote.xlsx",
+       "kind": "excel",
+       "ref": "Quote!E8",
+       "snippet": "312",
+       "page": null,
+       "cell": "Quote!E8",
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 6,
+      "vendor_label": "RSC shipper, 1 L × 12",
+      "price": 1093,
+      "currency": "INR",
+      "unit": "bundle",
+      "bundle_size": 50,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "launch-kaveri-quote.xlsx",
+       "kind": "excel",
+       "ref": "Quote!E9",
+       "snippet": "1093",
+       "page": null,
+       "cell": "Quote!E9",
        "paragraph": null,
        "bbox": null
       }
@@ -543,10 +459,31 @@
       "source": {
        "attachment": "launch-kaveri-quote.xlsx",
        "kind": "excel",
-       "ref": "Quote!E14",
+       "ref": "Quote!E10",
        "snippet": "2276",
        "page": null,
-       "cell": "Quote!E14",
+       "cell": "Quote!E10",
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 4,
+      "vendor_label": "Die-cut tray, 2 L bottles",
+      "price": 249,
+      "currency": "INR",
+      "unit": "bundle",
+      "bundle_size": 50,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "launch-kaveri-quote.xlsx",
+       "kind": "excel",
+       "ref": "Quote!E11",
+       "snippet": "249",
+       "page": null,
+       "cell": "Quote!E11",
        "paragraph": null,
        "bbox": null
       }
@@ -554,6 +491,69 @@
      {
       "line_no": 5,
       "vendor_label": "Partition set 4 × 6",
+      "price": 392,
+      "currency": "INR",
+      "unit": "bundle",
+      "bundle_size": 50,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "launch-kaveri-quote.xlsx",
+       "kind": "excel",
+       "ref": "Quote!E12",
+       "snippet": "392",
+       "page": null,
+       "cell": "Quote!E12",
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 10,
+      "vendor_label": "Partition set 3 × 4",
+      "price": 306,
+      "currency": "INR",
+      "unit": "bundle",
+      "bundle_size": 50,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "launch-kaveri-quote.xlsx",
+       "kind": "excel",
+       "ref": "Quote!E13",
+       "snippet": "306",
+       "page": null,
+       "cell": "Quote!E13",
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 7,
+      "vendor_label": "RSC carton, 500 ml × 24",
+      "price": 524,
+      "currency": "INR",
+      "unit": "bundle",
+      "bundle_size": 50,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "launch-kaveri-quote.xlsx",
+       "kind": "excel",
+       "ref": "Quote!E14",
+       "snippet": "524",
+       "page": null,
+       "cell": "Quote!E14",
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 3,
+      "vendor_label": "RSC carton, sachet bundle",
       "price": 392,
       "currency": "INR",
       "unit": "bundle",
@@ -573,9 +573,9 @@
       }
      },
      {
-      "line_no": 6,
-      "vendor_label": "RSC shipper, 1 L × 12",
-      "price": 1093,
+      "line_no": 12,
+      "vendor_label": "RSC carton, 1 L bottles × 6",
+      "price": 466,
       "currency": "INR",
       "unit": "bundle",
       "bundle_size": 50,
@@ -586,7 +586,7 @@
        "attachment": "launch-kaveri-quote.xlsx",
        "kind": "excel",
        "ref": "Quote!E16",
-       "snippet": "1093",
+       "snippet": "466",
        "page": null,
        "cell": "Quote!E16",
        "paragraph": null,
@@ -2757,48 +2757,6 @@
     "vendor_code": "V2",
     "quotes": [
      {
-      "line_no": 7,
-      "vendor_label": "RSC shipper, 5 L × 2",
-      "price": 2153,
-      "currency": "INR",
-      "unit": "bundle",
-      "bundle_size": 100,
-      "gst_included": false,
-      "tiers": [],
-      "confidence": "high",
-      "source": {
-       "attachment": "export-kaveri-quote.xlsx",
-       "kind": "excel",
-       "ref": "Quote!E5",
-       "snippet": "2153",
-       "page": null,
-       "cell": "Quote!E5",
-       "paragraph": null,
-       "bbox": null
-      }
-     },
-     {
-      "line_no": 8,
-      "vendor_label": "Heavy-duty pallet sleeve",
-      "price": 24216,
-      "currency": "INR",
-      "unit": "bundle",
-      "bundle_size": 100,
-      "gst_included": false,
-      "tiers": [],
-      "confidence": "high",
-      "source": {
-       "attachment": "export-kaveri-quote.xlsx",
-       "kind": "excel",
-       "ref": "Quote!E6",
-       "snippet": "24216",
-       "page": null,
-       "cell": "Quote!E6",
-       "paragraph": null,
-       "bbox": null
-      }
-     },
-     {
       "line_no": 2,
       "vendor_label": "Heavy-duty export box",
       "price": 8693,
@@ -2811,10 +2769,10 @@
       "source": {
        "attachment": "export-kaveri-quote.xlsx",
        "kind": "excel",
-       "ref": "Quote!E7",
+       "ref": "Quote!E5",
        "snippet": "8693",
        "page": null,
-       "cell": "Quote!E7",
+       "cell": "Quote!E5",
        "paragraph": null,
        "bbox": null
       }
@@ -2832,10 +2790,31 @@
       "source": {
        "attachment": "export-kaveri-quote.xlsx",
        "kind": "excel",
-       "ref": "Quote!E8",
+       "ref": "Quote!E6",
        "snippet": "3093",
        "page": null,
-       "cell": "Quote!E8",
+       "cell": "Quote!E6",
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 7,
+      "vendor_label": "RSC shipper, 5 L × 2",
+      "price": 2153,
+      "currency": "INR",
+      "unit": "bundle",
+      "bundle_size": 100,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "export-kaveri-quote.xlsx",
+       "kind": "excel",
+       "ref": "Quote!E7",
+       "snippet": "2153",
+       "page": null,
+       "cell": "Quote!E7",
        "paragraph": null,
        "bbox": null
       }
@@ -2853,10 +2832,10 @@
       "source": {
        "attachment": "export-kaveri-quote.xlsx",
        "kind": "excel",
-       "ref": "Quote!E9",
+       "ref": "Quote!E8",
        "snippet": "9385",
        "page": null,
-       "cell": "Quote!E9",
+       "cell": "Quote!E8",
        "paragraph": null,
        "bbox": null
       }
@@ -2874,31 +2853,10 @@
       "source": {
        "attachment": "export-kaveri-quote.xlsx",
        "kind": "excel",
-       "ref": "Quote!E10",
+       "ref": "Quote!E9",
        "snippet": "11105",
        "page": null,
-       "cell": "Quote!E10",
-       "paragraph": null,
-       "bbox": null
-      }
-     },
-     {
-      "line_no": 9,
-      "vendor_label": "RSC shipper, 2 L × 4",
-      "price": 2905,
-      "currency": "INR",
-      "unit": "bundle",
-      "bundle_size": 100,
-      "gst_included": false,
-      "tiers": [],
-      "confidence": "high",
-      "source": {
-       "attachment": "export-kaveri-quote.xlsx",
-       "kind": "excel",
-       "ref": "Quote!E11",
-       "snippet": "2905",
-       "page": null,
-       "cell": "Quote!E11",
+       "cell": "Quote!E9",
        "paragraph": null,
        "bbox": null
       }
@@ -2916,31 +2874,10 @@
       "source": {
        "attachment": "export-kaveri-quote.xlsx",
        "kind": "excel",
-       "ref": "Quote!E12",
+       "ref": "Quote!E10",
        "snippet": "4511",
        "page": null,
-       "cell": "Quote!E12",
-       "paragraph": null,
-       "bbox": null
-      }
-     },
-     {
-      "line_no": 4,
-      "vendor_label": "RSC shipper, gift pack",
-      "price": 3512,
-      "currency": "INR",
-      "unit": "bundle",
-      "bundle_size": 100,
-      "gst_included": false,
-      "tiers": [],
-      "confidence": "high",
-      "source": {
-       "attachment": "export-kaveri-quote.xlsx",
-       "kind": "excel",
-       "ref": "Quote!E13",
-       "snippet": "3512",
-       "page": null,
-       "cell": "Quote!E13",
+       "cell": "Quote!E10",
        "paragraph": null,
        "bbox": null
       }
@@ -2958,8 +2895,71 @@
       "source": {
        "attachment": "export-kaveri-quote.xlsx",
        "kind": "excel",
-       "ref": "Quote!E14",
+       "ref": "Quote!E11",
        "snippet": "2497",
+       "page": null,
+       "cell": "Quote!E11",
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 4,
+      "vendor_label": "RSC shipper, gift pack",
+      "price": 3512,
+      "currency": "INR",
+      "unit": "bundle",
+      "bundle_size": 100,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "export-kaveri-quote.xlsx",
+       "kind": "excel",
+       "ref": "Quote!E12",
+       "snippet": "3512",
+       "page": null,
+       "cell": "Quote!E12",
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 8,
+      "vendor_label": "Heavy-duty pallet sleeve",
+      "price": 24216,
+      "currency": "INR",
+      "unit": "bundle",
+      "bundle_size": 100,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "export-kaveri-quote.xlsx",
+       "kind": "excel",
+       "ref": "Quote!E13",
+       "snippet": "24216",
+       "page": null,
+       "cell": "Quote!E13",
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 9,
+      "vendor_label": "RSC shipper, 2 L × 4",
+      "price": 2905,
+      "currency": "INR",
+      "unit": "bundle",
+      "bundle_size": 100,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "export-kaveri-quote.xlsx",
+       "kind": "excel",
+       "ref": "Quote!E14",
+       "snippet": "2905",
        "page": null,
        "cell": "Quote!E14",
        "paragraph": null,
@@ -4007,9 +4007,9 @@
     "vendor_code": "V1",
     "quotes": [
      {
-      "line_no": 5,
-      "vendor_label": "Die-cut display tray",
-      "price": 5.69,
+      "line_no": 6,
+      "vendor_label": "Partition set 3 × 4",
+      "price": 6.29,
       "currency": "INR",
       "unit": "piece",
       "bundle_size": null,
@@ -4020,9 +4020,30 @@
        "attachment": "inner-narmada-quote.xlsx",
        "kind": "excel",
        "ref": "Quote!E5",
-       "snippet": "5.69",
+       "snippet": "6.29",
        "page": null,
        "cell": "Quote!E5",
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 3,
+      "vendor_label": "Layer pad 1000 × 1200",
+      "price": 20.99,
+      "currency": "INR",
+      "unit": "piece",
+      "bundle_size": null,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "inner-narmada-quote.xlsx",
+       "kind": "excel",
+       "ref": "Quote!E6",
+       "snippet": "20.99",
+       "page": null,
+       "cell": "Quote!E6",
        "paragraph": null,
        "bbox": null
       }
@@ -4040,94 +4061,10 @@
       "source": {
        "attachment": "inner-narmada-quote.xlsx",
        "kind": "excel",
-       "ref": "Quote!E6",
+       "ref": "Quote!E7",
        "snippet": "4.68",
        "page": null,
-       "cell": "Quote!E6",
-       "paragraph": null,
-       "bbox": null
-      }
-     },
-     {
-      "line_no": 4,
-      "vendor_label": "Die-cut tray, 5 L cans",
-      "price": 11.1,
-      "currency": "INR",
-      "unit": "piece",
-      "bundle_size": null,
-      "gst_included": false,
-      "tiers": [],
-      "confidence": "high",
-      "source": {
-       "attachment": "inner-narmada-quote.xlsx",
-       "kind": "excel",
-       "ref": "Quote!E7",
-       "snippet": "11.1",
-       "page": null,
        "cell": "Quote!E7",
-       "paragraph": null,
-       "bbox": null
-      }
-     },
-     {
-      "line_no": 10,
-      "vendor_label": "Partition set 2 × 3",
-      "price": 5.69,
-      "currency": "INR",
-      "unit": "piece",
-      "bundle_size": null,
-      "gst_included": false,
-      "tiers": [],
-      "confidence": "high",
-      "source": {
-       "attachment": "inner-narmada-quote.xlsx",
-       "kind": "excel",
-       "ref": "Quote!E8",
-       "snippet": "5.69",
-       "page": null,
-       "cell": "Quote!E8",
-       "paragraph": null,
-       "bbox": null
-      }
-     },
-     {
-      "line_no": 6,
-      "vendor_label": "Partition set 3 × 4",
-      "price": 6.29,
-      "currency": "INR",
-      "unit": "piece",
-      "bundle_size": null,
-      "gst_included": false,
-      "tiers": [],
-      "confidence": "high",
-      "source": {
-       "attachment": "inner-narmada-quote.xlsx",
-       "kind": "excel",
-       "ref": "Quote!E9",
-       "snippet": "6.29",
-       "page": null,
-       "cell": "Quote!E9",
-       "paragraph": null,
-       "bbox": null
-      }
-     },
-     {
-      "line_no": 9,
-      "vendor_label": "Die-cut mailer box",
-      "price": 4.96,
-      "currency": "INR",
-      "unit": "piece",
-      "bundle_size": null,
-      "gst_included": false,
-      "tiers": [],
-      "confidence": "high",
-      "source": {
-       "attachment": "inner-narmada-quote.xlsx",
-       "kind": "excel",
-       "ref": "Quote!E10",
-       "snippet": "4.96",
-       "page": null,
-       "cell": "Quote!E10",
        "paragraph": null,
        "bbox": null
       }
@@ -4145,8 +4082,71 @@
       "source": {
        "attachment": "inner-narmada-quote.xlsx",
        "kind": "excel",
-       "ref": "Quote!E11",
+       "ref": "Quote!E8",
        "snippet": "14.77",
+       "page": null,
+       "cell": "Quote!E8",
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 9,
+      "vendor_label": "Die-cut mailer box",
+      "price": 4.96,
+      "currency": "INR",
+      "unit": "piece",
+      "bundle_size": null,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "inner-narmada-quote.xlsx",
+       "kind": "excel",
+       "ref": "Quote!E9",
+       "snippet": "4.96",
+       "page": null,
+       "cell": "Quote!E9",
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 4,
+      "vendor_label": "Die-cut tray, 5 L cans",
+      "price": 11.1,
+      "currency": "INR",
+      "unit": "piece",
+      "bundle_size": null,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "inner-narmada-quote.xlsx",
+       "kind": "excel",
+       "ref": "Quote!E10",
+       "snippet": "11.1",
+       "page": null,
+       "cell": "Quote!E10",
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 10,
+      "vendor_label": "Partition set 2 × 3",
+      "price": 5.69,
+      "currency": "INR",
+      "unit": "piece",
+      "bundle_size": null,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "inner-narmada-quote.xlsx",
+       "kind": "excel",
+       "ref": "Quote!E11",
+       "snippet": "5.69",
        "page": null,
        "cell": "Quote!E11",
        "paragraph": null,
@@ -4175,27 +4175,6 @@
       }
      },
      {
-      "line_no": 3,
-      "vendor_label": "Layer pad 1000 × 1200",
-      "price": 20.99,
-      "currency": "INR",
-      "unit": "piece",
-      "bundle_size": null,
-      "gst_included": false,
-      "tiers": [],
-      "confidence": "high",
-      "source": {
-       "attachment": "inner-narmada-quote.xlsx",
-       "kind": "excel",
-       "ref": "Quote!E13",
-       "snippet": "20.99",
-       "page": null,
-       "cell": "Quote!E13",
-       "paragraph": null,
-       "bbox": null
-      }
-     },
-     {
       "line_no": 7,
       "vendor_label": "Layer pad 800 × 1200",
       "price": 16.35,
@@ -4208,8 +4187,29 @@
       "source": {
        "attachment": "inner-narmada-quote.xlsx",
        "kind": "excel",
-       "ref": "Quote!E14",
+       "ref": "Quote!E13",
        "snippet": "16.35",
+       "page": null,
+       "cell": "Quote!E13",
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 5,
+      "vendor_label": "Die-cut display tray",
+      "price": 5.69,
+      "currency": "INR",
+      "unit": "piece",
+      "bundle_size": null,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "inner-narmada-quote.xlsx",
+       "kind": "excel",
+       "ref": "Quote!E14",
+       "snippet": "5.69",
        "page": null,
        "cell": "Quote!E14",
        "paragraph": null,
@@ -5167,69 +5167,6 @@
     "vendor_code": "V1",
     "quotes": [
      {
-      "line_no": 6,
-      "vendor_label": "RSC carton, sample kits",
-      "price": 510,
-      "currency": "INR",
-      "unit": "bundle",
-      "bundle_size": 100,
-      "gst_included": false,
-      "tiers": [],
-      "confidence": "high",
-      "source": {
-       "attachment": "buffer-kaveri-quote.xlsx",
-       "kind": "excel",
-       "ref": "Quote!E5",
-       "snippet": "510",
-       "page": null,
-       "cell": "Quote!E5",
-       "paragraph": null,
-       "bbox": null
-      }
-     },
-     {
-      "line_no": 3,
-      "vendor_label": "RSC shipper, 1 L × 12",
-      "price": 2145,
-      "currency": "INR",
-      "unit": "bundle",
-      "bundle_size": 100,
-      "gst_included": false,
-      "tiers": [],
-      "confidence": "high",
-      "source": {
-       "attachment": "buffer-kaveri-quote.xlsx",
-       "kind": "excel",
-       "ref": "Quote!E6",
-       "snippet": "2145",
-       "page": null,
-       "cell": "Quote!E6",
-       "paragraph": null,
-       "bbox": null
-      }
-     },
-     {
-      "line_no": 2,
-      "vendor_label": "RSC carton, sachet bundle",
-      "price": 764,
-      "currency": "INR",
-      "unit": "bundle",
-      "bundle_size": 100,
-      "gst_included": false,
-      "tiers": [],
-      "confidence": "high",
-      "source": {
-       "attachment": "buffer-kaveri-quote.xlsx",
-       "kind": "excel",
-       "ref": "Quote!E7",
-       "snippet": "764",
-       "page": null,
-       "cell": "Quote!E7",
-       "paragraph": null,
-       "bbox": null
-      }
-     },
-     {
       "line_no": 4,
       "vendor_label": "RSC carton, 500 ml × 24",
       "price": 1036,
@@ -5242,10 +5179,10 @@
       "source": {
        "attachment": "buffer-kaveri-quote.xlsx",
        "kind": "excel",
-       "ref": "Quote!E8",
+       "ref": "Quote!E5",
        "snippet": "1036",
        "page": null,
-       "cell": "Quote!E8",
+       "cell": "Quote!E5",
        "paragraph": null,
        "bbox": null
       }
@@ -5263,10 +5200,52 @@
       "source": {
        "attachment": "buffer-kaveri-quote.xlsx",
        "kind": "excel",
-       "ref": "Quote!E9",
+       "ref": "Quote!E6",
        "snippet": "2993",
        "page": null,
-       "cell": "Quote!E9",
+       "cell": "Quote!E6",
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 3,
+      "vendor_label": "RSC shipper, 1 L × 12",
+      "price": 2145,
+      "currency": "INR",
+      "unit": "bundle",
+      "bundle_size": 100,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "buffer-kaveri-quote.xlsx",
+       "kind": "excel",
+       "ref": "Quote!E7",
+       "snippet": "2145",
+       "page": null,
+       "cell": "Quote!E7",
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 6,
+      "vendor_label": "RSC carton, sample kits",
+      "price": 510,
+      "currency": "INR",
+      "unit": "bundle",
+      "bundle_size": 100,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "buffer-kaveri-quote.xlsx",
+       "kind": "excel",
+       "ref": "Quote!E8",
+       "snippet": "510",
+       "page": null,
+       "cell": "Quote!E8",
        "paragraph": null,
        "bbox": null
       }
@@ -5284,10 +5263,10 @@
       "source": {
        "attachment": "buffer-kaveri-quote.xlsx",
        "kind": "excel",
-       "ref": "Quote!E10",
+       "ref": "Quote!E9",
        "snippet": "648",
        "page": null,
-       "cell": "Quote!E10",
+       "cell": "Quote!E9",
        "paragraph": null,
        "bbox": null
       }
@@ -5305,10 +5284,10 @@
       "source": {
        "attachment": "buffer-kaveri-quote.xlsx",
        "kind": "excel",
-       "ref": "Quote!E11",
+       "ref": "Quote!E10",
        "snippet": "2777",
        "page": null,
-       "cell": "Quote!E11",
+       "cell": "Quote!E10",
        "paragraph": null,
        "bbox": null
       }
@@ -5326,8 +5305,29 @@
       "source": {
        "attachment": "buffer-kaveri-quote.xlsx",
        "kind": "excel",
-       "ref": "Quote!E12",
+       "ref": "Quote!E11",
        "snippet": "830",
+       "page": null,
+       "cell": "Quote!E11",
+       "paragraph": null,
+       "bbox": null
+      }
+     },
+     {
+      "line_no": 2,
+      "vendor_label": "RSC carton, sachet bundle",
+      "price": 764,
+      "currency": "INR",
+      "unit": "bundle",
+      "bundle_size": 100,
+      "gst_included": false,
+      "tiers": [],
+      "confidence": "high",
+      "source": {
+       "attachment": "buffer-kaveri-quote.xlsx",
+       "kind": "excel",
+       "ref": "Quote!E12",
+       "snippet": "764",
        "page": null,
        "cell": "Quote!E12",
        "paragraph": null,

@@ -1,5 +1,5 @@
 // Builds the engine's input from the generated dataset's "ideal extraction", without a database.
-import demo from "@/seed/demo.json";
+import demo from "@data/demo.json";
 import type { ComparisonInput, Issue, Quote, Vendor } from "@/lib/engine/comparison";
 import { DEFAULT_RULES } from "@/lib/engine/questionnaire";
 import type { Contract } from "@/lib/engine/scenario";

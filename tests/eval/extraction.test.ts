@@ -4,7 +4,7 @@ import { readFile } from "node:fs/promises";
 import path from "node:path";
 import { config } from "dotenv";
 import { describe, expect, it } from "vitest";
-import demo from "@/seed/demo.json";
+import demo from "@data/demo.json";
 import type { Line } from "@/lib/engine/types";
 import { extractReply } from "@/lib/extract/extract";
 import { prepare, type FileKind } from "@/lib/extract/prepare";
@@ -19,7 +19,7 @@ describe.skipIf(!process.env.RUN_EVAL)("live extraction accuracy", () => {
     it(`reads ${reply.vendor_code} correctly`, { timeout: 300_000 }, async () => {
       const parts = [await prepare(null, "text", reply.body)];
       for (const a of reply.attachments) {
-        const buf = await readFile(path.join("seed/files", a.filename));
+        const buf = await readFile(path.join("sample-data/files", a.filename));
         parts.push(await prepare(a.filename, a.kind as FileKind, buf, a.mime));
       }
       const { extraction: x, ms, model } = await extractReply(

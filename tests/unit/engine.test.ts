@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import demo from "@/seed/demo.json";
+import demo from "@data/demo.json";
 import { buildComparison } from "@/lib/engine/comparison";
 import { normalize } from "@/lib/engine/normalize";
 import { evaluateQuestionnaire } from "@/lib/engine/questionnaire";

@@ -6,10 +6,10 @@ const nextConfig: NextConfig = {
   cacheComponents: false,
   // File readers run on the server as plain Node packages, not bundled.
   serverExternalPackages: ["pdfjs-dist", "exceljs", "mammoth"],
-  // The seeded vendor files are read from disk by the reply pipeline and the file viewer.
+  // The sample vendor files are read from disk by the reply pipeline and the file viewer.
   outputFileTracingIncludes: {
-    "/api/**": ["./seed/files/**"],
-    "/rfx/**": ["./seed/files/**"],
+    "/api/**": ["./sample-data/files/**"],
+    "/rfx/**": ["./sample-data/files/**"],
   },
   turbopack: {
     rules: {

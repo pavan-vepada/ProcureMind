@@ -1,6 +1,6 @@
 """The other sample RFx in a buyer's workspace, each with its own lines, vendors, files and traps.
 
-Writes seed/extra.json and seed/files/<dataset>-*. Each vendor reply comes with its ideal extraction (the same
+Writes sample-data/extra.json and sample-data/files/<dataset>-*. Each vendor reply comes with its ideal extraction (the same
 shape as the app's AI extraction), so the app can show these RFx already analysed without calling the AI.
 """
 import io
@@ -202,7 +202,7 @@ def w_excel(path, ds, v, o, lines, prices):
         c.font = Font(bold=True)
         c.fill = PatternFill("solid", fgColor="E2EFDA")
     order = list(range(len(lines)))
-    random.Random(hash(ds["key"]) % 1000).shuffle(order)
+    random.Random(f"{ds['key']}-order").shuffle(order)  # a string seed is stable across runs; hash() is not
     quotes = []
     for i, idx in enumerate(order, start=1):
         l = lines[idx]
