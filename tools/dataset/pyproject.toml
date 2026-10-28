@@ -3,7 +3,12 @@ name = "procure-mind-dataset"
 version = "0.1.0"
 description = "Generates the Procure Mind demo dataset: vendor replies in every format, plus the answer key"
 requires-python = ">=3.12"
-dependencies = []
+dependencies = [
+    "openpyxl>=3.1.5",
+    "pillow>=13.0.0",
+    "python-docx>=1.2.0",
+    "reportlab>=5.1.0",
+]
 
 [project.scripts]
 procure-mind-dataset = "procure_mind_dataset:main"
