@@ -1,6 +1,6 @@
 # 03 — Architecture: tech stack and data model
 
-**Status:** Draft, awaiting PM approval · **Date:** 2026-10-27 · **Based on:** `01-PRD.md` v3, `02-journeys.md`
+**Status:** Approved 2026-10-28 (AI provider changed to OpenAI) · **Date:** 2026-10-27 · **Based on:** `01-PRD.md` v3, `02-journeys.md`
 
 This document answers: what are we building with, where does it run, how does a messy reply become a trustworthy number, how are questions answered without the AI doing math, and what data do we keep. Diagrams are in Excalidraw:
 
@@ -41,7 +41,7 @@ Colour code in every diagram: **purple = AI**, **green = deterministic code**, *
 | Login | **Supabase Auth** | Sign-up / log-in with email + password (Google sign-in optional); we never store passwords |
 | Database | **Supabase Postgres** with **row-level security** | Stores everything; the database itself refuses to show one user's rows to another |
 | File storage | **Supabase Storage** | Keeps every original vendor file exactly as received |
-| AI | **Anthropic API, Claude Opus 5.5** (`claude-opus-5-5`) | Reads PDFs, photos, Word/Excel content and email text; drafts the RFQ; interprets questions; writes memo prose |
+| AI | **OpenAI API**, its current top model that reads images and PDFs (name kept in one setting, `AI_MODEL`, and confirmed against your key when we connect it) | Reads PDFs, photos, Word/Excel content and email text; drafts the RFQ; interprets questions; writes memo prose |
 | File reading helpers | SheetJS (Excel), mammoth (Word), pdf.js (PDF text positions) | Turn files into a form where every value has an exact address (cell B7, paragraph 4, page 2 at x/y) |
 | Checks | **zod** | Rejects any AI output that doesn't match the expected shape |
 | Tests | **Vitest** (logic), **Playwright** (clicks through the demo path in a real browser) | Proves the math and the journey work before you see them |
@@ -56,7 +56,7 @@ See [A1](diagrams/arch-1-system-overview.excalidraw).
 - **The browser** talks only to our Next.js app over HTTPS.
 - **The Next.js app** checks the login on every request, then does the work: seeding a demo copy, the simulated send, processing replies, normalizing, answering questions, building the memo.
 - **Supabase** holds the login, the data and the original files. Row-level security means even a bug in our code can't leak one user's data to another.
-- **Anthropic API** is called only from the server. The API key never reaches the browser.
+- **OpenAI API** is called only from the server. The API key never reaches the browser.
 - **GitHub → Vercel:** every commit to `master` deploys automatically. That's how we "deploy early and often" (risk R9).
 - **Seed bundle:** the dataset generator produces the demo files once. On sign-up (or Reset demo), the server copies the seed rows into the new user's account. The original files are shared read-only, so nothing is duplicated.
 
@@ -68,8 +68,8 @@ See [A2](diagrams/arch-2-reply-pipeline.excalidraw). Each reply runs through 7 s
 |---|---|---|
 | 1. Store original | Code | File saved unchanged; reply matched to a vendor by sender address |
 | 2. Prepare by format | Code | Excel → a grid where every value carries its cell address. Word → numbered paragraphs. PDF → pages plus the position of every text fragment. Photo → image. Email → text with character positions |
-| 3. Extract + map | **AI** | Claude receives the prepared reply **and** the 30 RFQ lines. It returns structured data: for each line, price, unit, currency, tax, tiers, discount, plus terms and questionnaire answers. For each value it gives **where it found it** and a confidence level |
-| 4. Validate | Code | Shape check; **every number Claude returns must actually appear in the source** (stops invented numbers); sanity ranges (a box can't cost ₹50,000); low confidence → flag |
+| 3. Extract + map | **AI** | The AI receives the prepared reply **and** the 30 RFQ lines. It returns structured data: for each line, price, unit, currency, tax, tiers, discount, plus terms and questionnaire answers. For each value it gives **where it found it** and a confidence level |
+| 4. Validate | Code | Shape check; **every number the AI returns must actually appear in the source** (stops invented numbers); sanity ranges (a box can't cost ₹50,000); low confidence → flag |
 | 5. Normalize | Code | per box / per 100 / per 1,000 / per kg → per piece (kg uses box weight estimated from GSM × board area, labelled "estimate"); USD → ₹ at the locked rate; discount applied; GST removed; freight added; the right tier for each plant's quantity. Every step is recorded as the **conversion chain** shown on hover |
 | 6. Resolve gaps | Code | The missing-value policy: same reply → last year's contract (only when specs match) → otherwise flag and add to the vendor's issue list |
 | 7. Save | Code | Values, conversion chain, source location and history. A revision never overwrites; the old value is marked replaced |
@@ -83,20 +83,20 @@ See [A2](diagrams/arch-2-reply-pipeline.excalidraw). Each reply runs through 7 s
 | Excel | Cell address | Exact |
 | Word | Paragraph number + the phrase | Exact |
 | PDF with text | Position of the matching text from pdf.js | Exact |
-| Photo / scanned PDF | Claude returns the region as fractions of the image's width and height | **Approximate**; labelled when confidence is low (risk R12). Because we generate the photo ourselves, we know the true positions and can measure how close it gets |
+| Photo / scanned PDF | The AI returns the region as fractions of the image's width and height | **Approximate**; labelled when confidence is low (risk R12). Because we generate the photo ourselves, we know the true positions and can measure how close it gets |
 
 ## 4. A3 · Ask engine: AI interprets, code does the math
 
 See [A3](diagrams/arch-3-ask-engine.excalidraw).
 
-1. **Interpret (AI):** Claude reads the question, the conversation so far, and a short description of the data. It doesn't calculate. It calls one of three tools:
+1. **Interpret (AI):** The AI reads the question, the conversation so far, and a short description of the data. It doesn't calculate. It calls one of three tools:
    - `run_scenario(spec)`: award splits, vendor filters (e.g. passed questionnaire), volume aggregation across plants, "what if Vendor X matches the lowest price";
    - `query_values(filters, sort, group)`: look-ups such as "which vendors still have open issues?";
    - `get_vendor_profile(vendor)`: terms, questionnaire result, certificates.
-2. **Ambiguous?** Claude asks one clarifying question with clickable choices instead of guessing.
+2. **Ambiguous?** The AI asks one clarifying question with clickable choices instead of guessing.
 3. **Validate (code):** the spec may only name real vendors, lines and rules.
 4. **Scenario engine (code):** applies the filters, tiers and award rule to the stored normalized values and computes totals and savings exactly.
-5. **Explain (AI):** Claude writes two or three sentences **using only the numbers in the result**.
+5. **Explain (AI):** The AI writes two or three sentences **using only the numbers in the result**.
 6. **Number check (code):** every figure in the explanation must exist in the result. If one doesn't, the explanation is dropped and only the table is shown.
 7. The answer shows the table, **Show working** (filters, rule, formula), clickable numbers, and **Save as scenario**.
 
@@ -129,14 +129,14 @@ See [A4](diagrams/arch-4-data-model.excalidraw). Every table carries `owner_id` 
 | Decision | Why |
 |---|---|
 | **Simulated email** inside the app | Real email is the riskiest piece for a one-day build (PRD R6). The data model already has `messages` with direction and kind, so real email later is an addition, not a rewrite |
-| **One AI model** (Claude Opus 5.5) for everything, with lower effort on simple tasks | One model is simpler to tune and test. At demo scale it costs about US$2 per full run (§8) |
+| **One AI model** (OpenAI, set in `AI_MODEL`) for everything | One model is simpler to tune and test. All AI calls go through one file (`lib/ai/`), so switching provider later is a one-file change |
 | **AI returns structured data, never free text, for extraction** | Every value can be validated, located and converted by code |
 | **Every number must appear in its source** | The main defence against invented numbers (PRD R2, R3) |
 | **Revisions mark old values replaced; nothing is deleted** | Gives history, undo, and an audit trail for free |
 | **Per-account copy of the demo** on sign-up; Reset = delete and copy again | Two reviewers never collide; replaying the story is instant |
 | **Progress by polling** (screen checks every second) | Simpler and more robust than live push for a one-day build |
 | **Saved run of the seeded replies** stored with the seed | Presenter-only fallback if the AI is slow on the day; the app shows a "Showing saved run" banner |
-| **Vendor content is data, never instructions** | System prompts tell Claude to treat documents as data; outputs are schema-checked; the extraction step has no tools that can change anything (PRD R7) |
+| **Vendor content is data, never instructions** | System prompts tell the AI to treat documents as data; outputs are schema-checked; the extraction step has no tools that can change anything (PRD R7) |
 | **Limits per account**: 20 uploaded files, 60 questions per day, 10 MB per file, known file types only | Protects the AI budget on a public link (PRD R10, R13) |
 
 ## 7. Repository layout
@@ -145,7 +145,8 @@ See [A4](diagrams/arch-4-data-model.excalidraw). Every table carries `owner_id` 
 procure-mind-v2/
   app/                 Next.js screens and server routes
   lib/
-    extract/           step 2 (prepare by format) and step 3 (Claude extraction)
+    ai/                the only place that talks to the OpenAI API
+    extract/           step 2 (prepare by format) and step 3 (AI extraction)
     engine/            normalize + scenario engine (pure code, heavily tested)
     ask/               Ask engine tools and prompts
     db/                database access
@@ -160,17 +161,16 @@ The Python package `third_project` becomes `tools/dataset` (`procure-mind-datase
 
 ## 8. AI usage and cost (per full demo run)
 
-Claude Opus 5.5 is priced at US$4 per million input tokens and US$20 per million output tokens. A token is roughly ¾ of a word.
+AI services charge per token (roughly ¾ of a word) read and written. A full demo run is about 30 AI calls:
 
-| Task | Calls | Estimated cost |
-|---|---|---|
-| Draft the RFQ | 1 | ~US$0.20 |
-| Extract 5 replies + 2 clarifications | 7 | ~US$1.10 |
-| 10 questions | ~20 | ~US$0.70 |
-| Award memo prose | 1 | ~US$0.10 |
-| **Total** | | **~US$2** (target < US$5) ✓ |
+| Task | Calls |
+|---|---|
+| Draft the RFQ | 1 |
+| Extract 5 replies + 2 clarifications | 7 |
+| 10 questions | ~20 |
+| Award memo prose | 1 |
 
-Repeated parts of prompts (the RFQ lines, instructions) are cached, which lowers this further.
+At the prices of OpenAI's top models this comes to a few US dollars per run (target < US$5). We'll confirm the figure from the OpenAI usage page after the first full run. Set a monthly spending limit on the key.
 
 ## 9. Testing approach
 
@@ -187,7 +187,7 @@ Repeated parts of prompts (the RFQ lines, instructions) are cached, which lowers
 | 2 | **GitHub account** (you may already have one) and an empty private repo, or let me create it with your login | 5 min | Vercel deploys from GitHub |
 | 3 | **Vercel account**: sign up with GitHub (free Hobby plan) | 3 min | Hosting |
 | 4 | **Supabase account**: sign up with GitHub, create a project in the **Mumbai** region, free plan | 5 min | Login, database, file storage |
-| 5 | **Anthropic API key** with a monthly spending limit (steps given earlier) | 10 min | The AI |
+| 5 | **OpenAI API key** (you have one) with a monthly spending limit set at platform.openai.com → Settings → Limits | 2 min | The AI |
 
 When we connect these, you'll paste keys into the Vercel and Supabase dashboards or into a local `.env.local` file that git ignores. **Never into this chat.**
 

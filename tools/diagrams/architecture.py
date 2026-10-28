@@ -15,7 +15,7 @@ EXT = ORANGE     # outside service / actor
 
 def legend(s, x, y):
     s.text(x, y, "Legend", 16)
-    for i, (label, c) in enumerate([("AI (Claude)", AI), ("Code (deterministic)", CODE),
+    for i, (label, c) in enumerate([("AI (OpenAI)", AI), ("Code (deterministic)", CODE),
                                     ("Storage", STORE), ("People / outside services", EXT)]):
         s.box(x + i * 200, y + 26, 185, 40, label, c, 13)
 
@@ -23,7 +23,7 @@ def legend(s, x, y):
 # ---------------- A1: System overview ----------------
 s = Scene()
 s.text(0, 0, "A1 · System overview: what runs where", 32)
-s.text(0, 46, "One web app on Vercel, one managed backend (Supabase), one AI service (Anthropic). "
+s.text(0, 46, "One web app on Vercel, one managed backend (Supabase), one AI service (OpenAI). "
               "Everything a user sees goes through login.", 16, MUTED)
 legend(s, 0, 80)
 
@@ -48,7 +48,7 @@ auth = s.box(970, 230, 360, 80, "Auth\nSign-up / log-in (email + password; Googl
 db = s.box(970, 330, 360, 150, "Postgres database\nRFx, lines, vendors, quote values + sources, issues, scenarios, change log.\nRow-level security: each user sees only their rows", STORE, 14)
 files = s.box(970, 500, 360, 90, "File storage\nOriginal vendor files, kept unchanged", STORE, 14)
 
-claude = s.box(1450, 350, 280, 150, "Anthropic API\nClaude Opus 5.5\nReads PDFs, photos, text. Returns structured JSON", AI, 14, sw=2)
+claude = s.box(1450, 350, 280, 150, "OpenAI API\nModel set in AI_MODEL\nReads PDFs, photos, text. Returns structured JSON", AI, 14, sw=2)
 
 gh = s.box(350, 700, 230, 90, "GitHub repo\n(code + seed data)", EXT, 14)
 dev = s.box(0, 700, 260, 90, "Dataset generator (Python, run once on the laptop)", CODE, 14)
@@ -76,7 +76,7 @@ W, H, G, Y = 230, 200, 50, 200
 steps = [
     ("1. Store original\nFile saved unchanged; reply linked to vendor by sender", STORE),
     ("2. Prepare by format\nExcel → cell grid with addresses (B7)\nWord → numbered paragraphs\nPDF → pages + text positions\nPhoto → image\nEmail → text", CODE),
-    ("3. Extract + map\nClaude reads the reply and the 30 RFQ lines. Returns JSON: price, unit, currency, tax, tiers, discount, terms, answers, the source of each value, confidence", AI),
+    ("3. Extract + map\nThe AI reads the reply and the 30 RFQ lines. Returns JSON: price, unit, currency, tax, tiers, discount, terms, answers, the source of each value, confidence", AI),
     ("4. Validate\nSchema check; every number must appear in the source; sanity ranges; low confidence → flag", CODE),
     ("5. Normalize\nper box / per 100 / per kg → per piece; USD → ₹ at locked rate; discount; GST out; freight; tier for each plant's quantity", CODE),
     ("6. Resolve gaps\nMissing-value policy: same reply → last year's contract (spec match) → flag + add to vendor's issue list", CODE),
@@ -104,13 +104,13 @@ s.text(0, 0, "A3 · Ask engine: AI interprets the question, code does the math",
 s.text(0, 46, "The AI never produces a total or a price on its own. Every number in an answer comes from the scenario engine.", 16, MUTED)
 legend(s, 0, 80)
 q = s.box(0, 230, 220, 110, "Question\n(chip or typed) + earlier turns", EXT, 14)
-interp = s.box(290, 230, 250, 110, "Interpret\nClaude turns it into a scenario spec using a fixed set of tools", AI, 14)
+interp = s.box(290, 230, 250, 110, "Interpret\nThe AI turns it into a scenario spec using a fixed set of tools", AI, 14)
 amb = s.box(290, 420, 250, 100, "Ambiguous?\nAsk one clarifying question with clickable choices", YELLOW, 13)
 spec = s.box(610, 230, 260, 110, "Scenario spec (JSON)\nvendors: passed questionnaire, exclude V2\naward: cheapest per line\nvolumes: combine plants", WHITE, 13, align="left")
 val = s.box(940, 230, 200, 110, "Validate spec\nknown vendors, lines, rules only", CODE, 14)
 eng = s.box(1210, 230, 250, 110, "Scenario engine\nApplies filters, tiers, award rule to stored values. Exact math", CODE, 14)
 res = s.box(1210, 420, 250, 110, "Result + working\nTable, totals, savings, filters and formula used", WHITE, 14)
-expl = s.box(900, 420, 240, 110, "Explain\nClaude writes 2–3 sentences using only the result's numbers", AI, 14)
+expl = s.box(900, 420, 240, 110, "Explain\nThe AI writes 2–3 sentences using only the result's numbers", AI, 14)
 chk = s.box(600, 420, 230, 110, "Number check\nEvery figure in the text must exist in the result; else show table only", CODE, 13)
 ans = s.box(600, 600, 230, 100, "Ask panel (S7)\nAnswer · table · show working · Save as scenario", EXT, 14, sw=2)
 s.arrow(q, interp)
@@ -123,7 +123,7 @@ s.arrow(res, expl)
 s.arrow(expl, chk)
 s.arrow(chk, ans)
 s.box(0, 600, 520, 130,
-      "Tools Claude may call:\n• run_scenario(spec): award splits, filters, volume aggregation, price-match what-ifs\n"
+      "Tools the AI may call:\n• run_scenario(spec): award splits, filters, volume aggregation, price-match what-ifs\n"
       "• query_values(filters, sort, group): look-ups like 'which vendors still have open issues?'\n"
       "• get_vendor_profile(vendor): terms, questionnaire, certificates", GRAY, 13, align="left")
 s.save(os.path.join(OUT, "arch-3-ask-engine.excalidraw"))
