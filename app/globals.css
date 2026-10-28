@@ -1,0 +1,30 @@
+@import "tailwindcss";
+
+/* Palette from docs/04-wireframes.md: calm neutrals, soft tints for meaning,
+   one energetic accent for the next action. */
+@theme {
+  --color-ink: #1f2328;
+  --color-muted: #6b7280;
+  --color-line: #d0d7de;
+  --color-surface: #ffffff;
+  --color-panel: #f6f8fa;
+  --color-accent: #4f46e5;
+  --color-accent-hover: #4338ca;
+  --color-accent-soft: #eef2ff;
+  --color-ok: #e6f6ec;
+  --color-warn: #fff4d6;
+  --color-bad: #fde8e8;
+  --color-info: #e8f1fd;
+  --color-est: #f1ecfd;
+  --color-clar: #e3f6f5;
+}
+
+@theme inline {
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+}
+
+body {
+  background: var(--color-surface);
+  color: var(--color-ink);
+}

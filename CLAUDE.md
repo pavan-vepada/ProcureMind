@@ -3,8 +3,9 @@
 This file is the project's memory. Any new Claude session should read it first and resume from **Current status**.
 
 ## Current status
-- **Current phase:** 4 — Wireframes (`docs/04-wireframes.md` + `docs/diagrams/wire-*.excalidraw`). Draft written; awaiting PM approval.
-- **Resume here (2026-10-28):** (1) PM approval of wireframes. (2) Node.js install in WSL — the automatic nvm install was blocked by Claude Code's safety check (it runs a downloaded script); PM to run it or allow it. (3) PM is creating the Supabase project (Mumbai); has GitHub and Vercel. (4) Then Phase 6 build per PRD §6 order.
+- **Current phase:** 6 — Build. Step 1 code written and tested locally; waiting on PM to fill `.env.local`, run the database setup, and import the repo into Vercel.
+- **Resume here (2026-10-28):** finish build step 1 (see Build progress below): PM creates `.env.local` from `.env.example`, switches off email confirmation in Supabase, then Claude runs `npm run db:migrate` and the integration tests, and PM imports the GitHub repo into Vercel with the two `NEXT_PUBLIC_SUPABASE_*` env vars.
+- **Phase 4:** wireframes approved 2026-10-28.
 - **Demo date:** moved from 2026-10-28 to "within the week of 2026-10-28"; exact date to be set by the PM. Follow the pre-decided phase order.
 - **Wireframe generator:** `tools/diagrams/wireframes.py`; `check_overflow.py` flags text that doesn't fit its box.
 - **Diagram generators:** `tools/diagrams/` (`excal.py` helper + one script per doc). Run via WSL: `cd tools/diagrams && python3 <script>.py ../../docs/diagrams`. Reuse `excal.py` for wireframes.
@@ -20,10 +21,28 @@ This file is the project's memory. Any new Claude session should read it first a
 | 1. Problem and PRD | docs/01-PRD.md | Done (v3 approved 2026-10-27) |
 | 2. User journeys | docs/02-journeys.md | Done (approved 2026-10-27) |
 | 3. Tech stack and data model | docs/03-architecture.md | Done (approved 2026-10-28) |
-| 4. Wireframes | docs/04-wireframes.md (Excalidraw, per D7) | Draft, awaiting approval |
+| 4. Wireframes | docs/04-wireframes.md (Excalidraw, per D7) | Done (approved 2026-10-28) |
 | 5. Epics, stories, release plan | docs/05-backlog.md | Skipped by PM decision (roadmap item); build follows PRD §5 demo script |
-| 6. Build the MVP | src/ | Not started |
+| 6. Build the MVP | app/, lib/, components/ | In progress (see Build progress) |
 | 7. Ship and iterate | docs/06-iteration-log.md | Not started |
+
+## Build progress (PRD §6 build order; replaces the skipped backlog)
+| # | Step | Status |
+|---|---|---|
+| 1 | Hosted skeleton: login, lifecycle strip, tour, demo copy per account, Reset demo (S1, S2, S3) | Code + unit tests done; DB setup, integration tests, Vercel deploy pending |
+| 2 | Demo inbox, send / fast-forward, upload a reply | Not started |
+| 3 | Extraction for all 5 formats, live progress | Not started |
+| 4 | Mapping, normalization, matrix, badge legend | Not started |
+| 5 | Source drawer (photo bounding box) | Not started |
+| 6 | Missing-value policy, contract memory, tiers, assumptions, review queue | Not started |
+| 7 | Discrepancy emails, closed loop | Not started |
+| 8 | Ask panel, suggested questions, scenarios | Not started |
+| 9 | Award memo | Not started |
+| 10 | Co-pilot RFQ drafting, rule lock, guided tour completion | Not started |
+
+**How to run (WSL):** `source ~/.nvm/nvm.sh` first (nvm isn't loaded in non-interactive shells). `npm run dev` · `npm test` · `npm run typecheck` · `npx eslint .` · `npm run db:migrate`.
+**Next.js 16 notes:** `middleware` is now `proxy.ts`; Cache Components is switched off on purpose (`next.config.ts`); read `node_modules/next/dist/docs/` before using unfamiliar APIs (see `AGENTS.md`).
+**Shell quoting:** PowerShell mangles quotes inside `wsl -e bash -c '...'`; for anything non-trivial, write a script file or use the Write tool.
 
 ## Product context
 - **Product name:** Procure Mind V2.0
@@ -62,9 +81,15 @@ procure-mind-v2/            WSL path: ~/workspace/procure-mind-v2 (renamed from 
   CLAUDE.md                 this file
   README.md
   docs/                     phase documents 01–06
-  src/third_project/        existing Python skeleton (made with uv), kept by PM decision
-  pyproject.toml            Python project settings (uv)
-  .python-version, .gitignore, .venv/ (not committed)
+  app/                      Next.js screens and server actions (S1 = app/page.tsx, workspace = app/rfx/)
+  components/               shared UI (shell: top bar, lifecycle strip, tour)
+  lib/                      data access, Supabase clients, lifecycle, demo seed
+  proxy.ts                  runs before every page: session refresh + login redirects
+  supabase/migrations/      database tables + row-level security (applied by scripts/migrate.mjs)
+  seed/                     demo content copied into each new account
+  tests/                    unit/ (always) and integration/ (needs .env.local)
+  tools/dataset/            Python dataset generator (uv project, formerly src/third_project)
+  tools/diagrams/           Excalidraw generators for docs
 ```
 
 ## Conventions
@@ -87,5 +112,4 @@ procure-mind-v2/            WSL path: ~/workspace/procure-mind-v2 (renamed from 
 
 ## Open items
 - PM has an OpenAI API key; set a monthly spending limit. Key goes in `.env.local` / Vercel dashboard, never in chat.
-- Node.js not yet installed (blocked install, see Current status).
-- Python package is still named `third-project` / `third_project`. Revisit in Phase 3 together with the stack decision.
+- Google sign-in (FR-0.2 option) not set up; needs a Google Cloud OAuth client. Email + password works.
