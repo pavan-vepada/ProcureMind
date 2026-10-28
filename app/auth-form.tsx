@@ -11,8 +11,12 @@ export function AuthForm() {
   const signup = mode === "signup";
 
   return (
-    <div className="w-full max-w-sm rounded-2xl border border-line bg-surface p-7 shadow-sm">
-      <h2 className="text-xl font-semibold">{signup ? "Create your account" : "Welcome back"}</h2>
+    <div className="w-full max-w-sm rounded-2xl border border-line bg-surface/95 p-7 shadow-xl backdrop-blur">
+      <p className="flex items-center gap-2 text-lg font-semibold tracking-tight">
+        <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-accent text-xs font-bold text-white">PM</span>
+        Procure Mind <span className="text-accent">V2.0</span>
+      </p>
+      <h1 className="mt-5 text-xl font-semibold">{signup ? "Create your account" : "Log in"}</h1>
       <form action={action} className="mt-5 space-y-3">
         <input type="hidden" name="mode" value={mode} />
         <label className="block text-sm">
@@ -55,9 +59,6 @@ export function AuthForm() {
           {signup ? "Log in" : "Create an account"}
         </button>
       </p>
-      {signup && (
-        <p className="mt-3 text-xs text-muted">Your workspace comes with sample sourcing events at every stage, so you can explore straight away.</p>
-      )}
     </div>
   );
 }

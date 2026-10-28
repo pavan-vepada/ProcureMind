@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Procure Mind V2.0",
-  description: "Kill the quote spreadsheet: from messy vendor quotes to a defensible award.",
+  description: "AI sourcing workspace for category buyers: RFQ drafting, vendor quote comparison and award recommendations.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice">
+  <!-- Login background: corrugated board (liner, flute, liner) and stacked shipper cartons. Drawn for Procure Mind. -->
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#eef0ff"/>
+      <stop offset="0.55" stop-color="#f6f4ef"/>
+      <stop offset="1" stop-color="#efe4d2"/>
+    </linearGradient>
+    <pattern id="flute" width="48" height="36" patternUnits="userSpaceOnUse">
+      <path d="M0 3H48M0 33H48" stroke="#4f46e5" stroke-width="2.2"/>
+      <path d="M0 33Q12 -3 24 18T48 3" fill="none" stroke="#4f46e5" stroke-width="2"/>
+    </pattern>
+    <symbol id="box" viewBox="-120 0 240 230" overflow="visible">
+      <!-- isometric carton, 120 wide each side, 110 tall -->
+      <path d="M0 0L120 60L0 120L-120 60Z" fill="#ead6b2"/>
+      <path d="M-120 60L0 120V230L-120 170Z" fill="#d6b88a"/>
+      <path d="M0 120L120 60V170L0 230Z" fill="#c4a170"/>
+      <path d="M-60 30L60 90" stroke="#f4e8d2" stroke-width="16"/>
+      <path d="M-60 90V200" stroke="#b8925f" stroke-width="1.5" opacity=".5"/>
+      <rect x="22" y="128" width="58" height="26" rx="3" transform="skewY(-26.57)" fill="#fbf7ef" opacity=".85"/>
+    </symbol>
+  </defs>
+
+  <rect width="1600" height="1000" fill="url(#sky)"/>
+
+  <!-- a sheet of corrugated board, seen edge-on, sweeping across the top -->
+  <g transform="rotate(-8 800 160)" opacity=".09">
+    <rect x="-200" y="96" width="2000" height="36" fill="url(#flute)"/>
+    <rect x="-200" y="150" width="2000" height="36" fill="url(#flute)"/>
+  </g>
+  <g transform="rotate(-8 800 880)" opacity=".07">
+    <rect x="-200" y="900" width="2000" height="36" fill="url(#flute)"/>
+  </g>
+
+  <!-- floor shadow -->
+  <ellipse cx="260" cy="905" rx="330" ry="46" fill="#7c6a4f" opacity=".12"/>
+  <ellipse cx="1360" cy="915" rx="320" ry="44" fill="#7c6a4f" opacity=".12"/>
+
+  <!-- left stack -->
+  <g opacity=".95">
+    <use href="#box" x="40" y="660" width="240" height="230"/>
+    <use href="#box" x="270" y="680" width="240" height="230"/>
+    <use href="#box" x="155" y="490" width="240" height="230"/>
+    <use href="#box" x="-30" y="490" width="240" height="230"/>
+  </g>
+
+  <!-- right stack -->
+  <g opacity=".95">
+    <use href="#box" x="1210" y="680" width="240" height="230"/>
+    <use href="#box" x="1440" y="640" width="240" height="230"/>
+    <use href="#box" x="1325" y="460" width="240" height="230"/>
+    <use href="#box" x="1440" y="300" width="240" height="230"/>
+  </g>
+</svg>
