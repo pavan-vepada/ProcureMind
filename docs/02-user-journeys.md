@@ -1,157 +1,149 @@
-# 02 — User journeys: Procure Mind V2.0
+# 2 · User journeys
 
-**Status:** Approved 2026-10-27 · **Date:** 2026-10-27 · **Based on:** `01-PRD.md` v3
+> **In one paragraph.** A sourcing event is a relay between the buyer, the plant that needs the goods, the suppliers, and the leaders who approve the spend. Much of it happens outside any software: emails, phone calls, approvals in meetings. This document follows the category buyer through the whole relay. It shows where Procure Mind takes over, what it does at each step, and how it hands back to the outside world.
 
-A **user journey** is the step-by-step path a person takes through the product to reach a goal, including what they do, what they see, what the system does behind the scenes, and where friction could appear. Each journey below has an Excalidraw diagram. Open the `.excalidraw` file in VS Code and the Excalidraw extension draws it.
-
-| # | Journey | Persona | Diagram |
-|---|---|---|---|
-| J1 | From internal request to award (the main story) | Pavan, Category Buyer | [journey-1-buyer-end-to-end.excalidraw](diagrams/journey-1-buyer-end-to-end.excalidraw) |
-| J2 | Alone with the link, ~10 minutes | Challenge reviewer | [journey-2-reviewer-solo.excalidraw](diagrams/journey-2-reviewer-solo.excalidraw) |
-| J3 | Closed loop: chasing a vendor who quoted 27 of 30 | Buyer + Vendor V3 | [journey-3-closed-loop.excalidraw](diagrams/journey-3-closed-loop.excalidraw) |
-| J4 | The VP's what-ifs and the CFO's audit | VP, Buyer, CFO | [journey-4-decision-vp-cfo.excalidraw](diagrams/journey-4-decision-vp-cfo.excalidraw) |
-| J5 | When things go wrong: recovery paths | Everyone | [journey-5-recovery-paths.excalidraw](diagrams/journey-5-recovery-paths.excalidraw) |
-
-**How to read J1 and J2:** columns are the steps in order, left to right. The four rows are: what the person **does**, what they **see** (with a screen code), what **Procure Mind does** behind the scenes, and the **friction removed** at that step. J3 and J4 are **swimlane** diagrams: one horizontal band per person or system, with arrows showing who hands off to whom.
+🎨 **Visual version:** the same journey as an illustrated map is in Claude Design (link to be added when shared).
 
 ---
 
-## Screen inventory
+## 1. The whole lifecycle at a glance
 
-The journeys need these screens. Phase 4 (wireframes) draws each one.
+```mermaid
+flowchart LR
+  subgraph PH1["1 · The need"]
+    direction TB
+    N1["🏭 Plant emails a need<br/>with a volume sheet"] --> N2["🔎 Buyer finds suppliers<br/>who can make it (RFI)"] --> N3["📋 Shortlist explains<br/>its approach (RFP)"]
+  end
+  subgraph PH2["2 · Set up the RFQ"]
+    direction TB
+    P0["🔐 Log in to<br/>Procure Mind"] --> P1["🗂️ Start or continue<br/>a sourcing event"] --> P2["✍️ Co-pilot drafts<br/>the RFQ"] --> P3["🔒 Lock rules<br/>and send"]
+  end
+  subgraph PH3["3 · Suppliers quote"]
+    direction TB
+    S1["📨 Suppliers receive<br/>the RFQ by email"] --> S2["📎 Reply their own way:<br/>Excel, PDF, Word,<br/>photo, email"]
+  end
+  subgraph PH4["4 · Analyse"]
+    direction TB
+    P4["📥 Replies read<br/>automatically"] --> P5["⚖️ One comparison,<br/>every number sourced"] --> P6["✉️ Chase gaps,<br/>one email each"]
+  end
+  subgraph PH5["5 · Close the gaps"]
+    direction TB
+    S3["📨 Supplier gets<br/>the clarification"] --> S4["✏️ Sends missing<br/>prices"] --> P9["🔄 Only those<br/>numbers update"]
+  end
+  subgraph PH6["6 · Decide"]
+    direction TB
+    P7["💬 Ask what-ifs,<br/>save scenarios"] --> P8["🏆 Award memo<br/>with evidence"]
+  end
+  subgraph PH7["7 · Approve and order"]
+    direction TB
+    A1["👔 Head of procurement<br/>approves"] --> A2["💼 Finance<br/>signs off"] --> A3["🧾 Purchase order<br/>in the ERP"] --> A4["📦 Deliveries<br/>begin"]
+  end
+  PH1 --> PH2 --> PH3 --> PH4 --> PH5 --> PH6 --> PH7
 
-| Code | Screen | Used in |
-|---|---|---|
-| S1 | Landing + sign up / log in | J1, J2 |
-| S2 | RFx workspace: lifecycle strip, guided-tour panel, next-action button (the frame around every screen below) | all |
-| S3 | Context: internal request, RFI results, RFP summaries | J1 |
-| S4 | RFQ draft (co-pilot) with the evaluation-rules panel | J1, J2 |
-| S5 | Send: the 5 outgoing emails, vendor statuses | J1, J2 |
-| S6 | Inbox: replies, arrival dates, live progress per vendor, upload a reply | J1, J2, J3, J5 |
-| S7 | Comparison matrix with the Ask panel, badge legend and assumptions panel | J1, J2, J4 |
-| S8 | Source drawer (slides over S7) | J1, J4 |
-| S9 | Review queue | J1, J5 |
-| S10 | Clarification email composer | J1, J3 |
-| S11 | Vendor profile: RFP summary, questionnaire result, certificates, status timeline | J1, J3 |
-| S12 | Award memo | J1, J4 |
+  classDef inside fill:#eef2ff,stroke:#4f46e5,color:#1e1b4b
+  classDef outside fill:#f3f4f6,stroke:#9ca3af,color:#374151
+  classDef supplier fill:#fff7ed,stroke:#ea580c,color:#431407
+  class P0,P1,P2,P3,P4,P5,P6,P7,P8,P9 inside
+  class N1,N2,N3,A1,A2,A3,A4 outside
+  class S1,S2,S3,S4 supplier
+  style PH1 fill:#ffffff,stroke:#d1d5db
+  style PH2 fill:#ffffff,stroke:#d1d5db
+  style PH3 fill:#ffffff,stroke:#d1d5db
+  style PH4 fill:#ffffff,stroke:#d1d5db
+  style PH5 fill:#ffffff,stroke:#d1d5db
+  style PH6 fill:#ffffff,stroke:#d1d5db
+  style PH7 fill:#ffffff,stroke:#d1d5db
+```
 
----
+**How to read it:** seven phases, left to right. 🟦 **Indigo** steps happen inside Procure Mind. ⬜ **Grey** steps happen outside it, in emails and meetings within the company. 🟧 **Orange** steps are the suppliers, who never log in and simply use email. Procure Mind's job is to make each hand-off between these worlds take minutes instead of days, and to make sure nothing is lost on the way.
 
-## J1 · Pavan, Category Buyer: from internal request to award
+## 2. The main journey: Pavan, category buyer, from request to award
 
-**Goal:** a defensible award without retyping a single number. **Trigger:** Plant Operations emails a packaging need. **Covers:** demo script steps 1–10 (PRD §6).
+**Goal:** a defensible award without retyping a single number.
+**Starts when:** Plant Operations emails *"We need new shipper boxes and inner packaging for both plants, starting next quarter"*, with a volume sheet attached.
 
-| # | Step | Pavan does | Screen | Procure Mind does | Friction removed |
+| # | Stage | Where | What Pavan does | What Procure Mind does | What used to happen |
 |---|---|---|---|---|---|
-| 1 | Log in | One-click Google sign-up | S1 → S2 | Creates the account, copies the demo data | No verification email; no empty dashboard |
-| 2 | Understand context | Clicks Need, RFI, RFP on the strip | S3 | Shows seeded context | All background in one place |
-| 3 | Draft RFQ | "Draft RFQ with co-pilot"; fixes one quantity inline | S4 | Drafts 30 lines, questionnaire and terms from the context; prepared draft if AI is down | No blank page |
-| 4 | Lock rules and send | "Lock rules & send" | S4 → S5 | Freezes the rules with a timestamp; records the send | Defensible later |
-| 5 | Replies arrive | "Fast-forward 9 days" | S6 | Processes all 5 automatically, in parallel, with plain-word progress | No button; no bare spinner |
-| 6 | Compare | Scans; toggles as-quoted / normalized; changes freight estimate | S7 | Maps, converts, applies tiers, pulls V5's contract, checks questionnaire and certificates | Never blocked; change once, update everywhere |
-| 7 | Check evidence | Clicks a photo-sourced price and a PDF price | S8 | Shows the photo with a box around the number, the highlighted footnote, the conversion chain | Proof in one click |
-| 8 | Resolve and chase | "Accept all high-confidence"; "Ask vendor" on V3; Send | S9 → S10 | One consolidated email; reads the reply; updates only the changed cells (detail in J3) | No hand-written chasers |
-| 9 | Ask what-ifs | Clicks suggested questions; follow-up; saves scenario | S7 (Ask panel) | AI turns the question into a calculation; code computes it and shows the working (detail in J4) | No typing; no rebuild |
-| 10 | Award | "Recommend award" on the saved scenario | S12 | Builds the memo; strip shows Award ✓, PO next | Defensible memo in one click |
+| 1 | 📧 The need arrives | Outside | Reads the plant's email and volume sheet | — | — |
+| 2 | 🔎 Find and shortlist suppliers | Outside | Asks a dozen box makers about capacity and certificates; shortlists five | Keeps the shortlist and the reasons, for later context | Notes scattered across emails |
+| 3 | 🔐 Log in | **Inside** | Opens Procure Mind and signs in | Shows every sourcing event and its stage, plus requests waiting to be started | — |
+| 4 | 🗂️ Choose the work | **Inside** | Clicks **Start RFx** on the plant's request, or **Continue** on an event already running | Opens the event at exactly the step it was left | Hunting for the latest spreadsheet version |
+| 5 | ✍️ Draft the RFQ | **Inside** | Clicks **Draft RFQ with co-pilot**; corrects one quantity | Drafts items, quantities per plant, questionnaire, terms and cover email; checks every quantity against the volume sheet | Half a day copying specs into a template |
+| 6 | 🔒 Fix the rules, then send | **Inside** | Ticks the must-have certificates, sets the pass score, clicks **Lock rules & send** | Freezes the rules with a timestamp; sends the RFQ to the five suppliers | Rules decided after prices were seen |
+| 7 | 📨 Suppliers reply | Outside | Waits; answers supplier phone calls | — | — |
+| 8 | 📥 Replies are read | **Inside** | Watches the replies tab (or does other work) | Reads each reply in under a minute, all in parallel, showing progress in plain words | Two to three days of retyping |
+| 9 | ⚖️ Compare | **Inside** | Opens the comparison | Converts every price to one basis, highlights the cheapest valid price per item, shows questionnaire and certificate results | Formulas built by hand, errors found late |
+| 10 | 🔍 Check the evidence | **Inside** | Clicks a price that came from a phone photo | Shows the photo with the exact line outlined, and every conversion step | "Let me find that email…" |
+| 11 | ✅ Clear the easy flags | **Inside** | Clicks **Accept all high-confidence** | Leaves only the items that genuinely need a decision | Every oddity checked by hand |
+| 12 | ✉️ Chase a gap | **Inside** | Clicks **Ask vendor** on the supplier who skipped three items; reviews the email; clicks **Send** | Drafts one specific email covering every open point for that supplier | A chaser email written from scratch, days later |
+| 13 | 📨 Supplier answers | Outside | — | — | — |
+| 14 | 🔄 The loop closes | **Inside** | Sees "Loop closed" | Reads the answer and updates only the three missing prices; old values stay in history | Another round of retyping |
+| 15 | 💬 Ask what-ifs | **Inside** | Clicks *"What if we combine both plants' volumes?"*; asks a follow-up; saves the answer as a scenario | Turns the question into an exact calculation, computes it in code, explains it in two sentences, shows the working | A new spreadsheet version for each question |
+| 16 | 🏆 Recommend the award | **Inside** | Clicks **Recommend award**, then **Download PDF** | Builds the memo: award per supplier, savings, rules used, risks, and a link to the evidence for every figure | A slide deck assembled by hand |
+| 17 | 👔 Approval | Outside | Presents the memo to the head of procurement and finance | Every figure can be clicked during the meeting | "I'll get back to you on that number" |
+| 18 | 🧾 Purchase order | Outside | Raises the purchase orders in the ERP | The memo is the hand-off document | — |
 
-**Where Pavan could get stuck, and what prevents it:**
-- *Not knowing what to do next* → the guided tour and the single highlighted next-action button on every screen.
-- *Too many flags to face at once* → "Accept all high-confidence" leaves only the real issues, and none of them blocks the comparison.
-- *Wondering where a number came from* → hovering shows its conversion chain; clicking shows the source.
+## 3. Journey: closing the loop with a supplier
 
----
+**Goal:** get missing information without writing an email by hand.
 
-## J2 · Challenge reviewer: alone, no presenter
+```mermaid
+sequenceDiagram
+  actor Buyer as 🧑‍💼 Buyer
+  participant PM as 💻 Procure Mind
+  actor Supplier as 🏢 Shakti Pack Works
+  Supplier->>PM: 📎 Word document: 27 of 30 items, 30-day payment terms
+  PM->>PM: Finds 3 missing items and the terms mismatch
+  PM-->>Buyer: "27 / 30 ⚠" on the comparison, 4 items in the review list
+  Buyer->>PM: Clicks "Ask vendor"
+  PM-->>Buyer: One drafted email covering every open point
+  Buyer->>PM: Reviews and clicks "Send"
+  PM->>Supplier: ✉️ "Please quote items 12, 14 and 19, and confirm 60-day terms"
+  Supplier->>PM: 📨 "Item 12: Rs. 10.79 … we agree to 60 days"
+  PM->>PM: Reads the reply, updates only the affected prices, keeps the old values
+  PM-->>Buyer: ✅ "Loop closed: 3 values updated, 4 issues resolved"
+```
 
-**Goal:** understand the story, see it work, try an own file. **Trigger:** receives the public link. **Target:** first comparison in under 3 minutes, without help.
+If anything is still open after the reply, the next email lists only what remains.
 
-| # | Step | Reviewer does | Screen | Friction removed |
-|---|---|---|---|---|
-| 1 | Open link | Opens it cold | S1: one-line pitch, a 3-step picture, "Sign up" | Understands the purpose within 5 seconds |
-| 2 | Sign up | Google or email + password | S1 (one screen) | No verification, no setup form |
-| 3 | Land and orient | Reads tour step 1 | S2 | Never an empty screen |
-| 4 | Follow the fast path | Draft → Send → Fast-forward → Compare → Evidence → Ask → Award | S4–S12 | No typing needed |
-| 5 | Test own file | Drags a quote into "Upload a reply", picks a vendor | S6 → S7 | Proves it isn't hard-coded; a bad file fails politely |
-| 6 | Replay or leave | "Reset demo", or returns later | S2 | Nothing lost |
+## 4. Journey: the leadership review
 
-**Design consequence:** the tour must be skippable and resumable, and each tour step must point at exactly one control.
+**Goal:** answer the head of procurement's questions live, and give finance proof behind every number.
 
----
+1. 👔 *"Split the award: cheapest per item, but only suppliers who passed the quality questionnaire?"* The buyer clicks that suggested question.
+2. 💻 Procure Mind applies the rules locked before the prices were seen, picks the cheapest eligible supplier per item, computes the totals in code, and shows the working.
+3. 👔 *"And if we combine both plants' volumes?"* The buyer asks the follow-up.
+4. 💻 Volume-tier prices apply; the answer shows how much it saves compared with the previous answer.
+5. 🧑‍💼 The buyer saves it as a scenario and clicks **Recommend award**.
+6. 💼 Finance opens the memo and clicks a ₹ figure: the supplier's own document appears, with the number outlined.
+7. ✅ Approval happens outside the product, in the usual meeting. An approval workflow inside the product is on the roadmap.
 
-## J3 · Closed loop: chasing a vendor who quoted 27 of 30 lines
+## 5. Journey: a first-time visitor
 
-**Goal:** get missing information without writing an email by hand (PRD Improvement A, FR-4.7 and FR-4.8).
+**Goal:** someone who has never seen the product understands it and tries it, alone, in about ten minutes.
 
-1. V3 replies with a Word document: prices in prose, 27 of 30 lines, 30-day payment terms.
-2. Procure Mind finds the missing lines (#12, #14, #19) and the terms mismatch, flags those cells, and adds them to V3's issue list.
-3. Pavan sees the "27 of 30" badge and clicks **Ask vendor** (from the matrix, the review queue, or V3's profile).
-4. Procure Mind drafts **one** email that covers every open V3 issue.
-5. Pavan edits if needed and clicks **Send**. V3's status becomes *Clarification requested*.
-6. V3 replies with the 3 missing prices and accepts 60 days.
-7. Procure Mind matches the reply to V3, updates only the changed cells, and keeps the old values in history.
-8. **All issues resolved?** Yes: the cells show **[Updated from clarification]**, and totals and saved answers refresh. No: back to step 4 for a follow-up that lists only what's still open.
+| # | They… | They see | Why it works |
+|---|---|---|---|
+| 1 | Open the link | A sign-in card over a packaging scene | Nothing to read before starting |
+| 2 | Create an account | Their own workspace in a few seconds | No verification step, no setup form |
+| 3 | Look around | Four sourcing events at different stages, with live numbers | Never an empty screen |
+| 4 | Click **Continue** on the event being analysed | Its overview: where it stands and the next sensible step | Every screen says where you are and what to do next |
+| 5 | Explore | Comparison, evidence, review, what-ifs, memo | Suggested questions; no typing needed |
+| 6 | Try their own file | Upload any quote on the Replies tab | Proof that it isn't hard-coded |
+| 7 | Start over | **Restore sample workspace** in the account menu | Safe to experiment |
 
-**The same loop serves V5:** its "freight extra" and the 2 lines with no contract history go into one email, and its seeded reply gives a freight amount.
+## 6. When things go wrong
 
----
+Every problem shows a plain reason and one next step.
 
-## J4 · Decision: the VP's what-ifs and the CFO's audit
-
-**Goal:** answer the VP's questions live and give the CFO proof behind every number.
-
-1. Rajesh (VP, on a screen-share): *"Split the award: cheapest per line, only vendors who passed the questionnaire?"*
-2. Pavan clicks that suggested question.
-3. Procure Mind applies the **locked** pass rules (V3 fails), picks the cheapest valid vendor per line, has code compute the totals, and shows the working.
-4. Rajesh: *"And if we combine both plants' volumes?"* Pavan asks the follow-up.
-5. Procure Mind re-prices using volume tiers and shows the saving compared with the previous answer.
-6. Pavan saves the scenario and clicks **Recommend award**. Procure Mind generates the memo.
-7. The CFO opens the memo and clicks a ₹ figure. The source drawer shows the vendor's own words or the photo region behind it.
-8. The CFO approves. That happens outside the app today; an approval workflow is on the roadmap.
-
-**Note for the demo:** the CFO sees the memo through Pavan's screen. A read-only share link (FR-6.5) is a Should item.
-
----
-
-## J5 · When things go wrong
-
-Every problem has a visible reason and one next action (journey principles 5 and 10).
-
-| When this happens | The user sees | Next action |
+| Situation | What the buyer sees | Next step |
 |---|---|---|
-| A reply can't be read (e.g. photo too blurry) | A red card on that reply with a plain reason; the others keep processing | Retry · upload a clearer file · Ask vendor |
-| Co-pilot AI unavailable while drafting | A prepared draft, labelled "Prepared draft (AI unavailable)" | Edit and send as normal |
-| Low-confidence value | An amber cell and a review-queue entry next to its source | Accept · Edit · Ask vendor |
-| Line not in last year's contract | Cell flagged "No history for this line", kept out of totals | Added automatically to the clarification email |
-| "Freight extra" with no amount | A freight flag; the assumptions panel offers an estimate | Set an estimate (labelled) · Ask vendor |
-| Ambiguous question in Ask | One short clarifying question with clickable choices | Click a choice |
-| Reply from an unknown sender | Inbox item: "Who is this from?" | Pick the vendor |
-| Unusual upload (too big, password-protected, not a quote) | A plain message explaining what's wrong and the limits | Upload another file |
-| Page refreshed / user returns tomorrow | Same screen, same state | Carry on |
-| Wrong manual edit | Change-log entry with Undo | Undo |
-| AI slow on demo day (presenter only) | Banner: "Showing saved run" | Continue the story |
-
----
-
-## Journey principles check
-
-Each PRD §4 principle, and where the journeys satisfy it.
-
-| # | Principle | Where it's satisfied |
-|---|---|---|
-| 1 | No empty screens | J1-1, J2-3: land inside the demo RFx |
-| 2 | One obvious next step | Next-action button and tour on every screen (S2) |
-| 3 | Never blocked | J1-6: matrix fills in as vendors finish; flags sit on the matrix |
-| 4 | Every wait shows progress | J1-5: plain-word progress per vendor; J1-3: the RFQ streams in |
-| 5 | Every problem comes with its fix | J5 (every row); J1-8 review queue actions |
-| 6 | Change once, update everywhere | J1-6 assumptions panel; J3-8 totals and answers refresh |
-| 7 | Nothing is lost | J2-6 resume; J5 undo; J3-7 history kept |
-| 8 | No typing needed for the demo path | Suggested question chips (J1-9, J4-2); all other steps are clicks |
-| 9 | Plain language | Badge legend, hover explanations, plain-word progress |
-| 10 | Failure is local and recoverable | J5 rows 1, 2, 8 |
-
----
-
-## What this changes downstream
-
-- **Phase 3 (architecture)** must support: per-account copies of the demo data, auto-processing in parallel with progress updates pushed to the screen, the source location stored for every value, a value history (for revisions and undo), and a saved-run fallback.
-- **Phase 4 (wireframes)** draws screens S1–S12 from the inventory above.
+| A reply can't be read (blurry photo, unusual file) | That reply shows a reason; the others carry on | Retry, upload a clearer file, or ask the supplier |
+| The AI is unavailable while drafting | A prepared draft, clearly labelled | Edit and send as usual |
+| A value the AI is unsure about | An amber cell and an entry in the review list, beside its source | Accept, edit, or ask the supplier |
+| An item that is new this year, but the supplier said "same as last year" | "No history for this line", kept out of totals | Added to that supplier's clarification email |
+| "Freight extra" with no amount | A labelled estimate the buyer can change | Set the estimate, or ask the supplier |
+| A question that could mean two things | One short question back, with clickable choices | Click a choice |
+| A file that's too large or not a quote | A plain message with the limits | Upload another file |
+| A wrong manual edit | The change in the recent-changes list | Undo |
+| The buyer closes the browser and returns tomorrow | The same event, at the same step | Carry on |

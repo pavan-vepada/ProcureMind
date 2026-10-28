@@ -26,8 +26,11 @@ export function RfqWorkspace({ rfx, lines, questions, vendors, outgoing, hasShee
   const [cover, setCover] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [tab, setTab] = useState<"lines" | "questions" | "terms">("lines");
+  // Between the end of the stream and the saved draft arriving, keep showing progress (not the old draft state).
+  const [saving, startSaving] = useTransition();
+  const busy = streaming || saving;
   const locked = !!rfx.rules_locked_at;
-  const drafted = !!rfx.drafted_at && !streaming;
+  const drafted = !!rfx.drafted_at && !busy;
 
   async function draft() {
     setStreaming(true);
@@ -54,16 +57,19 @@ export function RfqWorkspace({ rfx, lines, questions, vendors, outgoing, hasShee
           if (e.type === "note") setNotes((x) => [...x, e.note]);
           if (e.type === "cover_email") setCover(e.text);
           if (e.type === "error") setError(e.text);
+          if (e.type === "done") setStatus("Saving the draft");
         }
       }
     } catch (e) {
       setError(e instanceof Error ? e.message : "Drafting failed");
     }
-    setStreaming(false);
-    router.refresh();
+    startSaving(() => {
+      setStreaming(false);
+      router.refresh();
+    });
   }
 
-  if (!rfx.drafted_at && !streaming && live.length === 0) {
+  if (!rfx.drafted_at && !busy && live.length === 0) {
     return (
       <>
         <Card className="flex flex-col items-center px-8 py-14 text-center">
@@ -85,15 +91,15 @@ export function RfqWorkspace({ rfx, lines, questions, vendors, outgoing, hasShee
     );
   }
 
-  const shown: (DraftLine | Line)[] = streaming || !drafted ? live : lines;
-  const allNotes = streaming ? notes : rfx.copilot_notes;
+  const shown: (DraftLine | Line)[] = busy || !drafted ? live : lines;
+  const allNotes = busy ? notes : rfx.copilot_notes;
   return (
     <>
       {locked && <SendView rfx={rfx} vendors={vendors} outgoing={outgoing} />}
       <PageHeader
         title={locked ? "RFQ as sent" : "RFQ draft"}
         subtitle={
-          streaming ? (
+          busy ? (
             <span className="text-accent">✦ {status} <Dots /></span>
           ) : (
             <>
@@ -116,13 +122,13 @@ export function RfqWorkspace({ rfx, lines, questions, vendors, outgoing, hasShee
           )
         }
       />
-      {streaming && <Progress value={hasSheet ? (live.length / Math.max(lines.length, 8)) * 100 : Math.min(90, live.length * 12)} className="mb-4" />}
+      {busy && <Progress value={hasSheet ? (live.length / Math.max(lines.length, 8)) * 100 : Math.min(90, live.length * 12)} className="mb-4" />}
       {error && <p className="mb-4 rounded-lg bg-bad px-4 py-2 text-sm">{error}</p>}
 
       <div className="grid gap-5 xl:grid-cols-[1fr_340px]">
         <div className="min-w-0">
           <div className="mb-3 flex gap-1.5">
-            {([["lines", `Line items (${shown.length})`], ["questions", `Questionnaire (${questions.length || 12})`], ["terms", "Terms & cover email"]] as const).map(([k, label]) => (
+            {([["lines", `Line items (${shown.length})`], ["questions", `Questionnaire (${questions.length})`], ["terms", "Terms & cover email"]] as const).map(([k, label]) => (
               <button key={k} onClick={() => setTab(k)} className={`rounded-lg px-3 py-1.5 text-sm ${tab === k ? "bg-accent-soft font-medium text-accent" : "text-muted hover:bg-panel"}`}>
                 {label}
               </button>
@@ -165,7 +171,7 @@ export function RfqWorkspace({ rfx, lines, questions, vendors, outgoing, hasShee
 
           {tab === "questions" && (
             <Card className="divide-y divide-line">
-              {(questions.length ? questions : []).map((q) => (
+              {questions.map((q) => (
                 <div key={q.q_no} className="flex items-center gap-3 px-4 py-2.5 text-sm">
                   <span className="w-8 text-muted">Q{q.q_no}</span>
                   <span className="flex-1">{q.text}</span>
@@ -173,7 +179,6 @@ export function RfqWorkspace({ rfx, lines, questions, vendors, outgoing, hasShee
                   <span className="w-16 text-right text-muted">{q.points} pts</span>
                 </div>
               ))}
-              {!questions.length && <p className="p-4 text-sm text-muted">The standard questionnaire is added when the draft finishes.</p>}
             </Card>
           )}
 
@@ -251,7 +256,7 @@ function RulesPanel({ rfx, questions, vendors, disabled }: { rfx: Rfx; questions
 
       <div className="mt-4 rounded-lg border border-line bg-surface p-3">
         <p className="text-sm font-medium">Questionnaire pass rules</p>
-        {(questions.length ? questions.filter((q) => q.q_no <= 4) : []).map((q) => (
+        {questions.filter((q) => q.q_no <= 4).map((q) => (
           <label key={q.q_no} className="mt-2 flex items-start gap-2 text-sm">
             <input type="checkbox" disabled={locked || disabled} checked={required.includes(q.q_no)} className="mt-0.5 accent-[#4f46e5]"
               onChange={(e) => setRequired((r) => (e.target.checked ? [...r, q.q_no].sort() : r.filter((x) => x !== q.q_no)))} />

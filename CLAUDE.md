@@ -54,6 +54,9 @@ This file is the project's memory. Any new Claude session should read it first a
 - Anything computed during seeding must reload the RFx first: reading replies adds assumptions (freight estimates) via RPC.
 - e2e: after clicking a tab, wait for that page's heading before clicking buttons that exist on both pages (e.g. "Ask vendor"), and match text unique to the new state (sample data already contains "Saved as…").
 - `scripts/e2e.sh` pipes through `tail`, so output appears only at the end.
+- Docs screenshots: build, `npx next start -p 3100`, then `node scripts/screenshots.mjs` (masks the test email), then `node scripts/cleanup-test-users.mjs`. Playwright test runs wipe `test-results/`, so docs images live in `docs/images/`.
+- Mermaid in docs: semicolons end statements in sequence diagrams; subgraph `direction` is ignored if a node inside links outside it (link subgraph to subgraph instead). Validate by parsing with mermaid in the Playwright browser.
+- Docs audience (PM, 2026-10-28): senior product leaders and laymen. Plain English, a one-paragraph summary atop each doc, measured results only, no "demo"/"one-day build" wording.
 
 ## Product context
 - **Product name:** Procure Mind V2.0

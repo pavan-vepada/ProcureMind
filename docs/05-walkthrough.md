@@ -1,50 +1,48 @@
-# 06 — Walkthrough guide: Procure Mind V2.0
+# 5 · Walkthrough
 
-**For:** anyone presenting the product, or exploring it alone. There is no tour: every screen says where you are and what you can do.
+> **In one paragraph.** A ten-minute tour of the live product for anyone presenting it or exploring alone. Create an account and you land in a workspace with four sourcing events at different stages. Each one shows a different part of the product, and each has real, messy supplier replies behind it.
 
-## What a new account sees
+---
 
-Creating an account takes one screen. The buyer lands on **Sourcing events**: the RFx they're running, at different stages, each with live numbers.
+## The sample world
 
-| RFx | Status | What to try |
+**Sunrise Consumer Goods** (fictional) makes home-care products in two plants, in Pune and Nashik. Pavan, its category buyer for packaging, is running these sourcing events:
+
+| Event | Stage | What it shows |
 |---|---|---|
-| **RFX-2026-014** Corrugated packaging for both plants | Analysing quotes | 5 vendors, 30 lines, every format, all read. Open the **Comparison**: click any price for its source, ask what-ifs, chase a vendor, recommend the award. |
-| **RFX-2026-017** Heavy-duty export cartons | Out for quote | One reply has just arrived: open **Replies** and watch the AI read it live. Then **Add 1 sample reply** for the vendor still to answer. |
-| **RFX-2026-019** Q3 capacity buffer | Ready to send | The co-pilot's draft is done. **RFQ** → check the rules → **Lock rules & send**, then bring in the sample replies. |
-| **RFX-2026-009** Inner packaging renewal | Awarded | The award memo, with savings, rules used, risks and evidence for every number. |
-| **Requests waiting for you** (right side) | — | "Packaging for the liquid detergent launch": **Start RFx** and the co-pilot drafts it live from the request and volume sheet. |
+| **RFX-2026-014** Corrugated packaging for both plants | 🔵 Analysing quotes | The full analysis: 5 suppliers, 30 items, every reply format, all read. Comparison, evidence, review, what-ifs and the award |
+| **RFX-2026-017** Heavy-duty export cartons | 🟣 Out for quote | One reply has just arrived and is read live as you watch; one supplier is still to reply |
+| **RFX-2026-019** Q3 capacity buffer | ⚪ Ready to send | A finished draft with evaluation rules, waiting to be locked and sent |
+| **RFX-2026-009** Inner packaging renewal | 🟢 Awarded | A completed award memo |
+| *Packaging for the liquid detergent launch* | 📨 Request waiting | A plant's request, ready to become a new event drafted by the co-pilot |
 
-**New RFx** also lets you describe a need in your own words; the co-pilot proposes the lines and flags what it assumed. Replies to such an RFx come in by upload.
+## The ten-minute story (on RFX-2026-014)
 
-## A 10-minute story on RFX-2026-014
+| # | Do this | Notice |
+|---|---|---|
+| 1 | On the workspace, click **Continue** on *Corrugated packaging for both plants* | The overview says where things stand: 5 of 5 quotes on one basis, the best complete offer, how many items need a look |
+| 2 | Open **Comparison** | Everything is in ₹ per piece, before tax, delivered. Green is the cheapest valid price. Switch to **As quoted** to see the mess it came from |
+| 3 | Click a **Narmada Cartons** price (the photo column) | The supplier's tilted phone photo, with the line it was read from outlined in red |
+| 4 | Click a **Deccan Boxboard** price (the PDF column) | The PDF page with the number outlined; the conversion shows US dollars → rupees and tax removed |
+| 5 | Open **Review**, click **Ask vendor**, choose **Shakti**, click **Send** | One drafted email covering the three missing items and the payment terms. Shakti replies, and within a minute only the affected prices change |
+| 6 | Back in **Comparison**, click *"What if we combine both plants' volumes?"* | The answer, the saving against the previous answer, and **Show working**. Click **Save as scenario** |
+| 7 | Click **Recommend award** on the saved scenario | The memo, with every ₹ clickable. **Download PDF** prints it |
 
-1. **Overview** says where it stands: 5 of 5 quotes on one basis, the best complete offer, items needing a look.
-2. **Comparison**: one basis (₹ per piece, before GST, delivered). Green = cheapest valid. **As quoted** shows the mess it came from. Hover any price for its conversion.
-3. Click a **Narmada (photo)** price: the vendor's photo with a box where the number was read. Click a **Deccan (PDF)** price: the PDF page with the number outlined.
-4. **Review** → **Ask vendor** on Shakti → **Send**. Shakti replies, the reply is read automatically, and only its 3 missing prices change (teal "clarification" badge).
-5. Back in **Comparison**, click **What if we combine both plants' volumes?** in the Ask panel. The AI picks the calculation; code computes it; **Show working** shows data, filters, rule and formula. **Save as scenario**.
-6. **Recommend award** on the saved scenario: the memo, with every ₹ clickable to the vendor's own words. **Download PDF** prints it.
+## The traps hidden in the replies
 
-## Planted traps in RFX-2026-014
-
-| Vendor | Format | Trap | Where it's handled |
+| Supplier | Replied with | The trap | How Procure Mind handles it |
 |---|---|---|---|
-| Kaveri | Excel, own layout | "Per box" = bundle of 100; lines renamed and shuffled | Conversion chain: ₹1,850 per box → ₹18.50 per piece |
-| Deccan | PDF letterhead | USD; volume tiers; 5% discount footnote; GST included on 2 lines | `$→₹`, `tier`, `GST removed`; discount flagged for the buyer |
-| Shakti | Word prose | 27 of 30 lines; 30-day terms; fails the questionnaire | "27 / 30 ⚠", missing cells, chase by email |
-| Narmada | Angled phone photo | Per kg; glare over one row; expired ISO certificate | `estimate`; 2 unreadable lines; "ISO expired" |
-| Sahyadri | Plain email | "Rest same as last year"; freight extra; 2 new lines | `contract` badges (#2025-V5); 2 lines with no history; freight estimate |
+| Kaveri Corrugators | Excel, in their own layout | "Per box" means a bundle of 100; items renamed and reordered | Converted: ₹1,850 per box → ₹18.50 per piece, with the step shown |
+| Deccan Boxboard Exports | A PDF on letterhead | US dollars; volume tiers; a 5% discount in a footnote; tax included on two items | Converted and tax removed; tiers applied per plant; the discount flagged for the buyer to decide, never applied silently |
+| Shakti Pack Works | A Word document | Only 27 of 30 items; 30-day payment terms; fails the questionnaire | "27 / 30 ⚠", the gaps listed, one email to chase them |
+| Narmada Cartons | A tilted phone photo | Priced per kilogram; glare over one row; an expired ISO certificate | Converted using box weights estimated from the specification (labelled); unreadable items flagged; "ISO expired" |
+| Sahyadri Paperpack | Two lines of email | "Rest same as last year, freight extra"; two items are new this year | Filled from last year's contract where the specification matches; the two new items flagged; freight given a labelled estimate |
 
-The other sample RFx add a vendor quoting **per 1,000 pieces**, one quoting **per box of 50**, and another that skipped two lines and fails the BCT requirement.
+The other events add a supplier quoting per 1,000 pieces, one quoting per box of 50, and one that skipped two items and fails the testing requirement.
 
-## Things worth knowing
+## Good to know
 
-- **Restore sample workspace** (account menu, top right) puts every sample RFx back to its starting point.
-- **Upload your own quote** on any RFx's **Replies** tab: Excel, PDF, Word, a photo or pasted email text. It's read live.
-- **If the AI is slow during a presentation:** add `?savedRun=1` to the address once; sample replies then use a recorded reading (the Replies tab says so). `?savedRun=0` switches back. Uploads always use the live AI.
-
-## Accuracy behind it
-
-- On the five main sample replies the live AI read **129 of 129 prices correctly** (`bash scripts/eval-all.sh`).
-- With a correct reading, the engine reproduces the answer key for all 300 vendor × line × plant prices (`npm test`).
-- Every number the AI writes in an answer or memo is checked against the computed result; if one doesn't match, a code-written summary is shown instead.
+- **Try your own file.** On any event's **Replies** tab, upload a quote (Excel, PDF, Word or a photo) or paste an email. It is read live.
+- **Start fresh any time.** **Restore sample workspace** in the account menu (top right) resets every sample event.
+- **Start something new.** **New RFx** drafts from a plant's request, or from a need described in your own words.
+- **Presenting with a slow connection?** Add `?savedRun=1` to the address once. Sample replies then use a recorded reading (the Replies tab says so); `?savedRun=0` switches back. Uploaded files always use the live AI.
