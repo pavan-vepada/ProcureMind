@@ -4,17 +4,21 @@
 import { randomUUID } from "node:crypto";
 import { createClient, type SupabaseClient } from "@supabase/supabase-js";
 import { config } from "dotenv";
-import { beforeAll, describe, expect, it } from "vitest";
+import { execFileSync } from "node:child_process";
+import { afterAll, beforeAll, describe, expect, it } from "vitest";
 import { buildSeedArgs } from "@/lib/demo/seed";
 
 config({ path: ".env.local", quiet: true });
 const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
 const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+// Supabase only accepts deliverable domains, so tests use plus-addresses on a real mailbox.
+const testEmail = process.env.TEST_EMAIL;
 
 async function newAccount() {
   const client = createClient(url!, key!, { auth: { persistSession: false } });
+  const [name, domain] = testEmail!.split("@");
   const { data, error } = await client.auth.signUp({
-    email: `test-${randomUUID()}@procuremind-tests.dev`,
+    email: `${name}+pmtest-${randomUUID().slice(0, 8)}@${domain}`,
     password: randomUUID(),
   });
   if (error) throw error;
@@ -22,7 +26,7 @@ async function newAccount() {
   return client;
 }
 
-describe.skipIf(!url || !key)("accounts and demo copies (Supabase)", () => {
+describe.skipIf(!url || !key || !testEmail)("accounts and demo copies (Supabase)", () => {
   let alice: SupabaseClient;
   let bob: SupabaseClient;
 
@@ -32,6 +36,10 @@ describe.skipIf(!url || !key)("accounts and demo copies (Supabase)", () => {
       const { error } = await client.rpc("seed_demo", buildSeedArgs());
       if (error) throw error;
     }
+  });
+
+  afterAll(() => {
+    if (process.env.SUPABASE_DB_URL) execFileSync("node", ["scripts/cleanup-test-users.mjs"], { stdio: "inherit" });
   });
 
   it("gives each new account its own demo RFx with 5 vendors and 12 RFI results", async () => {
