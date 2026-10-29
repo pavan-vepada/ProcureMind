@@ -2,9 +2,12 @@
 
 **A sourcing workspace for category buyers.** It drafts the request for quotation, reads whatever suppliers send back (spreadsheets, PDFs, Word files, phone photos, plain emails), puts every quote on one comparable basis, and takes the buyer from what-if questions to an award recommendation they can defend, without retyping a single number.
 
+### **[▶ Try it live: procure-mind-v2.vercel.app](https://procure-mind-v2.vercel.app)**
+Create an account with any email and password. Your own workspace opens in about ten seconds, with sample sourcing events at every stage to explore.
+
 ![The comparison screen: five suppliers, thirty items, one basis, with the question panel beside it](docs/images/04-comparison.png)
 
-> **Status:** a working product running on fictional data. Every screen below is live: the AI really reads the files, and the numbers are really calculated. A public link to try it is coming shortly.
+> **Status:** a working product running on fictional data. Every screen is live: the AI really reads the files, and the numbers are really calculated.
 
 ---
 

@@ -3,8 +3,8 @@
 Working notes for Claude Code, the AI coding assistant that built Procure Mind under the product manager's direction. Any new session reads this first and resumes from **Current status**. For the product itself, start with [README.md](README.md).
 
 ## Current status
-- **Built and tested; published to GitHub; deploy next.** Every feature in the product requirements (docs/01) runs end to end against the real Supabase project and the live OpenAI model.
-- **Next:** deploy to Vercel with env vars `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY`, `OPENAI_API_KEY` (optionally `AI_MODEL`); set Supabase Auth → URL Configuration → Site URL to the Vercel address; set a monthly spending limit on the OpenAI key; then add the live link to the README.
+- **Live:** https://procure-mind-v2.vercel.app (Vercel, deployed from GitHub `pavan-vepada/procure-mind-v2`, branch `master`; every push redeploys). The full e2e journey passes against the live site (`BASE_URL=https://procure-mind-v2.vercel.app npx playwright test`, then `node scripts/cleanup-test-users.mjs`).
+- **Next:** PM shares on LinkedIn; iterate on feedback.
 - **Last updated:** 2026-10-29
 
 | Phase | Output | Status |
@@ -102,6 +102,6 @@ public/ + config files    must stay at the root
 | 2026-10-29 | Licence: all rights reserved; commits keep the PM's own email; sample buyer stays "Pavan" | PM decisions before publishing |
 
 ## Open items
-- Deploy to Vercel (see Current status).
+- Vercel env vars: `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY`, `OPENAI_API_KEY` (+ `AI_MODEL` if set). Supabase Site URL points at the Vercel address. Confirm the Vercel function region is Mumbai (bom1) to sit next to Supabase, and that the OpenAI key has a monthly cap.
 - Claude Design boards are private until the PM shares them: journey map https://claude.ai/artifact/4YXN2eCXe3zb33Y9yuwuNT, visual identity https://claude.ai/artifact/MLbR3P2wpRga7pMLbCD6gs. Their exports are in docs/06-brand-and-design.
 - Not built yet (roadmap): side-by-side scenarios, charts in answers, Excel export, read-only memo link, unknown-sender assignment, Google sign-in.
