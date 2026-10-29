@@ -1,4 +1,4 @@
-# 6 · Glossary
+# 7 · Glossary
 
 Every term used in this repository, in plain English.
 

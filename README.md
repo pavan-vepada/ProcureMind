@@ -4,7 +4,7 @@
 
 ![The comparison screen: five suppliers, thirty items, one basis, with the question panel beside it](docs/images/04-comparison.png)
 
-> **Status:** a working product running on fictional data. Every screen below is live: the AI really reads the files, and the numbers are really calculated.
+> **Status:** a working product running on fictional data. Every screen below is live: the AI really reads the files, and the numbers are really calculated. A public link to try it is coming shortly.
 
 ---
 
@@ -69,13 +69,14 @@ Today the buyer spends **about three days** retyping this into one spreadsheet. 
 | 3 | [How it is built](docs/03-how-it-is-built.md) | A plain-English summary first, then the technical design | 5–15 min |
 | 4 | [Screens](docs/04-screen-designs.md) | Every screen, with the design choices behind it | 5 min |
 | 5 | [Walkthrough](docs/05-walkthrough.md) | A guided ten-minute tour of the live product | 10 min |
-| 6 | [Glossary](docs/06-glossary.md) | Every procurement and technical term in plain English | as needed |
+| 6 | [Brand and design](docs/06-brand-and-design/) | Three brand directions explored on the same screens, the one chosen, and the rules for colour, type and voice | 5 min |
+| 7 | [Glossary](docs/07-glossary.md) | Every procurement and technical term in plain English | as needed |
 
 ## What's in this repository
 
 | Folder | What's inside | Do you need to open it? |
 |---|---|---|
-| [`docs/`](docs/) | All the documents above, plus screenshots and diagrams | **Yes, start here** |
+| [`docs/`](docs/) | All the documents above, plus screenshots, brand boards and diagrams | **Yes, start here** |
 | [`src/`](src/) | The application itself: screens, AI instructions, calculation engine | Only to read the code |
 | [`sample-data/`](sample-data/) | The fictional company, suppliers, quotes and files the product runs on | To see the "messy replies" for yourself |
 | [`database/`](database/) | How the database is set up, including the rule that each user sees only their own data | Engineers only |
@@ -88,7 +89,7 @@ Today the buyer spends **about three days** retyping this into one spreadsheet. 
 
 ## How it was made
 
-Procure Mind was built the way a product team would build it, in seven phases: problem and requirements → user journeys → architecture → screen designs → build → test → ship. Each phase produced a document in [`docs/`](docs/), and each was reviewed before the next began. The product manager set direction and made every product decision. The code was written with Claude Code, Anthropic's AI coding assistant, under that direction.
+Procure Mind was built the way a product team would build it: problem and requirements → user journeys → architecture → screen designs → build → test → brand and voice → ship. Each phase produced a document in [`docs/`](docs/), and each was reviewed before the next began. When the working product still felt generic, three brand directions were explored on the same screens before one was chosen ([Brand and design](docs/06-brand-and-design/)). The product manager set direction and made every product decision. The code was written with Claude Code, Anthropic's AI coding assistant, under that direction.
 
 <details>
 <summary><b>Run it yourself (for engineers)</b></summary>
