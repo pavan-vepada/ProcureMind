@@ -2,7 +2,17 @@
 
 > **In one paragraph.** A sourcing event is a relay between the buyer, the plant that needs the goods, the suppliers, and the leaders who approve the spend. Much of it happens outside any software: emails, phone calls, approvals in meetings. This document follows the category buyer through the whole relay. It shows where Procure Mind takes over, what it does at each step, and how it hands back to the outside world.
 
-🎨 **Visual version:** the same journey as an illustrated map, designed in Claude Design: [the whole sourcing event](06-brand-and-design/images/journey-whole-sourcing-event.png) and [where the login fits](06-brand-and-design/images/journey-inside-procure-mind.png).
+## The journey map
+
+Seven phases, four worlds: what the buyer does, what Procure Mind does, who else is involved, how the buyer feels, and how long each step takes before and after.
+
+![The category buyer's journey: one sourcing event, from a plant's request to deliveries](06-brand-and-design/images/journey-whole-sourcing-event.png)
+
+**Zoom in: where the login fits.** Everything inside the shaded area happens in Procure Mind; the arrows leaving it are hand-offs to suppliers and colleagues.
+
+![Inside Procure Mind: from log in to award memo, with every hand-off to suppliers and leadership](06-brand-and-design/images/journey-inside-procure-mind.png)
+
+*Both maps were designed in Claude Design. The sections below walk through the same journey step by step.*
 
 ---
 

@@ -44,6 +44,14 @@ Today the buyer spends **about three days** retyping this into one spreadsheet. 
 </tr>
 </table>
 
+## The buyer's journey
+
+Most of a sourcing event happens outside any software: plant requests, supplier emails, approval meetings. The map shows the whole event and where Procure Mind takes over the stretch that used to eat days.
+
+![The category buyer's journey: seven phases from a plant's request to deliveries](docs/06-brand-and-design/images/journey-whole-sourcing-event.png)
+
+More in [User journeys](docs/02-user-journeys.md), including where the login fits.
+
 ## Three principles that make it trustworthy
 
 1. **Every number has a receipt.** Nothing appears on screen without a link back to the supplier's own words.
