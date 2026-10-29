@@ -8,7 +8,7 @@ import { inr, money, pct } from "@/lib/format";
 import type { MemoContent } from "@/lib/memo";
 import type { Rfx } from "@/lib/types";
 
-export function MemoView({ rfx, memo }: { rfx: Rfx; memo: { id: string; created_at: string; content: MemoContent } | null }) {
+export function MemoView({ rfx, preparedBy, memo }: { rfx: Rfx; preparedBy: string; memo: { id: string; created_at: string; content: MemoContent } | null }) {
   const [drawer, setDrawer] = useState<DrawerTarget | null>(null);
   if (!memo) {
     return (
@@ -31,7 +31,7 @@ export function MemoView({ rfx, memo }: { rfx: Rfx; memo: { id: string; created_
           <div>
             <p className="text-xs uppercase tracking-wide text-muted">Award recommendation</p>
             <h1 className="mt-1 text-2xl font-semibold tracking-tight">{rfx.code} · {rfx.title}</h1>
-            <p className="mt-1 text-sm text-muted">Prepared by Pavan{m.prepared_at ? ` · ${new Date(m.prepared_at).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" })}` : ""} · Scenario: “{m.scenario_name}”</p>
+            <p className="mt-1 text-sm text-muted">Prepared by {preparedBy}{m.prepared_at ? ` · ${new Date(m.prepared_at).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" })}` : ""} · Scenario: “{m.scenario_name}”</p>
           </div>
           <div className="no-print flex gap-2">
             <Button onClick={() => window.print()}><Printer size={15} /> Download PDF</Button>
@@ -41,12 +41,12 @@ export function MemoView({ rfx, memo }: { rfx: Rfx; memo: { id: string; created_
         <div className="mt-6 grid gap-3 md:grid-cols-3">
           <Stat label="Total award value" value={money(m.total)} sub="per year, before GST, delivered" accent />
           <Stat label="Saving vs last year" value={m.savings_vs_last_year ? money(m.savings_vs_last_year.amount) : "—"} sub={m.savings_vs_last_year ? `${pct(m.savings_vs_last_year.pct)} on ${m.savings_vs_last_year.lines} comparable lines` : "no comparable contracts"} />
-          <Stat label="Saving vs cheapest single vendor" value={m.savings_vs_single ? money(m.savings_vs_single.amount) : "—"} sub={m.savings_vs_single ? `vs awarding everything to ${m.savings_vs_single.vendor}` : ""} />
+          <Stat label="Saving vs best single supplier" value={m.savings_vs_single ? money(m.savings_vs_single.amount) : "—"} sub={m.savings_vs_single ? `vs awarding everything to ${m.savings_vs_single.vendor}` : ""} />
         </div>
 
-        <h2 className="mt-8 font-semibold">Award by vendor</h2>
+        <h2 className="mt-8 font-semibold">Award by supplier</h2>
         <table className="mt-2 w-full text-sm">
-          <thead className="text-left text-xs text-muted"><tr><th className="py-1.5 font-medium">Vendor</th><th className="font-medium">Lines awarded</th><th className="text-right font-medium">Annual value</th><th className="text-right font-medium">Share</th></tr></thead>
+          <thead className="text-left text-xs text-muted"><tr><th className="py-1.5 font-medium">Supplier</th><th className="font-medium">Lines awarded</th><th className="text-right font-medium">Annual value</th><th className="text-right font-medium">Share</th></tr></thead>
           <tbody>
             {m.award.map((a) => (
               <tr key={a.code} className="border-t border-line">
@@ -68,24 +68,24 @@ export function MemoView({ rfx, memo }: { rfx: Rfx; memo: { id: string; created_
           <div className="rounded-xl border border-line p-4 text-sm">
             <h3 className="font-semibold">Why this award</h3>
             <p className="mt-2 leading-relaxed">{m.why}</p>
-            <p className={`mt-2 flex items-center gap-1 text-xs ${m.why_checked ? "text-[#15803d]" : "text-muted"}`}><ShieldCheck size={12} /> {m.why_checked ? "Written by AI; every number checked against the calculation" : "Written by code from the calculation"}</p>
+            <p className={`mt-2 flex items-center gap-1 text-xs ${m.why_checked ? "text-ok-ink" : "text-muted"}`}><ShieldCheck size={12} /> {m.why_checked ? "Every figure checked against the calculation" : "Generated from the calculation"}</p>
           </div>
-          <div className="rounded-xl border border-[#c9dcf7] bg-info p-4 text-sm">
+          <div className="rounded-xl border border-line bg-info p-4 text-sm">
             <h3 className="font-semibold">Evaluation rules used</h3>
             {m.rules.locked_at && <p className="text-xs text-muted">Locked {new Date(m.rules.locked_at).toLocaleString("en-IN", { dateStyle: "medium", timeStyle: "short" })}, before any price was seen</p>}
             <ul className="mt-2 space-y-1">{m.rules.text.map((t) => <li key={t}>• {t}</li>)}</ul>
           </div>
         </div>
 
-        <div className="mt-4 rounded-xl border border-[#f5e2a8] bg-warn/50 p-4 text-sm">
+        <div className="mt-4 rounded-xl border border-warn-line bg-warn/50 p-4 text-sm">
           <h3 className="font-semibold">Risks and assumptions</h3>
           <ul className="mt-2 space-y-1">{m.risks.map((r) => <li key={r}>• {r}</li>)}</ul>
         </div>
 
         <details className="mt-6 text-sm" open>
-          <summary className="cursor-pointer font-semibold">Evidence: every line, click any price for the vendor&apos;s own words</summary>
+          <summary className="cursor-pointer font-semibold">Evidence: every line, click any price for the supplier&apos;s own words</summary>
           <table className="mt-2 w-full">
-            <thead className="text-left text-xs text-muted"><tr><th className="py-1 font-medium">Line</th><th className="font-medium">Item</th><th className="font-medium">Vendor</th><th className="text-right font-medium">Qty / yr</th><th className="text-right font-medium">₹ / piece</th><th className="text-right font-medium">Annual</th></tr></thead>
+            <thead className="text-left text-xs text-muted"><tr><th className="py-1 font-medium">Line</th><th className="font-medium">Item</th><th className="font-medium">Supplier</th><th className="text-right font-medium">Qty / yr</th><th className="text-right font-medium">₹ / piece</th><th className="text-right font-medium">Annual</th></tr></thead>
             <tbody>
               {m.rows.map((r) => (
                 <tr key={r.line_no} className="border-t border-line">
@@ -100,7 +100,7 @@ export function MemoView({ rfx, memo }: { rfx: Rfx; memo: { id: string; created_
             </tbody>
           </table>
         </details>
-        <p className="mt-6 flex items-center gap-2 text-sm text-muted"><Badge tone="ok">Award ✓</Badge> Next stage: purchase order in the ERP (on the roadmap).</p>
+        <p className="mt-6 flex items-center gap-2 text-sm text-muted"><Badge tone="ok">Award ✓</Badge> Next: raise the purchase orders in your ERP.</p>
       </Card>
       {drawer && <SourceDrawer key={drawer.quoteId ?? ""} rfxId={rfx.id} target={drawer} onClose={() => setDrawer(null)} onAskVendor={() => setDrawer(null)} />}
     </>
@@ -109,7 +109,7 @@ export function MemoView({ rfx, memo }: { rfx: Rfx; memo: { id: string; created_
 
 function Stat({ label, value, sub, accent }: { label: string; value: string; sub: string; accent?: boolean }) {
   return (
-    <div className={`rounded-xl border p-4 ${accent ? "border-[#c6ebd3] bg-ok" : "border-line"}`}>
+    <div className={`rounded-xl border p-4 ${accent ? "border-ok-line bg-ok" : "border-line"}`}>
       <p className="text-xs text-muted">{label}</p>
       <p className="mt-1 text-2xl font-semibold tabular-nums">{value}</p>
       <p className="text-xs text-muted">{sub}</p>

@@ -1,6 +1,6 @@
 # 1 · Product requirements
 
-> **In one paragraph.** Category buyers lose days turning messy supplier quotes into a comparison they can trust, and lose more time every time a leader asks a what-if question. Procure Mind is an AI co-pilot that covers the stretch of procurement from *"we need this"* to *"award it to these suppliers"*. It drafts the request for quotation, reads every reply in any format, converts every price to one basis, keeps a receipt for every number, chases suppliers for what's missing, and answers what-if questions all the way to an award memo. The AI reads and writes; plain, tested code does every calculation.
+> **In one paragraph.** Category buyers lose days turning messy supplier quotes into a comparison they can trust, and lose more time every time a leader asks a what-if question. Procure Mind is a sourcing workspace that covers the stretch of procurement from *"we need this"* to *"award it to these suppliers"*. It drafts the request for quotation, reads every reply in any format, converts every price to one basis, keeps a receipt for every number, chases suppliers for what's missing, and answers what-if questions all the way to an award memo. The AI reads and writes; plain, tested code does every calculation.
 
 **Owner:** Pavan V (Product Manager) · **Status:** built and tested on fictional data · **Last updated:** 2026-10-28
 
@@ -85,7 +85,7 @@ Every screen was checked against these.
 ### Draft the request for quotation
 | Capability | Status |
 |---|---|
-| The co-pilot drafts items, quantities per plant, questionnaire, terms and cover email from a plant's request and volume sheet, streaming live | ✅ |
+| Procure Mind drafts items, quantities per plant, questionnaire, terms and cover email from a plant's request and volume sheet, streaming live | ✅ |
 | Or from a need described in the buyer's own words, with every assumption flagged for confirmation | ✅ |
 | Quantities can be edited in place; quantities from a volume sheet are checked against it | ✅ |
 | Scoring rules (required certificates, minimum score) and the comparison basis are locked before sending | ✅ |

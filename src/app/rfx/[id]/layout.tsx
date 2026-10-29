@@ -1,13 +1,18 @@
-import { ArrowLeft } from "lucide-react";
+import { Check } from "lucide-react";
 import Link from "next/link";
-import { Badge } from "@/components/ui";
 import { getAnalysis } from "@/lib/data";
 import { PHASE_LABEL, phaseOf, STEPS, stepIndex } from "@/lib/lifecycle";
 import { RfxTabs } from "./rfx-tabs";
 
 const date = (iso: string) => new Date(iso).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" });
 
-/** The frame of one RFx: header with status and progress, and the tabs. */
+export async function generateMetadata({ params }: LayoutProps<"/rfx/[id]">) {
+  const { id } = await params;
+  const { rfx } = await getAnalysis(id);
+  return { title: `${rfx.code} · ${rfx.title}` };
+}
+
+/** The frame of one RFx: breadcrumb, title, stage and the tabs. */
 export default async function RfxLayout({ children, params }: LayoutProps<"/rfx/[id]">) {
   const { id } = await params;
   const a = await getAnalysis(id);
@@ -31,35 +36,38 @@ export default async function RfxLayout({ children, params }: LayoutProps<"/rfx/
 
   return (
     <div>
-      <div className="no-print border-b border-line pt-5">
-        <Link href="/rfx" className="inline-flex items-center gap-1 text-sm text-muted hover:text-ink"><ArrowLeft size={14} /> Sourcing events</Link>
-        <div className="mt-2 flex flex-wrap items-start justify-between gap-4">
+      <div className="no-print -mx-7 border-b border-line bg-surface px-7 pt-4">
+        <div className="flex flex-wrap items-start justify-between gap-4">
           <div className="min-w-0">
-            <div className="flex flex-wrap items-center gap-2">
-              <span className="font-mono text-sm text-muted">{rfx.code}</span>
-              <Badge tone={phase === "awarded" ? "ok" : phase === "analysis" ? "accent" : phase === "out" ? "info" : "neutral"}>{PHASE_LABEL[phase]}</Badge>
-              {reading > 0 && <Badge tone="accent">AI reading {reading} repl{reading > 1 ? "ies" : "y"}</Badge>}
+            <p className="text-[13px] text-muted">
+              <Link href="/rfx" className="hover:text-ink">Sourcing events</Link> / <span className="font-mono">{rfx.code}</span>
+            </p>
+            <div className="mt-1 flex flex-wrap items-center gap-2.5">
+              <h1 className="truncate text-[21px] font-semibold leading-7">{rfx.title}</h1>
+              <span className={`rounded px-2 py-0.5 text-xs font-semibold ${phase === "analysis" || phase === "out" ? "bg-accent-soft text-accent-hover" : phase === "awarded" ? "bg-ink text-white" : "bg-panel text-ink-soft"}`}>{PHASE_LABEL[phase]}</span>
+              {rfx.dataset && <span className="rounded border border-[#d8d4c9] px-1.5 text-[11px] text-muted">Sample</span>}
+              {reading > 0 && <span className="text-[13px] text-muted">Reading {reading} {reading > 1 ? "replies" : "reply"}…</span>}
             </div>
-            <h1 className="mt-1 truncate text-2xl font-semibold tracking-tight">{rfx.title}</h1>
-            <p className="mt-0.5 text-sm text-muted">
-              {rfx.category} · {a.vendors.length} vendors · created {date(rfx.created_at)}
+            <p className="mt-0.5 text-[13px] text-muted">
+              {a.vendors.length} suppliers · created {date(rfx.created_at)}
               {due && ` · replies due ${date(due)}`}
             </p>
           </div>
-          <ol className="flex items-center gap-1.5 text-xs">
+          <ol className="flex items-center gap-1.5 text-[13px]" aria-label="Stage">
             {STEPS.map((s, i) => (
               <li key={s.key} className="flex items-center gap-1.5">
-                <span className={`flex items-center gap-1.5 rounded-full px-2.5 py-1 ${i < step ? "bg-ok text-[#166534]" : i === step ? "bg-accent text-white" : "bg-panel text-muted"}`}>
-                  {i < step ? "✓" : i + 1} {s.label}
+                <span className={`flex items-center gap-1 ${i < step ? "text-ink-soft" : i === step ? "font-semibold text-ink" : "text-faint"}`} aria-current={i === step ? "step" : undefined}>
+                  {i < step && <Check size={13} strokeWidth={2.5} className="text-accent" />}
+                  {s.label}
                 </span>
-                {i < STEPS.length - 1 && <span className="h-px w-3 bg-line" />}
+                {i < STEPS.length - 1 && <span className="text-faint">·</span>}
               </li>
             ))}
           </ol>
         </div>
         <RfxTabs tabs={tabs} />
       </div>
-      <div className="pt-6">{children}</div>
+      <div className="pt-5">{children}</div>
     </div>
   );
 }

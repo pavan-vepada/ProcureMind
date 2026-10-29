@@ -1,6 +1,6 @@
 "use client";
 
-import { Bookmark, BookmarkCheck, ChevronDown, FileCheck2, Send, ShieldCheck, Sparkles, Trash2 } from "lucide-react";
+import { Bookmark, BookmarkCheck, ChevronDown, FileCheck2, Send, ShieldCheck, Trash2 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState, useTransition } from "react";
 import { clearChat, deleteScenario, recommendAward, saveScenario } from "@/app/rfx/actions";
@@ -14,14 +14,14 @@ function suggestions(data: CompareData) {
   const first = data.vendors.find((v) => v.processed && v.valid) ?? data.vendors[0];
   const fivePly = data.rows.some((r) => r.line.ply === 5);
   return [
-    "Split the award: cheapest per line, only vendors who passed the questionnaire",
+    "Split the award: cheapest per line, only suppliers who passed the questionnaire",
     "What if we combine both plants' volumes?",
     first && `What if ${first.name.split(" ")[0]} matches the lowest price on the ${fivePly ? "5-ply" : "3-ply"} lines?`,
-    "Which vendors still have open issues?",
+    "Which suppliers still have open issues?",
     "Now leave out the expensive one",
   ].filter(Boolean) as string[];
 }
-const THINKING = ["Interpreting your question", "Computing exactly (code, not AI)", "Writing the answer"];
+const THINKING = ["Understanding the question", "Calculating", "Summarising"];
 
 export function AskPanel({ data, onOpenLine }: { data: CompareData; onOpenLine: (lineNo: number, vendor: string) => void }) {
   const router = useRouter();
@@ -65,17 +65,15 @@ export function AskPanel({ data, onOpenLine }: { data: CompareData; onOpenLine: 
 
   const asked = new Set(messages.filter((m) => m.role === "user").map((m) => m.content));
   return (
-    <aside className="flex h-[calc(100vh-150px)] min-h-[560px] flex-col overflow-hidden rounded-xl border border-line bg-panel xl:sticky xl:top-4">
+    <aside className="flex h-[calc(100vh-150px)] min-h-[560px] flex-col overflow-hidden rounded-lg border border-line bg-surface xl:sticky xl:top-4">
       <header className="flex items-center justify-between border-b border-line px-4 py-3">
-        <h2 className="flex items-center gap-2 font-semibold"><Sparkles size={16} className="text-accent" /> Ask about these quotes</h2>
+        <h2 className="font-semibold">Ask about these quotes</h2>
         {messages.length > 0 && <button onClick={() => clearChat(data.rfxId)} className="text-xs text-muted hover:text-ink">Clear</button>}
       </header>
 
       <div className="flex-1 space-y-3 overflow-y-auto px-4 py-3">
         {!messages.length && (
-          <p className="text-sm text-muted">
-            Ask in plain words. The AI turns your question into a calculation; <strong className="text-ink">code does the math</strong> and shows its working.
-          </p>
+          <p className="text-sm text-muted">Ask about prices, award splits or what-ifs. Every answer shows its working.</p>
         )}
         {messages.map((m) =>
           m.role === "user" ? (
@@ -87,7 +85,7 @@ export function AskPanel({ data, onOpenLine }: { data: CompareData; onOpenLine: 
         {pending && (
           <div className="rounded-xl border border-line bg-surface p-3 text-sm">
             {THINKING.map((t, i) => (
-              <p key={t} className={i < phase ? "text-[#15803d]" : i === phase ? "text-accent" : "text-muted"}>
+              <p key={t} className={i < phase ? "text-ok-ink" : i === phase ? "text-accent" : "text-muted"}>
                 {i < phase ? "✓" : i === phase ? "›" : "·"} {t} {i === phase && <Dots />}
               </p>
             ))}
@@ -101,7 +99,7 @@ export function AskPanel({ data, onOpenLine }: { data: CompareData; onOpenLine: 
         <div className="mb-2 flex flex-wrap gap-1.5">
           {suggestions(data).filter((s) => !asked.has(s)).slice(0, 3).map((s) => (
             <button key={s} disabled={pending || !ready} onClick={() => ask(s)}
-              className="rounded-full border border-[#c7d2fe] bg-accent-soft px-2.5 py-1 text-left text-xs text-accent transition hover:bg-[#e0e7ff] disabled:opacity-50">
+              className="rounded-full border border-accent-line bg-accent-soft px-2.5 py-1 text-left text-xs text-accent transition hover:bg-accent-line disabled:opacity-50">
               {s}
             </button>
           ))}
@@ -124,7 +122,7 @@ function AnswerCard({ rfxId, names, m, scenarios, onAsk, onOpenLine }: { rfxId: 
       <p className="leading-relaxed">{m.content}</p>
       {p?.kind === "clarify" && (
         <div className="mt-2 flex flex-col gap-1.5">
-          {p.choices?.map((c) => <button key={c} onClick={() => onAsk(c)} className="rounded-lg border border-[#c7d2fe] bg-accent-soft px-3 py-1.5 text-left text-accent hover:bg-[#e0e7ff]">{c}</button>)}
+          {p.choices?.map((c) => <button key={c} onClick={() => onAsk(c)} className="rounded-lg border border-accent-line bg-accent-soft px-3 py-1.5 text-left text-accent hover:bg-accent-line">{c}</button>)}
         </div>
       )}
       {p?.table && (
@@ -154,7 +152,7 @@ function ScenarioCard({ rfxId, names, r, previousTotal, checked, scenarios, onOp
         <span className="text-lg font-semibold tabular-nums">{money(r.total)}</span>
       </div>
       <div className="mt-1.5 flex flex-wrap gap-1.5 text-xs">
-        {r.savings_vs_single !== null && r.cheapest_single && <Badge tone="ok" title={`Compared with awarding every line to the cheapest single vendor, ${nameOf(r.cheapest_single.code)}`}>{money(r.savings_vs_single)} below {nameOf(r.cheapest_single.code).split(" ")[0]} alone</Badge>}
+        {r.savings_vs_single !== null && r.cheapest_single && <Badge tone="ok" title={`Compared with awarding every line to the cheapest single supplier, ${nameOf(r.cheapest_single.code)}`}>{money(r.savings_vs_single)} below {nameOf(r.cheapest_single.code).split(" ")[0]} alone</Badge>}
         {r.last_year && <Badge tone="info">{pct(r.last_year.pct)} vs last year</Badge>}
         {delta !== null && Math.abs(delta) >= 1 && <Badge tone={delta < 0 ? "ok" : "warn"}>{delta < 0 ? "▼" : "▲"} {money(Math.abs(delta))} vs previous answer</Badge>}
         {r.tier_lines.length > 0 && <Badge tone="accent">volume tier on {r.tier_lines.length} lines</Badge>}
@@ -168,12 +166,12 @@ function ScenarioCard({ rfxId, names, r, previousTotal, checked, scenarios, onOp
           </div>
         ))}
         {r.excluded.length > 0 && <p className="pt-1 text-xs text-muted">Excluded: {r.excluded.map((e) => `${nameOf(e.code)} (${e.reason})`).join("; ")}</p>}
-        {r.lines_uncovered.length > 0 && <p className="text-xs text-[#b45309]">No eligible quote for lines {r.lines_uncovered.join(", ")}</p>}
+        {r.lines_uncovered.length > 0 && <p className="text-xs text-warn-ink">No eligible quote for lines {r.lines_uncovered.join(", ")}</p>}
       </div>
 
       <div className="mt-2 flex flex-wrap items-center gap-2">
         <button onClick={() => setWorking(!working)} className="flex items-center gap-1 text-xs font-medium text-accent">Show working <ChevronDown size={13} className={working ? "rotate-180" : ""} /></button>
-        <span className={`flex items-center gap-1 text-[11px] ${checked ? "text-[#15803d]" : "text-muted"}`}><ShieldCheck size={12} />{checked ? "every number checked against the result" : "summary written by code"}</span>
+        <span className={`flex items-center gap-1 text-[11px] ${checked ? "text-ok-ink" : "text-muted"}`}><ShieldCheck size={12} />{checked ? "every number checked against the result" : "summary written by code"}</span>
       </div>
       {working && (
         <div className="mt-2 space-y-1.5 rounded-lg border border-line p-2.5 text-xs">
@@ -183,7 +181,7 @@ function ScenarioCard({ rfxId, names, r, previousTotal, checked, scenarios, onOp
           <p><span className="text-muted">Formula:</span> {r.working.formula}</p>
           <div className="max-h-56 overflow-y-auto">
             <table className="mt-1 w-full">
-              <thead className="sticky top-0 bg-surface text-left text-muted"><tr><th className="py-0.5 font-medium">Line</th><th className="font-medium">Vendor</th><th className="text-right font-medium">₹/pc</th><th className="text-right font-medium">Total</th></tr></thead>
+              <thead className="sticky top-0 bg-surface text-left text-muted"><tr><th className="py-0.5 font-medium">Line</th><th className="font-medium">Supplier</th><th className="text-right font-medium">₹/pc</th><th className="text-right font-medium">Total</th></tr></thead>
               <tbody>
                 {r.rows.map((x) => (
                   <tr key={x.line_no} onClick={() => x.vendor && onOpenLine(x.line_no, x.vendor)} className="cursor-pointer border-t border-line hover:bg-accent-soft">
@@ -196,12 +194,12 @@ function ScenarioCard({ rfxId, names, r, previousTotal, checked, scenarios, onOp
               </tbody>
             </table>
           </div>
-          <p className="text-muted">Click a line to see the vendor&apos;s own words. ⇣ = volume tier · ★ = price matched</p>
+          <p className="text-muted">Click a line to see the supplier&apos;s own words. ⇣ = volume tier · ★ = price matched</p>
         </div>
       )}
       <div className="mt-2">
         {saved ? (
-          <span className="flex items-center gap-1 text-xs text-[#15803d]"><BookmarkCheck size={13} /> Saved as “{saved.name}”</span>
+          <span className="flex items-center gap-1 text-xs text-ok-ink"><BookmarkCheck size={13} /> Saved as “{saved.name}”</span>
         ) : naming ? (
           <form onSubmit={(e) => { e.preventDefault(); start(async () => { await saveScenario(rfxId, r.spec, name); setNaming(false); }); }} className="flex gap-1.5">
             <input autoFocus value={name} onChange={(e) => setName(e.target.value)} className="h-8 flex-1 rounded-md border border-line px-2 text-xs" />

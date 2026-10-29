@@ -25,7 +25,7 @@ export type DrawerTarget = {
 };
 
 const PROV: Record<string, [string, "ok" | "info" | "clar" | "accent"]> = {
-  vendor: ["From the vendor's reply", "ok"],
+  vendor: ["From the supplier's reply", "ok"],
   contract: ["Pulled from last year's contract", "info"],
   clarification: ["Updated from clarification", "clar"],
   manual: ["Entered by buyer", "accent"],
@@ -65,7 +65,7 @@ export function SourceDrawer({ rfxId, target, onClose, onAskVendor }: { rfxId: s
               <div className="mt-1.5 flex flex-wrap items-center gap-1.5">
                 {target.value != null && <span className="mr-1 text-lg font-semibold tabular-nums">{inr(target.value)}<span className="text-sm font-normal text-muted"> per piece</span></span>}
                 {prov && <Badge tone={prov[1]}>{prov[0]}</Badge>}
-                {data?.quote && <Badge tone={data.quote.confidence === "high" ? "ok" : data.quote.confidence === "medium" ? "warn" : "bad"}>confidence: {data.quote.confidence}</Badge>}
+                {data?.quote && <Badge tone={data.quote.confidence === "high" ? "ok" : data.quote.confidence === "medium" ? "warn" : "bad"}>{{ high: "clear read", medium: "check this", low: "unclear" }[data.quote.confidence as "high" | "medium" | "low"] ?? data.quote.confidence}</Badge>}
                 {target.badges?.filter((b) => b !== "contract" && b !== "clarification").map((b) => <Badge key={b} tone={b === "estimate" || b === "freight est." ? "est" : "neutral"}>{b}</Badge>)}
               </div>
             </div>
@@ -87,7 +87,7 @@ export function SourceDrawer({ rfxId, target, onClose, onAskVendor }: { rfxId: s
           )}
           {error && <p className="rounded-lg bg-bad p-3 text-sm">{error}</p>}
           {!data && !error && (target.quoteId || target.issueId) && <div className="h-80 animate-pulse rounded-lg bg-panel" />}
-          {!target.quoteId && !target.issueId && <p className="rounded-lg bg-panel p-4 text-sm text-muted">No value yet for this line. Ask the vendor, or enter a value.</p>}
+          {!target.quoteId && !target.issueId && <p className="rounded-lg bg-panel p-4 text-sm text-muted">No value yet for this item. Ask the supplier, or enter a value.</p>}
           {data && tab === "source" && <SourceBody data={data} />}
           {tab === "conversion" && <Conversion steps1={target.steps1 ?? []} steps2={target.steps2 ?? []} qty={target.qty} />}
           {data && tab === "history" && (
@@ -120,7 +120,7 @@ export function SourceDrawer({ rfxId, target, onClose, onAskVendor }: { rfxId: s
                 <Button size="sm" disabled={pending} onClick={() => start(async () => { for (const id of target.issueIds!) await acceptIssue(rfxId, id); onClose(); })}><Check size={14} /> Accept</Button>
               )}
               {target.lineId && <Button size="sm" onClick={() => { setPrice(target.value ? target.value.toFixed(2) : ""); setEditing(true); }}><Pencil size={14} /> Edit</Button>}
-              <Button size="sm" onClick={() => onAskVendor(target.vendorCode)}><Mail size={14} /> Ask vendor</Button>
+              <Button size="sm" onClick={() => onAskVendor(target.vendorCode)}><Mail size={14} /> Ask supplier</Button>
               {data?.attachment && (
                 <a href={`/api/files/${data.attachment.id}`} target="_blank" className="ml-auto inline-flex items-center gap-1 text-sm text-muted hover:text-ink">
                   {data.attachment.filename} <ExternalLink size={13} />
@@ -164,7 +164,7 @@ function Conversion({ steps1, steps2, qty }: { steps1: Step[]; steps2: Step[]; q
           {block(`Plant 2 · Nashik${qty ? ` · ${qty[1].toLocaleString("en-IN")} pcs/yr` : ""}`, steps2)}
         </>
       )}
-      <p className="text-xs text-muted">All math is done by code from the stored value, using the locked basis and your assumptions. The AI only read the number.</p>
+      <p className="text-xs text-muted">Calculated from the quoted value using the locked basis and your assumptions.</p>
     </div>
   );
 }
@@ -249,7 +249,7 @@ function SourceBody({ data }: { data: SourcePayload }) {
   }
   if (v.type === "contract") {
     return (
-      <div className="rounded-xl border border-[#c9dcf7] bg-info p-5 text-sm">
+      <div className="rounded-xl border border-line bg-info p-5 text-sm">
         <p className="text-xs uppercase tracking-wide text-muted">Enterprise memory · mock contract database</p>
         <p className="mt-1 text-lg font-semibold">Contract #{v.contract_no}</p>
         <p className="text-muted">Valid {v.valid_from} → {v.valid_to}</p>
@@ -257,7 +257,7 @@ function SourceBody({ data }: { data: SourcePayload }) {
           <p>Line {v.line_no}: {v.description}</p>
           <p className="mt-1 text-lg font-semibold">{inr(v.price)} per piece</p>
         </div>
-        <p className="mt-3 text-muted">The vendor wrote “rest same as last year”. This line&apos;s specs match the contract line exactly, so last year&apos;s price was used. Lines that are new or changed are never filled this way.</p>
+        <p className="mt-3 text-muted">The supplier wrote “rest same as last year”. This line&apos;s specs match the contract line exactly, so last year&apos;s price was used. Lines that are new or changed are never filled this way.</p>
       </div>
     );
   }

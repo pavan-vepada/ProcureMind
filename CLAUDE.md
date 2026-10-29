@@ -56,6 +56,9 @@ This file is the project's memory. Any new Claude session should read it first a
 - `scripts/e2e.sh` pipes through `tail`, so output appears only at the end.
 - Docs screenshots: build, `npx next start -p 3100`, then `node scripts/screenshots.mjs` (masks the test email), then `node scripts/cleanup-test-users.mjs`. Playwright test runs wipe `test-results/`, so docs images live in `docs/images/`.
 - Mermaid in docs: semicolons end statements in sequence diagrams; subgraph `direction` is ignored if a node inside links outside it (link subgraph to subgraph instead). Validate by parsing with mermaid in the Playwright browser.
+- Theme: colours are named tokens in `src/app/globals.css` (accent, ok/warn/bad + -ink/-line, panel, page, sidebar). Use token classes, never raw hex, so the look stays consistent. Informational badge tones (info/est/clar) are deliberately neutral grey.
+- Tailwind only sees class names written out in full in the source; never build them with template strings (e.g. `lg:${COLS}`).
+- UI wording: say "supplier", never "vendor"; no "AI"/"co-pilot" labels on screens. Internal code names (`lib/copilot`, `vendors` table) stay.
 - Docs audience (PM, 2026-10-28): senior product leaders and laymen. Plain English, a one-paragraph summary atop each doc, measured results only, no "demo"/"one-day build" wording.
 
 ## Product context
@@ -126,6 +129,9 @@ procure-mind-v2/
 | 2026-10-28 | Do not push anywhere until the PM says so | PM instruction |
 | 2026-10-28 | Repo reorganised: code in `src/`, `seed/` → `sample-data/`, `supabase/` → `database/`, docs numbered in reading order | PM wants to navigate GitHub sequentially; docs written for senior product leaders |
 | 2026-10-28 | Login page shows only the sign-in card; no tagline | PM decision |
+| 2026-10-29 | Visual identity "Ledger" (Direction A): warm paper neutrals, ink, petrol accent #0b6f78, IBM Plex Sans/Mono; colour only for meaning | PM chose A from three directions (Claude Design canvas https://claude.ai/artifact/MLbR3P2wpRga7pMLbCD6gs) to make the product feel authentic, not AI-generated |
+| 2026-10-29 | No "co-pilot" or "AI" labels in the app; "supplier" everywhere (not "vendor"); explanations live in Help and docs | PM: such words give a generic touch; the AI should just work |
+| 2026-10-29 | Product chrome: sidebar (Sourcing events, Requests, Suppliers, Contracts, Help), top bar (search, notifications); home = "Needs your action" worklist | Real SaaS feel |
 | 2026-10-28 | Sample world keeps the buyer persona "Pavan, Sunrise Consumer Goods" for every user | Vendor emails address the buyer by name; open question for the PM |
 
 ## Open items

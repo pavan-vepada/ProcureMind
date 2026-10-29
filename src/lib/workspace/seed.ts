@@ -27,7 +27,7 @@ const BUYER_EMAIL = "pavan@sunrise-consumer.example";
 const COMPANY = "Sunrise Consumer Goods";
 
 const SPLIT_PASSING: ScenarioSpec = {
-  name: "Split by line, passing vendors", passed_only: true, exclude_vendors: [], only_vendors: [], rule: "cheapest_per_line",
+  name: "Split by line, passing suppliers", passed_only: true, exclude_vendors: [], only_vendors: [], rule: "cheapest_per_line",
   single_vendor: null, volume: "per_plant", price_match: null, line_filter: null,
 };
 
@@ -181,10 +181,10 @@ export async function createFromDataset(supabase: SupabaseClient, ds: Dataset, p
       if (plan.stage === "analysis") {
         const award = result.by_vendor.map((v) => `${v.name} (${v.lines.length} lines)`).join(", ");
         must(await supabase.from("chat_messages").insert([
-          { rfx_id: rfxId, role: "user", content: "Split the award: cheapest per line, only vendors who passed the questionnaire", created_at: at },
+          { rfx_id: rfxId, role: "user", content: "Split the award: cheapest per line, only suppliers who passed the questionnaire", created_at: at },
           {
             rfx_id: rfxId, role: "assistant", created_at: at,
-            content: `Award by line to ${award}: total ${money(result.total)}.${result.savings_vs_single && result.cheapest_single ? ` That is ${money(result.savings_vs_single)} below the cheapest single vendor.` : ""} ${result.excluded.map((e) => a.vendors.find((v) => v.code === e.code)?.name ?? e.code).join(" and ")} ${result.excluded.length > 1 ? "are" : "is"} excluded by the locked questionnaire rules.`,
+            content: `Award by line to ${award}: total ${money(result.total)}.${result.savings_vs_single && result.cheapest_single ? ` That is ${money(result.savings_vs_single)} below the cheapest single supplier.` : ""} ${result.excluded.map((e) => a.vendors.find((v) => v.code === e.code)?.name ?? e.code).join(" and ")} ${result.excluded.length > 1 ? "are" : "is"} excluded by the locked questionnaire rules.`,
             payload: { kind: "answer", result, previousTotal: null, explanationChecked: false },
           },
         ]), "Saving the earlier question");

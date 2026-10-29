@@ -25,11 +25,11 @@ export async function loadAttachmentBytes(supabase: SupabaseClient, a: Attachmen
 
 function plainError(err: unknown): string {
   const m = err instanceof Error ? err.message : String(err);
-  if (/OPENAI_API_KEY/.test(m)) return "The AI service isn't configured (no OpenAI key).";
-  if (/password|encrypted/i.test(m)) return "The file is password-protected. Ask the vendor for an unlocked copy.";
+  if (/OPENAI_API_KEY/.test(m)) return "Reading isn't set up on this server (no OpenAI key).";
+  if (/password|encrypted/i.test(m)) return "The file is password-protected. Ask the supplier for an unlocked copy.";
   if (/Invalid PDF|corrupt|zip|End of data|Can't find end of central directory/i.test(m)) return "The file looks damaged or isn't a real quote file.";
-  if (/timeout|timed out|ETIMEDOUT|aborted/i.test(m)) return "The AI took too long to answer. Try again.";
-  if (/429|rate limit/i.test(m)) return "The AI service is busy right now. Try again in a minute.";
+  if (/timeout|timed out|ETIMEDOUT|aborted/i.test(m)) return "Reading took too long. Try again.";
+  if (/429|rate limit/i.test(m)) return "Busy right now. Try again in a minute.";
   return m.length > 180 ? `${m.slice(0, 177)}…` : m;
 }
 
@@ -164,7 +164,7 @@ export async function processRun(supabase: SupabaseClient, runId: string, opts: 
     ]);
     if (!message || !rfx) throw new Error("Reply not found");
     const vendorId = run.vendor_id ?? message.vendor_id;
-    if (!vendorId) throw new Error("Pick which vendor this reply is from first.");
+    if (!vendorId) throw new Error("Pick which supplier this reply is from first.");
     const [{ data: vendor }, { data: lines }, { data: questions }, { data: contracts }, { count: priorQuotes }] = await Promise.all([
       supabase.from("vendors").select("*").eq("id", vendorId).single<VendorRecord>(),
       supabase.from("line_items").select("*").eq("rfx_id", rfx.id).order("line_no"),
@@ -191,7 +191,7 @@ export async function processRun(supabase: SupabaseClient, runId: string, opts: 
     let model = "saved run";
     const saved = opts.savedRun && message.kind !== "upload" ? idealReading(rfx.dataset ?? "", vendor.code, kind) : null;
     const mainKind = files.find((a) => a.kind !== "certificate")?.kind ?? "text";
-    await step(`AI is reading the ${KIND_LABEL[mainKind]} and finding prices…`, 35);
+    await step(`Reading the ${KIND_LABEL[mainKind]} and finding prices…`, 35);
     if (saved) {
       extraction = asExtraction(saved);
       await new Promise((r) => setTimeout(r, 1200));

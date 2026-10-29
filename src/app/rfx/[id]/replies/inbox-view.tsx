@@ -1,6 +1,6 @@
 "use client";
 
-import { AlertTriangle, CheckCircle2, ChevronDown, FileSpreadsheet, FileText, FileType2, Image as ImageIcon, Inbox, Mail, Paperclip, RotateCcw, Sparkles, UploadCloud } from "lucide-react";
+import { AlertTriangle, CheckCircle2, ChevronDown, FileSpreadsheet, FileText, FileType2, Image as ImageIcon, Inbox, Mail, Paperclip, RotateCcw, UploadCloud } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useRef, useState, useTransition } from "react";
@@ -67,13 +67,13 @@ export function InboxView({ rfx, userId, vendors, messages, attachments, runs: i
     <div className="grid gap-5 xl:grid-cols-[1fr_380px]">
       <div className="space-y-3">
         {savedRun && (
-          <div className="rounded-xl border border-[#c9dcf7] bg-info px-4 py-2.5 text-sm">
-            <strong>Presenter mode: recorded reading.</strong> Sample replies use a recorded AI reading instead of a live call. Add <code>?savedRun=0</code> to the address to switch back.
+          <div className="rounded-xl border border-line bg-info px-4 py-2.5 text-sm">
+            Using recorded readings for sample replies.
           </div>
         )}
         {active && (
-          <div className="flex items-center gap-2 rounded-xl border border-[#c7d2fe] bg-accent-soft px-4 py-2.5 text-sm">
-            <Sparkles size={15} className="text-accent" /> The AI is reading {runs.filter((r) => r.status === "queued" || r.status === "running").length} repl{runs.filter((r) => r.status === "queued" || r.status === "running").length > 1 ? "ies" : "y"} in parallel. You can leave this page; it keeps going.
+          <div className="flex items-center gap-2 rounded-lg border border-line bg-surface px-4 py-2.5 text-sm">
+            <Dots /> Reading {runs.filter((r) => r.status === "queued" || r.status === "running").length} repl{runs.filter((r) => r.status === "queued" || r.status === "running").length > 1 ? "ies" : "y"}. You can leave this page.
           </div>
         )}
 
@@ -90,7 +90,7 @@ export function InboxView({ rfx, userId, vendors, messages, attachments, runs: i
 
         {waiting.length > 0 && rfx.sent_at && (
           <Card className="p-4">
-            <h3 className="text-sm font-semibold">Waiting for {waiting.length} vendor{waiting.length > 1 ? "s" : ""}</h3>
+            <h3 className="text-sm font-semibold">Waiting for {waiting.length} supplier{waiting.length > 1 ? "s" : ""}</h3>
             <ul className="mt-2 divide-y divide-line text-sm">
               {waiting.map((v) => (
                 <li key={v.id} className="flex items-center justify-between py-2">
@@ -101,9 +101,9 @@ export function InboxView({ rfx, userId, vendors, messages, attachments, runs: i
             </ul>
             {samplesLeft > 0 && (
               <div className="mt-3 flex flex-wrap items-center justify-between gap-3 rounded-lg bg-panel px-3 py-2.5 text-sm">
-                <span className="text-muted">This is a sample RFx: the remaining vendors have sample replies ready.</span>
+                <span className="text-muted">Sample RFx: the remaining suppliers have replies on file.</span>
                 <Button size="sm" variant="soft" disabled={adding} onClick={() => startAdding(async () => { await addSampleReplies(rfx.id); router.refresh(); })}>
-                  <Inbox size={14} /> {adding ? "Bringing them in…" : `Add ${samplesLeft} sample repl${samplesLeft > 1 ? "ies" : "y"}`}
+                  <Inbox size={14} /> {adding ? "Adding replies…" : `Simulate ${samplesLeft} supplier repl${samplesLeft > 1 ? "ies" : "y"}`}
                 </Button>
               </div>
             )}
@@ -149,12 +149,12 @@ function MessageCard({ m, vendor, run, files, now, onRetry, onUpload }: {
   const Icon = ICON[kind];
   const status = run?.status ?? "done";
   const elapsed = run?.started_at && status === "running" ? Math.max(0, Math.round((now - Date.parse(run.started_at)) / 1000)) : null;
-  const tone = status === "failed" ? "border-[#f6caca]" : status === "done" ? "border-line" : "border-[#c7d2fe] shadow-sm";
+  const tone = status === "failed" ? "border-bad-line" : status === "done" ? "border-line" : "border-accent-line shadow-sm";
 
   return (
     <Card className={`animate-[fadein_.35s_ease] p-4 ${tone}`}>
       <div className="flex items-start gap-3">
-        <span className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl ${status === "done" ? "bg-ok text-[#15803d]" : status === "failed" ? "bg-bad text-[#b91c1c]" : "bg-accent-soft text-accent"}`}>
+        <span className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl ${status === "done" ? "bg-ok text-ok-ink" : status === "failed" ? "bg-bad text-bad-ink" : "bg-accent-soft text-accent"}`}>
           <Icon size={19} />
         </span>
         <div className="min-w-0 flex-1">
@@ -182,7 +182,7 @@ function MessageCard({ m, vendor, run, files, now, onRetry, onUpload }: {
 
           <div className="mt-3">
             {status === "done" && (
-              <p className="flex flex-wrap items-center gap-1.5 text-sm text-[#15803d]">
+              <p className="flex flex-wrap items-center gap-1.5 text-sm text-ok-ink">
                 <CheckCircle2 size={15} /> {run?.step?.replace(/^Done · /, "Read · ") ?? "Read"}
                 {run?.summary?.issues ? <span className="text-muted">· {run.summary.issues} item{run.summary.issues > 1 ? "s" : ""} to look at</span> : null}
               </p>
@@ -199,7 +199,7 @@ function MessageCard({ m, vendor, run, files, now, onRetry, onUpload }: {
             )}
             {status === "failed" && (
               <div>
-                <p className="flex items-center gap-1.5 text-sm text-[#b91c1c]"><AlertTriangle size={15} /> {run?.error ?? "Couldn't read this reply."}</p>
+                <p className="flex items-center gap-1.5 text-sm text-bad-ink"><AlertTriangle size={15} /> {run?.error ?? "Couldn't read this reply."}</p>
                 <div className="mt-2 flex gap-2">
                   <Button size="sm" onClick={onRetry}><RotateCcw size={13} /> Retry</Button>
                   <Button size="sm" onClick={onUpload}><UploadCloud size={13} /> Upload a clearer file</Button>
@@ -240,7 +240,7 @@ function UploadPanel({ rfxId, userId, vendors, vendorCode, setVendorCode, onQueu
         res = await registerUpload(rfxId, { vendorCode, path, filename: file.name, mime: file.type || "application/octet-stream", size: file.size });
       }
       if (res.error) throw new Error(res.error);
-      setMsg({ ok: true, text: "Received. The AI is reading it now." });
+      setMsg({ ok: true, text: "Received. Reading it now." });
       setFile(null);
       setText("");
       onQueued(res.runId!);
@@ -255,7 +255,7 @@ function UploadPanel({ rfxId, userId, vendors, vendorCode, setVendorCode, onQueu
       <h2 className="flex items-center gap-2 font-semibold"><UploadCloud size={17} /> Add a reply</h2>
       <p className="mt-1 text-xs text-muted">Got a quote by email or WhatsApp? Drop the file here, in any format, or paste the email text.</p>
       <label className="mt-3 block text-sm">
-        <span className="text-muted">From vendor</span>
+        <span className="text-muted">From supplier</span>
         <select value={vendorCode} onChange={(e) => setVendorCode(e.target.value)} className="mt-1 h-9 w-full rounded-lg border border-line bg-surface px-2">
           {vendors.map((v) => <option key={v.id} value={v.code}>{v.name}</option>)}
         </select>
@@ -278,7 +278,7 @@ function UploadPanel({ rfxId, userId, vendors, vendorCode, setVendorCode, onQueu
           <input type="file" className="hidden" accept=".xlsx,.pdf,.docx,.jpg,.jpeg,.png,.webp" onChange={(e) => setFile(e.target.files?.[0] ?? null)} />
         </label>
       ) : (
-        <textarea value={text} onChange={(e) => setText(e.target.value)} rows={7} placeholder="Paste the vendor's email, e.g. “₹21 per box for item 3, rest as per our earlier quote…”"
+        <textarea value={text} onChange={(e) => setText(e.target.value)} rows={7} placeholder="Paste the supplier's email, e.g. “₹21 per box for item 3, rest as per our earlier quote…”"
           className="mt-3 w-full rounded-xl border border-line p-3 text-sm outline-none focus:border-accent" />
       )}
       {msg && <p className={`mt-3 rounded-lg px-3 py-2 text-sm ${msg.ok ? "bg-ok" : "bg-bad"}`}>{msg.text}</p>}

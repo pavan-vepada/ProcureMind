@@ -1,19 +1,18 @@
-import Link from "next/link";
-import { AccountMenu } from "./account-menu";
+import { Search } from "lucide-react";
+import type { Notice } from "@/lib/data";
+import { Notifications } from "./notifications";
 
-export function TopBar({ email }: { email: string }) {
+/** Search across events, suppliers and items, plus notifications. */
+export function TopBar({ notices }: { notices: Notice[] }) {
   return (
-    <header className="sticky top-0 z-30 flex h-14 items-center gap-6 border-b border-line bg-surface/95 px-6 backdrop-blur">
-      <Link href="/rfx" className="flex items-center gap-2 text-[17px] font-semibold tracking-tight">
-        <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-accent text-xs font-bold text-white">PM</span>
-        Procure Mind <span className="text-accent">V2.0</span>
-      </Link>
-      <nav className="flex items-center gap-1 text-sm">
-        <Link href="/rfx" className="rounded-md px-3 py-1.5 text-muted hover:bg-panel hover:text-ink">Sourcing events</Link>
-        <Link href="/rfx/new" className="rounded-md px-3 py-1.5 text-muted hover:bg-panel hover:text-ink">New RFx</Link>
-      </nav>
+    <header className="sticky top-0 z-30 flex h-15 shrink-0 items-center gap-4 border-b border-line bg-surface px-7">
+      <form action="/rfx/search" role="search" className="flex h-[38px] w-full max-w-[520px] items-center gap-2.5 rounded-md border border-[#ddd9ce] bg-[#f8f7f3] px-3 text-muted focus-within:border-accent">
+        <Search size={16} aria-hidden="true" />
+        <input name="q" aria-label="Search events, suppliers and items" placeholder="Search events, suppliers, items"
+          className="h-full flex-1 bg-transparent text-sm text-ink outline-none placeholder:text-muted" />
+      </form>
       <div className="ml-auto">
-        <AccountMenu email={email} />
+        <Notifications notices={notices} />
       </div>
     </header>
   );

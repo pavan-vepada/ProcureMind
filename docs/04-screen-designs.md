@@ -1,31 +1,38 @@
 # 4 · Screens
 
-> **In one paragraph.** Procure Mind has one home (the workspace of sourcing events) and, inside each event, six tabs that follow the work in order: Overview, RFQ, Replies, Comparison, Review, Award. The design is calm and minimal, with one strong colour reserved for the next action, so the eye always lands on what to do next. Every screenshot below is the live product running on the sample data.
+> **In one paragraph.** Procure Mind opens on a worklist of what needs the buyer's action, above every sourcing event at whatever stage it is. A left sidebar leads to Requests, Suppliers, Contracts and Help; a top bar holds search and notifications. Inside each event, six tabs follow the work in order: Overview, RFQ, Replies, Comparison, Review, Award. The look is calm and audit-grade, with colour used only where it means something. Every screenshot below is the live product running on the sample data.
 
 ---
 
-## Design language
+## Design language ("Ledger")
 
 | Choice | Why |
 |---|---|
-| **Quiet greys, one indigo accent** | The accent marks the single most useful next action on each screen; everything else stays out of the way |
-| **Soft tints that always come with words** | Green = cheapest valid, amber = needs a look, red = missing or failing, blue = from last year's contract, violet = estimate, teal = updated by the supplier's clarification. Every colour has a label, and a legend is always visible |
+| **Warm paper neutrals, ink type, one petrol accent** | Feels like a finance tool you would trust with a crore-rupee award. The petrol accent marks actions and the best valid price; nothing else competes with it |
+| **Colour only for meaning** | Amber = needs a look, red = missing or failing. Conversions, contract prices and estimates are quiet grey tags, so the exceptions stand out |
+| **IBM Plex Sans and Plex Mono** | A typeface with character for text; a monospaced face for codes and money, so figures line up in tables |
+| **Short, functional wording** | Screens say what something is and what to do, not how the product works. The explanations live in Help and in these documents |
 | **Side drawers and pop-ups instead of new pages** | Checking a source or writing to a supplier never loses your place |
-| **The assistant beside the numbers** | Answers and the table they refer to are visible together |
-| **Stage pills on every event** | Request → RFQ → Replies → Analysis → Award: you always know where you are |
+| **The question panel beside the numbers** | Answers and the table they refer to are visible together |
+| **The sidebar slims to icons inside an event** | The comparison keeps its full width |
 | **Desktop first** | It's a desk tool for detailed comparison work |
 
 ## Navigation
 
 ```mermaid
 flowchart LR
-  L["🔐 Sign in"] --> W["🗂️ Workspace<br/>all sourcing events"]
+  L["🔐 Sign in"] --> W["🗂️ Sourcing events<br/>worklist and all events"]
+  W -. sidebar .-> Q["📨 Requests"]
+  W -. sidebar .-> SU["🏢 Suppliers"]
+  W -. sidebar .-> CO["📄 Contracts"]
+  W -. sidebar .-> H["❔ Help"]
+  Q --> N
   W --> N["➕ New RFx"]
   W --> O["📌 Overview"]
   N --> R
   O --> R["✍️ RFQ"] --> P["📥 Replies"] --> C["⚖️ Comparison"] --> V["✅ Review"] --> A["🏆 Award"]
   C -. click any number .-> D["🔍 Evidence drawer"]
-  V -. Ask vendor .-> E["✉️ Clarification email"]
+  V -. Ask supplier .-> E["✉️ Clarification email"]
   C -. click a supplier .-> S["🏢 Supplier profile"]
 ```
 
@@ -35,22 +42,23 @@ flowchart LR
 ![Sign-in](images/01-login.png)
 Nothing but the essentials, over a packaging scene. New accounts are ready in a few seconds.
 
-### Workspace: every sourcing event at a glance
-![Workspace](images/02-workspace.png)
-- Four headline numbers: active events, replies being read, items needing a look, savings found.
-- Every event with its stage, progress, replies, best complete offer and savings. **Continue** opens it at the step where it was left.
-- **Requests waiting for you**: plant requests ready to become a sourcing event in one click.
+### Sourcing events: the worklist first
+![Sourcing events](images/02-workspace.png)
+- **Needs your action**: flagged items to review, replies being read, RFQs ready to send, new requests, each with one button.
+- One quiet summary line: active events, replies being read, open items, savings found.
+- **All events**: stage, replies, best complete offer and saving against last year, filterable by stage. Any row opens the event at the step where it was left. Sample events carry a small "Sample" tag.
+- **Requests**, **Suppliers** and **Contracts** in the sidebar show the plants' waiting requests, the supplier directory with each supplier's events, and last year's contracts.
 
 ### Overview
 ![Overview](images/03-rfx-overview.png)
 Where this event stands, in one sentence, with the next sensible action. Below it: suppliers at a glance, the plant's original request, the shortlist, and a dated activity log.
 
-### RFQ: drafted by the co-pilot, rules locked before prices
+### RFQ: drafted for you, rules locked before prices
 | Drafting live | Ready to send |
 |---|---|
-| ![Co-pilot drafting](images/15-copilot-drafting.png) | ![RFQ and evaluation rules](images/13-rfq-and-rules.png) |
+| ![RFQ being drafted](images/15-copilot-drafting.png) | ![RFQ and evaluation rules](images/13-rfq-and-rules.png) |
 
-The co-pilot streams the items in as it writes them. On the right, the evaluation rules: required certificates, pass score and comparison basis. These are locked when the RFQ is sent, before any price is seen.
+The items stream in as they are drafted. On the right, the evaluation rules: required certificates, pass score and comparison basis. These are locked when the RFQ is sent, before any price is seen.
 
 ### Replies: read automatically, in parallel
 ![Replies being read](images/12-replies-live.png)
@@ -72,7 +80,7 @@ Click any number. The drawer shows where it came from, with the exact spot outli
 
 ### Review: everything that needs a look, in one list
 ![Review queue](images/07-review-queue.png)
-Each item sits beside its source, with **Accept**, **Edit** or **Ask vendor**. **Accept all high-confidence** clears the easy ones.
+Each item sits beside its source, with **Accept**, **Edit** or **Ask supplier**. **Accept routine items** clears the easy ones.
 
 ### Clarification: one email per supplier, and the loop closes
 | Drafted for the buyer | Supplier answered |
@@ -89,7 +97,7 @@ Total, savings, award per supplier, why, the rules used (with the time they were
 
 ### New RFx
 ![New RFx](images/14-new-rfx.png)
-Start from a plant's request (volume sheet and shortlist attached), or describe the need in your own words. In the second case, the co-pilot flags everything it had to assume.
+Start from a plant's request (volume sheet and shortlist attached), or describe the need in your own words. In the second case, everything that had to be assumed is flagged for you.
 
 ---
 

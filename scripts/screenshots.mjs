@@ -44,7 +44,7 @@ await shot("01-login");
 await page.getByLabel("Email").fill(`${name}+pmtest-${randomUUID().slice(0, 8)}@${domain}`);
 await page.getByLabel(/Password/).fill(randomUUID());
 await page.getByRole("button", { name: "Create account" }).click();
-await page.getByRole("heading", { name: /Good to see you/ }).waitFor({ timeout: 60_000 });
+await page.getByRole("heading", { name: "Sourcing events", level: 1 }).waitFor({ timeout: 60_000 });
 await shot("02-workspace");
 
 // 2. The RFx in analysis
@@ -65,12 +65,12 @@ await page.keyboard.press("Escape");
 await tab("Review").click();
 await page.getByRole("heading", { name: "Review queue" }).waitFor();
 await shot("07-review-queue");
-await page.getByRole("button", { name: /Ask vendor/ }).first().click();
-const dialog = page.getByRole("dialog", { name: "Ask vendor for clarification" });
+await page.getByRole("button", { name: /Ask supplier/ }).first().click();
+const dialog = page.getByRole("dialog", { name: "Ask supplier for clarification" });
 await dialog.getByRole("button", { name: /^Shakti/ }).click();
 await shot("08-clarification-email");
 await dialog.getByRole("button", { name: /^Send$/ }).click();
-await dialog.getByText("Loop closed").waitFor({ timeout: 180_000 });
+await dialog.getByText("Reply received").waitFor({ timeout: 180_000 });
 await shot("09-loop-closed");
 await dialog.getByRole("button", { name: /See the updated comparison/ }).click();
 await page.getByText("30 / 30").first().waitFor();
@@ -100,10 +100,10 @@ await shot("13-rfq-and-rules");
 await page.goto(`${BASE}/rfx/new`);
 await shot("14-new-rfx");
 await page.getByRole("button", { name: /Create RFx and draft/ }).click();
-await page.getByRole("button", { name: /Draft RFQ with co-pilot/ }).click();
-await page.getByText("✦ drafting").waitFor({ timeout: 60_000 });
+await page.getByRole("button", { name: /^Draft RFQ$/ }).click();
+await page.getByText("Drafting", { exact: true }).waitFor({ timeout: 60_000 });
 await page.waitForFunction(() => document.querySelectorAll("tbody tr").length >= 6, null, { timeout: 120_000 });
 await shot("15-copilot-drafting", { wait: 300 });
-await page.getByText("Drafted by the co-pilot").waitFor({ timeout: 180_000 }); // fails if the live AI fell back
+await page.getByText(/^Drafted from/).waitFor({ timeout: 180_000 }); // fails if the live AI fell back
 
 await browser.close();

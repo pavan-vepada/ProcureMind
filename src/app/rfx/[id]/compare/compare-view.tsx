@@ -13,14 +13,14 @@ import { AskPanel } from "./ask-panel";
 import type { CellView, CompareData, RowView, VendorView } from "./data";
 
 const LEGEND: [string, string][] = [
-  ["bg-ok", "Cheapest valid"],
+  ["bg-ok", "Best valid price"],
   ["bg-warn", "Needs a look"],
   ["bg-bad", "Missing / unreadable"],
 ];
 const BADGE_LEGEND: [string, "info" | "est" | "clar" | "accent", string][] = [
   ["contract", "info", "Pulled from last year's contract"],
   ["estimate", "est", "Per kg → per piece using estimated box weight"],
-  ["clarification", "clar", "Updated from the vendor's clarification"],
+  ["clarification", "clar", "Updated from the supplier's clarification"],
   ["edited", "accent", "Entered by you"],
 ];
 
@@ -72,19 +72,19 @@ export function CompareView({ data, focusVendor }: { data: CompareData; focusVen
           <div className="flex rounded-lg border border-line bg-surface p-0.5 text-sm">
             {(["normalized", "quoted"] as const).map((m) => (
               <button key={m} onClick={() => setMode(m)} className={`rounded-md px-3 py-1 ${mode === m ? "bg-accent-soft font-medium text-accent" : "text-muted"}`}>
-                {m === "normalized" ? "Normalized ₹/piece" : "As quoted"}
+                {m === "normalized" ? "₹ per piece" : "As quoted"}
               </button>
             ))}
           </div>
           {data.openIssues > 0 && (
-            <ButtonLink href={`/rfx/${data.rfxId}/review`} size="sm" className="border border-[#f5e2a8] bg-warn text-[#713f12] hover:bg-[#ffedb8]">
-              <AlertTriangle size={14} /> {data.openIssues} item{data.openIssues > 1 ? "s" : ""} need a look <ChevronRight size={14} />
+            <ButtonLink href={`/rfx/${data.rfxId}/review`} size="sm" className="border border-warn-line bg-warn text-warn-ink hover:bg-warn">
+              <AlertTriangle size={14} /> {data.openIssues} open item{data.openIssues > 1 ? "s" : ""} <ChevronRight size={14} />
             </ButtonLink>
           )}
           <Button size="sm" variant={showAssumptions ? "soft" : "secondary"} onClick={() => setShowAssumptions(!showAssumptions)}>
             <SlidersHorizontal size={14} /> Assumptions
           </Button>
-          <span className="ml-auto text-xs text-muted">{processed.length} of {data.vendors.length} vendors read · ₹ per piece, before GST, delivered</span>
+          <span className="ml-auto text-xs text-muted">{processed.length} of {data.vendors.length} suppliers read · before GST, delivered</span>
         </div>
 
         <AssumptionsBar data={data} open={showAssumptions} />
@@ -95,7 +95,7 @@ export function CompareView({ data, focusVendor }: { data: CompareData; focusVen
           {LEGEND.map(([c, l]) => <span key={l} className="flex items-center gap-1.5"><span className={`h-3 w-3 rounded-sm border border-line ${c}`} /> {l}</span>)}
           {BADGE_LEGEND.map(([b, tone, title]) => <Badge key={b} tone={tone} title={title}>{b}</Badge>)}
           <Badge title="Converted from US dollars at the locked rate">$→₹</Badge>
-          <Badge title="Price per box of 100 converted to per piece">per-box fixed</Badge>
+          <Badge title="Price per box of 100 converted to per piece">per box → per piece</Badge>
           <Badge title="18% GST removed">GST removed</Badge>
           <Badge title="Volume tier price applies">tier</Badge>
         </div>
@@ -105,14 +105,14 @@ export function CompareView({ data, focusVendor }: { data: CompareData; focusVen
             <thead>
               <tr className="bg-panel text-left text-xs text-muted">
                 <th className="sticky left-0 z-10 w-8 bg-panel px-2 py-2 font-medium">#</th>
-                <th className="sticky left-8 z-10 min-w-52 bg-panel px-2 py-2 font-medium">Line item</th>
+                <th className="sticky left-8 z-10 min-w-48 bg-panel px-2 py-2 font-medium">Line item</th>
                 <th className="px-2 py-2 text-right font-medium">Qty P1 / P2</th>
                 {data.vendors.map((v) => (
-                  <th key={v.id} className={`min-w-36 px-2 py-2 font-medium ${focusVendor === v.code ? "bg-accent-soft" : ""}`}>
+                  <th key={v.id} className={`min-w-30 px-2 py-2 font-medium ${focusVendor === v.code ? "bg-accent-soft" : ""}`}>
                     <div className="flex items-center gap-1">
                       <Link href={`/rfx/${data.rfxId}/vendors/${v.code}`} className="truncate text-ink hover:text-accent" title={v.name}>{v.name.split(" ").slice(0, 2).join(" ")}</Link>
                       {v.askable > 0 && (
-                        <button onClick={() => setComposer(v.code)} title="Ask vendor" className="ml-auto rounded p-0.5 text-muted hover:bg-accent-soft hover:text-accent"><Mail size={13} /></button>
+                        <button onClick={() => setComposer(v.code)} title="Ask supplier" className="ml-auto rounded p-0.5 text-muted hover:bg-accent-soft hover:text-accent"><Mail size={13} /></button>
                       )}
                     </div>
                     <span className="font-normal">{{ excel: "Excel", pdf: "PDF", word: "Word", photo: "Photo", email: "Email" }[v.format]}</span>
@@ -121,7 +121,7 @@ export function CompareView({ data, focusVendor }: { data: CompareData; focusVen
               </tr>
             </thead>
             <tbody>
-              <SummaryRow label="Lines quoted" vendors={data.vendors} render={(v) => (v.processed ? <span className={v.linesQuoted < data.lineCount ? "font-medium text-[#b45309]" : ""}>{v.linesQuoted} / {data.lineCount}{v.linesQuoted < data.lineCount ? " ⚠" : ""}</span> : <Pending v={v} />)} tone={(v) => (v.processed && v.linesQuoted < data.lineCount ? "bg-warn" : "")} />
+              <SummaryRow label="Lines quoted" vendors={data.vendors} render={(v) => (v.processed ? <span className={v.linesQuoted < data.lineCount ? "font-medium text-warn-ink" : ""}>{v.linesQuoted} / {data.lineCount}{v.linesQuoted < data.lineCount ? " ⚠" : ""}</span> : <Pending v={v} />)} tone={(v) => (v.processed && v.linesQuoted < data.lineCount ? "bg-warn" : "")} />
               <SummaryRow label="Total value" vendors={data.vendors} render={(v) => (v.processed ? <span className="font-semibold tabular-nums">{money(v.total)}{v.linesQuoted < data.lineCount ? <span className="text-muted">*</span> : ""}</span> : <Pending v={v} />)} />
               <SummaryRow label="Questionnaire" vendors={data.vendors} render={(v) => (v.answered ? <span title={v.invalidReasons.join("\n")}>{v.valid ? `Pass · ${v.score}%` : v.invalidReasons[0]?.startsWith("ISO") ? "ISO expired" : `Fail · ${v.score}%`}</span> : v.processed ? "—" : <Pending v={v} />)} tone={(v) => (v.answered ? (v.valid ? "bg-ok" : "bg-bad") : "")} />
               <SummaryRow label="Payment · lead time" vendors={data.vendors} render={(v) => (v.processed ? <span>{v.payment_days ?? "?"} d{v.payment_days && v.payment_days < 60 ? " ⚠" : ""} · {v.lead_time_days ?? "?"} d{v.freight === "extra" ? " · freight extra" : ""}</span> : <Pending v={v} />)} tone={(v) => (v.payment_days && v.payment_days < 60 ? "bg-warn" : "")} border />
@@ -143,7 +143,7 @@ export function CompareView({ data, focusVendor }: { data: CompareData; focusVen
             </tbody>
           </table>
         </div>
-        <p className="mt-2 text-xs text-muted">* Total excludes lines the vendor hasn&apos;t priced. Click any value to see where it came from. Hover for the conversion.</p>
+        <p className="mt-2 text-xs text-muted">* Total excludes items the supplier hasn&apos;t priced. Click any value to see where it came from. Hover for the conversion.</p>
       </div>
 
       <AskPanel data={data} onOpenLine={openByLine} />
@@ -183,11 +183,11 @@ function Cell({ c, cheapest, mode, flash, onClick, onHover }: { c: CellView; che
       {c.status === "pending" ? (
         <span className="text-xs text-muted">…</span>
       ) : empty ? (
-        <span className="text-xs font-medium text-[#b91c1c]">{STATUS_TEXT[c.status as keyof typeof STATUS_TEXT] ?? "missing"}</span>
+        <span className="text-xs font-medium text-bad-ink">{STATUS_TEXT[c.status as keyof typeof STATUS_TEXT] ?? "missing"}</span>
       ) : (
         <>
           <span className={`tabular-nums ${cheapest ? "font-semibold" : ""}`}>{mode === "normalized" ? inr(c.avg!) : c.quoted}</span>
-          {c.status === "flagged" && <span className="ml-1 text-[#b45309]">⚠</span>}
+          {c.status === "flagged" && <span className="ml-1 text-warn-ink">⚠</span>}
           {shown.length > 0 && (
             <span className="mt-0.5 flex flex-wrap gap-1">
               {shown.map((b) => <Badge key={b} tone={b === "contract" ? "info" : b === "estimate" ? "est" : b === "clarification" ? "clar" : "accent"}>{b}</Badge>)}
@@ -209,13 +209,13 @@ function ChainTooltip({ cell, rect }: { cell: CellView; rect: DOMRect }) {
       <ol className="space-y-1">
         {cell.steps1.map((s, i) => (
           <li key={i} className="flex justify-between gap-3">
-            <span className={s.note === "estimate" ? "text-[#6d28d9]" : s.note === "unclear" ? "text-[#b45309]" : ""}>{s.label}</span>
+            <span className={s.note === "estimate" ? "text-muted" : s.note === "unclear" ? "text-warn-ink" : ""}>{s.label}</span>
             <span className="tabular-nums text-muted">{inr(s.value)}</span>
           </li>
         ))}
       </ol>
       {cell.p1 !== cell.p2 && cell.p2 !== null && <p className="mt-1.5 text-muted">Plant 2: {inr(cell.p2)} per piece (its own tier)</p>}
-      {cell.issueTitles.length > 0 && <p className="mt-1.5 text-[#b45309]">⚠ {cell.issueTitles[0]}</p>}
+      {cell.issueTitles.length > 0 && <p className="mt-1.5 text-warn-ink">⚠ {cell.issueTitles[0]}</p>}
     </div>
   );
 }
@@ -263,7 +263,7 @@ function AssumptionsBar({ data, open }: { data: CompareData; open: boolean }) {
           </select>
         </label>
       ))}
-      <p className="text-xs text-muted md:col-span-3">Change once, everything updates: every price, total, answer and saved scenario is recalculated from the stored quotes. Each change is logged and can be undone in the review queue.</p>
+      <p className="text-xs text-muted md:col-span-3">Every price, total, answer and saved scenario is recalculated. Changes are logged and can be undone on the Review tab.</p>
     </div>
   );
 }
@@ -275,7 +275,7 @@ function FreightInput({ rfxId, code, name, value }: { rfxId: string; code: strin
   const [pending, start] = useTransition();
   return (
     <label className="block">
-      <span className="text-xs text-muted">{name} freight, ₹ per piece ({value?.source === "vendor" ? "stated by vendor" : "buyer estimate"})</span>
+      <span className="text-xs text-muted">{name} freight, ₹ per piece ({value?.source === "vendor" ? "stated by supplier" : "buyer estimate"})</span>
       <div className="mt-1 flex gap-2">
         <input value={v} onChange={(e) => setV(e.target.value.replace(/[^\d.]/g, ""))} className="h-9 w-24 rounded-lg border border-line bg-surface px-2 text-right" />
         <Button size="sm" disabled={pending || Number(v) === value?.per_piece || !(Number(v) >= 0)} onClick={() => start(() => setAssumptions(rfxId, { freight: { [code]: { per_piece: Number(v), source: "estimate" } } }, `${name} freight estimate set to ₹${v} per piece`))}>Apply</Button>

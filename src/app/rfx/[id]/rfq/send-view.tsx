@@ -15,7 +15,7 @@ export function SendView({ rfx, vendors, outgoing }: { rfx: Rfx; vendors: Vendor
   return (
     <Card className="mb-6 overflow-hidden">
       <button onClick={() => setOpen(!open)} className="flex w-full items-center gap-3 bg-ok/60 px-5 py-3 text-left text-sm">
-        <CheckCircle2 size={17} className="text-[#16a34a]" />
+        <CheckCircle2 size={17} className="text-ok-ink" />
         <span className="flex-1">Rules locked and RFQ emailed to {vendors.length} vendors on {sentAt}</span>
         <span className="flex items-center gap-1 text-muted">{open ? "Hide" : "View"} emails <ChevronDown size={14} className={open ? "rotate-180" : ""} /></span>
       </button>

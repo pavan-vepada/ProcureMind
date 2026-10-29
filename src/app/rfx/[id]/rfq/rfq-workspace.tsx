@@ -1,6 +1,6 @@
 "use client";
 
-import { Download, Lock, Printer, Sparkles, Unlock } from "lucide-react";
+import { Download, FileText, Lock, PenLine, Printer, RotateCcw, Unlock } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState, useTransition } from "react";
@@ -37,7 +37,7 @@ export function RfqWorkspace({ rfx, lines, questions, vendors, outgoing, hasShee
     setLive([]);
     setNotes([]);
     setError(null);
-    setStatus("Starting the co-pilot…");
+    setStatus("Reading the request");
     try {
       const res = await fetch(`/api/rfx/${rfx.id}/draft`, { method: "POST" });
       if (!res.ok || !res.body) throw new Error(await res.text());
@@ -73,18 +73,18 @@ export function RfqWorkspace({ rfx, lines, questions, vendors, outgoing, hasShee
     return (
       <>
         <Card className="flex flex-col items-center px-8 py-14 text-center">
-          <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-accent-soft text-accent">
-            <Sparkles />
+          <span className="flex h-12 w-12 items-center justify-center rounded-lg bg-accent-soft text-accent">
+            <FileText />
           </span>
-          <h2 className="mt-4 text-xl font-semibold">Let the co-pilot draft the RFQ</h2>
+          <h2 className="mt-4 text-xl font-semibold">Draft the RFQ</h2>
           <p className="mt-2 max-w-xl text-muted">
             {hasSheet
-              ? `It reads the request from ${rfx.internal_request.from}, the attached volume sheet and the ${vendors.length} supplier proposals, then drafts the line items, questionnaire, terms and cover email. Every quantity and size is checked against the volume sheet.`
-              : "It reads your request and proposes the line items with sizes and yearly quantities, plus the questionnaire, terms and cover email. Anything it had to assume is flagged for you to confirm."}
+              ? `Procure Mind reads the request from ${rfx.internal_request.from}, the attached volume sheet and the ${vendors.length} supplier proposals, then drafts the line items, questionnaire, terms and cover email. Every quantity and size is checked against the volume sheet.`
+              : "Procure Mind reads your request and proposes the line items with sizes and yearly quantities, plus the questionnaire, terms and cover email. Anything it had to assume is flagged for you to confirm."}
           </p>
           {error && <p className="mt-4 max-w-xl rounded-lg bg-bad px-4 py-2 text-sm">{error}</p>}
           <Button variant="primary" size="lg" className="mt-6" onClick={draft}>
-            <Sparkles size={16} /> Draft RFQ with co-pilot
+            <PenLine size={16} /> Draft RFQ
           </Button>
         </Card>
       </>
@@ -100,10 +100,10 @@ export function RfqWorkspace({ rfx, lines, questions, vendors, outgoing, hasShee
         title={locked ? "RFQ as sent" : "RFQ draft"}
         subtitle={
           busy ? (
-            <span className="text-accent">✦ {status} <Dots /></span>
+            <span className="text-accent">{status} <Dots /></span>
           ) : (
             <>
-              {rfx.draft_source === "ai" ? "Drafted by the co-pilot" : "Prepared draft (AI unavailable)"} from {hasSheet ? "the internal request and volume sheet" : "your request"}
+              {rfx.draft_source === "ai" ? "Drafted from" : "Prepared from"} {hasSheet ? "the plant's request and volume sheet" : "your request"}
               {locked && <> · <Lock size={12} className="inline" /> Locked</>}
             </>
           )
@@ -117,7 +117,7 @@ export function RfqWorkspace({ rfx, lines, questions, vendors, outgoing, hasShee
               <Link href={`/rfx/${rfx.id}/rfq/print`} target="_blank" className="inline-flex h-10 items-center gap-2 rounded-lg border border-line px-4 text-sm font-medium hover:bg-panel">
                 <Printer size={15} /> RFQ PDF
               </Link>
-              {!locked && <Button variant="ghost" onClick={draft}><Sparkles size={15} /> Redraft</Button>}
+              {!locked && <Button variant="ghost" onClick={draft}><RotateCcw size={15} /> Draft again</Button>}
             </>
           )
         }
@@ -161,7 +161,7 @@ export function RfqWorkspace({ rfx, lines, questions, vendors, outgoing, hasShee
                   ))}
                   {streaming && (
                     <tr className="border-t border-line">
-                      <td colSpan={8} className="px-3 py-2 text-accent">✦ drafting <Dots /></td>
+                      <td colSpan={8} className="px-3 py-2 text-accent">Drafting <Dots /></td>
                     </tr>
                   )}
                 </tbody>
@@ -196,7 +196,7 @@ export function RfqWorkspace({ rfx, lines, questions, vendors, outgoing, hasShee
 
           {allNotes.length > 0 && (
             <Card className="mt-4 p-4">
-              <h3 className="flex items-center gap-2 text-sm font-semibold"><Sparkles size={14} className="text-accent" /> Co-pilot notes</h3>
+              <h3 className="flex items-center gap-2 text-sm font-semibold">Check before sending</h3>
               <ul className="mt-2 space-y-1.5 text-sm">
                 {allNotes.map((n, i) => (
                   <li key={i} className="flex gap-2">
@@ -236,7 +236,7 @@ function QtyCell({ rfxId, line, field }: { rfxId: string; line: Line; field: "qt
       onBlur={() => changed && start(async () => setErr((await updateLineQty(rfxId, line.id, field, Number(v))).error))}
       onKeyDown={(e) => e.key === "Enter" && (e.target as HTMLInputElement).blur()}
       className={`w-24 rounded-md border px-2 py-1 text-right tabular-nums outline-none transition focus:border-accent focus:ring-2 focus:ring-accent-soft ${
-        err ? "border-[#ef4444] bg-bad" : changed || pending ? "border-[#f5d58a] bg-warn" : "border-transparent hover:border-line"
+        err ? "border-bad-ink bg-bad" : changed || pending ? "border-warn-line bg-warn" : "border-transparent hover:border-line"
       }`}
     />
   );
@@ -252,13 +252,13 @@ function RulesPanel({ rfx, questions, vendors, disabled }: { rfx: Rfx; questions
   return (
     <Card className="h-fit bg-panel p-4 xl:sticky xl:top-4">
       <h2 className="flex items-center gap-2 font-semibold">{locked ? <Lock size={15} /> : <Unlock size={15} />} Evaluation rules</h2>
-      <p className="mt-1 text-xs text-muted">{locked ? `Locked ${lockedAt}. Quoted in the award memo.` : "Fixed before any price is seen, so the award is defensible."}</p>
+      <p className="mt-1 text-xs text-muted">{locked ? `Locked ${lockedAt}. Quoted in the award memo.` : "Locked when the RFQ is sent, before any price is seen."}</p>
 
       <div className="mt-4 rounded-lg border border-line bg-surface p-3">
         <p className="text-sm font-medium">Questionnaire pass rules</p>
         {questions.filter((q) => q.q_no <= 4).map((q) => (
           <label key={q.q_no} className="mt-2 flex items-start gap-2 text-sm">
-            <input type="checkbox" disabled={locked || disabled} checked={required.includes(q.q_no)} className="mt-0.5 accent-[#4f46e5]"
+            <input type="checkbox" disabled={locked || disabled} checked={required.includes(q.q_no)} className="mt-0.5 accent-accent"
               onChange={(e) => setRequired((r) => (e.target.checked ? [...r, q.q_no].sort() : r.filter((x) => x !== q.q_no)))} />
             <span>Required: {q.text}</span>
           </label>
@@ -282,7 +282,7 @@ function RulesPanel({ rfx, questions, vendors, disabled }: { rfx: Rfx; questions
       </div>
 
       <div className="mt-3 rounded-lg border border-line bg-surface p-3 text-sm">
-        <p className="font-medium">Vendors invited ({vendors.length})</p>
+        <p className="font-medium">Suppliers invited ({vendors.length})</p>
         <ul className="mt-2 space-y-1 text-muted">{vendors.map((v) => <li key={v.id}>• {v.name}</li>)}</ul>
       </div>
 

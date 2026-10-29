@@ -16,7 +16,7 @@ flowchart LR
   end
   subgraph PH2["2 · Set up the RFQ"]
     direction TB
-    P0["🔐 Log in to<br/>Procure Mind"] --> P1["🗂️ Start or continue<br/>a sourcing event"] --> P2["✍️ Co-pilot drafts<br/>the RFQ"] --> P3["🔒 Lock rules<br/>and send"]
+    P0["🔐 Log in to<br/>Procure Mind"] --> P1["🗂️ Start or continue<br/>a sourcing event"] --> P2["✍️ RFQ drafted<br/>from the request"] --> P3["🔒 Lock rules<br/>and send"]
   end
   subgraph PH3["3 · Suppliers quote"]
     direction TB
@@ -68,16 +68,16 @@ flowchart LR
 | 2 | 🔎 Find and shortlist suppliers | Outside | Asks a dozen box makers about capacity and certificates; shortlists five | Keeps the shortlist and the reasons, for later context | Notes scattered across emails |
 | 3 | 🔐 Log in | **Inside** | Opens Procure Mind and signs in | Shows every sourcing event and its stage, plus requests waiting to be started | — |
 | 4 | 🗂️ Choose the work | **Inside** | Clicks **Start RFx** on the plant's request, or **Continue** on an event already running | Opens the event at exactly the step it was left | Hunting for the latest spreadsheet version |
-| 5 | ✍️ Draft the RFQ | **Inside** | Clicks **Draft RFQ with co-pilot**; corrects one quantity | Drafts items, quantities per plant, questionnaire, terms and cover email; checks every quantity against the volume sheet | Half a day copying specs into a template |
+| 5 | ✍️ Draft the RFQ | **Inside** | Clicks **Draft RFQ**; corrects one quantity | Drafts items, quantities per plant, questionnaire, terms and cover email; checks every quantity against the volume sheet | Half a day copying specs into a template |
 | 6 | 🔒 Fix the rules, then send | **Inside** | Ticks the must-have certificates, sets the pass score, clicks **Lock rules & send** | Freezes the rules with a timestamp; sends the RFQ to the five suppliers | Rules decided after prices were seen |
 | 7 | 📨 Suppliers reply | Outside | Waits; answers supplier phone calls | — | — |
 | 8 | 📥 Replies are read | **Inside** | Watches the replies tab (or does other work) | Reads each reply in under a minute, all in parallel, showing progress in plain words | Two to three days of retyping |
 | 9 | ⚖️ Compare | **Inside** | Opens the comparison | Converts every price to one basis, highlights the cheapest valid price per item, shows questionnaire and certificate results | Formulas built by hand, errors found late |
 | 10 | 🔍 Check the evidence | **Inside** | Clicks a price that came from a phone photo | Shows the photo with the exact line outlined, and every conversion step | "Let me find that email…" |
 | 11 | ✅ Clear the easy flags | **Inside** | Clicks **Accept all high-confidence** | Leaves only the items that genuinely need a decision | Every oddity checked by hand |
-| 12 | ✉️ Chase a gap | **Inside** | Clicks **Ask vendor** on the supplier who skipped three items; reviews the email; clicks **Send** | Drafts one specific email covering every open point for that supplier | A chaser email written from scratch, days later |
+| 12 | ✉️ Chase a gap | **Inside** | Clicks **Ask supplier** on the supplier who skipped three items; reviews the email; clicks **Send** | Drafts one specific email covering every open point for that supplier | A chaser email written from scratch, days later |
 | 13 | 📨 Supplier answers | Outside | — | — | — |
-| 14 | 🔄 The loop closes | **Inside** | Sees "Loop closed" | Reads the answer and updates only the three missing prices; old values stay in history | Another round of retyping |
+| 14 | 🔄 The loop closes | **Inside** | Sees "Reply received" | Reads the answer and updates only the three missing prices; old values stay in history | Another round of retyping |
 | 15 | 💬 Ask what-ifs | **Inside** | Clicks *"What if we combine both plants' volumes?"*; asks a follow-up; saves the answer as a scenario | Turns the question into an exact calculation, computes it in code, explains it in two sentences, shows the working | A new spreadsheet version for each question |
 | 16 | 🏆 Recommend the award | **Inside** | Clicks **Recommend award**, then **Download PDF** | Builds the memo: award per supplier, savings, rules used, risks, and a link to the evidence for every figure | A slide deck assembled by hand |
 | 17 | 👔 Approval | Outside | Presents the memo to the head of procurement and finance | Every figure can be clicked during the meeting | "I'll get back to you on that number" |
@@ -95,13 +95,13 @@ sequenceDiagram
   Supplier->>PM: 📎 Word document: 27 of 30 items, 30-day payment terms
   PM->>PM: Finds 3 missing items and the terms mismatch
   PM-->>Buyer: "27 / 30 ⚠" on the comparison, 4 items in the review list
-  Buyer->>PM: Clicks "Ask vendor"
+  Buyer->>PM: Clicks "Ask supplier"
   PM-->>Buyer: One drafted email covering every open point
   Buyer->>PM: Reviews and clicks "Send"
   PM->>Supplier: ✉️ "Please quote items 12, 14 and 19, and confirm 60-day terms"
   Supplier->>PM: 📨 "Item 12: Rs. 10.79 … we agree to 60 days"
   PM->>PM: Reads the reply, updates only the affected prices, keeps the old values
-  PM-->>Buyer: ✅ "Loop closed: 3 values updated, 4 issues resolved"
+  PM-->>Buyer: ✅ "Reply received: 3 prices updated, 4 items resolved"
 ```
 
 If anything is still open after the reply, the next email lists only what remains.

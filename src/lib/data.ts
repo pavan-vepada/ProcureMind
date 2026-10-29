@@ -87,6 +87,40 @@ export const listWorkspace = cache(async () => {
   return { user, summaries, pending };
 });
 
+/** A friendly name from the login email ("pavan.v@…" → "Pavan"). There are no profile names yet. */
+export function displayName(email: string | undefined): string {
+  const first = email?.split("@")[0].split(/[+._-]/)[0] ?? "";
+  return first ? first[0].toUpperCase() + first.slice(1) : "Buyer";
+}
+
+export type Notice = { id: string; at: string; text: string; detail: string; href: string };
+
+/** What the app frame needs on every page: who is signed in, waiting requests, recent activity. */
+export const getShellData = cache(async () => {
+  await ensureWorkspace();
+  const { supabase, user } = await requireUser();
+  const [{ data: started }, { data: runs }] = await Promise.all([
+    supabase.from("rfx").select("dataset"),
+    supabase.from("processing_runs").select("id, finished_at, rfx_id, vendor:vendors(name), rfx:rfx(code, title), message:messages(kind)")
+      .eq("status", "done").not("finished_at", "is", null).order("finished_at", { ascending: false }).limit(8),
+  ]);
+  const startedSets = new Set((started ?? []).map((r) => r.dataset));
+  type RunRow = { id: string; finished_at: string; rfx_id: string; vendor: { name: string } | null; rfx: { code: string; title: string } | null; message: { kind: string } | null };
+  const notices: Notice[] = ((runs ?? []) as unknown as RunRow[]).map((r) => ({
+    id: r.id,
+    at: r.finished_at,
+    text: r.message?.kind === "clarification_reply" ? `${r.vendor?.name ?? "A supplier"} answered your clarification` : `Quote from ${r.vendor?.name ?? "a supplier"} read`,
+    detail: `${r.rfx?.code ?? ""} · ${r.rfx?.title ?? ""}`,
+    href: `/rfx/${r.rfx_id}/replies`,
+  }));
+  return {
+    email: user.email ?? "",
+    name: displayName(user.email),
+    pendingRequests: PENDING_REQUESTS.filter((k) => !startedSets.has(k)).length,
+    notices,
+  };
+});
+
 /** One RFx with its vendors and RFI results. 404 if it isn't the user's. */
 export const getRfx = cache(async (id: string) => {
   const { supabase, user } = await requireUser();

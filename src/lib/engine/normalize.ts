@@ -73,7 +73,7 @@ export function normalize(raw: RawQuote, line: Line, qty: number, vendor: Vendor
       p = p + f.per_piece;
       freightEstimate = f.source === "estimate";
       steps.push({
-        label: `+ ${inr(f.per_piece)} freight per piece (${f.source === "vendor" ? "stated by vendor" : "buyer estimate"})`,
+        label: `+ ${inr(f.per_piece)} freight per piece (${f.source === "vendor" ? "stated by supplier" : "buyer estimate"})`,
         value: p,
         note: f.source === "estimate" ? "assumption" : undefined,
       });

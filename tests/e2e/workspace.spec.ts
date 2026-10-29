@@ -19,7 +19,7 @@ async function signUp(page: Page) {
   await page.getByLabel(/Password/).fill(randomUUID());
   const t = Date.now();
   await page.getByRole("button", { name: "Create account" }).click();
-  await expect(page.getByRole("heading", { name: /Good to see you/ })).toBeVisible({ timeout: 60_000 });
+  await expect(page.getByRole("heading", { name: "Sourcing events", level: 1 })).toBeVisible({ timeout: 60_000 });
   console.log(`workspace ready in ${((Date.now() - t) / 1000).toFixed(1)}s`);
 }
 
@@ -28,10 +28,13 @@ const open = (page: Page, title: RegExp) => page.getByRole("link", { name: title
 test("first session: workspace, analysis, live replies, send, new RFx", async ({ page }) => {
   watch(page);
   await signUp(page);
-  await expect(page.getByText("Corrugated packaging for both plants")).toBeVisible();
-  await expect(page.getByText("Heavy-duty export cartons")).toBeVisible();
-  await expect(page.getByText("Inner packaging renewal")).toBeVisible();
-  await expect(page.getByText("Q3 capacity buffer")).toBeVisible();
+  // The titles also appear in the worklist, so check the event rows themselves.
+  const event = (title: string) => page.getByRole("link", { name: new RegExp(`^(Continue|View) ${title}`) });
+  await expect(event("Corrugated packaging for both plants")).toBeVisible();
+  await expect(event("Heavy-duty export cartons")).toBeVisible();
+  await expect(event("Inner packaging renewal")).toBeVisible();
+  await expect(event("Q3 capacity buffer")).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Needs your action" })).toBeVisible();
   await shot(page, "01-home");
 
   // 1. The RFx in analysis: overview → comparison → evidence → review → chase V3 → ask → save → award
@@ -52,12 +55,12 @@ test("first session: workspace, analysis, live replies, send, new RFx", async ({
   await tab("Review").click();
   await expect(page.getByRole("heading", { name: "Review queue" })).toBeVisible();
   await shot(page, "05-review");
-  await page.getByRole("button", { name: /Ask vendor/ }).first().click();
-  const dialog = page.getByRole("dialog", { name: "Ask vendor for clarification" });
+  await page.getByRole("button", { name: /Ask supplier/ }).first().click();
+  const dialog = page.getByRole("dialog", { name: "Ask supplier for clarification" });
   await dialog.getByRole("button", { name: /^Shakti/ }).click();
   await shot(page, "05b-composer");
   await dialog.getByRole("button", { name: /^Send$/ }).click();
-  await expect(dialog.getByText("Loop closed")).toBeVisible({ timeout: 180_000 });
+  await expect(dialog.getByText("Reply received")).toBeVisible({ timeout: 180_000 });
   await shot(page, "06-loop-closed");
   await dialog.getByRole("button", { name: /See the updated comparison/ }).click();
 
@@ -79,7 +82,7 @@ test("first session: workspace, analysis, live replies, send, new RFx", async ({
   await tab("Replies").click();
   await page.waitForTimeout(4000);
   await shot(page, "09-replies-live");
-  await page.getByRole("button", { name: /Add 1 sample reply/ }).click();
+  await page.getByRole("button", { name: /Simulate 1 supplier reply/ }).click();
   await expect(page.getByText(/Read · \d+ of 10 lines found/)).toHaveCount(4, { timeout: 240_000 });
   await shot(page, "10-replies-done");
 
@@ -89,7 +92,7 @@ test("first session: workspace, analysis, live replies, send, new RFx", async ({
   await shot(page, "11-ready-overview");
   await tab("RFQ").click();
   await page.getByRole("button", { name: /Lock rules & send/ }).click();
-  await expect(page.getByText(/Waiting for 3 vendors/)).toBeVisible();
+  await expect(page.getByText(/Waiting for 3 suppliers/)).toBeVisible();
   await shot(page, "12-sent");
 
   // 4. The awarded RFx
@@ -103,7 +106,7 @@ test("first session: workspace, analysis, live replies, send, new RFx", async ({
   await page.goto("/rfx/new");
   await shot(page, "14-new");
   await page.getByRole("button", { name: /Create RFx and draft/ }).click();
-  await page.getByRole("button", { name: /Draft RFQ with co-pilot/ }).click();
+  await page.getByRole("button", { name: /^Draft RFQ$/ }).click();
   await expect(page.getByRole("button", { name: /Lock rules & send/ })).toBeEnabled({ timeout: 180_000 });
   await shot(page, "15-new-drafted");
 
@@ -112,7 +115,7 @@ test("first session: workspace, analysis, live replies, send, new RFx", async ({
   await page.getByRole("button", { name: /Describe a need/ }).click();
   await page.getByText("Use an example").click();
   await page.getByRole("button", { name: /Create RFx and draft/ }).click();
-  await page.getByRole("button", { name: /Draft RFQ with co-pilot/ }).click();
+  await page.getByRole("button", { name: /^Draft RFQ$/ }).click();
   await expect(page.getByRole("button", { name: /Lock rules & send/ })).toBeEnabled({ timeout: 180_000 });
   await shot(page, "16-need-drafted");
 

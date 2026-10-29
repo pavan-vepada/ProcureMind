@@ -67,7 +67,7 @@ export async function extractReply(ctx: ReplyContext, parts: Prepared[], signal?
     },
     { signal },
   );
-  if (!res.output_parsed) throw new Error("The AI returned no structured result.");
+  if (!res.output_parsed) throw new Error("The reply couldn't be read.");
   return { extraction: validateNumbers(res.output_parsed, parts), model: res.model, ms: Date.now() - started };
 }
 

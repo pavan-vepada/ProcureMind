@@ -2,13 +2,13 @@
   <!-- Login background: corrugated board (liner, flute, liner) and stacked shipper cartons. Drawn for Procure Mind. -->
   <defs>
     <linearGradient id="sky" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#eef0ff"/>
+      <stop offset="0" stop-color="#e9f1f0"/>
       <stop offset="0.55" stop-color="#f6f4ef"/>
       <stop offset="1" stop-color="#efe4d2"/>
     </linearGradient>
     <pattern id="flute" width="48" height="36" patternUnits="userSpaceOnUse">
-      <path d="M0 3H48M0 33H48" stroke="#4f46e5" stroke-width="2.2"/>
-      <path d="M0 33Q12 -3 24 18T48 3" fill="none" stroke="#4f46e5" stroke-width="2"/>
+      <path d="M0 3H48M0 33H48" stroke="#0b6f78" stroke-width="2.2"/>
+      <path d="M0 33Q12 -3 24 18T48 3" fill="none" stroke="#0b6f78" stroke-width="2"/>
     </pattern>
     <symbol id="box" viewBox="-120 0 240 230" overflow="visible">
       <!-- isometric carton, 120 wide each side, 110 tall -->

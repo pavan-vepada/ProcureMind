@@ -14,7 +14,7 @@
 | **RFX-2026-017** Heavy-duty export cartons | 🟣 Out for quote | One reply has just arrived and is read live as you watch; one supplier is still to reply |
 | **RFX-2026-019** Q3 capacity buffer | ⚪ Ready to send | A finished draft with evaluation rules, waiting to be locked and sent |
 | **RFX-2026-009** Inner packaging renewal | 🟢 Awarded | A completed award memo |
-| *Packaging for the liquid detergent launch* | 📨 Request waiting | A plant's request, ready to become a new event drafted by the co-pilot |
+| *Packaging for the liquid detergent launch* | 📨 Request waiting | A plant's request, ready to become a new event, drafted for you |
 
 ## The ten-minute story (on RFX-2026-014)
 
@@ -24,7 +24,7 @@
 | 2 | Open **Comparison** | Everything is in ₹ per piece, before tax, delivered. Green is the cheapest valid price. Switch to **As quoted** to see the mess it came from |
 | 3 | Click a **Narmada Cartons** price (the photo column) | The supplier's tilted phone photo, with the line it was read from outlined in red |
 | 4 | Click a **Deccan Boxboard** price (the PDF column) | The PDF page with the number outlined; the conversion shows US dollars → rupees and tax removed |
-| 5 | Open **Review**, click **Ask vendor**, choose **Shakti**, click **Send** | One drafted email covering the three missing items and the payment terms. Shakti replies, and within a minute only the affected prices change |
+| 5 | Open **Review**, click **Ask supplier**, choose **Shakti**, click **Send** | One drafted email covering the three missing items and the payment terms. Shakti replies, and within a minute only the affected prices change |
 | 6 | Back in **Comparison**, click *"What if we combine both plants' volumes?"* | The answer, the saving against the previous answer, and **Show working**. Click **Save as scenario** |
 | 7 | Click **Recommend award** on the saved scenario | The memo, with every ₹ clickable. **Download PDF** prints it |
 

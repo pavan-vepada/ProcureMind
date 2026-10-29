@@ -48,7 +48,7 @@ You NEVER calculate. To answer, call exactly one tool. For follow-ups, build on 
 Vendor names map to codes: use the codes in tool calls. "Passed the questionnaire" means passed_only=true.
 "Split the award" / "cheapest per line" → rule cheapest_per_line. "Combine both plants' volumes" → volume combined.
 If the question is ambiguous, call ask_clarifying_question instead of guessing.
-After a tool result, write 2–3 short sentences for a VP. Use ONLY numbers that appear in the tool result; format money like ₹1.19 Cr or ₹5.0 L. Refer to vendors by name, never by code (V1, V2…). Do not list every line. No markdown headings.`;
+After a tool result, write 2–3 short sentences for a VP. Use ONLY numbers that appear in the tool result; format money like ₹1.19 Cr or ₹5.0 L. Refer to suppliers by name, never by code (V1, V2…), and call them suppliers, never vendors. Do not list every line. No markdown headings.`;
 
 export type AskContext = {
   input: ComparisonInput;
@@ -92,7 +92,7 @@ function allowedNumbers(r: ScenarioResult, previousTotal: number | null): number
 function fallbackText(r: ScenarioResult, previousTotal: number | null, nameOf: (code: string) => string) {
   const award = r.by_vendor.map((v) => `${v.name} (${v.lines.length} lines)`).join(", ");
   let t = `Award to ${award}: total ${money(r.total)}.`;
-  if (r.savings_vs_single && r.cheapest_single) t += ` That is ${money(r.savings_vs_single)} below the cheapest single vendor (${nameOf(r.cheapest_single.code)}).`;
+  if (r.savings_vs_single && r.cheapest_single) t += ` That is ${money(r.savings_vs_single)} below the cheapest single supplier (${nameOf(r.cheapest_single.code)}).`;
   if (previousTotal !== null) t += ` ${r.total <= previousTotal ? `${money(previousTotal - r.total)} less` : `${money(r.total - previousTotal)} more`} than the previous answer.`;
   return t;
 }
@@ -136,9 +136,9 @@ export async function ask(question: string, ctx: AskContext): Promise<AskResult>
       const withIssues = rows.filter((r) => (r[2] as number) > 0);
       return {
         content: withIssues.length
-          ? `${withIssues.length} vendor${withIssues.length > 1 ? "s" : ""} still ha${withIssues.length > 1 ? "ve" : "s"} open issues: ${withIssues.map((r) => `${r[1]} (${r[2]})`).join(", ")}. Use “Ask vendor” to send one email per vendor.`
-          : "No open issues. Every vendor's quote is complete.",
-        payload: { kind: "issues", table: { columns: ["Vendor", "Name", "Open", "Examples"], rows } },
+          ? `${withIssues.length} supplier${withIssues.length > 1 ? "s" : ""} still ha${withIssues.length > 1 ? "ve" : "s"} open issues: ${withIssues.map((r) => `${r[1]} (${r[2]})`).join(", ")}. Use “Ask supplier” to send one email per supplier.`
+          : "No open issues. Every supplier's quote is complete.",
+        payload: { kind: "issues", table: { columns: ["Code", "Supplier", "Open", "Examples"], rows } },
       };
     }
     const s = ctx.comparison.vendors.find((x) => x.vendor.code === code)!;

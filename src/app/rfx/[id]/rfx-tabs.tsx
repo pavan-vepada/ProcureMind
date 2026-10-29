@@ -9,16 +9,16 @@ export function RfxTabs({ tabs }: { tabs: Tab[] }) {
   const path = usePathname();
   const active = [...tabs].sort((a, b) => b.href.length - a.href.length).find((t) => path === t.href || path.startsWith(`${t.href}/`))?.href;
   return (
-    <nav className="mt-4 flex gap-1 overflow-x-auto" aria-label="RFx sections">
+    <nav className="mt-3 flex gap-6 overflow-x-auto" aria-label="RFx sections">
       {tabs.map((t) => {
         const on = t.href === active;
-        const cls = `relative flex items-center gap-1.5 whitespace-nowrap px-3 pb-3 pt-1 text-sm ${on ? "font-medium text-ink" : "text-muted"}`;
+        const cls = `relative flex items-center gap-1.5 whitespace-nowrap pt-2 pb-2.5 text-sm ${on ? "font-semibold text-ink" : "text-ink-soft"}`;
         const inner = (
           <>
             {t.live && <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-accent" />}
             {t.label}
-            {t.count && <span className={`rounded-full px-1.5 text-[11px] ${t.warn ? "bg-warn text-[#713f12]" : "bg-panel text-muted"}`}>{t.count}</span>}
-            {on && <span className="absolute inset-x-2 -bottom-px h-0.5 rounded-full bg-accent" />}
+            {t.count && <span className={`font-mono text-xs ${t.warn ? "text-warn-ink" : "text-muted"}`}>{t.count}</span>}
+            {on && <span className="absolute inset-x-0 -bottom-px h-0.5 bg-accent" />}
           </>
         );
         return t.enabled ? (

@@ -34,11 +34,11 @@ export function ReviewView({ rfxId, issues, vendors, drafts, changes, quoteIdFor
     <>
       <PageHeader
         title="Review queue"
-        subtitle={`${open.length} item${open.length === 1 ? "" : "s"} need a look${issues.length > open.length ? ` · ${issues.length - open.length} asked, waiting for the vendor` : ""} · ${resolvedCount} resolved. Nothing here blocks the comparison.`}
+        subtitle={`${open.length} item${open.length === 1 ? "" : "s"} need a look${issues.length > open.length ? ` · ${issues.length - open.length} asked, waiting for the supplier` : ""} · ${resolvedCount} resolved`}
         actions={
           easy.length > 0 && (
-            <Button variant="secondary" disabled={pending} onClick={() => start(() => acceptAllHighConfidence(rfxId))} className="border-[#c6ebd3] bg-ok">
-              <CheckCheck size={15} /> Accept all high-confidence ({easy.length})
+            <Button variant="secondary" disabled={pending} onClick={() => start(() => acceptAllHighConfidence(rfxId))} className="border-ok-line bg-ok">
+              <CheckCheck size={15} /> Accept routine items ({easy.length})
             </Button>
           )
         }
@@ -54,7 +54,7 @@ export function ReviewView({ rfxId, issues, vendors, drafts, changes, quoteIdFor
       <Card className="overflow-hidden">
         <table className="w-full text-sm">
           <thead className="bg-panel text-left text-xs text-muted">
-            <tr>{["Kind", "Vendor", "What we found", "Source", "Confidence", ""].map((h) => <th key={h} className="px-3 py-2 font-medium">{h}</th>)}</tr>
+            <tr>{["Kind", "Supplier", "What we found", "Source", "Reading", ""].map((h) => <th key={h} className="px-3 py-2 font-medium">{h}</th>)}</tr>
           </thead>
           <tbody>
             {shown.map((i) => (
@@ -74,18 +74,18 @@ export function ReviewView({ rfxId, issues, vendors, drafts, changes, quoteIdFor
                     </button>
                   ) : "Whole reply"}
                 </td>
-                <td className="px-3 py-2.5">{i.confidence ? <Badge tone={i.confidence === "high" ? "ok" : i.confidence === "medium" ? "warn" : "bad"}>{i.confidence}</Badge> : <span className="text-muted">—</span>}</td>
+                <td className="px-3 py-2.5">{i.confidence ? <Badge tone={i.confidence === "high" ? "ok" : i.confidence === "medium" ? "warn" : "bad"}>{{ high: "clear", medium: "check", low: "unclear" }[i.confidence as "high" | "medium" | "low"] ?? i.confidence}</Badge> : <span className="text-muted">—</span>}</td>
                 <td className="whitespace-nowrap px-3 py-2.5 text-right">
                   {i.status === "open" && !["missing", "no_history", "unreadable"].includes(i.kind) && (
                     <Button size="sm" variant="ghost" disabled={pending} onClick={() => start(() => acceptIssue(rfxId, i.id))}><Check size={13} /> Accept</Button>
                   )}
                   {i.askable && askableVendors.has(i.vendor_code) && i.status === "open" && (
-                    <Button size="sm" onClick={() => setComposer(i.vendor_code)}><Mail size={13} /> Ask vendor</Button>
+                    <Button size="sm" onClick={() => setComposer(i.vendor_code)}><Mail size={13} /> Ask supplier</Button>
                   )}
                 </td>
               </tr>
             ))}
-            {!shown.length && <tr><td colSpan={6} className="px-3 py-10 text-center text-muted">Nothing to review. 🎉</td></tr>}
+            {!shown.length && <tr><td colSpan={6} className="px-3 py-10 text-center text-muted">No open items.</td></tr>}
           </tbody>
         </table>
       </Card>

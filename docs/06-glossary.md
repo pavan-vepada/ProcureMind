@@ -53,7 +53,6 @@ Every term used in this repository, in plain English.
 | **Clarification** | A follow-up email asking a supplier to fill a gap |
 | **Closing the loop** | The supplier's answer being read automatically, so only the affected numbers update |
 | **Scenario** | A saved way of splitting the award, such as "cheapest per item, passing suppliers only" |
-| **Co-pilot** | The AI assistant that drafts the RFQ |
 | **Contract memory** | Last year's contracts, used to fill "same as last year", but only where the specification is unchanged |
 
 ## Technology

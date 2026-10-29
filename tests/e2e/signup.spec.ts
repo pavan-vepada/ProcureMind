@@ -11,9 +11,10 @@ test("sign up lands in the workspace", async ({ page }) => {
   await page.getByLabel("Email").fill(`${name}+pmtest-${randomUUID().slice(0, 8)}@${domain}`);
   await page.getByLabel(/Password/).fill(randomUUID());
   await page.getByRole("button", { name: "Create account" }).click();
-  const heading = page.getByRole("heading", { name: /Good to see you/ });
+  const heading = page.getByRole("heading", { name: "Sourcing events", level: 1 });
   await expect(heading).toBeVisible({ timeout: 60_000 });
   await page.reload();
   await expect(heading).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Needs your action" })).toBeVisible();
   await expect(page.getByRole("link", { name: /Continue|View/ })).toHaveCount(4);
 });

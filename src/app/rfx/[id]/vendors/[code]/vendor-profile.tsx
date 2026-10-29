@@ -38,12 +38,12 @@ export function VendorProfile(p: {
       <PageHeader
         title={v.name}
         subtitle={<>{v.email} · <Badge tone={STATUS[v.status][1]}>{STATUS[v.status][0]}</Badge></>}
-        actions={p.drafts[v.code] && <Button variant="secondary" onClick={() => setComposer(v.code)}><Mail size={15} /> Ask vendor</Button>}
+        actions={p.drafts[v.code] && <Button variant="secondary" onClick={() => setComposer(v.code)}><Mail size={15} /> Ask supplier</Button>}
       />
       <div className="mb-5 flex flex-wrap items-center gap-1.5">
         {timeline.map((t, i) => (
           <span key={i} className="flex items-center gap-1.5">
-            <span className="rounded-lg border border-[#c6ebd3] bg-ok px-2.5 py-1 text-xs">{t.label}</span>
+            <span className="rounded-lg border border-ok-line bg-ok px-2.5 py-1 text-xs">{t.label}</span>
             {i < timeline.length - 1 && <ArrowRight size={12} className="text-muted" />}
           </span>
         ))}
@@ -92,7 +92,7 @@ export function VendorProfile(p: {
               <h2 className="font-semibold">Questionnaire</h2>
               <span className="font-semibold">{p.summary.answered ? `${view.valid ? "Pass" : "Fail"} · ${p.summary.score}%` : "Not answered yet"}</span>
             </div>
-            {p.summary.answered && p.summary.failures.length > 0 && <ul className="border-b border-line px-4 py-2 text-xs text-[#b91c1c]">{p.summary.failures.map((f) => <li key={f}>✕ {f}</li>)}</ul>}
+            {p.summary.answered && p.summary.failures.length > 0 && <ul className="border-b border-line px-4 py-2 text-xs text-bad-ink">{p.summary.failures.map((f) => <li key={f}>✕ {f}</li>)}</ul>}
             <table className="w-full">
               <tbody>
                 {p.questions.map((q) => {
@@ -102,7 +102,7 @@ export function VendorProfile(p: {
                     <tr key={q.q_no} className="border-t border-line align-top">
                       <td className="w-10 px-4 py-1.5 text-muted">Q{q.q_no}</td>
                       <td className="py-1.5">{q.text}{q.required && <Badge tone="accent" className="ml-1">required</Badge>}<p className="text-xs text-muted">{a?.answer ?? "—"}</p></td>
-                      <td className="px-4 py-1.5 text-right">{a ? (met ? <span className="text-[#15803d]">✓</span> : <span className="text-[#b91c1c]">✕</span>) : ""}</td>
+                      <td className="px-4 py-1.5 text-right">{a ? (met ? <span className="text-ok-ink">✓</span> : <span className="text-bad-ink">✕</span>) : ""}</td>
                     </tr>
                   );
                 })}
@@ -119,11 +119,11 @@ export function VendorProfile(p: {
               {!p.certs.length && <li className="text-muted">None on file.</li>}
             </ul>
           </Card>
-          <Card className={`p-4 text-sm ${open.length ? "border-[#f5e2a8] bg-warn/40" : ""}`}>
+          <Card className={`p-4 text-sm ${open.length ? "border-warn-line bg-warn/40" : ""}`}>
             <h2 className="font-semibold">Open items ({open.length})</h2>
             <ul className="mt-2 space-y-1">{open.map((i) => <li key={i.id}>• {i.title}{i.status === "asked" && <Badge tone="clar" className="ml-1.5">asked</Badge>}</li>)}</ul>
             {!open.length && <p className="mt-1 text-muted">Nothing open.</p>}
-            {p.drafts[v.code] && <Button size="sm" className="mt-3" onClick={() => setComposer(v.code)}><Mail size={13} /> Ask vendor</Button>}
+            {p.drafts[v.code] && <Button size="sm" className="mt-3" onClick={() => setComposer(v.code)}><Mail size={13} /> Ask supplier</Button>}
           </Card>
         </div>
       </div>
@@ -134,7 +134,7 @@ export function VendorProfile(p: {
 
 function Fact({ label, value, warn, note }: { label: string; value: string; warn?: boolean; note?: string }) {
   return (
-    <div className={`rounded-lg border px-3 py-2 ${warn ? "border-[#f5e2a8] bg-warn" : "border-line"}`}>
+    <div className={`rounded-lg border px-3 py-2 ${warn ? "border-warn-line bg-warn" : "border-line"}`}>
       <p className="text-xs text-muted">{label}</p>
       <p className="font-medium">{value}{warn && " ⚠"}</p>
       {note && <p className="text-xs text-muted">{note}</p>}

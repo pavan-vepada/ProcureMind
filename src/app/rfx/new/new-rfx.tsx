@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowLeft, FileSpreadsheet, PenLine, Sparkles } from "lucide-react";
+import { ArrowLeft, FilePlus2, FileSpreadsheet, PenLine } from "lucide-react";
 import Link from "next/link";
 import { useState, useTransition } from "react";
 import { startFromNeed, startFromRequest } from "@/app/rfx/actions";
@@ -25,12 +25,12 @@ export function NewRfx({ pending, suppliers, preselect }: { pending: Pending[]; 
     <div className="mx-auto max-w-4xl pt-8">
       <Link href="/rfx" className="inline-flex items-center gap-1 text-sm text-muted hover:text-ink"><ArrowLeft size={14} /> Sourcing events</Link>
       <h1 className="mt-3 text-3xl font-semibold tracking-tight">New RFx</h1>
-      <p className="mt-1 text-muted">Start from a request the plants sent you, or describe what you need. The co-pilot drafts the RFQ either way.</p>
+      <p className="mt-1 text-muted">Start from a request the plants sent you, or describe what you need. The RFQ is drafted for you either way.</p>
 
       <div className="mt-6 grid gap-3 sm:grid-cols-2">
         <ModeCard active={mode === "request"} onClick={() => setMode("request")} icon={<FileSpreadsheet size={18} />} title="From an internal request"
           text={pending.length ? `${pending.length} waiting · volume sheet and shortlist attached` : "No requests waiting right now"} disabled={!pending.length} />
-        <ModeCard active={mode === "need"} onClick={() => setMode("need")} icon={<PenLine size={18} />} title="Describe a need" text="In your own words; the co-pilot proposes the lines" />
+        <ModeCard active={mode === "need"} onClick={() => setMode("need")} icon={<PenLine size={18} />} title="Describe a need" text="In your own words; the items are proposed for you" />
       </div>
 
       {mode === "request" && req && (
@@ -52,9 +52,9 @@ export function NewRfx({ pending, suppliers, preselect }: { pending: Pending[]; 
             </div>
           </div>
           <div className="mt-5 flex items-center justify-between">
-            <p className="text-sm text-muted">The co-pilot will draft line items, questionnaire, terms and the cover email.</p>
+            <p className="text-sm text-muted">Line items, questionnaire, terms and cover email are drafted from the request and volume sheet.</p>
             <Button variant="primary" size="lg" disabled={pending_} onClick={() => start(() => startFromRequest(req.key))}>
-              <Sparkles size={16} /> {pending_ ? "Creating…" : "Create RFx and draft"}
+              <FilePlus2 size={16} /> {pending_ ? "Creating…" : "Create RFx and draft"}
             </Button>
           </div>
         </Card>
@@ -69,7 +69,7 @@ export function NewRfx({ pending, suppliers, preselect }: { pending: Pending[]; 
           </label>
           <label className="mt-4 block text-sm">
             <span className="font-medium">What do you need?</span>
-            <span className="ml-2 text-muted">Sizes, ply and yearly volumes per plant help the co-pilot.</span>
+            <span className="ml-2 text-muted">Sizes, ply and yearly volumes per plant make the draft more accurate.</span>
             <textarea value={need} onChange={(e) => setNeed(e.target.value)} rows={5} placeholder={EXAMPLE}
               className="mt-1.5 w-full rounded-lg border border-line p-3 leading-relaxed outline-none focus:border-accent focus:ring-2 focus:ring-accent-soft" />
           </label>
@@ -78,7 +78,7 @@ export function NewRfx({ pending, suppliers, preselect }: { pending: Pending[]; 
           <div className="mt-2 grid gap-2 sm:grid-cols-2">
             {suppliers.map((s) => (
               <label key={s.email} className={`flex cursor-pointer items-start gap-2.5 rounded-lg border p-3 text-sm ${picked.includes(s.email) ? "border-accent bg-accent-soft/50" : "border-line hover:bg-panel"}`}>
-                <input type="checkbox" className="mt-0.5 accent-[#4f46e5]" checked={picked.includes(s.email)}
+                <input type="checkbox" className="mt-0.5 accent-accent" checked={picked.includes(s.email)}
                   onChange={(e) => setPicked((p) => (e.target.checked ? [...p, s.email] : p.filter((x) => x !== s.email)))} />
                 <span><span className="font-medium">{s.name}</span><span className="block text-xs text-muted">{s.note}</span></span>
               </label>
@@ -89,7 +89,7 @@ export function NewRfx({ pending, suppliers, preselect }: { pending: Pending[]; 
             <p className="text-sm text-muted">Replies to this RFx come in by upload (any Excel, PDF, Word, photo or email text).</p>
             <Button variant="primary" size="lg" disabled={pending_}
               onClick={() => start(async () => { const r = await startFromNeed({ title, request: need, suppliers: picked }); if (r?.error) setError(r.error); })}>
-              <Sparkles size={16} /> {pending_ ? "Creating…" : "Create RFx and draft"}
+              <FilePlus2 size={16} /> {pending_ ? "Creating…" : "Create RFx and draft"}
             </Button>
           </div>
         </Card>
@@ -101,7 +101,7 @@ export function NewRfx({ pending, suppliers, preselect }: { pending: Pending[]; 
 function ModeCard({ active, onClick, icon, title, text, disabled }: { active: boolean; onClick: () => void; icon: React.ReactNode; title: string; text: string; disabled?: boolean }) {
   return (
     <button disabled={disabled} onClick={onClick}
-      className={`rounded-xl border p-4 text-left transition disabled:opacity-50 ${active ? "border-accent bg-accent-soft ring-1 ring-accent" : "border-line bg-surface hover:bg-panel"}`}>
+      className={`rounded-lg border p-4 text-left transition disabled:opacity-50 ${active ? "border-accent bg-accent-soft ring-1 ring-accent" : "border-line bg-surface hover:bg-panel"}`}>
       <span className={`flex h-9 w-9 items-center justify-center rounded-lg ${active ? "bg-accent text-white" : "bg-panel text-muted"}`}>{icon}</span>
       <p className="mt-3 font-medium">{title}</p>
       <p className="text-sm text-muted">{text}</p>

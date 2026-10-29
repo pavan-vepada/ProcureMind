@@ -1,8 +1,8 @@
 # Procure Mind
 
-**An AI co-pilot for category buyers.** It drafts the request for quotation, reads whatever vendors send back (spreadsheets, PDFs, Word files, phone photos, plain emails), puts every quote on one comparable basis, and takes the buyer from what-if questions to an award recommendation they can defend, without retyping a single number.
+**A sourcing workspace for category buyers.** It drafts the request for quotation, reads whatever suppliers send back (spreadsheets, PDFs, Word files, phone photos, plain emails), puts every quote on one comparable basis, and takes the buyer from what-if questions to an award recommendation they can defend, without retyping a single number.
 
-![The comparison screen: five vendors, thirty lines, one basis, with an AI assistant beside it](docs/images/04-comparison.png)
+![The comparison screen: five suppliers, thirty items, one basis, with the question panel beside it](docs/images/04-comparison.png)
 
 > **Status:** a working product running on fictional data. Every screen below is live: the AI really reads the files, and the numbers are really calculated.
 
@@ -26,7 +26,7 @@ Today the buyer spends **about three days** retyping this into one spreadsheet. 
 
 | | Moment | What the buyer experiences |
 |---|---|---|
-| ✍️ | **Draft** | The co-pilot turns a plant's request into a complete request for quotation: items, quantities per plant, quality questionnaire, terms, cover email. The buyer fixes the scoring rules *before* any price is seen. |
+| ✍️ | **Draft** | Procure Mind turns a plant's request into a complete request for quotation: items, quantities per plant, quality questionnaire, terms, cover email. The buyer fixes the scoring rules *before* any price is seen. |
 | 📥 | **Receive** | Replies arrive in any format. The AI reads each one in under a minute, in parallel, with plain-language progress. |
 | ⚖️ | **Compare** | Every price is converted to one basis (rupees per piece, before tax, delivered to the plant). Units, currencies, discounts, volume tiers and last year's contract prices are all handled. |
 | 🔍 | **Prove** | Click any number and see the supplier's own words: the spreadsheet cell, the PDF line, or the exact spot on the photo. |
@@ -35,11 +35,11 @@ Today the buyer spends **about three days** retyping this into one spreadsheet. 
 
 <table>
 <tr>
-<td width="50%"><img src="docs/images/05-evidence-photo.png" alt="Evidence drawer showing the vendor's photo with the price outlined"><br><sub>🔍 Every number links to its source, even on a tilted phone photo.</sub></td>
+<td width="50%"><img src="docs/images/05-evidence-photo.png" alt="Evidence drawer showing the supplier's photo with the price outlined"><br><sub>🔍 Every number links to its source, even on a tilted phone photo.</sub></td>
 <td width="50%"><img src="docs/images/10-ask-what-if.png" alt="Ask panel answering a what-if question"><br><sub>💬 What-if questions answered in seconds, with the working shown.</sub></td>
 </tr>
 <tr>
-<td width="50%"><img src="docs/images/08-clarification-email.png" alt="Clarification email drafted for a vendor"><br><sub>✉️ One targeted email per supplier, drafted for the buyer.</sub></td>
+<td width="50%"><img src="docs/images/08-clarification-email.png" alt="Clarification email drafted for a supplier"><br><sub>✉️ One targeted email per supplier, drafted for the buyer.</sub></td>
 <td width="50%"><img src="docs/images/11-award-memo.png" alt="Award recommendation memo"><br><sub>🏆 An award memo where every rupee is clickable.</sub></td>
 </tr>
 </table>

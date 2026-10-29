@@ -47,7 +47,7 @@ export async function buildMemo(
   if (kgLines.length) risks.push(`${kgLines.length} awarded line${kgLines.length > 1 ? "s were" : " was"} priced per kg and converted with estimated box weights.`);
   const awardedIds = new Set([...awarded].map((c) => vendorByCode.get(c)!.id));
   const openOnAwarded = issues.filter((i) => awardedIds.has(i.vendor_id) && i.status !== "resolved");
-  risks.push(openOnAwarded.length ? `${openOnAwarded.length} open flag${openOnAwarded.length > 1 ? "s" : ""} on awarded vendors: ${openOnAwarded.slice(0, 3).map((i) => i.title).join("; ")}.` : "No open flags on the awarded vendors.");
+  risks.push(openOnAwarded.length ? `${openOnAwarded.length} open flag${openOnAwarded.length > 1 ? "s" : ""} on awarded suppliers: ${openOnAwarded.slice(0, 3).map((i) => i.title).join("; ")}.` : "No open flags on the awarded suppliers.");
   for (const e of r.excluded) risks.push(`${vendorByCode.get(e.code)?.name ?? e.code} excluded: ${e.reason}.`);
   if (r.lines_uncovered.length) risks.push(`Lines ${r.lines_uncovered.join(", ")} have no eligible quote.`);
 

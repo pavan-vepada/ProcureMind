@@ -129,7 +129,7 @@ export async function* draftRfq(ctx: { request: InternalRequest; company: string
       yield* handle(buf);
     } catch {
       source = "prepared";
-      if (sheet) yield { type: "status", text: "Co-pilot unavailable, using the prepared draft from the volume sheet." };
+      if (sheet) yield { type: "status", text: "Drafting is unavailable right now; using the prepared draft from the volume sheet." };
     }
   } else {
     source = "prepared";
@@ -137,7 +137,7 @@ export async function* draftRfq(ctx: { request: InternalRequest; company: string
 
   if (!sheet) {
     if (!freeCount) {
-      yield { type: "error", text: "The co-pilot couldn't draft lines from this request. Add sizes and yearly quantities to the request, or try again." };
+      yield { type: "error", text: "Couldn't draft items from this request. Add sizes and yearly quantities to the request, or try again." };
       return;
     }
   } else {

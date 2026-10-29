@@ -1,4 +1,4 @@
-import { ArrowRight, FileText, Mail, Sparkles } from "lucide-react";
+import { ArrowRight, FileText, Mail, PenLine } from "lucide-react";
 import Link from "next/link";
 import { Badge, ButtonLink, Card } from "@/components/ui";
 import { getAnalysis } from "@/lib/data";
@@ -30,25 +30,25 @@ export default async function Overview(props: PageProps<"/rfx/[id]">) {
   }
 
   const status = {
-    drafting: { title: "The RFQ hasn't been drafted yet", text: "The co-pilot drafts the line items, questionnaire, terms and cover email from the request below.", href: `/rfx/${id}/rfq`, cta: "Draft the RFQ", icon: Sparkles },
-    ready: { title: `Draft ready: ${a.input.lines.length} lines for ${a.vendors.length} vendors`, text: "Check the line items and the evaluation rules, then lock the rules and send.", href: `/rfx/${id}/rfq`, cta: "Review and send", icon: FileText },
+    drafting: { title: "The RFQ hasn't been drafted yet", text: "Line items, questionnaire, terms and cover email are drafted from the request below.", href: `/rfx/${id}/rfq`, cta: "Draft the RFQ", icon: PenLine },
+    ready: { title: `Draft ready: ${a.input.lines.length} lines for ${a.vendors.length} suppliers`, text: "Check the line items and the evaluation rules, then lock the rules and send.", href: `/rfx/${id}/rfq`, cta: "Review and send", icon: FileText },
     out: {
-      title: `${replies.length ? new Set(replies.map((m) => m.vendor_id)).size : 0} of ${a.vendors.length} vendors have replied`,
-      text: reading ? `The AI is reading ${reading} repl${reading > 1 ? "ies" : "y"} right now.` : samplesLeft ? "Waiting for the remaining vendors. Upload a reply you received, or bring in the sample replies." : "Upload replies as they arrive; each one is read automatically.",
+      title: `${replies.length ? new Set(replies.map((m) => m.vendor_id)).size : 0} of ${a.vendors.length} suppliers have replied`,
+      text: reading ? `Reading ${reading} repl${reading > 1 ? "ies" : "y"} now.` : samplesLeft ? "Waiting for the remaining suppliers. Upload a reply you received, or simulate the sample replies." : "Upload replies as they arrive; each one is read as it lands.",
       href: `/rfx/${id}/replies`, cta: "Open replies", icon: Mail,
     },
     analysis: {
       title: `${read.length} of ${a.vendors.length} quotes on one basis${complete[0] ? ` · best complete offer ${money(complete[0].total)}` : ""}`,
-      text: `${open ? `${open} ${open === 1 ? "item needs" : "items need"} a look. ` : ""}Compare, check any number's source, ask what-ifs, then recommend the award.`,
+      text: `${open ? `${open} ${open === 1 ? "item needs" : "items need"} a look. ` : ""}Compare, check sources, ask what-ifs, then recommend the award.`,
       href: `/rfx/${id}/compare`, cta: "Open comparison", icon: ArrowRight,
     },
-    awarded: { title: `Awarded${memoTotal ? ` · ${money(memoTotal)} a year` : ""}`, text: "The award memo has the split by vendor, savings, rules used, risks and evidence for every number.", href: `/rfx/${id}/award`, cta: "Open award memo", icon: FileText },
+    awarded: { title: `Awarded${memoTotal ? ` · ${money(memoTotal)} a year` : ""}`, text: "The award memo has the split by supplier, savings, rules used, risks and evidence for every figure.", href: `/rfx/${id}/award`, cta: "Open award memo", icon: FileText },
   }[phase];
 
   const activity = [
     { at: rfx.created_at, text: `Request from ${rfx.internal_request.from}: “${rfx.internal_request.subject}”` },
-    rfx.drafted_at && { at: rfx.drafted_at, text: `RFQ drafted by the ${rfx.draft_source === "prepared" ? "prepared draft" : "co-pilot"}: ${a.input.lines.length} lines` },
-    rfx.sent_at && { at: rfx.sent_at, text: `Rules locked and RFQ sent to ${a.vendors.length} vendors` },
+    rfx.drafted_at && { at: rfx.drafted_at, text: `RFQ drafted: ${a.input.lines.length} lines` },
+    rfx.sent_at && { at: rfx.sent_at, text: `Rules locked and RFQ sent to ${a.vendors.length} suppliers` },
     ...a.messages.filter((m) => m.direction === "in" || m.kind === "clarification_request").map((m) => {
       const v = a.vendors.find((x) => x.id === m.vendor_id)?.name ?? "Unknown sender";
       const what = m.kind === "clarification_request" ? `Clarification asked to ${v}` : m.kind === "clarification_reply" ? `${v} answered the clarification` : m.kind === "upload" ? `Reply uploaded for ${v}` : `Quote received from ${v}${m.late ? " (late)" : ""}`;
@@ -60,10 +60,10 @@ export default async function Overview(props: PageProps<"/rfx/[id]">) {
   return (
     <div className="grid gap-5 xl:grid-cols-[1fr_380px]">
       <div className="space-y-5">
-        <Card className="flex flex-wrap items-center gap-5 border-[#c7d2fe] bg-gradient-to-br from-accent-soft to-surface p-6">
-          <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-accent text-white"><status.icon size={20} /></span>
+        <Card className="flex flex-wrap items-center gap-5 p-5">
+          <span className="flex h-10 w-10 items-center justify-center rounded-md bg-accent-soft text-accent"><status.icon size={19} /></span>
           <div className="min-w-0 flex-1">
-            <h2 className="text-lg font-semibold">{status.title}</h2>
+            <h2 className="text-[17px] font-semibold">{status.title}</h2>
             <p className="mt-0.5 text-sm text-muted">{status.text}</p>
           </div>
           <div className="flex gap-2">
@@ -75,12 +75,12 @@ export default async function Overview(props: PageProps<"/rfx/[id]">) {
         {read.length > 0 && (
           <Card className="overflow-hidden">
             <div className="flex items-center justify-between border-b border-line px-5 py-3">
-              <h2 className="font-semibold">Vendors at a glance</h2>
+              <h2 className="font-semibold">Suppliers</h2>
               <Link href={`/rfx/${id}/compare`} className="text-sm text-accent hover:underline">Full comparison →</Link>
             </div>
             <table className="w-full text-sm">
               <thead className="bg-panel/60 text-left text-xs text-muted">
-                <tr><th className="px-5 py-2 font-medium">Vendor</th><th className="font-medium">Lines quoted</th><th className="font-medium">Total value</th><th className="font-medium">Questionnaire</th><th className="font-medium">Payment</th><th className="pr-5 font-medium">Open items</th></tr>
+                <tr><th className="px-5 py-2 font-medium">Supplier</th><th className="font-medium">Items quoted</th><th className="font-medium">Total value</th><th className="font-medium">Questionnaire</th><th className="font-medium">Payment</th><th className="pr-5 font-medium">Open items</th></tr>
               </thead>
               <tbody>
                 {comparison.vendors.map((s) => (
@@ -90,7 +90,7 @@ export default async function Overview(props: PageProps<"/rfx/[id]">) {
                     <td className="tabular-nums">{s.processed ? money(s.total) : <span className="text-muted">—</span>}</td>
                     <td>{s.processed ? <Badge tone={s.valid ? "ok" : "bad"}>{s.valid ? `Pass · ${s.questionnaire.score}%` : s.invalidReasons[0]?.startsWith("ISO") ? "ISO expired" : `Fail · ${s.questionnaire.score}%`}</Badge> : <span className="text-muted">{STATUS[s.vendor.status]?.[0]}</span>}</td>
                     <td>{s.vendor.payment_days ? `${s.vendor.payment_days} days` : "—"}</td>
-                    <td className="pr-5">{s.openIssues ? <span className="text-[#b45309]">{s.openIssues}</span> : <span className="text-muted">0</span>}</td>
+                    <td className="pr-5">{s.openIssues ? <span className="text-warn-ink">{s.openIssues}</span> : <span className="text-muted">0</span>}</td>
                   </tr>
                 ))}
               </tbody>
@@ -110,7 +110,7 @@ export default async function Overview(props: PageProps<"/rfx/[id]">) {
             <h2 className="border-b border-line px-5 py-3 font-semibold">RFI results · {a.rfi.filter((r) => r.shortlisted).length} of {a.rfi.length} shortlisted</h2>
             <table className="w-full text-sm">
               <thead className="bg-panel/60 text-left text-xs text-muted">
-                <tr>{["Vendor", "ISO 9001", "FSC", "Capacity / month", "Shortlisted", "Why"].map((h) => <th key={h} className="px-5 py-2 font-medium first:pl-5">{h}</th>)}</tr>
+                <tr>{["Supplier", "ISO 9001", "FSC", "Capacity / month", "Shortlisted", "Why"].map((h) => <th key={h} className="px-5 py-2 font-medium first:pl-5">{h}</th>)}</tr>
               </thead>
               <tbody>
                 {a.rfi.map((r) => (
@@ -131,7 +131,7 @@ export default async function Overview(props: PageProps<"/rfx/[id]">) {
 
       <div className="space-y-5">
         <Card className="p-5">
-          <h2 className="font-semibold">Vendors</h2>
+          <h2 className="font-semibold">Suppliers on this RFx</h2>
           <ul className="mt-3 space-y-3">
             {a.vendors.map((v) => (
               <li key={v.id}>
@@ -149,7 +149,7 @@ export default async function Overview(props: PageProps<"/rfx/[id]">) {
           <ol className="mt-3 space-y-3 border-l border-line pl-4">
             {activity.slice(0, 14).map((e, i) => (
               <li key={i} className="relative text-sm">
-                <span className="absolute -left-[21px] top-1.5 h-2 w-2 rounded-full bg-accent" />
+                <span className="absolute -left-[21px] top-1.5 h-2 w-2 rounded-full bg-faint" />
                 <p>{e.text}</p>
                 <p className="text-xs text-muted">{when(e.at)}</p>
               </li>

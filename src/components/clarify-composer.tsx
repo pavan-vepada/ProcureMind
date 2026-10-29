@@ -62,27 +62,27 @@ export function ClarifyComposer({ rfxId, vendorCode, vendors, drafts, onClose }:
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-ink/30 p-4 backdrop-blur-[1px]" onClick={() => phase !== "sending" && phase !== "waiting" && close()}>
-      <div role="dialog" aria-modal="true" aria-label="Ask vendor for clarification" onClick={(e) => e.stopPropagation()} className="flex max-h-[90vh] w-full max-w-4xl animate-[fadein_.2s_ease] flex-col overflow-hidden rounded-2xl bg-surface shadow-2xl">
+      <div role="dialog" aria-modal="true" aria-label="Ask supplier for clarification" onClick={(e) => e.stopPropagation()} className="flex max-h-[90vh] w-full max-w-4xl animate-[fadein_.2s_ease] flex-col overflow-hidden rounded-lg bg-surface shadow-2xl">
         <header className="flex items-center justify-between border-b border-line px-6 py-4">
-          <h2 className="flex items-center gap-2 text-lg font-semibold"><Mail size={18} /> Ask vendor for clarification</h2>
+          <h2 className="flex items-center gap-2 text-lg font-semibold"><Mail size={18} /> Ask supplier for clarification</h2>
           <button onClick={close} className="rounded-md p-1.5 text-muted hover:bg-panel" aria-label="Close"><X size={18} /></button>
         </header>
 
         <div className="grid min-h-0 flex-1 grid-cols-[210px_1fr] overflow-hidden">
           <nav className="space-y-1.5 overflow-y-auto border-r border-line bg-panel p-3">
-            <p className="px-1 text-xs text-muted">Vendors with open items</p>
+            <p className="px-1 text-xs text-muted">Suppliers with open items</p>
             {vendors.filter((v) => frozen[v.code]).map((v) => (
               <button key={v.code} disabled={phase !== "edit"} onClick={() => pick(v.code)}
-                className={`w-full rounded-lg border px-3 py-2 text-left text-sm transition ${v.code === code ? "border-accent bg-accent-soft" : "border-line bg-surface hover:border-[#c7d2fe]"}`}>
+                className={`w-full rounded-lg border px-3 py-2 text-left text-sm transition ${v.code === code ? "border-accent bg-accent-soft" : "border-line bg-surface hover:border-accent-line"}`}>
                 <span className="font-medium">{v.name.split(" ")[0]}</span> · {frozen[v.code].items.length} item{frozen[v.code].items.length > 1 ? "s" : ""}
                 <span className="block truncate text-xs text-muted">{v.name}</span>
               </button>
             ))}
-            {!withItems.length && <p className="px-1 text-sm text-muted">Nothing to chase. 🎉</p>}
+            {!withItems.length && <p className="px-1 text-sm text-muted">No open items.</p>}
           </nav>
 
           <div className="min-h-0 overflow-y-auto p-6">
-            {!draft && phase === "edit" && <p className="text-muted">No open items for this vendor.</p>}
+            {!draft && phase === "edit" && <p className="text-muted">No open items for this supplier.</p>}
             {draft && phase === "edit" && (
               <>
                 <p className="text-sm"><span className="text-muted">To:</span> {draft.to}</p>
@@ -100,15 +100,15 @@ export function ClarifyComposer({ rfxId, vendorCode, vendors, drafts, onClose }:
             )}
             {phase === "done" && (
               <div className="py-10 text-center">
-                <CheckCircle2 className="mx-auto text-[#16a34a]" size={36} />
-                <p className="mt-3 text-lg font-medium">{run?.status === "failed" ? "The reply couldn't be read" : "Loop closed"}</p>
-                <p className="mt-1 text-sm text-muted">{run?.status === "failed" ? run.error : `${vendor?.name}'s reply was read. ${run?.step?.replace(/^Done · /, "")}. Only those cells changed; old values are kept in history.`}</p>
+                <CheckCircle2 className="mx-auto text-ok-ink" size={36} />
+                <p className="mt-3 text-lg font-medium">{run?.status === "failed" ? "The reply couldn't be read" : "Reply received"}</p>
+                <p className="mt-1 text-sm text-muted">{run?.status === "failed" ? run.error : `${vendor?.name}'s reply was read. ${run?.step?.replace(/^Done · /, "")}. Only those prices changed; earlier values stay in history.`}</p>
                 <Button variant="primary" className="mt-5" onClick={() => { onClose(); router.push(`/rfx/${rfxId}/compare`); router.refresh(); }}>See the updated comparison</Button>
               </div>
             )}
             {phase === "sent" && (
               <div className="py-10 text-center">
-                <CheckCircle2 className="mx-auto text-[#16a34a]" size={36} />
+                <CheckCircle2 className="mx-auto text-ok-ink" size={36} />
                 <p className="mt-3 text-lg font-medium">Sent</p>
                 <p className="mt-1 text-sm text-muted">{vendor?.name} is now marked “Clarification requested”. Their answer will land in the inbox; you can also upload it there.</p>
                 <Button className="mt-5" onClick={close}>Close</Button>
@@ -119,7 +119,7 @@ export function ClarifyComposer({ rfxId, vendorCode, vendors, drafts, onClose }:
 
         {draft && phase === "edit" && (
           <footer className="flex items-center justify-between border-t border-line px-6 py-3">
-            <span className="text-xs text-muted">When the vendor replies, the reply is read automatically and only the affected cells update.</span>
+            <span className="text-xs text-muted">The reply updates only the affected prices.</span>
             <div className="flex gap-2">
               <Button onClick={onClose}>Cancel</Button>
               <Button variant="primary" onClick={send}><Send size={14} /> Send</Button>

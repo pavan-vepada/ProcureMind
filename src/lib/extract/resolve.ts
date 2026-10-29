@@ -123,7 +123,7 @@ export function resolveExtraction(x: Extraction, ctx: ResolveContext): Resolved 
     if (!lineByNo.has(n) || quotes.some((q) => q.line_no === n)) continue;
     issues.push({
       kind: "unreadable", line_no: n, title: `Price unreadable for line ${n}`,
-      detail: "Part of the source can't be read (e.g. glare). Ask the vendor or enter the value.", confidence: "low", source: null, askable: true,
+      detail: "Part of the source can't be read (e.g. glare). Ask the supplier or enter the value.", confidence: "low", source: null, askable: true,
     });
   }
 
@@ -149,7 +149,7 @@ export function resolveExtraction(x: Extraction, ctx: ResolveContext): Resolved 
         issues.push({
           kind: "no_history", line_no: l.line_no,
           title: changed ? `Line ${l.line_no}: specs changed since last year` : `No history for line ${l.line_no} (new this year)`,
-          detail: "“Same as last year” can't fill this line; kept out of totals until the vendor quotes it.",
+          detail: "“Same as last year” can't fill this line; kept out of totals until the supplier quotes it.",
           confidence: null, source: null, askable: true,
         });
       } else {
@@ -165,7 +165,7 @@ export function resolveExtraction(x: Extraction, ctx: ResolveContext): Resolved 
     if (x.terms.payment_days !== null && x.terms.payment_days < ctx.requestedPaymentDays) {
       issues.push({
         kind: "terms", line_no: null, title: `Payment ${x.terms.payment_days} days vs ${ctx.requestedPaymentDays} requested`,
-        detail: "Ask whether the vendor can match the requested payment terms.", confidence: "high", source: null, askable: true,
+        detail: "Ask whether the supplier can match the requested payment terms.", confidence: "high", source: null, askable: true,
       });
     }
   }
@@ -173,7 +173,7 @@ export function resolveExtraction(x: Extraction, ctx: ResolveContext): Resolved 
   if (x.terms.freight === "extra" && x.terms.freight_amount === null) {
     issues.push({
       kind: "freight", line_no: null, title: "“Freight extra”, no amount given",
-      detail: "A buyer estimate is used (labelled) until the vendor states the freight.", confidence: null, source: null, askable: true,
+      detail: "A buyer estimate is used (labelled) until the supplier states the freight.", confidence: null, source: null, askable: true,
     });
   }
   // A conditional discount is never assumed: "orders above 50,000 pcs" could mean per order or per year.
@@ -193,7 +193,7 @@ export function resolveExtraction(x: Extraction, ctx: ResolveContext): Resolved 
   }
   for (const s of x.suspicious_instructions) {
     issues.push({
-      kind: "injection", line_no: null, title: "Instruction-like text in the vendor's reply",
+      kind: "injection", line_no: null, title: "Instruction-like text in the supplier's reply",
       detail: `“${s}” was treated as data and ignored.`, confidence: "high", source: null, askable: false,
     });
   }
