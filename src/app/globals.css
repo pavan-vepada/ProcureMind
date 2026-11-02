@@ -1,0 +1,67 @@
+@import "tailwindcss";
+
+/* Procure Mind visual identity ("Ledger"): warm paper neutrals, ink type, one petrol accent for actions.
+   Colour carries meaning only: petrol = act / best value, amber = needs a look, red = missing or failing. */
+@theme {
+  --color-ink: #1b1a17;
+  --color-ink-soft: #3d3a34;
+  --color-muted: #5f5b53;
+  --color-faint: #8f8a7e;
+  --color-line: #e2dfd6;
+  --color-surface: #ffffff;
+  --color-panel: #f3f1ec;
+  --color-page: #f6f5f1;
+  --color-sidebar: #efede6;
+
+  --color-accent: #0b6f78;
+  --color-accent-hover: #08545b;
+  --color-accent-soft: #e3f0f0;
+  --color-accent-line: #b8d8da;
+
+  --color-ok: #e6f2ef;
+  --color-ok-ink: #1d5c4a;
+  --color-ok-line: #c5ded6;
+  --color-warn: #fef3c7;
+  --color-warn-ink: #92400e;
+  --color-warn-line: #f0d48a;
+  --color-bad: #fee4e2;
+  --color-bad-ink: #b42318;
+  --color-bad-line: #f1b8b0;
+
+  /* Informational tints are deliberately neutral: only exceptions get colour. */
+  --color-info: #efede6;
+  --color-est: #efede6;
+  --color-clar: #efede6;
+}
+
+@theme inline {
+  --font-sans: var(--font-plex-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, monospace;
+}
+
+body {
+  background: var(--color-page);
+  color: var(--color-ink);
+}
+
+@keyframes fadein {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes slidein {
+  from { transform: translateX(24px); opacity: 0; }
+  to { transform: none; opacity: 1; }
+}
+
+@keyframes flash {
+  0% { box-shadow: inset 0 0 0 2px var(--color-accent); }
+  100% { box-shadow: inset 0 0 0 0 transparent; }
+}
+
+.tabular-nums { font-variant-numeric: tabular-nums; }
+
+@media print {
+  .no-print { display: none !important; }
+  body { background: white; }
+}
