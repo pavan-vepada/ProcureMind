@@ -1,0 +1,70 @@
+{
+  "rfx": {
+    "code": "RFx-2026-014",
+    "title": "Corrugated packaging for both plants",
+    "buyer_company": "Sunrise Consumer Goods",
+    "stage": "rfq",
+    "internal_request": {
+      "from": "Anita Rao, Plant Operations",
+      "day": -30,
+      "subject": "New shipper boxes and inner packaging for both plants",
+      "body": "Hi Pavan,\n\nWe launch the new home-care line next quarter and need new shipper boxes and inner packaging at both plants.\n\nRoughly: large and medium 5-ply shippers for the 5 L and 2 L packs, small 3-ply cartons for the sachet bundles, a heavy-duty 7-ply box for the export pallets, plus die-cut trays, partitions and layer pads.\n\nPlant 1 (Pune) will run about 60% of the volume and Plant 2 (Nashik) about 40%. Annual volumes per item are in the attached sheet.\n\nQuality asked for two things: every supplier must have a valid ISO 9001 certificate, and BCT test reports for the 5- and 7-ply boxes. Finance wants 60-day payment terms, in line with our other packaging contracts.\n\nCan we have suppliers in place before the end of next month?\n\nThanks,\nAnita"
+    }
+  },
+  "vendors": [
+    {
+      "code": "V1",
+      "name": "Kaveri Corrugators",
+      "email": "sales@kaveri-corrugators.example",
+      "reply_format": "excel",
+      "rfi_note": "Within 200 km of both plants; 7-ply capable",
+      "rfp_summary": "Supplies both plants by road from one unit near Pune, with next-day delivery to Plant 1 and two-day delivery to Plant 2. In-house BCT and ECT lab with a test report for every batch. Holds one week of buffer stock for the top ten items."
+    },
+    {
+      "code": "V2",
+      "name": "Deccan Boxboard Exports",
+      "email": "quotes@deccan-boxboard.example",
+      "reply_format": "pdf",
+      "rfi_note": "Largest capacity; export unit, quotes in USD",
+      "rfp_summary": "Export-oriented unit with the largest capacity on the shortlist. Prices in USD because of its export licence. Offers volume tiers on high-runner items and a dedicated account manager. Quality testing is outsourced to an accredited lab."
+    },
+    {
+      "code": "V3",
+      "name": "Shakti Pack Works",
+      "email": "sales@shakti-packworks.example",
+      "reply_format": "word",
+      "rfi_note": "Low prices last year; smaller capacity",
+      "rfp_summary": "Smaller family-run unit, 140 km from Plant 1, with the lowest prices in last year's spot buys. Can supply both plants but would need two weeks' notice for volume spikes. BCT testing available on request through a partner lab."
+    },
+    {
+      "code": "V4",
+      "name": "Narmada Cartons",
+      "email": "office@narmada-cartons.example",
+      "reply_format": "photo",
+      "rfi_note": "Next to Plant 2; current inner-packaging supplier",
+      "rfp_summary": "Located next to Plant 2 and already supplies its inner packaging (trays and partitions). Proposes a vendor-managed stock point inside Plant 2. Prices by weight (per kg), as it does for current orders."
+    },
+    {
+      "code": "V5",
+      "name": "Sahyadri Paperpack",
+      "email": "accounts@sahyadri-paperpack.example",
+      "reply_format": "email",
+      "rfi_note": "Current supplier; last year's contract #2025-V5",
+      "rfp_summary": "Current shipper-box supplier to both plants under contract #2025-V5. Proposes to continue on last year's terms with small price changes, and to add the new items. Strong on-time delivery record over the last 12 months."
+    }
+  ],
+  "rfi": [
+    { "vendor_name": "Kaveri Corrugators", "iso_9001": true, "fsc": true, "monthly_capacity": "4.0 L boxes", "shortlisted": true, "reason": "Within 200 km of both plants; 7-ply capable" },
+    { "vendor_name": "Deccan Boxboard Exports", "iso_9001": true, "fsc": true, "monthly_capacity": "6.5 L boxes", "shortlisted": true, "reason": "Largest capacity; export unit, quotes in USD" },
+    { "vendor_name": "Shakti Pack Works", "iso_9001": true, "fsc": false, "monthly_capacity": "2.5 L boxes", "shortlisted": true, "reason": "Low prices last year; smaller capacity" },
+    { "vendor_name": "Narmada Cartons", "iso_9001": true, "fsc": false, "monthly_capacity": "3.0 L boxes", "shortlisted": true, "reason": "Next to Plant 2; current inner-packaging supplier" },
+    { "vendor_name": "Sahyadri Paperpack", "iso_9001": true, "fsc": true, "monthly_capacity": "3.5 L boxes", "shortlisted": true, "reason": "Current supplier; last year's contract #2025-V5" },
+    { "vendor_name": "Ganga Box Company", "iso_9001": false, "fsc": false, "monthly_capacity": "1.0 L boxes", "shortlisted": false, "reason": "No ISO 9001; capacity too small" },
+    { "vendor_name": "Tapti Board Mills", "iso_9001": true, "fsc": false, "monthly_capacity": "0.8 L boxes", "shortlisted": false, "reason": "Cannot make 7-ply" },
+    { "vendor_name": "Konark Cartons", "iso_9001": true, "fsc": true, "monthly_capacity": "5.0 L boxes", "shortlisted": false, "reason": "Over 600 km from both plants; freight too high" },
+    { "vendor_name": "Malabar Packaging", "iso_9001": false, "fsc": true, "monthly_capacity": "2.0 L boxes", "shortlisted": false, "reason": "ISO 9001 certification still in progress" },
+    { "vendor_name": "Vindhya Corrugated", "iso_9001": true, "fsc": false, "monthly_capacity": "1.5 L boxes", "shortlisted": false, "reason": "Fully booked until next quarter" },
+    { "vendor_name": "Indus Pack Industries", "iso_9001": true, "fsc": false, "monthly_capacity": "3.0 L boxes", "shortlisted": false, "reason": "No BCT testing capability" },
+    { "vendor_name": "Chambal Cartons", "iso_9001": false, "fsc": false, "monthly_capacity": "0.5 L boxes", "shortlisted": false, "reason": "Did not respond to the RFI" }
+  ]
+}
