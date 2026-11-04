@@ -26,6 +26,9 @@ try {
   await client.query(
     "create table if not exists public.schema_migrations (name text primary key, applied_at timestamptz not null default now())",
   );
+  // Bookkeeping only: closed to the app's public and signed-in roles; this script connects as the owner.
+  await client.query("alter table public.schema_migrations enable row level security");
+  await client.query("revoke all on public.schema_migrations from anon, authenticated");
   const { rows } = await client.query("select name from public.schema_migrations");
   const applied = new Set(rows.map((r) => r.name));
 
