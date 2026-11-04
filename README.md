@@ -102,8 +102,12 @@ More in [User journeys](docs/02-user-journeys.md), including where the login fit
 
 Procure Mind was built the way a product team would build it: problem and requirements → user journeys → architecture → screen designs → build → test → brand and voice → ship. Each phase produced a document in [`docs/`](docs/), and each was reviewed before the next began. When the working product still felt generic, three brand directions were explored on the same screens before one was chosen ([Brand and design](docs/06-brand-and-design/)). The product manager set direction and made every product decision. The code was written with Claude Code, Anthropic's AI coding assistant, under that direction.
 
+## Using this code
+
+This repository is shared so the product and the thinking behind it can be reviewed. All rights are reserved (see [LICENSE](LICENSE)), so please don't copy, reuse or adapt any part of it without permission. If you'd like to, get in touch on [LinkedIn](https://www.linkedin.com/in/pavanvepada/).
+
 <details>
-<summary><b>Run it yourself (for engineers)</b></summary>
+<summary><b>Run it yourself (for engineers, with permission)</b></summary>
 
 Requirements: Node.js 24, a Supabase project (database, login and file storage) and an OpenAI API key.
 
